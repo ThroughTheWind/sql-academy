@@ -11,6 +11,8 @@ You have inherited a reporting query that mixes joins and aggregations but produ
 ## Assets
 
 - `starter.sql` contains the baseline query shapes.
+- `answer.sql` is the learner-editable solution template.
+- `validation.sql` verifies the expected result tables in one SQL session.
 - `broken.sql` contains the incorrect implementation.
 - `expected-outcomes.md` lists the checks the result must satisfy.
 - `hints.md` gives progressive guidance.

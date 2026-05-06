@@ -8,6 +8,16 @@ Reproduce production-style contention, inspect the blocking behavior, and reason
 
 Two sessions update related rows in different orders while a long-running transaction holds locks open. The system begins to stall and eventually throws deadlock errors.
 
+## Assets
+
+- `starter.sql` contains the manual two-session script plus a triage fixture for validation.
+- `answer.sql` is the learner-editable solution template.
+- `validation.sql` verifies the blocking-cycle and mitigation summaries.
+- `broken.sql` contains the unsafe access-order example.
+- `expected-outcomes.md` lists the checks the result must satisfy.
+- `hints.md` gives progressive guidance.
+- `optional-solution.sql` shows one valid mitigation direction.
+
 ## Tasks
 
 1. reproduce a blocking chain with two sessions
