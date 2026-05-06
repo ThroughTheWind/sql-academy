@@ -21,6 +21,7 @@
 - identify waits during an intentionally degraded workload
 - reason about why a plan spills or recompiles unexpectedly
 - work through [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
+- compare that current-cache view with [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) when the investigation needs persisted plan history
 
 ## Expected Outcomes
 

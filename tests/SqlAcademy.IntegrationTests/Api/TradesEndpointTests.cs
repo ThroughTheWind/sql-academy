@@ -73,6 +73,8 @@ public sealed class TradesEndpointTests(SqlServerFixture databaseFixture) : IAsy
             "/api/v1/trades/import",
             new
             {
+                source = "lab-03-batch-detail",
+                correlationId = "lab-03-batch-detail-20250208-0900",
                 trades = new object[]
                 {
                     new
@@ -285,6 +287,8 @@ public sealed class TradesEndpointTests(SqlServerFixture databaseFixture) : IAsy
 
         Assert.NotNull(importPayload);
         Assert.True(importPayload.BatchId > 0);
+    Assert.Equal("lab-03-batch-detail", importPayload.Source);
+    Assert.Equal("lab-03-batch-detail-20250208-0900", importPayload.CorrelationId);
 
         var detailResponse = await _client.GetAsync($"/api/v1/trades/import-batches/{importPayload.BatchId}");
         detailResponse.EnsureSuccessStatusCode();
@@ -293,6 +297,8 @@ public sealed class TradesEndpointTests(SqlServerFixture databaseFixture) : IAsy
 
         Assert.NotNull(detailPayload);
         Assert.Equal(importPayload.BatchId, detailPayload.BatchId);
+        Assert.Equal(importPayload.Source, detailPayload.Source);
+        Assert.Equal(importPayload.CorrelationId, detailPayload.CorrelationId);
         Assert.False(detailPayload.DryRun);
         Assert.Equal(1, detailPayload.ImportedCount);
         Assert.Single(detailPayload.ReadyToPublishTrades);
@@ -300,6 +306,46 @@ public sealed class TradesEndpointTests(SqlServerFixture databaseFixture) : IAsy
         var rejection = Assert.Single(detailPayload.Rejections);
         Assert.Equal("Validate", rejection.Stage);
         Assert.Equal("UnknownUser", rejection.Code);
+    }
+
+    [Fact]
+    public async Task Post_trade_import_assigns_correlation_id_when_request_omits_one()
+    {
+        var importResponse = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                source = "lab-03-generated-correlation",
+                dryRun = true,
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "margaret",
+                        instrumentSymbol = "CL",
+                        side = "Buy",
+                        quantity = 1.2500m,
+                        price = 83.0000m,
+                        tradedUtc = "2025-02-08T10:30:00Z",
+                    },
+                },
+            });
+
+        importResponse.EnsureSuccessStatusCode();
+
+        var importPayload = await importResponse.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        Assert.NotNull(importPayload);
+        Assert.Equal("lab-03-generated-correlation", importPayload.Source);
+        Assert.False(string.IsNullOrWhiteSpace(importPayload.CorrelationId));
+
+        var detailResponse = await _client.GetAsync($"/api/v1/trades/import-batches/{importPayload.BatchId}");
+        detailResponse.EnsureSuccessStatusCode();
+
+        var detailPayload = await detailResponse.Content.ReadFromJsonAsync<TradeImportBatchDetails>();
+
+        Assert.NotNull(detailPayload);
+        Assert.Equal(importPayload.CorrelationId, detailPayload.CorrelationId);
     }
 
     [Fact]
@@ -364,6 +410,69 @@ public sealed class TradesEndpointTests(SqlServerFixture databaseFixture) : IAsy
         Assert.Equal(2, historyPayload.Items.Count);
         Assert.Equal(secondBatch.BatchId, historyPayload.Items[0].BatchId);
         Assert.Equal(firstBatch.BatchId, historyPayload.Items[1].BatchId);
+    }
+
+    [Fact]
+    public async Task Get_trade_import_batches_filters_by_source()
+    {
+        var phaseEightResponse = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                source = "phase-8-lab",
+                dryRun = true,
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "margaret",
+                        instrumentSymbol = "CL",
+                        side = "Buy",
+                        quantity = 1.7500m,
+                        price = 84.0000m,
+                        tradedUtc = "2025-02-08T11:30:00Z",
+                    },
+                },
+            });
+
+        phaseEightResponse.EnsureSuccessStatusCode();
+        var phaseEightBatch = await phaseEightResponse.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        var adHocResponse = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                source = "ad-hoc-debug",
+                dryRun = true,
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "grace",
+                        instrumentSymbol = "AAPL",
+                        side = "Sell",
+                        quantity = 1.2500m,
+                        price = 194.0000m,
+                        tradedUtc = "2025-02-08T11:35:00Z",
+                    },
+                },
+            });
+
+        adHocResponse.EnsureSuccessStatusCode();
+        var adHocBatch = await adHocResponse.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        Assert.NotNull(phaseEightBatch);
+        Assert.NotNull(adHocBatch);
+
+        var historyResponse = await _client.GetAsync("/api/v1/trades/import-batches?pageNumber=1&pageSize=10&source=phase-8-lab");
+        historyResponse.EnsureSuccessStatusCode();
+
+        var historyPayload = await historyResponse.Content.ReadFromJsonAsync<PagedResult<TradeImportBatchListItem>>();
+
+        Assert.NotNull(historyPayload);
+        Assert.Contains(historyPayload.Items, item => item.BatchId == phaseEightBatch.BatchId);
+        Assert.DoesNotContain(historyPayload.Items, item => item.BatchId == adHocBatch.BatchId);
+        Assert.All(historyPayload.Items, item => Assert.Equal("phase-8-lab", item.Source));
     }
 
     [Fact]

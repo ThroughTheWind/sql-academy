@@ -20,6 +20,8 @@ Content-Type: application/json
 
 {
 	"dryRun": false,
+	"source": "lab-03-http",
+	"correlationId": "lab-03-http-20250207-0900",
 	"trades": [
 		{
 			"userName": "ada",
@@ -47,6 +49,7 @@ Content-Type: application/json
 
 {
 	"dryRun": true,
+	"source": "lab-03-dry-run",
 	"trades": [
 		{
 			"userName": "margaret",
@@ -67,6 +70,16 @@ Accept: application/json
 ###
 
 GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches?pageNumber=1&pageSize=10&dryRun=true
+Accept: application/json
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches?pageNumber=1&pageSize=10&source=lab-03-http
+Accept: application/json
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches?pageNumber=1&pageSize=10&correlationId=lab-03-http-20250207-0900
 Accept: application/json
 
 ###

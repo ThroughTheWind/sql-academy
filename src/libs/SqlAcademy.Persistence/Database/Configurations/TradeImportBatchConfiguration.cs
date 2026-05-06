@@ -14,11 +14,19 @@ public sealed class TradeImportBatchConfiguration : IEntityTypeConfiguration<Tra
         builder.Property(batch => batch.ProcessedUtc)
             .HasPrecision(3);
 
+        builder.Property(batch => batch.Source)
+            .HasMaxLength(128);
+
+        builder.Property(batch => batch.CorrelationId)
+            .HasMaxLength(128);
+
         builder.HasMany(batch => batch.Rows)
             .WithOne(row => row.Batch)
             .HasForeignKey(row => row.TradeImportBatchId)
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasIndex(batch => batch.ProcessedUtc);
+        builder.HasIndex(batch => batch.CorrelationId);
+        builder.HasIndex(batch => new { batch.Source, batch.ProcessedUtc });
     }
 }

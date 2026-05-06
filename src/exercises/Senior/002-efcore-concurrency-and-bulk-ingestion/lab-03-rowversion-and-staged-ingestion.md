@@ -24,7 +24,7 @@ Use real HTTP write paths to reproduce optimistic concurrency and run a staged t
 2. Run `dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~TradesEndpointTests"`.
 3. Read [OrderWriteService](../../../libs/SqlAcademy.Persistence/Commands/Orders/OrderWriteService.cs) and trace where the incoming rowversion becomes the EF Core original value.
 4. Read [TradeImportService](../../../libs/SqlAcademy.Persistence/Commands/Trades/TradeImportService.cs) and identify the landing, validation, deduplication, dry-run preview, and publish stages.
-5. Use [SqlAcademy.Api.http](../../../apps/SqlAcademy.Api/SqlAcademy.Api.http) to run one import request, inspect the persisted batch through `GET /api/v1/trades/import-batches/{batchId}`, query recent history with `pageNumber`, `pageSize`, and `dryRun`, and inspect filtered row outcomes through `GET /api/v1/trades/import-batches/{batchId}/rows`.
+5. Use [SqlAcademy.Api.http](../../../apps/SqlAcademy.Api/SqlAcademy.Api.http) to run one import request, inspect the persisted batch through `GET /api/v1/trades/import-batches/{batchId}`, query recent history with `pageNumber`, `pageSize`, `dryRun`, `source`, or `correlationId`, and inspect filtered row outcomes through `GET /api/v1/trades/import-batches/{batchId}/rows`.
 
 ## Tasks
 
@@ -42,8 +42,9 @@ Use real HTTP write paths to reproduce optimistic concurrency and run a staged t
 - the order endpoint tests pass after your refinement
 - the trade import endpoint reports clear counts for submitted, validated, duplicate, ready-to-publish, imported, and rejected rows
 - rejected rows now expose stage and code metadata so you can tell validation failures from deduplication outcomes without inferring them
-- each import response exposes a `batchId`, and you can inspect the same batch later without rerunning the import
+- each import response exposes a `batchId`, plus source and correlation metadata so you can inspect the same batch later without rerunning the import
 - the batch-history list now follows the same paged API shape as other read endpoints, so you can page through recent imports and isolate dry runs
+- import history is queryable by provenance, so you can isolate one lab run or request correlation without scanning every batch
 - row-level inspection does not require loading an entire batch detail payload, because you can page and filter batch rows by outcome and stage
 - you can explain where batch duplicates and existing-trade duplicates are separated in the code
 - you can explain why `dryRun=true` separates validation from publish instead of just hiding a write behind a flag

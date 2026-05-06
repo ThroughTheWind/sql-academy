@@ -30,6 +30,7 @@ That bridge maps the earlier SQL lessons to the application query paths in this 
 - [Dapper trade queries](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
 - [Order mapping with rowversion](../../src/libs/SqlAcademy.Persistence/Database/Configurations/OrderConfiguration.cs)
 - [Senior 002 lab bundle](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
+- [Senior 005: EF Core N+1 And Generated SQL Investigation](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md)
 
 ## The Right Mental Model
 
@@ -170,6 +171,8 @@ Do not assume LINQ that looks elegant produces SQL that is appropriate for the w
 
 For Dapper, inspection is simpler because the SQL is already explicit. The discipline then becomes reviewing the text with the same rigor you would apply to hand-written SQL.
 
+Use [Senior 005: EF Core N+1 And Generated SQL Investigation](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) when you want a concrete follow-up that proves the current posts read path stays one-query, projection-first, and resistant to N+1 drift.
+
 ## Concurrency Still Belongs In The Application Conversation
 
 In [Order mapping with rowversion](../../src/libs/SqlAcademy.Persistence/Database/Configurations/OrderConfiguration.cs), the `RowVersion` column is configured for optimistic concurrency.
@@ -219,6 +222,7 @@ Hand-written SQL can still be unstable, over-broad, or poorly indexed.
 3. Explain why `AsNoTracking()` is correct for the post read path.
 4. Identify one location where an N+1 risk could appear in a future refactor.
 5. Explain how rowversion changes the write-path conversation.
+6. Use [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) if you need to prove the generated SQL and N+1 story with a focused investigation instead of only reasoning from the code.
 
 ## Exit Criteria
 
@@ -229,6 +233,7 @@ You are ready for Lesson 10 when you can do all of the following:
 - identify where `AsNoTracking()` and direct projection are appropriate
 - spot the shape of an N+1 problem before it becomes a production issue
 - reason about optimistic concurrency as part of application design
+- inspect or capture generated SQL for the posts read path and explain why it does or does not imply N+1 risk
 
 ## Review Questions
 

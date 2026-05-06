@@ -23,6 +23,7 @@
 - use [Lab 01](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/lab-01-efcore-posts-read-path.md) to trace and extend the EF Core posts read path
 - use [Lab 02](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/lab-02-dapper-trades-read-path.md) to trace and extend the Dapper trades read path
 - use [Lab 03](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/lab-03-rowversion-and-staged-ingestion.md) to reproduce optimistic concurrency, exercise a real staged trade-import path, and inspect persisted batch history after publish
+- use [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) as the focused generated-SQL and N+1 follow-up on the posts read path when you need stronger evidence than code inspection alone
 
 ## Expected Outcomes
 
@@ -38,3 +39,4 @@
 - the trade-import path reports clear validation, duplicate, rejection, dry-run preview, and publish outcomes
 - the learner can retrieve a completed trade-import batch later by `batchId` instead of relying only on the immediate POST response
 - the staged-ingestion review pack remains available as optional reinforcement after the code labs
+- the learner can capture or explain the generated SQL shape behind the posts read path and use that evidence to argue against an N+1 refactor

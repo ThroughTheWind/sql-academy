@@ -21,6 +21,7 @@
 - tune a slow join with an evidence-backed index change
 - inspect a parameter sniffing scenario and test mitigations
 - compare EF Core and Dapper on the same read path
+- work through [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) when the question is about persisted plan and runtime history rather than one cache snapshot
 
 ## Expected Outcomes
 
@@ -32,3 +33,4 @@
 - before-and-after plans are captured
 - logical reads and duration are compared explicitly
 - index changes are justified against write cost and maintenance tradeoffs
+- the learner can explain when Query Store is the right follow-up surface for regression history

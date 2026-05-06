@@ -9,6 +9,8 @@ namespace SqlAcademy.Persistence.Queries.Trades;
 public sealed record TradeImportBatchListItem(
     int BatchId,
     DateTime ProcessedUtc,
+    string? Source,
+    string CorrelationId,
     bool DryRun,
     int SubmittedCount,
     int ValidatedCount,
@@ -20,6 +22,8 @@ public sealed record TradeImportBatchListItem(
 public sealed record TradeImportBatchDetails(
     int BatchId,
     DateTime ProcessedUtc,
+    string? Source,
+    string CorrelationId,
     bool DryRun,
     int SubmittedCount,
     int ValidatedCount,
@@ -50,18 +54,27 @@ public sealed class TradeImportBatchReadService(ISqlConnectionFactory connection
     public async Task<PagedResult<TradeImportBatchListItem>> GetBatchesAsync(TradeImportBatchQueryRequest request, CancellationToken cancellationToken)
     {
         using var activity = PersistenceDiagnostics.ActivitySource.StartActivity("dapper.trade_import_batches.list");
+        var source = NormalizeFilterValue(request.Source);
+        var correlationId = NormalizeFilterValue(request.CorrelationId);
+
         activity?.SetTag("trade_import_batches.page_size", request.NormalizedPageSize);
         activity?.SetTag("trade_import_batches.page_number", request.NormalizedPageNumber);
         activity?.SetTag("trade_import_batches.dry_run", request.DryRun?.ToString() ?? "all");
+        activity?.SetTag("trade_import_batches.source", source ?? "all");
+        activity?.SetTag("trade_import_batches.correlation_id", correlationId ?? "all");
 
         const string whereClause = """
 WHERE (@DryRun IS NULL OR b.DryRun = @DryRun)
+      AND (@Source IS NULL OR b.Source = @Source)
+      AND (@CorrelationId IS NULL OR b.CorrelationId = @CorrelationId)
 """;
 
         var sql = $"""
 SELECT
     b.Id AS BatchId,
     b.ProcessedUtc,
+        b.Source,
+        b.CorrelationId,
     b.DryRun,
     b.SubmittedCount,
     b.ValidatedCount,
@@ -82,6 +95,8 @@ FROM academy.TradeImportBatches AS b
         var parameters = new
         {
             request.DryRun,
+            Source = source,
+            CorrelationId = correlationId,
             Offset = request.Skip,
             PageSize = request.NormalizedPageSize,
         };
@@ -95,6 +110,8 @@ FROM academy.TradeImportBatches AS b
             .Select(row => new TradeImportBatchListItem(
                 row.BatchId,
                 row.ProcessedUtc,
+                row.Source,
+                row.CorrelationId,
                 row.DryRun,
                 row.SubmittedCount,
                 row.ValidatedCount,
@@ -116,6 +133,8 @@ FROM academy.TradeImportBatches AS b
 SELECT
     b.Id AS BatchId,
     b.ProcessedUtc,
+    b.Source,
+    b.CorrelationId,
     b.DryRun,
     b.SubmittedCount,
     b.ValidatedCount,
@@ -193,6 +212,8 @@ ORDER BY r.RowNumber ASC, r.Id ASC;
         return new TradeImportBatchDetails(
             batch.BatchId,
             batch.ProcessedUtc,
+            batch.Source,
+            batch.CorrelationId,
             batch.DryRun,
             batch.SubmittedCount,
             batch.ValidatedCount,
@@ -304,6 +325,10 @@ FROM academy.TradeImportBatchRows AS r
 
         public DateTime ProcessedUtc { get; set; }
 
+        public string? Source { get; set; }
+
+        public string CorrelationId { get; set; } = string.Empty;
+
         public bool DryRun { get; set; }
 
         public int SubmittedCount { get; set; }
@@ -324,6 +349,10 @@ FROM academy.TradeImportBatchRows AS r
         public int BatchId { get; set; }
 
         public DateTime ProcessedUtc { get; set; }
+
+        public string? Source { get; set; }
+
+        public string CorrelationId { get; set; } = string.Empty;
 
         public bool DryRun { get; set; }
 

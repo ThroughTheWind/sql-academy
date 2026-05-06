@@ -32,6 +32,7 @@ Exercises currently ship in three supported modes:
 | [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab |
 | [Senior 003](Senior/003-transactional-outbox-and-delivery-consistency/README.md) | validation pack |
 | [Senior 004](Senior/004-posts-api-latency-and-observability-triage/README.md) | investigation pack |
+| [Senior 005](Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | guided lab |
 
 ## Validation-Ready Packs
 
@@ -54,6 +55,7 @@ The current non-validation packs are:
 - [Advanced 004](Advanced/004-query-store-and-regression-triage/README.md) as a guided lab
 - [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as a guided lab bundle with a supplemental review pack
 - [Senior 004](Senior/004-posts-api-latency-and-observability-triage/README.md) as an investigation pack
+- [Senior 005](Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) as a guided lab
 
 Run the validation harness with:
 

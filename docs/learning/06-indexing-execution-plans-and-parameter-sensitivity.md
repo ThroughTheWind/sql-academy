@@ -25,9 +25,11 @@ Those statements may be directionally true sometimes, but they are not analysis.
 
 - [Phase 5: Indexing And Performance](../phases/phase-5-indexing-and-performance.md)
 - [Advanced 001: Indexing, Parameter Sniffing, And Migration Safety](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
+- [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 - [Trade Dapper read path](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
 - [Post EF Core read path](../../src/libs/SqlAcademy.Persistence/Queries/Posts/PostReadService.cs)
 - [Query performance comparison tests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs)
+- [Query Store smoke test](../../tests/SqlAcademy.PerformanceTests/QueryStoreLabSmokeTests.cs)
 - [Tracking benchmarks](../../tests/SqlAcademy.Benchmarks/TrackingModeBenchmarks.cs)
 
 ## Mental Models To Keep
@@ -176,6 +178,20 @@ Typical example:
 
 This is why “it is fast for me but slow for production traffic” is such a common report.
 
+## Query Store Adds Persisted Regression Evidence
+
+Execution plans, runtime measurements, and one local run are still the starting point.
+
+But some performance questions are temporal rather than momentary:
+
+- did this query have more than one plan over time?
+- did the same query regress after a deploy or data-shape change?
+- am I looking at a current in-memory plan, or at a persisted history of runtime behavior?
+
+That is where Query Store becomes useful. It complements plan reading and parameter-sensitivity reasoning by preserving query and plan history long enough to compare regressions instead of guessing at them.
+
+Use [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) after the main indexing pack when you want persisted evidence for one tagged query rather than only the current in-memory story.
+
 ## How The Repository Encourages This Topic
 
 The trade query accepts optional filters and multiple sort modes. That is realistic and useful for learning because different parameter shapes can naturally lead to different optimal strategies.
@@ -230,6 +246,7 @@ It is real, but you still have to demonstrate it with parameter-specific evidenc
 4. Propose the narrowest useful index.
 5. Re-test with different parameter values.
 6. Explain whether the improvement is robust or parameter-specific.
+7. If the question is about regression over time rather than one run, use Query Store to compare persisted plan and runtime history for the same tagged query.
 
 ## Exit Criteria
 
@@ -240,6 +257,7 @@ You are ready for Lesson 07 when you can do all of the following:
 - compare before-and-after results with evidence instead of intuition
 - describe why a very wide index is often a poor default answer
 - demonstrate what makes a query parameter-sensitive or plan-unstable
+- explain when Query Store is a better regression surface than plan cache or one-off runtime measurements
 
 ## Review Questions
 
@@ -291,6 +309,7 @@ A strong spoken answer should include:
 - identify the filter, sort, and projection columns in one read path before suggesting an index
 - defend one narrow index and one reason not to make it wider
 - explain how one cached plan can hurt a different parameter value
+- explain when persisted query history changes the next debugging step
 
 ## Next Lesson
 

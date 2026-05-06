@@ -5,7 +5,11 @@ using SqlAcademy.Persistence.Database;
 
 namespace SqlAcademy.Persistence.Commands.Trades;
 
-public sealed record ImportTradesCommand(IReadOnlyList<TradeImportRow> Trades, bool DryRun = false);
+public sealed record ImportTradesCommand(
+    IReadOnlyList<TradeImportRow> Trades,
+    bool DryRun = false,
+    string? Source = null,
+    string? CorrelationId = null);
 
 public sealed record TradeImportRow(
     string UserName,
@@ -17,6 +21,8 @@ public sealed record TradeImportRow(
 
 public sealed record TradeImportResult(
     int BatchId,
+    string? Source,
+    string CorrelationId,
     bool DryRun,
     int SubmittedCount,
     int ValidatedCount,
@@ -60,6 +66,8 @@ public sealed class TradeImportService(LearningDbContext dbContext)
         }
 
         var processedUtc = NormalizeUtcTimestamp(DateTime.UtcNow);
+        var source = NormalizeOptionalValue(command.Source);
+        var correlationId = NormalizeOptionalValue(command.CorrelationId) ?? Guid.CreateVersion7().ToString();
 
         var landedRows = command.Trades
             .Select((row, index) => new StagedTradeImportRow(
@@ -133,6 +141,8 @@ public sealed class TradeImportService(LearningDbContext dbContext)
         var batch = new TradeImportBatch
         {
             ProcessedUtc = processedUtc,
+            Source = source,
+            CorrelationId = correlationId,
             DryRun = command.DryRun,
             SubmittedCount = landedRows.Length,
             ValidatedCount = validatedRows.Count,
@@ -188,6 +198,8 @@ public sealed class TradeImportService(LearningDbContext dbContext)
 
         return new TradeImportResult(
             batch.Id,
+            batch.Source,
+            batch.CorrelationId,
             command.DryRun,
             landedRows.Length,
             validatedRows.Count,
@@ -343,6 +355,13 @@ public sealed class TradeImportService(LearningDbContext dbContext)
 
         var truncatedTicks = normalizedKind.Ticks - (normalizedKind.Ticks % TimeSpan.TicksPerMillisecond);
         return new DateTime(truncatedTicks, normalizedKind.Kind);
+    }
+
+    private static string? NormalizeOptionalValue(string? value)
+    {
+        return string.IsNullOrWhiteSpace(value)
+            ? null
+            : value.Trim();
     }
 
     private static RejectedTradeRecord CreateRejection(int rowNumber, string stage, string code, string reason)

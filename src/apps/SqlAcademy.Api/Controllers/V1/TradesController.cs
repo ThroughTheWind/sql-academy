@@ -89,10 +89,19 @@ public sealed class TradesController(
                     trade.Price,
                     trade.TradedUtc))
                 .ToArray(),
-                request.DryRun),
+                request.DryRun,
+                NormalizeOptionalValue(request.Source),
+                NormalizeOptionalValue(request.CorrelationId) ?? HttpContext.TraceIdentifier),
             cancellationToken);
 
         return Ok(result);
+    }
+
+    private static string? NormalizeOptionalValue(string? value)
+    {
+        return string.IsNullOrWhiteSpace(value)
+            ? null
+            : value.Trim();
     }
 
     private ProblemDetails CreateProblemDetails(int statusCode, string title, string detail)
@@ -107,7 +116,7 @@ public sealed class TradesController(
     }
 }
 
-public sealed record ImportTradesRequest(bool DryRun, IReadOnlyList<ImportTradeRowRequest> Trades);
+public sealed record ImportTradesRequest(bool DryRun, string? Source, string? CorrelationId, IReadOnlyList<ImportTradeRowRequest> Trades);
 
 public sealed record ImportTradeRowRequest(
     string UserName,

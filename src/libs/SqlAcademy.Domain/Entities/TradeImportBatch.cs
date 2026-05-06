@@ -6,6 +6,10 @@ public sealed class TradeImportBatch
 
     public DateTime ProcessedUtc { get; set; }
 
+    public string? Source { get; set; }
+
+    public string CorrelationId { get; set; } = string.Empty;
+
     public bool DryRun { get; set; }
 
     public int SubmittedCount { get; set; }
