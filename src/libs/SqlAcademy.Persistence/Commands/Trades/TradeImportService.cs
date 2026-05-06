@@ -5,7 +5,7 @@ using SqlAcademy.Persistence.Database;
 
 namespace SqlAcademy.Persistence.Commands.Trades;
 
-public sealed record ImportTradesCommand(IReadOnlyList<TradeImportRow> Trades);
+public sealed record ImportTradesCommand(IReadOnlyList<TradeImportRow> Trades, bool DryRun = false);
 
 public sealed record TradeImportRow(
     string UserName,
@@ -16,13 +16,26 @@ public sealed record TradeImportRow(
     DateTime TradedUtc);
 
 public sealed record TradeImportResult(
+    int BatchId,
+    bool DryRun,
     int SubmittedCount,
     int ValidatedCount,
     int DuplicateCount,
+    int ReadyToPublishCount,
     int ImportedCount,
     int RejectedCount,
+    IReadOnlyList<TradeImportPreviewRecord> ReadyToPublishTrades,
     IReadOnlyList<ImportedTradeRecord> ImportedTrades,
     IReadOnlyList<RejectedTradeRecord> Rejections);
+
+public sealed record TradeImportPreviewRecord(
+    string Stage,
+    string UserName,
+    string InstrumentSymbol,
+    string Side,
+    decimal Quantity,
+    decimal Price,
+    DateTime TradedUtc);
 
 public sealed record ImportedTradeRecord(
     int Id,
@@ -33,7 +46,7 @@ public sealed record ImportedTradeRecord(
     decimal Price,
     DateTime TradedUtc);
 
-public sealed record RejectedTradeRecord(int RowNumber, string Reason);
+public sealed record RejectedTradeRecord(int RowNumber, string Stage, string Code, string Reason);
 
 public sealed class TradeImportService(LearningDbContext dbContext)
 {
@@ -46,6 +59,8 @@ public sealed class TradeImportService(LearningDbContext dbContext)
             throw new ArgumentException("Trades is required and must contain at least one row.", nameof(command));
         }
 
+        var processedUtc = NormalizeUtcTimestamp(DateTime.UtcNow);
+
         var landedRows = command.Trades
             .Select((row, index) => new StagedTradeImportRow(
                 index + 1,
@@ -54,8 +69,10 @@ public sealed class TradeImportService(LearningDbContext dbContext)
                 row.Side?.Trim() ?? string.Empty,
                 row.Quantity,
                 row.Price,
-                NormalizeTradedUtc(row.TradedUtc)))
+                NormalizeUtcTimestamp(row.TradedUtc)))
             .ToArray();
+
+            var landedRowsByNumber = landedRows.ToDictionary(row => row.RowNumber);
 
         var rejections = new List<RejectedTradeRecord>();
         var validatedRows = await ValidateRowsAsync(landedRows, rejections, cancellationToken);
@@ -69,7 +86,7 @@ public sealed class TradeImportService(LearningDbContext dbContext)
             if (!batchKeys.Add(validatedRow.BusinessKey))
             {
                 duplicateCount++;
-                rejections.Add(new RejectedTradeRecord(validatedRow.RowNumber, "Duplicate batch row."));
+                rejections.Add(CreateRejection(validatedRow.RowNumber, "DeduplicateBatch", "DuplicateBatchRow", "Duplicate batch row."));
                 continue;
             }
 
@@ -84,7 +101,7 @@ public sealed class TradeImportService(LearningDbContext dbContext)
             if (existingKeys.Contains(deduplicatedRow.BusinessKey))
             {
                 duplicateCount++;
-                rejections.Add(new RejectedTradeRecord(deduplicatedRow.RowNumber, "Duplicate existing trade."));
+                rejections.Add(CreateRejection(deduplicatedRow.RowNumber, "DeduplicateExisting", "DuplicateExistingTrade", "Duplicate existing trade."));
                 continue;
             }
 
@@ -101,15 +118,9 @@ public sealed class TradeImportService(LearningDbContext dbContext)
                 }));
         }
 
-        if (tradesToPublish.Count > 0)
-        {
-            await dbContext.Trades.AddRangeAsync(tradesToPublish.Select(item => item.Entity), cancellationToken);
-            await dbContext.SaveChangesAsync(cancellationToken);
-        }
-
-        var importedTrades = tradesToPublish
-            .Select(item => new ImportedTradeRecord(
-                item.Entity.Id,
+        var readyToPublishTrades = tradesToPublish
+            .Select(item => new TradeImportPreviewRecord(
+                "ReadyToPublish",
                 item.Row.UserName,
                 item.Row.InstrumentSymbol,
                 item.Row.Side.ToString(),
@@ -118,12 +129,73 @@ public sealed class TradeImportService(LearningDbContext dbContext)
                 item.Row.TradedUtc))
             .ToArray();
 
+        var importedTrades = Array.Empty<ImportedTradeRecord>();
+        var batch = new TradeImportBatch
+        {
+            ProcessedUtc = processedUtc,
+            DryRun = command.DryRun,
+            SubmittedCount = landedRows.Length,
+            ValidatedCount = validatedRows.Count,
+            DuplicateCount = duplicateCount,
+            ReadyToPublishCount = readyToPublishTrades.Length,
+            ImportedCount = 0,
+            RejectedCount = rejections.Count,
+        };
+
+        foreach (var trade in tradesToPublish)
+        {
+            batch.Rows.Add(CreateReadyToPublishBatchRow(trade.Row));
+        }
+
+        foreach (var rejection in rejections.OrderBy(rejection => rejection.RowNumber))
+        {
+            batch.Rows.Add(CreateRejectedBatchRow(landedRowsByNumber[rejection.RowNumber], rejection));
+        }
+
+        if (!command.DryRun && tradesToPublish.Count > 0)
+        {
+            await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
+            await dbContext.Trades.AddRangeAsync(tradesToPublish.Select(item => item.Entity), cancellationToken);
+            await dbContext.SaveChangesAsync(cancellationToken);
+
+            importedTrades = tradesToPublish
+                .Select(item => new ImportedTradeRecord(
+                    item.Entity.Id,
+                    item.Row.UserName,
+                    item.Row.InstrumentSymbol,
+                    item.Row.Side.ToString(),
+                    item.Row.Quantity,
+                    item.Row.Price,
+                    item.Row.TradedUtc))
+                .ToArray();
+
+            batch.ImportedCount = importedTrades.Length;
+
+            foreach (var trade in tradesToPublish)
+            {
+                batch.Rows.Add(CreateImportedBatchRow(trade.Row, trade.Entity.Id));
+            }
+
+            await dbContext.TradeImportBatches.AddAsync(batch, cancellationToken);
+            await dbContext.SaveChangesAsync(cancellationToken);
+            await transaction.CommitAsync(cancellationToken);
+        }
+        else
+        {
+            await dbContext.TradeImportBatches.AddAsync(batch, cancellationToken);
+            await dbContext.SaveChangesAsync(cancellationToken);
+        }
+
         return new TradeImportResult(
+            batch.Id,
+            command.DryRun,
             landedRows.Length,
             validatedRows.Count,
             duplicateCount,
+            readyToPublishTrades.Length,
             importedTrades.Length,
             rejections.Count,
+            readyToPublishTrades,
             importedTrades,
             rejections.OrderBy(rejection => rejection.RowNumber).ToArray());
     }
@@ -163,49 +235,49 @@ public sealed class TradeImportService(LearningDbContext dbContext)
         {
             if (string.IsNullOrWhiteSpace(landedRow.UserName))
             {
-                rejections.Add(new RejectedTradeRecord(landedRow.RowNumber, "UserName is required."));
+                rejections.Add(CreateRejection(landedRow.RowNumber, "Validate", "MissingUserName", "UserName is required."));
                 continue;
             }
 
             if (!users.TryGetValue(landedRow.UserName, out var user))
             {
-                rejections.Add(new RejectedTradeRecord(landedRow.RowNumber, "Unknown user."));
+                rejections.Add(CreateRejection(landedRow.RowNumber, "Validate", "UnknownUser", "Unknown user."));
                 continue;
             }
 
             if (string.IsNullOrWhiteSpace(landedRow.InstrumentSymbol))
             {
-                rejections.Add(new RejectedTradeRecord(landedRow.RowNumber, "InstrumentSymbol is required."));
+                rejections.Add(CreateRejection(landedRow.RowNumber, "Validate", "MissingInstrumentSymbol", "InstrumentSymbol is required."));
                 continue;
             }
 
             if (!instruments.TryGetValue(landedRow.InstrumentSymbol, out var instrument))
             {
-                rejections.Add(new RejectedTradeRecord(landedRow.RowNumber, "Unknown instrument."));
+                rejections.Add(CreateRejection(landedRow.RowNumber, "Validate", "UnknownInstrument", "Unknown instrument."));
                 continue;
             }
 
             if (string.IsNullOrWhiteSpace(landedRow.Side))
             {
-                rejections.Add(new RejectedTradeRecord(landedRow.RowNumber, "Side is required."));
+                rejections.Add(CreateRejection(landedRow.RowNumber, "Validate", "MissingSide", "Side is required."));
                 continue;
             }
 
             if (!Enum.TryParse<TradeSide>(landedRow.Side, true, out var side))
             {
-                rejections.Add(new RejectedTradeRecord(landedRow.RowNumber, "Side must be Buy or Sell."));
+                rejections.Add(CreateRejection(landedRow.RowNumber, "Validate", "InvalidSide", "Side must be Buy or Sell."));
                 continue;
             }
 
             if (landedRow.Quantity <= 0)
             {
-                rejections.Add(new RejectedTradeRecord(landedRow.RowNumber, "Quantity must be greater than zero."));
+                rejections.Add(CreateRejection(landedRow.RowNumber, "Validate", "NonPositiveQuantity", "Quantity must be greater than zero."));
                 continue;
             }
 
             if (landedRow.Price <= 0)
             {
-                rejections.Add(new RejectedTradeRecord(landedRow.RowNumber, "Price must be greater than zero."));
+                rejections.Add(CreateRejection(landedRow.RowNumber, "Validate", "NonPositivePrice", "Price must be greater than zero."));
                 continue;
             }
 
@@ -263,14 +335,70 @@ public sealed class TradeImportService(LearningDbContext dbContext)
             .ToHashSet();
     }
 
-    private static DateTime NormalizeTradedUtc(DateTime tradedUtc)
+    private static DateTime NormalizeUtcTimestamp(DateTime value)
     {
-        var normalizedKind = tradedUtc.Kind == DateTimeKind.Unspecified
-            ? DateTime.SpecifyKind(tradedUtc, DateTimeKind.Utc)
-            : tradedUtc;
+        var normalizedKind = value.Kind == DateTimeKind.Unspecified
+            ? DateTime.SpecifyKind(value, DateTimeKind.Utc)
+            : value;
 
         var truncatedTicks = normalizedKind.Ticks - (normalizedKind.Ticks % TimeSpan.TicksPerMillisecond);
         return new DateTime(truncatedTicks, normalizedKind.Kind);
+    }
+
+    private static RejectedTradeRecord CreateRejection(int rowNumber, string stage, string code, string reason)
+    {
+        return new RejectedTradeRecord(rowNumber, stage, code, reason);
+    }
+
+    private static TradeImportBatchRow CreateReadyToPublishBatchRow(ValidatedTradeImportRow row)
+    {
+        return new TradeImportBatchRow
+        {
+            RowNumber = row.RowNumber,
+            Outcome = "ReadyToPublish",
+            Stage = "ReadyToPublish",
+            UserName = row.UserName,
+            InstrumentSymbol = row.InstrumentSymbol,
+            Side = row.Side.ToString(),
+            Quantity = row.Quantity,
+            Price = row.Price,
+            TradedUtc = row.TradedUtc,
+        };
+    }
+
+    private static TradeImportBatchRow CreateImportedBatchRow(ValidatedTradeImportRow row, int tradeId)
+    {
+        return new TradeImportBatchRow
+        {
+            RowNumber = row.RowNumber,
+            Outcome = "Imported",
+            Stage = "Publish",
+            TradeId = tradeId,
+            UserName = row.UserName,
+            InstrumentSymbol = row.InstrumentSymbol,
+            Side = row.Side.ToString(),
+            Quantity = row.Quantity,
+            Price = row.Price,
+            TradedUtc = row.TradedUtc,
+        };
+    }
+
+    private static TradeImportBatchRow CreateRejectedBatchRow(StagedTradeImportRow row, RejectedTradeRecord rejection)
+    {
+        return new TradeImportBatchRow
+        {
+            RowNumber = rejection.RowNumber,
+            Outcome = "Rejected",
+            Stage = rejection.Stage,
+            Code = rejection.Code,
+            Reason = rejection.Reason,
+            UserName = row.UserName,
+            InstrumentSymbol = row.InstrumentSymbol,
+            Side = row.Side,
+            Quantity = row.Quantity,
+            Price = row.Price,
+            TradedUtc = row.TradedUtc,
+        };
     }
 
     private sealed record StagedTradeImportRow(

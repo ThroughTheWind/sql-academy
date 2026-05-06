@@ -15,6 +15,10 @@ public sealed class LearningDbContext(DbContextOptions<LearningDbContext> option
 
     public DbSet<Trade> Trades => Set<Trade>();
 
+    public DbSet<TradeImportBatch> TradeImportBatches => Set<TradeImportBatch>();
+
+    public DbSet<TradeImportBatchRow> TradeImportBatchRows => Set<TradeImportBatchRow>();
+
     public DbSet<Instrument> Instruments => Set<Instrument>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

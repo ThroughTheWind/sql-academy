@@ -39,6 +39,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<OrderWriteService>();
         services.AddScoped<TradeImportService>();
         services.AddScoped<PostReadService>();
+        services.AddScoped<TradeImportBatchReadService>();
         services.AddScoped<TradeReadService>();
         services.AddHealthChecks()
             .AddDbContextCheck<LearningDbContext>("learning-db");

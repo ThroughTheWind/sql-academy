@@ -52,4 +52,4 @@ Run the review pack with:
 
 - Lab 01 leaves the posts read path projection-first, deterministic, and verified by focused tests.
 - Lab 02 leaves the trades read path explicit, deterministic, and verified by focused tests or API requests.
-- Lab 03 proves a `rowversion` conflict through the HTTP surface and exercises a real trade-import path with explicit staging boundaries.
+- Lab 03 proves a `rowversion` conflict through the HTTP surface and exercises a real trade-import path with explicit dry-run preview and publish boundaries.

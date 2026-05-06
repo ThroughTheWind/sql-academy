@@ -119,12 +119,19 @@ public sealed class TradesEndpointTests(SqlServerFixture databaseFixture) : IAsy
         var payload = await response.Content.ReadFromJsonAsync<TradeImportResult>();
 
         Assert.NotNull(payload);
+        Assert.True(payload.BatchId > 0);
+        Assert.False(payload.DryRun);
         Assert.Equal(4, payload.SubmittedCount);
         Assert.Equal(3, payload.ValidatedCount);
         Assert.Equal(1, payload.DuplicateCount);
+        Assert.Equal(2, payload.ReadyToPublishCount);
         Assert.Equal(2, payload.ImportedCount);
         Assert.Equal(2, payload.RejectedCount);
+        Assert.Equal(2, payload.ReadyToPublishTrades.Count);
+        Assert.All(payload.ReadyToPublishTrades, trade => Assert.Equal("ReadyToPublish", trade.Stage));
         Assert.Equal(["Duplicate batch row.", "Unknown user."], payload.Rejections.Select(rejection => rejection.Reason).ToArray());
+        Assert.Equal(["DeduplicateBatch", "Validate"], payload.Rejections.Select(rejection => rejection.Stage).ToArray());
+        Assert.Equal(["DuplicateBatchRow", "UnknownUser"], payload.Rejections.Select(rejection => rejection.Code).ToArray());
 
         await using var verificationContext = databaseFixture.CreateDbContext();
         var importedTradeCount = verificationContext.Trades.Count(trade =>
@@ -169,11 +176,190 @@ public sealed class TradesEndpointTests(SqlServerFixture databaseFixture) : IAsy
         var payload = await response.Content.ReadFromJsonAsync<TradeImportResult>();
 
         Assert.NotNull(payload);
+        Assert.True(payload.BatchId > 0);
+        Assert.False(payload.DryRun);
         Assert.Equal(2, payload.SubmittedCount);
         Assert.Equal(2, payload.ValidatedCount);
         Assert.Equal(1, payload.DuplicateCount);
+        Assert.Equal(1, payload.ReadyToPublishCount);
         Assert.Equal(1, payload.ImportedCount);
         Assert.Equal(1, payload.RejectedCount);
-        Assert.Equal("Duplicate existing trade.", Assert.Single(payload.Rejections).Reason);
+        var rejection = Assert.Single(payload.Rejections);
+        Assert.Equal("Duplicate existing trade.", rejection.Reason);
+        Assert.Equal("DeduplicateExisting", rejection.Stage);
+        Assert.Equal("DuplicateExistingTrade", rejection.Code);
+    }
+
+    [Fact]
+    public async Task Post_trade_import_dry_run_reports_candidates_without_persisting_rows()
+    {
+        var response = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                dryRun = true,
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "margaret",
+                        instrumentSymbol = "CL",
+                        side = "Buy",
+                        quantity = 4.0000m,
+                        price = 80.5000m,
+                        tradedUtc = "2025-02-07T10:00:00Z",
+                    },
+                    new
+                    {
+                        userName = "margaret",
+                        instrumentSymbol = "CL",
+                        side = "Buy",
+                        quantity = 4.0000m,
+                        price = 80.5000m,
+                        tradedUtc = "2025-02-07T10:00:00Z",
+                    },
+                },
+            });
+
+        response.EnsureSuccessStatusCode();
+
+        var payload = await response.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        Assert.NotNull(payload);
+        Assert.True(payload.BatchId > 0);
+        Assert.True(payload.DryRun);
+        Assert.Equal(2, payload.SubmittedCount);
+        Assert.Equal(2, payload.ValidatedCount);
+        Assert.Equal(1, payload.DuplicateCount);
+        Assert.Equal(1, payload.ReadyToPublishCount);
+        Assert.Equal(0, payload.ImportedCount);
+        var preview = Assert.Single(payload.ReadyToPublishTrades);
+        Assert.Equal("ReadyToPublish", preview.Stage);
+        Assert.Empty(payload.ImportedTrades);
+        var rejection = Assert.Single(payload.Rejections);
+        Assert.Equal("Duplicate batch row.", rejection.Reason);
+        Assert.Equal("DeduplicateBatch", rejection.Stage);
+        Assert.Equal("DuplicateBatchRow", rejection.Code);
+
+        await using var verificationContext = databaseFixture.CreateDbContext();
+        var dryRunTradeCount = verificationContext.Trades.Count(trade =>
+            trade.TradedUtc == new DateTime(2025, 2, 7, 10, 0, 0, DateTimeKind.Utc)
+            && trade.Price == 80.5000m);
+
+        Assert.Equal(0, dryRunTradeCount);
+    }
+
+    [Fact]
+    public async Task Post_trade_import_persists_batch_history_that_can_be_retrieved()
+    {
+        var importResponse = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "ada",
+                        instrumentSymbol = "MSFT",
+                        side = "Buy",
+                        quantity = 2.0000m,
+                        price = 421.0000m,
+                        tradedUtc = "2025-02-08T09:00:00Z",
+                    },
+                    new
+                    {
+                        userName = "unknown-user",
+                        instrumentSymbol = "MSFT",
+                        side = "Buy",
+                        quantity = 1.0000m,
+                        price = 420.0000m,
+                        tradedUtc = "2025-02-08T09:01:00Z",
+                    },
+                },
+            });
+
+        importResponse.EnsureSuccessStatusCode();
+
+        var importPayload = await importResponse.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        Assert.NotNull(importPayload);
+        Assert.True(importPayload.BatchId > 0);
+
+        var detailResponse = await _client.GetAsync($"/api/v1/trades/import-batches/{importPayload.BatchId}");
+        detailResponse.EnsureSuccessStatusCode();
+
+        var detailPayload = await detailResponse.Content.ReadFromJsonAsync<TradeImportBatchDetails>();
+
+        Assert.NotNull(detailPayload);
+        Assert.Equal(importPayload.BatchId, detailPayload.BatchId);
+        Assert.False(detailPayload.DryRun);
+        Assert.Equal(1, detailPayload.ImportedCount);
+        Assert.Single(detailPayload.ReadyToPublishTrades);
+        Assert.Single(detailPayload.ImportedTrades);
+        var rejection = Assert.Single(detailPayload.Rejections);
+        Assert.Equal("Validate", rejection.Stage);
+        Assert.Equal("UnknownUser", rejection.Code);
+    }
+
+    [Fact]
+    public async Task Get_trade_import_batches_returns_recent_batches_first()
+    {
+        var firstResponse = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                dryRun = true,
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "margaret",
+                        instrumentSymbol = "CL",
+                        side = "Buy",
+                        quantity = 1.0000m,
+                        price = 81.0000m,
+                        tradedUtc = "2025-02-08T11:00:00Z",
+                    },
+                },
+            });
+
+        firstResponse.EnsureSuccessStatusCode();
+        var firstBatch = await firstResponse.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        var secondResponse = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                dryRun = true,
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "grace",
+                        instrumentSymbol = "AAPL",
+                        side = "Sell",
+                        quantity = 2.0000m,
+                        price = 190.0000m,
+                        tradedUtc = "2025-02-08T11:05:00Z",
+                    },
+                },
+            });
+
+        secondResponse.EnsureSuccessStatusCode();
+        var secondBatch = await secondResponse.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        Assert.NotNull(firstBatch);
+        Assert.NotNull(secondBatch);
+
+        var historyResponse = await _client.GetAsync("/api/v1/trades/import-batches?top=2");
+        historyResponse.EnsureSuccessStatusCode();
+
+        var historyPayload = await historyResponse.Content.ReadFromJsonAsync<TradeImportBatchListItem[]>();
+
+        Assert.NotNull(historyPayload);
+        Assert.Equal(2, historyPayload.Length);
+        Assert.Equal(secondBatch.BatchId, historyPayload[0].BatchId);
+        Assert.Equal(firstBatch.BatchId, historyPayload[1].BatchId);
     }
 }

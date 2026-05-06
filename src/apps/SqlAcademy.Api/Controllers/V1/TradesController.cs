@@ -7,7 +7,10 @@ namespace SqlAcademy.Api.Controllers.V1;
 
 [ApiController]
 [Route("api/v1/trades")]
-public sealed class TradesController(TradeReadService tradeReadService, TradeImportService tradeImportService) : ControllerBase
+public sealed class TradesController(
+    TradeReadService tradeReadService,
+    TradeImportService tradeImportService,
+    TradeImportBatchReadService tradeImportBatchReadService) : ControllerBase
 {
     [HttpGet]
     [ProducesResponseType(typeof(PagedResult<TradeListItem>), StatusCodes.Status200OK)]
@@ -16,6 +19,33 @@ public sealed class TradesController(TradeReadService tradeReadService, TradeImp
         CancellationToken cancellationToken)
     {
         var result = await tradeReadService.GetTradesAsync(request, cancellationToken);
+        return Ok(result);
+    }
+
+    [HttpGet("import-batches")]
+    [ProducesResponseType(typeof(IReadOnlyList<TradeImportBatchListItem>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<IReadOnlyList<TradeImportBatchListItem>>> GetImportBatches(
+        [FromQuery] int top = 10,
+        CancellationToken cancellationToken = default)
+    {
+        var result = await tradeImportBatchReadService.GetRecentBatchesAsync(top, cancellationToken);
+        return Ok(result);
+    }
+
+    [HttpGet("import-batches/{batchId:int}")]
+    [ProducesResponseType(typeof(TradeImportBatchDetails), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<TradeImportBatchDetails>> GetImportBatch(
+        int batchId,
+        CancellationToken cancellationToken)
+    {
+        var result = await tradeImportBatchReadService.GetBatchAsync(batchId, cancellationToken);
+
+        if (result is null)
+        {
+            return NotFound(CreateProblemDetails(StatusCodes.Status404NotFound, "Batch not found", $"Trade import batch '{batchId}' was not found."));
+        }
+
         return Ok(result);
     }
 
@@ -40,7 +70,8 @@ public sealed class TradesController(TradeReadService tradeReadService, TradeImp
                     trade.Quantity,
                     trade.Price,
                     trade.TradedUtc))
-                .ToArray()),
+                .ToArray(),
+                request.DryRun),
             cancellationToken);
 
         return Ok(result);
@@ -58,7 +89,7 @@ public sealed class TradesController(TradeReadService tradeReadService, TradeImp
     }
 }
 
-public sealed record ImportTradesRequest(IReadOnlyList<ImportTradeRowRequest> Trades);
+public sealed record ImportTradesRequest(bool DryRun, IReadOnlyList<ImportTradeRowRequest> Trades);
 
 public sealed record ImportTradeRowRequest(
     string UserName,

@@ -19,6 +19,7 @@ POST {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import
 Content-Type: application/json
 
 {
+	"dryRun": false,
 	"trades": [
 		{
 			"userName": "ada",
@@ -38,6 +39,35 @@ Content-Type: application/json
 		}
 	]
 }
+
+###
+
+POST {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import
+Content-Type: application/json
+
+{
+	"dryRun": true,
+	"trades": [
+		{
+			"userName": "margaret",
+			"instrumentSymbol": "CL",
+			"side": "Buy",
+			"quantity": 4.0,
+			"price": 80.5,
+			"tradedUtc": "2025-02-07T10:00:00Z"
+		}
+	]
+}
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches?top=10
+Accept: application/json
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches/1
+Accept: application/json
 
 ###
 
