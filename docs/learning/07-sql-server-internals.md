@@ -222,6 +222,24 @@ You are ready for Lesson 08 when you can do all of the following:
 1. Explain to an interviewer how much SQL Server internals knowledge an application engineer actually needs, and why.
 2. Defend the statement “internal models are valuable because they improve debugging questions, not because they make you memorize implementation trivia.”
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- one falsifiable hypothesis with a concrete disconfirming check
+- a connection between cardinality, memory use, and operator choice instead of treating them as isolated topics
+- an explanation of how wait evidence can mislead when divorced from plan context
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- a pragmatic boundary for how much internals knowledge is needed to debug real application issues
+- the idea that internal models improve diagnosis quality rather than serving as trivia collection
+- at least one example of an engine concept leading to a better debugging question or experiment
+
 ## Lesson Checkpoint
 
 - explain why stale statistics or bad cardinality estimates can distort an otherwise reasonable query

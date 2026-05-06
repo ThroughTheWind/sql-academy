@@ -268,6 +268,24 @@ You are ready for Lesson 07 when you can do all of the following:
 1. Explain to an interviewer how you would decide whether a slow query needs a new index, a query rewrite, or neither.
 2. Defend the statement “performance tuning without before-and-after evidence is not engineering.”
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- a workload-shaped explanation of why the proposed index helps and what it costs
+- one evidence plan for proving parameter sensitivity rather than asserting it vaguely
+- a case where query simplification or projection narrowing could beat another index
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- an ordered diagnostic approach that starts with query shape and evidence before proposing fixes
+- deliberate use of reads, plan shape, and workload frequency as decision inputs
+- a refusal to equate tool choice or folklore with proof of improvement
+
 ## Lesson Checkpoint
 
 - identify the filter, sort, and projection columns in one read path before suggesting an index

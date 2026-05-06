@@ -54,6 +54,13 @@ Do not say you "covered" a lesson unless you can do all of the following:
 
 After every few lessons, use [Cumulative Review](cumulative-review.md) to check whether the topics still connect when the questions are mixed together instead of grouped by lesson.
 
+If you want narrower checkpoints, use the level-scoped packs after each stage:
+
+- [Beginner Assessment Pack](beginner-assessment-pack.md) after Lessons 01 and 02
+- [Intermediate Assessment Pack](intermediate-assessment-pack.md) after Lessons 03 and 04
+- [Advanced Assessment Pack](advanced-assessment-pack.md) after Lessons 05 through 07
+- [Senior Assessment Pack](senior-assessment-pack.md) after Lessons 08 through 11
+
 ## First Week Plan
 
 1. Day 1: complete local setup and inspect seed data
@@ -71,5 +78,6 @@ Each lesson now ends with:
 - review questions and suggested answers for fast self-checking
 - challenge questions for harder solo practice
 - interview-style prompts for spoken tradeoff defense
+- model answer rubrics that tell you what a strong response should include without giving you a fully solved answer
 
 Use the challenge questions when the review questions feel easy. Use the interview prompts when you want to test whether you can explain the topic clearly without hiding behind code.

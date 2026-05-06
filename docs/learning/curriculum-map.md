@@ -21,6 +21,15 @@ If another index or summary table disagrees with this file, follow this file.
 13. [Lesson 11: Capstones And Interview Readiness](11-capstones-and-interview-readiness.md)
 14. [Cumulative Review](cumulative-review.md)
 
+## Assessment Packs
+
+Use these when you want a level-scoped checkpoint instead of the full mixed review:
+
+- [Beginner Assessment Pack](beginner-assessment-pack.md)
+- [Intermediate Assessment Pack](intermediate-assessment-pack.md)
+- [Advanced Assessment Pack](advanced-assessment-pack.md)
+- [Senior Assessment Pack](senior-assessment-pack.md)
+
 ## Practice Matrix
 
 Use this matrix when you want to know what to do after reading a lesson.

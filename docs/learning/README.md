@@ -29,6 +29,7 @@ Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the 
 - [Curriculum Map](curriculum-map.md) is the source of truth for sequence, companion practice, and validation mode.
 - [How To Start](how-to-start.md) is the first-week walkthrough for a clean clone.
 - [Cumulative Review](cumulative-review.md) is the mixed-topic checkpoint after several lessons.
+- the assessment packs split review by level so you can test one slice at a time: [Beginner](beginner-assessment-pack.md), [Intermediate](intermediate-assessment-pack.md), [Advanced](advanced-assessment-pack.md), and [Senior](senior-assessment-pack.md)
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md) is for extension ideas after the main route, not the main route itself.
 - [Repository Improvement Suggestions](repository-improvement-suggestions.md) is a maintainer backlog, not a learner progression guide.
 
@@ -45,6 +46,10 @@ Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the 
 - [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md)
 - [Learning Glossary](glossary.md)
 - [Cumulative Review](cumulative-review.md)
+- [Beginner Assessment Pack](beginner-assessment-pack.md)
+- [Intermediate Assessment Pack](intermediate-assessment-pack.md)
+- [Advanced Assessment Pack](advanced-assessment-pack.md)
+- [Senior Assessment Pack](senior-assessment-pack.md)
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md)
 - [Repository Improvement Suggestions](repository-improvement-suggestions.md)
 

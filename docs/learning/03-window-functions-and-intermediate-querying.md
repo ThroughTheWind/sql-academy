@@ -271,6 +271,24 @@ You are ready for Lesson 04 when you can do all of the following:
 1. Explain to an interviewer why window functions are often a better fit than grouped aggregates when building leaderboard or running-total features.
 2. Defend the statement “unstable ordering is a correctness bug, not just a UX issue.”
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- a deterministic ordering strategy with an explicit tiebreaker for any paged or ranked result
+- a defensible choice between grouped and windowed query shapes based on the output contract
+- one example showing why the selected ranking function fits the requirement better than the alternatives
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- an explanation of how window functions preserve row-level detail while adding analytics
+- the idea that unstable ordering causes duplicate or missing rows, not just presentation drift
+- at least one concrete example tied to pagination, leaderboards, or latest-row-per-group logic
+
 ## Lesson Checkpoint
 
 - choose between `ROW_NUMBER()`, `RANK()`, and `DENSE_RANK()` for one concrete output and defend it

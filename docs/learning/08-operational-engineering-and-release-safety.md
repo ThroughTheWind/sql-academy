@@ -230,6 +230,24 @@ You are ready for Lesson 09 when you can do all of the following:
 1. Explain to an interviewer what you would watch in the first five minutes after deploying a database-affecting API change.
 2. Defend the idea that release safety is part of engineering quality, not a separate operations concern.
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- a release checklist that names concrete smoke tests, telemetry checks, and fallback posture
+- one decision frame for choosing between rollback and stabilizing roll-forward
+- evidence that the learner can read dependency ordering and readiness risk from the actual platform shape
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- the first-minute signals that matter most: readiness, latency, errors, and dependency health
+- the idea that safe release design begins before deployment, not after something breaks
+- a clear link between application quality and operational quality instead of treating them as separate domains
+
 ## Lesson Checkpoint
 
 - write a first-five-minutes watch plan for a release using health checks, metrics, and logs

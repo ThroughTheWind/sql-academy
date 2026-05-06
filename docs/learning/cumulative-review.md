@@ -2,6 +2,13 @@
 
 This guide is a mixed assessment across the full learning path. Use it after you have completed several lessons, or use it at the end of the lesson sequence to find which topics still feel weak.
 
+If you want narrower checkpoints first, use the level-scoped packs before coming back here:
+
+- [Beginner Assessment Pack](beginner-assessment-pack.md)
+- [Intermediate Assessment Pack](intermediate-assessment-pack.md)
+- [Advanced Assessment Pack](advanced-assessment-pack.md)
+- [Senior Assessment Pack](senior-assessment-pack.md)
+
 ## How To Use This Review
 
 1. Answer the questions without looking at the lesson pages first.

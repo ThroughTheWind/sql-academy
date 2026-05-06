@@ -289,6 +289,24 @@ You are ready for Lesson 03 when you can do all of the following:
 1. A teammate says “the join is correct, so the aggregate must be correct.” Explain why that reasoning is weak.
 2. Explain to an interviewer how you decide between `COUNT(*)`, `COUNT(column)`, and `COUNT(DISTINCT ...)` in a real report query.
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- evidence that the learner can reason about pre-aggregate row multiplication instead of jumping straight to `GROUP BY`
+- at least one explanation of how predicate placement can preserve or destroy left-join behavior
+- a debugging sequence that starts by inspecting the joined rowset before rewriting counts
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- a clear distinction between a correct relationship path and a correct aggregate
+- deliberate reasoning about when each count variant answers a different business question
+- at least one repository-grounded example involving posts, comments, or user summaries
+
 ## Lesson Checkpoint
 
 - choose the correct join type for one report and explain what row shape it guarantees

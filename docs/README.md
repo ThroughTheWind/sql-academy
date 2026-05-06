@@ -2,7 +2,7 @@
 
 This is the documentation landing page for SqlAcademy.
 
-If you are here to learn rather than inspect the repository structure, start with [Curriculum Map](learning/curriculum-map.md) and then use the topic sections below as supporting reference.
+If you are here to learn rather than inspect the repository structure, start with [Curriculum Map](learning/curriculum-map.md) and then use the topic sections below as secondary reference surfaces.
 
 ## Start Here
 
@@ -21,9 +21,11 @@ If you are here to learn rather than inspect the repository structure, start wit
 | EF Core | DbContext, Dapper, tracking, and query-shape learning | [EF Core Track](efcore/README.md) |
 | Performance | execution plans, benchmark thinking, and tuning | [Performance Track](performance/README.md) |
 | Operations | migration safety, telemetry, and release discipline | [Operations Track](operations/README.md) |
-| Architecture | repository structure and runtime boundaries | [Architecture Overview](architecture/README.md) |
+| Architecture | repository structure and runtime boundaries | [Repository Architecture](../README.md#initial-architecture) |
 | Exercises | hands-on packs and validation flow | [Exercise System](exercises/README.md) |
 | Phases | ordered curriculum progression | [Phase Guides](phases/README.md) |
+
+The architecture summary currently lives in the root [README](../README.md#initial-architecture) instead of a separate docs page.
 
 ## Recommended Learner Flow
 

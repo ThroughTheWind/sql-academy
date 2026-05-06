@@ -258,6 +258,24 @@ You are ready for Lesson 11 when you can do all of the following:
 1. Explain to an interviewer how you separate correctness testing from performance validation and live-system observability.
 2. Defend the statement “if you cannot say what evidence would prove the regression, you are not ready to fix it yet.”
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- a deliberate choice of validation surface matched to the claim being tested
+- one investigation path that separates correctness, performance, and runtime observation instead of collapsing them together
+- skepticism toward benchmark precision when workload realism or equivalence is weak
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- a clear boundary between unit, integration, performance, benchmark, and telemetry evidence
+- the idea that fixes should be driven by evidence plans rather than gut feel
+- one explanation of how a regression can be real even when a narrow test still passes
+
 ## Lesson Checkpoint
 
 - pick the right validation surface for one concrete claim in this repository

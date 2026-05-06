@@ -257,6 +257,24 @@ You are ready for Lesson 10 when you can do all of the following:
 1. Explain to an interviewer how you decide when explicit SQL is worth the extra ceremony.
 2. Defend the statement “the right abstraction is the one that keeps SQL behavior understandable, not the one with the least code on screen.”
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- a concrete comparison of what becomes clearer or riskier when switching data-access style
+- one realistic detection path for spotting N+1 behavior before user-visible failure
+- a defense of hybrid architecture based on workload shape rather than tool loyalty
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- a clear threshold for when explicit SQL control is worth the extra maintenance cost
+- the idea that understandability includes generated SQL shape, paging behavior, projection, and concurrency handling
+- a refusal to judge abstractions only by line count or fashion
+
 ## Lesson Checkpoint
 
 - justify EF Core or Dapper from query shape instead of tool preference

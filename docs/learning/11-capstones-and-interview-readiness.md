@@ -261,6 +261,24 @@ You have completed the core learning path when you can do all of the following:
 1. Explain to an interviewer how you would structure a senior-level answer to a data-platform design problem from first clarification through release plan.
 2. Defend the statement “a design is incomplete until it includes how success, failure, and rollout will be measured.”
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- clarifying questions that expose workload, consistency, latency, and rollout constraints before design choice
+- at least one defended decision with a named downside that is still acceptable in context
+- a conversion of exercise work into design reasoning, validation, and risk discussion rather than only implementation detail
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- a stable structure such as clarify, propose, defend, validate, and risk review
+- the idea that measurement and release planning are part of the design answer itself
+- one credible failure mode together with the signal that would detect it
+
 ## Lesson Checkpoint
 
 - structure one senior answer as clarify, propose, defend, validate, and risk review

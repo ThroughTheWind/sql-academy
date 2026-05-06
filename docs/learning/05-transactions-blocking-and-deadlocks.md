@@ -263,6 +263,24 @@ You are ready for Lesson 06 when you can do all of the following:
 1. Explain to an interviewer why “just add retries” is often a weak answer to concurrency failures.
 2. Defend the use of optimistic concurrency with `rowversion` in a system where conflicts are possible but not constant.
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- a clear separation between blocking behavior and true deadlock cycles
+- one fix that belongs in transaction design and one that belongs in retry or recovery behavior
+- explicit attention to transaction duration and access order rather than only statement correctness
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- why blind retry can hide design defects instead of solving them
+- when optimistic concurrency is preferable to holding locks across user or application think time
+- a distinction between detecting conflicts and preventing all waiting
+
 ## Lesson Checkpoint
 
 - explain the difference between blocking, deadlock, and optimistic concurrency conflict

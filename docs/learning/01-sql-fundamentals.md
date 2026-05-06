@@ -327,6 +327,48 @@ You are ready for Lesson 02 when you can do all of the following without guesswo
 1. Explain to a new teammate why `SELECT *` and missing `ORDER BY` are not harmless shortcuts in a production codebase.
 2. Defend the statement “constraints are part of application correctness, not just database decoration” using examples from this repository.
 
+## Model Answer Rubrics
+
+### Challenge Question 1
+
+A strong answer should include:
+
+- an explicit `ORDER BY` on the business sort column and a stable tiebreaker such as `Id`
+- a short explanation of why tied timestamps make the result unstable without the tiebreaker
+- evidence that the query is limited after ordering, not before it
+
+### Challenge Question 2
+
+A strong answer should include:
+
+- one valid insert attempt and one invalid attempt that targets a real uniqueness or foreign-key rule
+- a safety note about using temporary or rolled-back test rows instead of damaging seed expectations
+- a prediction of the exact rule each insert is expected to satisfy or violate
+
+### Challenge Question 3
+
+A strong answer should include:
+
+- a distinction between schema correctness and query fluency
+- at least one example where a correct table design can still be queried unsafely through weak predicates or unstable ordering
+- a statement that correctness depends on both model rules and operator discipline
+
+### Interview Prompt 1
+
+A strong answer should include:
+
+- why `SELECT *` hides shape and can encourage over-fetching
+- why missing `ORDER BY` is a correctness problem rather than only a style preference
+- at least one concrete production consequence from this repository context, such as unstable pagination or ambiguous “latest” results
+
+### Interview Prompt 2
+
+A strong answer should include:
+
+- at least one uniqueness example and one foreign-key example from the seeded schema
+- the idea that database constraints protect correctness even when application code is wrong or incomplete
+- a clear distinction between schema rules and optional developer convention
+
 ## Lesson Checkpoint
 
 - explain why deterministic ordering needs a tiebreaker before you trust a result

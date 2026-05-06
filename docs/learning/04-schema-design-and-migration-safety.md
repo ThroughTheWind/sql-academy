@@ -255,6 +255,24 @@ You are ready for Lesson 05 when you can do all of the following:
 1. Explain to an interviewer why “the migration works locally” is not enough evidence that it is safe.
 2. Defend a staged migration strategy to a reviewer who wants a faster one-step schema rewrite.
 
+## Model Answer Rubrics
+
+### Challenge Questions
+
+A strong set of challenge answers should include:
+
+- a staged rollout shape that separates schema addition, data movement, validation, and enforcement
+- explicit consideration of write cost, integrity rules, and workload impact rather than only schema aesthetics
+- a tradeoff discussion between normalized and denormalized designs tied to a real access pattern
+
+### Interview-Style Prompts
+
+A strong spoken answer should include:
+
+- a distinction between logical correctness and production safety
+- concrete reasons a one-step rewrite can be dangerous under traffic
+- a defense of compatibility windows, rollback posture, and observable release checkpoints
+
 ## Lesson Checkpoint
 
 - classify one change as additive and one as breaking
