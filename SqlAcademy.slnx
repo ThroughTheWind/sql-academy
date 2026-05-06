@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/apps/">
+    <Project Path="src/apps/SqlAcademy.Api/SqlAcademy.Api.csproj" />
+    <Project Path="src/apps/SqlAcademy.Worker/SqlAcademy.Worker.csproj" />
+  </Folder>
+  <Folder Name="/src/libs/">
+    <Project Path="src/libs/SqlAcademy.Domain/SqlAcademy.Domain.csproj" />
+    <Project Path="src/libs/SqlAcademy.Migrations/SqlAcademy.Migrations.csproj" />
+    <Project Path="src/libs/SqlAcademy.Observability/SqlAcademy.Observability.csproj" />
+    <Project Path="src/libs/SqlAcademy.Persistence/SqlAcademy.Persistence.csproj" />
+    <Project Path="src/libs/SqlAcademy.SharedKernel/SqlAcademy.SharedKernel.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SqlAcademy.Benchmarks/SqlAcademy.Benchmarks.csproj" />
+    <Project Path="tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj" />
+    <Project Path="tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj" />
+    <Project Path="tests/SqlAcademy.UnitTests/SqlAcademy.UnitTests.csproj" />
+  </Folder>
+</Solution>

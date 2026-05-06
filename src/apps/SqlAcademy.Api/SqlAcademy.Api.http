@@ -1,0 +1,16 @@
+@SqlAcademy.Api_HostAddress = http://localhost:5224
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/posts?pageNumber=1&pageSize=5&sortBy=createdUtc&sortDirection=Desc
+Accept: application/json
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades?pageNumber=1&pageSize=5&sortBy=tradedUtc&sortDirection=Desc
+Accept: application/json
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/health/ready
+Accept: application/json
+
+###

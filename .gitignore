@@ -1,0 +1,22 @@
+# Build artifacts
+bin/
+obj/
+artifacts/
+TestResults/
+BenchmarkDotNet.Artifacts/
+
+# IDE artifacts
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Local overrides and generated data
+.env.local
+infra/observability/grafana/data/
+infra/sqlserver/data/
+infra/sqlserver/secrets/
+
+# OS artifacts
+Thumbs.db
+Desktop.ini
