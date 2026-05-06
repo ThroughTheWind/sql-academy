@@ -21,7 +21,7 @@ Internal models let you form and test better hypotheses. You do not need perfect
 - [Performance lab notes](../../db/performance/README.md)
 - [Trade Dapper read path](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
 - [Performance comparison tests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs)
-- [Follow-up advanced exercise ideas](follow-up-exercises-by-level.md#advanced-follow-up-exercises)
+- [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
 
 ## The Internal Model You Actually Need
 

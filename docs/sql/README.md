@@ -18,15 +18,18 @@ Coverage targets:
 - [Lesson 03: Window Functions And Intermediate Querying](../learning/03-window-functions-and-intermediate-querying.md)
 - [Lesson 05: Transactions, Blocking, And Deadlocks](../learning/05-transactions-blocking-and-deadlocks.md)
 - [Lesson 06: Indexing, Execution Plans, And Parameter Sensitivity](../learning/06-indexing-execution-plans-and-parameter-sensitivity.md)
+- [Lesson 07: SQL Server Internals](../learning/07-sql-server-internals.md)
 
 ## Linked Exercises
 
+- [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)
 - [Beginner 001](../../src/exercises/Beginner/001-joins-and-aggregations/README.md)
 - [Beginner 002](../../src/exercises/Beginner/002-filtering-constraints-and-data-quality/README.md)
 - [Intermediate 001](../../src/exercises/Intermediate/001-window-functions-and-pagination/README.md)
 - [Intermediate 002](../../src/exercises/Intermediate/002-cohort-analysis-and-pagination-drift/README.md)
 - [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
 - [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
+- [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
 - [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
 - [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 

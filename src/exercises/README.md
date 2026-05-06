@@ -9,31 +9,48 @@ The exercise packs are intentionally progressive.
 
 Each exercise folder contains the minimum assets needed to work the problem locally without hunting for supporting material.
 
+Exercises currently ship in three supported modes:
+
+- `validation pack`: includes `starter.sql`, `answer.sql`, and `validation.sql`
+- `guided lab`: includes starter assets and explicit completion criteria, but manual validation
+- `investigation pack`: includes evidence files or workbooks and expects a written analysis
+
 ## Current Ladder
 
-1. [Beginner 001](Beginner/001-joins-and-aggregations/README.md)
-2. [Beginner 002](Beginner/002-filtering-constraints-and-data-quality/README.md)
-3. [Intermediate 001](Intermediate/001-window-functions-and-pagination/README.md)
-4. [Intermediate 002](Intermediate/002-cohort-analysis-and-pagination-drift/README.md)
-5. [Advanced 001](Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
-6. [Advanced 002](Advanced/002-staged-backfill-and-contract-enforcement/README.md)
-7. [Senior 001](Senior/001-concurrency-blocking-and-deadlocks/README.md)
-8. [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
-9. [Senior 003](Senior/003-transactional-outbox-and-delivery-consistency/README.md)
-10. [Senior 004](Senior/004-posts-api-latency-and-observability-triage/README.md)
+| Pack | Mode |
+| --- | --- |
+| [Beginner 000](Beginner/000-sql-fundamentals-and-safe-changes/README.md) | validation pack |
+| [Beginner 001](Beginner/001-joins-and-aggregations/README.md) | validation pack |
+| [Beginner 002](Beginner/002-filtering-constraints-and-data-quality/README.md) | validation pack |
+| [Intermediate 001](Intermediate/001-window-functions-and-pagination/README.md) | validation pack |
+| [Intermediate 002](Intermediate/002-cohort-analysis-and-pagination-drift/README.md) | validation pack |
+| [Advanced 001](Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) | validation pack |
+| [Advanced 002](Advanced/002-staged-backfill-and-contract-enforcement/README.md) | validation pack |
+| [Advanced 003](Advanced/003-plan-cache-memory-grants-and-waits/README.md) | guided lab |
+| [Senior 001](Senior/001-concurrency-blocking-and-deadlocks/README.md) | validation pack |
+| [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | validation pack |
+| [Senior 003](Senior/003-transactional-outbox-and-delivery-consistency/README.md) | validation pack |
+| [Senior 004](Senior/004-posts-api-latency-and-observability-triage/README.md) | investigation pack |
 
 ## Validation-Ready Packs
 
 The following packs include `answer.sql` and `validation.sql`:
 
+- [Beginner 000](Beginner/000-sql-fundamentals-and-safe-changes/README.md)
 - [Beginner 002](Beginner/002-filtering-constraints-and-data-quality/README.md)
 - [Beginner 001](Beginner/001-joins-and-aggregations/README.md)
 - [Intermediate 002](Intermediate/002-cohort-analysis-and-pagination-drift/README.md)
 - [Intermediate 001](Intermediate/001-window-functions-and-pagination/README.md)
 - [Advanced 002](Advanced/002-staged-backfill-and-contract-enforcement/README.md)
 - [Advanced 001](Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
+- [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 - [Senior 003](Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - [Senior 001](Senior/001-concurrency-blocking-and-deadlocks/README.md)
+
+The current non-validation packs are:
+
+- [Advanced 003](Advanced/003-plan-cache-memory-grants-and-waits/README.md) as a guided lab
+- [Senior 004](Senior/004-posts-api-latency-and-observability-triage/README.md) as an investigation pack
 
 Run the validation harness with:
 

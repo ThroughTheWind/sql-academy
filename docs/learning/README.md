@@ -2,11 +2,13 @@
 
 This folder is the learner-facing entry point for the academy.
 
-If you are new to the repository, read [How To Start](how-to-start.md) first.
+If you want one authoritative journey through the repository, start with [Curriculum Map](curriculum-map.md).
+
+If you are brand new to the repository, read [How To Start](how-to-start.md) first and then return to [Curriculum Map](curriculum-map.md).
 
 Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the checkpoint section at the end of each lesson before moving on.
 
-## Recommended Order
+## Ordered Lessons
 
 1. [How To Start](how-to-start.md)
 2. [Lesson 01: SQL Fundamentals](01-sql-fundamentals.md)
@@ -22,18 +24,25 @@ Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the 
 12. [Lesson 11: Capstones And Interview Readiness](11-capstones-and-interview-readiness.md)
 13. [Cumulative Review](cumulative-review.md)
 
-## By Level
+## How To Use This Folder
 
-| Level | Lessons | Primary Exercises |
-| --- | --- | --- |
-| Beginner | [Lesson 01](01-sql-fundamentals.md), [Lesson 02](02-joins-and-aggregations.md) | [Beginner 001](../../src/exercises/Beginner/001-joins-and-aggregations/README.md), [Beginner 002](../../src/exercises/Beginner/002-filtering-constraints-and-data-quality/README.md) |
-| Intermediate | [Lesson 03](03-window-functions-and-intermediate-querying.md), [Lesson 04](04-schema-design-and-migration-safety.md) | [Intermediate 001](../../src/exercises/Intermediate/001-window-functions-and-pagination/README.md), [Intermediate 002](../../src/exercises/Intermediate/002-cohort-analysis-and-pagination-drift/README.md) |
-| Advanced | [Lesson 05](05-transactions-blocking-and-deadlocks.md), [Lesson 06](06-indexing-execution-plans-and-parameter-sensitivity.md), [Lesson 07](07-sql-server-internals.md) | [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md), [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md), [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) |
-| Senior | [Lesson 08](08-operational-engineering-and-release-safety.md), [Lesson 09](09-ef-core-dapper-and-query-shape.md), [Lesson 10](10-observability-testing-and-performance-engineering.md), [Lesson 11](11-capstones-and-interview-readiness.md) | [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md), [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md), [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md), [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) |
+- [Curriculum Map](curriculum-map.md) is the source of truth for sequence, companion practice, and validation mode.
+- [How To Start](how-to-start.md) is the first-week walkthrough for a clean clone.
+- [Cumulative Review](cumulative-review.md) is the mixed-topic checkpoint after several lessons.
+- [Follow-Up Exercises By Level](follow-up-exercises-by-level.md) is for extension ideas after the main route, not the main route itself.
+- [Repository Improvement Suggestions](repository-improvement-suggestions.md) is a maintainer backlog, not a learner progression guide.
+
+## Exercise Modes
+
+- `validation pack`: includes `starter.sql`, `answer.sql`, and `validation.sql`.
+- `guided lab`: uses lesson walkthroughs, repository anchors, or code changes without a formal answer template.
+- `investigation pack`: uses evidence files and written analysis instead of a single SQL answer file.
 
 ## Supporting Guides
 
+- [Curriculum Map](curriculum-map.md)
 - [How To Start](how-to-start.md)
+- [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md)
 - [Learning Glossary](glossary.md)
 - [Cumulative Review](cumulative-review.md)
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md)

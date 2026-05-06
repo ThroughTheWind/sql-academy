@@ -2,6 +2,10 @@
 
 These are suggested next exercises to extend the repository without bloating the first scaffold.
 
+This file is not part of the default guided route.
+
+Use [Curriculum Map](curriculum-map.md) for the main course sequence, and use this file only after the implemented route is already clear.
+
 ## Beginner Follow-Up Exercises
 
 - Implemented next pack: [Beginner 002](../../src/exercises/Beginner/002-filtering-constraints-and-data-quality/README.md)

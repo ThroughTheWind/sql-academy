@@ -4,6 +4,12 @@
 
 Trace a production-style API regression across application code, SQL query shape, and telemetry instead of blaming one layer in isolation.
 
+## Exercise Type
+
+This pack is an investigation pack.
+
+Complete `investigation-template.md` as the learner-editable workbook. This pack does not use `answer.sql` or `validation.sql`.
+
 ## Scenario
 
 After a release, `GET /api/v1/posts` stays healthy but becomes slow for requests that sort by comment count while also using search. You need to narrow the boundary, explain the likely SQL shape behind the slowdown, and propose a safe containment and follow-up plan.
@@ -29,6 +35,8 @@ After a release, `GET /api/v1/posts` stays healthy but becomes slow for requests
 4. Define what additional telemetry or tests should exist before the next release of this path.
 
 ## Validation
+
+Use `investigation-template.md` as the main completion artifact.
 
 - the learner narrows the issue to the posts read path instead of blaming the whole platform
 - the learner connects `commentCount` sorting plus search to a heavier grouped and sorted SQL path

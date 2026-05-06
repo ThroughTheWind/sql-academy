@@ -4,10 +4,12 @@ This guide is for a learner who wants a clear first path instead of browsing the
 
 ## Step 1: Get The Platform Running
 
-1. Restore tools with `dotnet tool restore`.
-2. Start the local platform with `docker compose up --build`.
-3. Confirm the API, Prometheus, and Grafana endpoints are reachable.
-4. Connect to `LearningDb` with a SQL client and inspect the `academy` schema.
+1. Review [../../.env](../../.env) before first startup. Keep the defaults unless a port or password conflicts with your machine, and use [../../.env.example](../../.env.example) as the reference for supported settings.
+2. Restore tools with `dotnet tool restore`.
+3. Start the local platform with `docker compose up --build`.
+4. Wait for the API to report ready at `http://localhost:8080/health/ready`.
+5. Connect to `LearningDb` with a SQL client, inspect the `academy` schema, and run `SELECT COUNT(*) FROM academy.Users`.
+6. Treat Prometheus and Grafana as optional on day one. Open them after the API and database already feel predictable.
 
 Do not start with EF Core code or performance tuning before the local stack feels predictable.
 
@@ -33,14 +35,13 @@ For every lesson or exercise, follow the same loop:
 6. Compare your answer with the optional solution only after you have a clear opinion.
 7. Record one thing you learned and one thing you still find uncertain.
 
-## Step 4: Choose Your Initial Path
+## Step 4: Stay On The Main Route By Default
 
-| If You Want To Learn | Start With | Then Move To |
-| --- | --- | --- |
-| SQL basics | [Lesson 01](01-sql-fundamentals.md) | [Lesson 02](02-joins-and-aggregations.md) |
-| Analytical querying | [Lesson 02](02-joins-and-aggregations.md) | [Lesson 03](03-window-functions-and-intermediate-querying.md) |
-| Concurrency and real production failures | [Lesson 05](05-transactions-blocking-and-deadlocks.md) | [Lesson 06](06-indexing-execution-plans-and-parameter-sensitivity.md) |
-| Application integration | [Lesson 09](09-ef-core-dapper-and-query-shape.md) | [Lesson 10](10-observability-testing-and-performance-engineering.md) |
+Use [Curriculum Map](curriculum-map.md) as the main sequence.
+
+Only skip ahead if you already know your gap and you plan to rejoin the main route later.
+
+If you do need a targeted start, use the [Optional On-Ramps](curriculum-map.md#optional-on-ramps) instead of inventing a new order from the repo tree.
 
 ## Step 5: Use Explicit Exit Criteria
 
@@ -56,8 +57,8 @@ After every few lessons, use [Cumulative Review](cumulative-review.md) to check 
 ## First Week Plan
 
 1. Day 1: complete local setup and inspect seed data
-2. Day 2: finish Lesson 01 and Beginner 001
-3. Day 3: finish Lesson 02 and review your joins carefully
+2. Day 2: finish Lesson 01 and [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)
+3. Day 3: finish Lesson 02 and [Beginner 001](../../src/exercises/Beginner/001-joins-and-aggregations/README.md)
 4. Day 4: finish Lesson 03 and practice stable pagination
 5. Day 5: read Lesson 04 and review migration safety patterns
 6. Day 6: read Lesson 05 and rehearse blocking versus deadlocking

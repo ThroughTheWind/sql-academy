@@ -15,8 +15,15 @@ Application developers often argue about data-access libraries at the wrong leve
 
 If you can answer those questions, the EF Core versus Dapper debate becomes much more practical and much less ideological.
 
+## Before You Start
+
+If Phase 8 feels like a context shift, read [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md) first.
+
+That bridge maps the earlier SQL lessons to the application query paths in this repository so you can keep reasoning from query shape rather than from library preference.
+
 ## Repository Anchors
 
+- [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md)
 - [Phase 8: .NET And EF Core Integration](../phases/phase-8-dotnet-and-efcore-integration.md)
 - [API startup](../../src/apps/SqlAcademy.Api/Program.cs)
 - [EF Core post queries](../../src/libs/SqlAcademy.Persistence/Queries/Posts/PostReadService.cs)

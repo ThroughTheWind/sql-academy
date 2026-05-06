@@ -22,6 +22,7 @@ If you cannot predict what a basic `SELECT`, `INSERT`, `UPDATE`, or `DELETE` wil
 - [Reference seed data](../../db/seed/001_seed_reference_data.sql)
 - [Social and order seed data](../../db/seed/002_seed_social_and_orders.sql)
 - [How To Start](how-to-start.md)
+- [Beginner 000: SQL Fundamentals And Safe Changes](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)
 
 ## The Domain You Are Querying
 

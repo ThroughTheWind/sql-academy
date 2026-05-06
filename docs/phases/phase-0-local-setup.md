@@ -12,6 +12,7 @@
 - Docker Desktop or equivalent Docker engine
 - .NET 10 SDK
 - a SQL client such as Azure Data Studio or SSMS
+- the ability to use the ports configured in [../../.env](../../.env), or to adjust them before startup
 
 ## Concepts
 
@@ -22,10 +23,11 @@
 
 ## Exercises
 
+- review [../../.env](../../.env) and keep the defaults unless they conflict with your machine
 - start the stack with `docker compose up --build`
+- wait for `/health/ready` to succeed before browsing deeper endpoints
 - connect to `LearningDb` and list all `academy` tables
-- call `/api/v1/posts`, `/health/ready`, and `/metrics`
-- inspect Prometheus scrape targets and Grafana datasource wiring
+- treat `/openapi/v1.json`, Prometheus, Grafana, and `/metrics` as follow-up checks after the database and API are already stable
 
 ## Expected Outcomes
 
@@ -37,4 +39,4 @@
 - `docker compose config` succeeds
 - `SELECT COUNT(*) FROM academy.Users` returns data
 - `GET /health/ready` returns success
-- Prometheus shows the `sqlacademy-api` target as up
+- Prometheus shows the `sqlacademy-api` target as up after the optional observability check

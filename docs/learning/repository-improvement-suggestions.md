@@ -2,6 +2,10 @@
 
 These are the most useful next improvements after the current learner-path update.
 
+This file is a maintainer backlog, not a learner progression document.
+
+Use [Curriculum Map](curriculum-map.md) for the default course route, and use this file when deciding what to build next in the repository.
+
 ## Near-Term Improvements
 
 - Expand the validation harness to more of the existing exercise packs.

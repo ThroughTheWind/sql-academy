@@ -20,6 +20,7 @@
 - inspect plan cache differences for parameter-sensitive queries
 - identify waits during an intentionally degraded workload
 - reason about why a plan spills or recompiles unexpectedly
+- work through [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
 
 ## Expected Outcomes
 
@@ -31,3 +32,4 @@
 - waits and plan metadata are captured and interpreted correctly
 - learners can explain what evidence would confirm or falsify a hypothesis
 - root-cause reasoning is documented alongside the experiment
+- the [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) lab notes isolate the tagged query instead of generic server activity
