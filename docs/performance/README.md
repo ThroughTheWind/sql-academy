@@ -9,6 +9,7 @@ Core concerns:
 - logical reads, CPU, duration, and wait signals
 - indexing strategies grounded in workload shape
 - execution-plan analysis and parameter sensitivity
+- Query Store and persisted regression evidence
 - EF Core tracking cost and query-shape comparison
 - benchmark and regression tooling
 
@@ -22,6 +23,8 @@ Core concerns:
 
 - [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
 - [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
+- [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
+- [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 - [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
 - [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 

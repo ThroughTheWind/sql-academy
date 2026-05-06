@@ -2,6 +2,7 @@ using Dapper;
 using SqlAcademy.Persistence.Commands.Trades;
 using SqlAcademy.Persistence.Diagnostics;
 using SqlAcademy.Persistence.Infrastructure;
+using SqlAcademy.SharedKernel.Pagination;
 
 namespace SqlAcademy.Persistence.Queries.Trades;
 
@@ -30,18 +31,36 @@ public sealed record TradeImportBatchDetails(
     IReadOnlyList<ImportedTradeRecord> ImportedTrades,
     IReadOnlyList<RejectedTradeRecord> Rejections);
 
+public sealed record TradeImportBatchRowListItem(
+    int RowNumber,
+    string Outcome,
+    string Stage,
+    string? Code,
+    string? Reason,
+    int? TradeId,
+    string UserName,
+    string InstrumentSymbol,
+    string Side,
+    decimal Quantity,
+    decimal Price,
+    DateTime TradedUtc);
+
 public sealed class TradeImportBatchReadService(ISqlConnectionFactory connectionFactory)
 {
-    public async Task<IReadOnlyList<TradeImportBatchListItem>> GetRecentBatchesAsync(int top, CancellationToken cancellationToken)
+    public async Task<PagedResult<TradeImportBatchListItem>> GetBatchesAsync(TradeImportBatchQueryRequest request, CancellationToken cancellationToken)
     {
         using var activity = PersistenceDiagnostics.ActivitySource.StartActivity("dapper.trade_import_batches.list");
+        activity?.SetTag("trade_import_batches.page_size", request.NormalizedPageSize);
+        activity?.SetTag("trade_import_batches.page_number", request.NormalizedPageNumber);
+        activity?.SetTag("trade_import_batches.dry_run", request.DryRun?.ToString() ?? "all");
 
-        var normalizedTop = Math.Clamp(top, 1, 50);
-        activity?.SetTag("trade_import_batches.top", normalizedTop);
+        const string whereClause = """
+WHERE (@DryRun IS NULL OR b.DryRun = @DryRun)
+""";
 
-        const string sql = """
-SELECT TOP (@Top)
-    b.Id,
+        var sql = $"""
+SELECT
+    b.Id AS BatchId,
     b.ProcessedUtc,
     b.DryRun,
     b.SubmittedCount,
@@ -51,16 +70,30 @@ SELECT TOP (@Top)
     b.ImportedCount,
     b.RejectedCount
 FROM academy.TradeImportBatches AS b
-ORDER BY b.ProcessedUtc DESC, b.Id DESC;
+{whereClause}
+ORDER BY b.ProcessedUtc DESC, b.Id DESC
+OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY;
+
+SELECT COUNT_BIG(1)
+FROM academy.TradeImportBatches AS b
+{whereClause};
 """;
 
-        await using var connection = await connectionFactory.OpenConnectionAsync(cancellationToken);
-        var rows = (await connection.QueryAsync<TradeImportBatchListRow>(
-            new CommandDefinition(sql, new { Top = normalizedTop }, cancellationToken: cancellationToken))).AsList();
+        var parameters = new
+        {
+            request.DryRun,
+            Offset = request.Skip,
+            PageSize = request.NormalizedPageSize,
+        };
 
-        return rows
+        await using var connection = await connectionFactory.OpenConnectionAsync(cancellationToken);
+        using var reader = await connection.QueryMultipleAsync(new CommandDefinition(sql, parameters, cancellationToken: cancellationToken));
+        var rows = (await reader.ReadAsync<TradeImportBatchListRow>()).AsList();
+        var totalCount = await reader.ReadSingleAsync<long>();
+
+        var items = rows
             .Select(row => new TradeImportBatchListItem(
-                row.Id,
+                row.BatchId,
                 row.ProcessedUtc,
                 row.DryRun,
                 row.SubmittedCount,
@@ -70,6 +103,8 @@ ORDER BY b.ProcessedUtc DESC, b.Id DESC;
                 row.ImportedCount,
                 row.RejectedCount))
             .ToArray();
+
+        return new PagedResult<TradeImportBatchListItem>(items, request.NormalizedPageNumber, request.NormalizedPageSize, totalCount);
     }
 
     public async Task<TradeImportBatchDetails?> GetBatchAsync(int batchId, CancellationToken cancellationToken)
@@ -170,9 +205,102 @@ ORDER BY r.RowNumber ASC, r.Id ASC;
             rejections);
     }
 
+    public async Task<PagedResult<TradeImportBatchRowListItem>?> GetBatchRowsAsync(
+        int batchId,
+        TradeImportBatchRowQueryRequest request,
+        CancellationToken cancellationToken)
+    {
+        using var activity = PersistenceDiagnostics.ActivitySource.StartActivity("dapper.trade_import_batches.rows");
+        activity?.SetTag("trade_import_batches.batch_id", batchId);
+        activity?.SetTag("trade_import_batches.rows.page_size", request.NormalizedPageSize);
+        activity?.SetTag("trade_import_batches.rows.page_number", request.NormalizedPageNumber);
+        activity?.SetTag("trade_import_batches.rows.outcome", NormalizeFilterValue(request.Outcome) ?? "all");
+        activity?.SetTag("trade_import_batches.rows.stage", NormalizeFilterValue(request.Stage) ?? "all");
+
+        const string whereClause = """
+WHERE r.TradeImportBatchId = @BatchId
+  AND (@Outcome IS NULL OR r.Outcome = @Outcome)
+  AND (@Stage IS NULL OR r.Stage = @Stage)
+""";
+
+        var sql = $"""
+SELECT COUNT_BIG(1)
+FROM academy.TradeImportBatches AS b
+WHERE b.Id = @BatchId;
+
+SELECT
+    r.RowNumber,
+    r.Outcome,
+    r.Stage,
+    r.Code,
+    r.Reason,
+    r.TradeId,
+    r.UserName,
+    r.InstrumentSymbol,
+    r.Side,
+    r.Quantity,
+    r.Price,
+    r.TradedUtc
+FROM academy.TradeImportBatchRows AS r
+{whereClause}
+ORDER BY r.RowNumber ASC, r.Id ASC
+OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY;
+
+SELECT COUNT_BIG(1)
+FROM academy.TradeImportBatchRows AS r
+{whereClause};
+""";
+
+        var parameters = new
+        {
+            BatchId = batchId,
+            Outcome = NormalizeFilterValue(request.Outcome),
+            Stage = NormalizeFilterValue(request.Stage),
+            Offset = request.Skip,
+            PageSize = request.NormalizedPageSize,
+        };
+
+        await using var connection = await connectionFactory.OpenConnectionAsync(cancellationToken);
+        using var reader = await connection.QueryMultipleAsync(new CommandDefinition(sql, parameters, cancellationToken: cancellationToken));
+        var batchCount = await reader.ReadSingleAsync<long>();
+
+        if (batchCount == 0)
+        {
+            return null;
+        }
+
+        var rows = (await reader.ReadAsync<TradeImportBatchRowRecord>()).AsList();
+        var totalCount = await reader.ReadSingleAsync<long>();
+
+        var items = rows
+            .Select(row => new TradeImportBatchRowListItem(
+                row.RowNumber,
+                row.Outcome,
+                row.Stage,
+                row.Code,
+                row.Reason,
+                row.TradeId,
+                row.UserName,
+                row.InstrumentSymbol,
+                row.Side,
+                row.Quantity,
+                row.Price,
+                row.TradedUtc))
+            .ToArray();
+
+        return new PagedResult<TradeImportBatchRowListItem>(items, request.NormalizedPageNumber, request.NormalizedPageSize, totalCount);
+    }
+
+    private static string? NormalizeFilterValue(string? value)
+    {
+        return string.IsNullOrWhiteSpace(value)
+            ? null
+            : value.Trim();
+    }
+
     private sealed class TradeImportBatchListRow
     {
-        public int Id { get; set; }
+        public int BatchId { get; set; }
 
         public DateTime ProcessedUtc { get; set; }
 

@@ -8,6 +8,14 @@ Use this page when you already know the application concern you want to review a
 
 Do not use this page as the main curriculum index. It is a reference page for EF Core and hybrid EF-plus-Dapper concerns after the SQL foundation is already in place.
 
+## Scope Boundary
+
+The current EF Core route targets production-oriented application data access: query shape, projection, tracking behavior, concurrency, migrations, hybrid EF-plus-Dapper boundaries, and validation through tests and telemetry.
+
+It does not yet claim full EF Core mastery across every advanced mapping, interception, batching, or materialization feature.
+
+Near-term expansion areas such as generated-SQL inspection workflows, N+1 proof labs, split-query tradeoffs, and deeper batching patterns are tracked in [../../.ai/sql-efcore-mastery-backlog.md](../../.ai/sql-efcore-mastery-backlog.md).
+
 Primary topics:
 - DbContext design and aggregate mapping
 - migrations and deployment hygiene

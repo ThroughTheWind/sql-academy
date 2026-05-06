@@ -23,12 +23,12 @@ public sealed class TradesController(
     }
 
     [HttpGet("import-batches")]
-    [ProducesResponseType(typeof(IReadOnlyList<TradeImportBatchListItem>), StatusCodes.Status200OK)]
-    public async Task<ActionResult<IReadOnlyList<TradeImportBatchListItem>>> GetImportBatches(
-        [FromQuery] int top = 10,
+    [ProducesResponseType(typeof(PagedResult<TradeImportBatchListItem>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<PagedResult<TradeImportBatchListItem>>> GetImportBatches(
+        [FromQuery] TradeImportBatchQueryRequest request,
         CancellationToken cancellationToken = default)
     {
-        var result = await tradeImportBatchReadService.GetRecentBatchesAsync(top, cancellationToken);
+        var result = await tradeImportBatchReadService.GetBatchesAsync(request, cancellationToken);
         return Ok(result);
     }
 
@@ -40,6 +40,24 @@ public sealed class TradesController(
         CancellationToken cancellationToken)
     {
         var result = await tradeImportBatchReadService.GetBatchAsync(batchId, cancellationToken);
+
+        if (result is null)
+        {
+            return NotFound(CreateProblemDetails(StatusCodes.Status404NotFound, "Batch not found", $"Trade import batch '{batchId}' was not found."));
+        }
+
+        return Ok(result);
+    }
+
+    [HttpGet("import-batches/{batchId:int}/rows")]
+    [ProducesResponseType(typeof(PagedResult<TradeImportBatchRowListItem>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<PagedResult<TradeImportBatchRowListItem>>> GetImportBatchRows(
+        int batchId,
+        [FromQuery] TradeImportBatchRowQueryRequest request,
+        CancellationToken cancellationToken)
+    {
+        var result = await tradeImportBatchReadService.GetBatchRowsAsync(batchId, request, cancellationToken);
 
         if (result is null)
         {

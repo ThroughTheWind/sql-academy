@@ -13,6 +13,16 @@
 | 8 | .NET and EF Core integration | A learner can build hybrid EF + Dapper services against the same SQL Server model. |
 | 9 | Capstones | A learner can combine data modeling, performance, and operations into end-to-end solutions. |
 
+## Scope Target
+
+The current academy route targets senior backend and application engineers who use SQL Server together with EF Core and Dapper in real application and production work.
+
+That means the core route is expected to cover query shape, schema design, concurrency, tuning, internals, observability, release safety, and application-data-access tradeoffs to a strong professional level.
+
+It does not yet claim full DBA or DBRE mastery. Backup and restore, SQL Server Agent, HA/DR, replication, security administration, and similar specialties belong in an optional extension track after the core route is stronger.
+
+The implementation backlog for that scope expansion lives in [.ai/sql-efcore-mastery-backlog.md](.ai/sql-efcore-mastery-backlog.md).
+
 ## Phase Gates
 
 - Phase 0 exit: the stack is running and the learner can query `academy.Users`.

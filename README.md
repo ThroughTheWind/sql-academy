@@ -2,6 +2,14 @@
 
 SqlAcademy is a long-lived engineering training platform for SQL Server, .NET 10, EF Core 10, Dapper, performance engineering, and production operations. It is designed to be Docker-first, exercise-driven, documentation-first, and structured for incremental learning from beginner through senior-level scenarios.
 
+## Scope
+
+The current core route targets senior backend and application engineers who need strong SQL Server, EF Core, Dapper, performance, and production-operability fluency.
+
+It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Server Agent, HA/DR, replication, security administration, and similar operational specialties remain optional extension-track work after the core route is stronger.
+
+The maintainer execution backlog for closing those gaps lives in [.ai/sql-efcore-mastery-backlog.md](.ai/sql-efcore-mastery-backlog.md).
+
 ## Quick Start
 
 1. Review [.env](.env) before first startup and leave the defaults alone unless a local port or password conflicts with your machine. Use [.env.example](.env.example) as the reference for supported settings.
@@ -78,7 +86,9 @@ Run the harness with:
 
 ## Subsequent Improvement Suggestions
 
-The next repository-level improvements are tracked in [Repository Improvement Suggestions](docs/learning/repository-improvement-suggestions.md).
+The learner-facing summary remains in [Repository Improvement Suggestions](docs/learning/repository-improvement-suggestions.md).
+
+The execution-tracked maintainer backlog lives in [.ai/sql-efcore-mastery-backlog.md](.ai/sql-efcore-mastery-backlog.md).
 
 ## Repository Bootstrap Plan
 

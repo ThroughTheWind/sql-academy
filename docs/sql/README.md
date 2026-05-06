@@ -8,6 +8,14 @@ Use this page when you already know the SQL concern you want to review and need 
 
 Do not use this page as the main curriculum index. It is a lookup surface, not the default course sequence.
 
+## Scope Boundary
+
+The current SQL route targets backend and application engineers who need strong SQL Server fluency for schema design, query shape, performance, concurrency, and production troubleshooting.
+
+It does not currently claim full DBA or DBRE coverage for backup and restore, SQL Server Agent, HA/DR, replication, or security administration.
+
+Those deeper administration topics belong in an optional extension track after the core route is stronger. The tracked implementation backlog lives in [../../.ai/sql-efcore-mastery-backlog.md](../../.ai/sql-efcore-mastery-backlog.md).
+
 Coverage targets:
 - filtering, projection, joins, grouping, and set-based thinking
 - CTEs, window functions, and query decomposition
@@ -54,6 +62,7 @@ Coverage targets:
 - need API-facing SQL shape and stable paging: [Intermediate 001](../../src/exercises/Intermediate/001-window-functions-and-pagination/README.md) and [TradeReadService](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
 - need tuning and plan reasoning: [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) and [Performance Track](../performance/README.md)
 - need engine-behavior hypothesis work: [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
+- need persisted regression evidence and Query Store workflow: [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 - need production-style SQL triage: [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) and [Operations Track](../operations/README.md)
 
 ## Linked Exercises
@@ -66,6 +75,7 @@ Coverage targets:
 - [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
 - [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
 - [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
+- [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 - [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
 - [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 

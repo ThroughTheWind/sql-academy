@@ -27,6 +27,7 @@ Exercises currently ship in three supported modes:
 | [Advanced 001](Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) | validation pack |
 | [Advanced 002](Advanced/002-staged-backfill-and-contract-enforcement/README.md) | validation pack |
 | [Advanced 003](Advanced/003-plan-cache-memory-grants-and-waits/README.md) | guided lab |
+| [Advanced 004](Advanced/004-query-store-and-regression-triage/README.md) | guided lab |
 | [Senior 001](Senior/001-concurrency-blocking-and-deadlocks/README.md) | validation pack |
 | [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab |
 | [Senior 003](Senior/003-transactional-outbox-and-delivery-consistency/README.md) | validation pack |
@@ -50,6 +51,7 @@ The following packs include `answer.sql` and `validation.sql`:
 The current non-validation packs are:
 
 - [Advanced 003](Advanced/003-plan-cache-memory-grants-and-waits/README.md) as a guided lab
+- [Advanced 004](Advanced/004-query-store-and-regression-triage/README.md) as a guided lab
 - [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as a guided lab bundle with a supplemental review pack
 - [Senior 004](Senior/004-posts-api-latency-and-observability-triage/README.md) as an investigation pack
 

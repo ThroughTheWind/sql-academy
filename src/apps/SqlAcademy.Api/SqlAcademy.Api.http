@@ -61,12 +61,22 @@ Content-Type: application/json
 
 ###
 
-GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches?top=10
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches?pageNumber=1&pageSize=10
+Accept: application/json
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches?pageNumber=1&pageSize=10&dryRun=true
 Accept: application/json
 
 ###
 
 GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches/1
+Accept: application/json
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import-batches/1/rows?pageNumber=1&pageSize=10&outcome=Rejected&stage=Validate
 Accept: application/json
 
 ###

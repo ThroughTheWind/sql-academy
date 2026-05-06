@@ -25,6 +25,7 @@ Use [Curriculum Map](curriculum-map.md) for the main course sequence, and use th
 ## Advanced Follow-Up Exercises
 
 - Implemented next pack: [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
+- Implemented guided lab: [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 - Add an index-consolidation exercise where several overlapping indexes must be simplified.
 - Add a parameter-sniffing lab with skewed data distribution and plan comparison.
 - Add a statistics-staleness exercise that shows why a once-good plan degrades.

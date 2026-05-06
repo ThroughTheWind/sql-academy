@@ -352,14 +352,133 @@ public sealed class TradesEndpointTests(SqlServerFixture databaseFixture) : IAsy
         Assert.NotNull(firstBatch);
         Assert.NotNull(secondBatch);
 
-        var historyResponse = await _client.GetAsync("/api/v1/trades/import-batches?top=2");
+        var historyResponse = await _client.GetAsync("/api/v1/trades/import-batches?pageNumber=1&pageSize=2");
         historyResponse.EnsureSuccessStatusCode();
 
-        var historyPayload = await historyResponse.Content.ReadFromJsonAsync<TradeImportBatchListItem[]>();
+        var historyPayload = await historyResponse.Content.ReadFromJsonAsync<PagedResult<TradeImportBatchListItem>>();
 
         Assert.NotNull(historyPayload);
-        Assert.Equal(2, historyPayload.Length);
-        Assert.Equal(secondBatch.BatchId, historyPayload[0].BatchId);
-        Assert.Equal(firstBatch.BatchId, historyPayload[1].BatchId);
+        Assert.Equal(1, historyPayload.PageNumber);
+        Assert.Equal(2, historyPayload.PageSize);
+        Assert.True(historyPayload.TotalCount >= 2);
+        Assert.Equal(2, historyPayload.Items.Count);
+        Assert.Equal(secondBatch.BatchId, historyPayload.Items[0].BatchId);
+        Assert.Equal(firstBatch.BatchId, historyPayload.Items[1].BatchId);
+    }
+
+    [Fact]
+    public async Task Get_trade_import_batches_filters_by_dry_run()
+    {
+        var dryRunResponse = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                dryRun = true,
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "margaret",
+                        instrumentSymbol = "CL",
+                        side = "Buy",
+                        quantity = 1.5000m,
+                        price = 82.0000m,
+                        tradedUtc = "2025-02-08T12:00:00Z",
+                    },
+                },
+            });
+
+        dryRunResponse.EnsureSuccessStatusCode();
+        var dryRunBatch = await dryRunResponse.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        var publishResponse = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                dryRun = false,
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "grace",
+                        instrumentSymbol = "AAPL",
+                        side = "Sell",
+                        quantity = 1.0000m,
+                        price = 193.0000m,
+                        tradedUtc = "2025-02-08T12:05:00Z",
+                    },
+                },
+            });
+
+        publishResponse.EnsureSuccessStatusCode();
+        var publishBatch = await publishResponse.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        Assert.NotNull(dryRunBatch);
+        Assert.NotNull(publishBatch);
+
+        var historyResponse = await _client.GetAsync("/api/v1/trades/import-batches?pageNumber=1&pageSize=10&dryRun=true");
+        historyResponse.EnsureSuccessStatusCode();
+
+        var historyPayload = await historyResponse.Content.ReadFromJsonAsync<PagedResult<TradeImportBatchListItem>>();
+
+        Assert.NotNull(historyPayload);
+        Assert.Contains(historyPayload.Items, item => item.BatchId == dryRunBatch.BatchId);
+        Assert.DoesNotContain(historyPayload.Items, item => item.BatchId == publishBatch.BatchId);
+        Assert.All(historyPayload.Items, item => Assert.True(item.DryRun));
+    }
+
+    [Fact]
+    public async Task Get_trade_import_batch_rows_filters_by_outcome_and_stage()
+    {
+        var importResponse = await _client.PostAsJsonAsync(
+            "/api/v1/trades/import",
+            new
+            {
+                trades = new object[]
+                {
+                    new
+                    {
+                        userName = "ada",
+                        instrumentSymbol = "MSFT",
+                        side = "Buy",
+                        quantity = 1.0000m,
+                        price = 425.0000m,
+                        tradedUtc = "2025-02-08T13:00:00Z",
+                    },
+                    new
+                    {
+                        userName = "unknown-user",
+                        instrumentSymbol = "MSFT",
+                        side = "Buy",
+                        quantity = 1.0000m,
+                        price = 425.5000m,
+                        tradedUtc = "2025-02-08T13:01:00Z",
+                    },
+                },
+            });
+
+        importResponse.EnsureSuccessStatusCode();
+
+        var importPayload = await importResponse.Content.ReadFromJsonAsync<TradeImportResult>();
+
+        Assert.NotNull(importPayload);
+
+        var rowsResponse = await _client.GetAsync($"/api/v1/trades/import-batches/{importPayload.BatchId}/rows?pageNumber=1&pageSize=10&outcome=Rejected&stage=Validate");
+        rowsResponse.EnsureSuccessStatusCode();
+
+        var rowsPayload = await rowsResponse.Content.ReadFromJsonAsync<PagedResult<TradeImportBatchRowListItem>>();
+
+        Assert.NotNull(rowsPayload);
+        Assert.Equal(1, rowsPayload.PageNumber);
+        Assert.Equal(10, rowsPayload.PageSize);
+        Assert.Equal(1, rowsPayload.TotalCount);
+
+        var row = Assert.Single(rowsPayload.Items);
+        Assert.Equal(2, row.RowNumber);
+        Assert.Equal("Rejected", row.Outcome);
+        Assert.Equal("Validate", row.Stage);
+        Assert.Equal("UnknownUser", row.Code);
+        Assert.Equal("Unknown user.", row.Reason);
+        Assert.Null(row.TradeId);
     }
 }
