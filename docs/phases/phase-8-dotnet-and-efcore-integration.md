@@ -19,10 +19,10 @@
 
 ## Exercises
 
-- walk [From SQL To EF Core And Dapper](../learning/from-sql-to-efcore-and-dapper.md) and restate one EF Core path and one Dapper path in SQL terms
-- extend the API with a new query endpoint
-- eliminate an EF Core N+1 regression
-- orchestrate an EF Core write and Dapper read within a consistent flow
+- walk [From SQL To EF Core And Dapper](../learning/from-sql-to-efcore-and-dapper.md) and then complete [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
+- use [Lab 01](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/lab-01-efcore-posts-read-path.md) to trace and extend the EF Core posts read path
+- use [Lab 02](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/lab-02-dapper-trades-read-path.md) to trace and extend the Dapper trades read path
+- use [Lab 03](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/lab-03-rowversion-and-staged-ingestion.md) to reproduce optimistic concurrency and exercise a real staged trade-import path
 
 ## Expected Outcomes
 
@@ -32,6 +32,8 @@
 ## Validation Checklist
 
 - the learner can explain which earlier SQL lessons are being reused in the application query paths
-- generated SQL is inspected for at least one EF Core path
-- Dapper and EF Core paths return consistent business results
-- transaction and retry behavior is explicit in code reviews
+- at least one focused posts or trades test is rerun after a deliberate code change
+- the Dapper and EF Core read paths stay deterministic under the documented sort contract
+- the order-status write path reproduces a `409 Conflict` when the rowversion is stale
+- the trade-import path reports clear validation, duplicate, rejection, and publish outcomes
+- the staged-ingestion review pack remains available as optional reinforcement after the code labs

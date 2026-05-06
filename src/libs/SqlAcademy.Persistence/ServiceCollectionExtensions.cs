@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SqlAcademy.Persistence.Commands.Orders;
+using SqlAcademy.Persistence.Commands.Trades;
 using SqlAcademy.Persistence.Database;
 using SqlAcademy.Persistence.Infrastructure;
 using SqlAcademy.Persistence.Initialization;
@@ -34,6 +36,8 @@ public static class ServiceCollectionExtensions
 
         services.AddSingleton<ISqlConnectionFactory>(_ => new SqlConnectionFactory(connectionString));
         services.AddScoped<LearningDbInitializer>();
+        services.AddScoped<OrderWriteService>();
+        services.AddScoped<TradeImportService>();
         services.AddScoped<PostReadService>();
         services.AddScoped<TradeReadService>();
         services.AddHealthChecks()

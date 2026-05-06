@@ -29,7 +29,7 @@ That bridge maps the earlier SQL lessons to the application query paths in this 
 - [EF Core post queries](../../src/libs/SqlAcademy.Persistence/Queries/Posts/PostReadService.cs)
 - [Dapper trade queries](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
 - [Order mapping with rowversion](../../src/libs/SqlAcademy.Persistence/Database/Configurations/OrderConfiguration.cs)
-- [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
+- [Senior 002 lab bundle](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 
 ## The Right Mental Model
 

@@ -19,6 +19,7 @@ public sealed class TradeReadService(ISqlConnectionFactory connectionFactory)
             "price" => "t.Price",
             "quantity" => "t.Quantity",
             "symbol" => "i.Symbol",
+            "username" => "u.UserName",
             _ => "t.TradedUtc",
         };
 

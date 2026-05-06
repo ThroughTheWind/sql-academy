@@ -37,7 +37,7 @@ Design rules:
 | [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md) | validation pack | staged backfill and contract enforcement |
 | [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) | guided lab | plan cache, memory grants, and wait signals |
 | [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) | validation pack | concurrency, blocking, and deadlocks |
-| [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | validation pack | EF Core N+1, optimistic concurrency, and ingestion design |
+| [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab | runnable EF Core, Dapper, and rowversion labs plus a supplemental ingestion review pack |
 | [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) | validation pack | transactional outbox and delivery consistency |
 | [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) | investigation pack | posts API latency and observability triage |
 
@@ -53,8 +53,11 @@ Design rules:
 1. Read the exercise README and identify the repository anchors you need to inspect.
 2. Work through the starter material and broken example before looking at the optional solution.
 3. Use `expected-outcomes.md` and the README validation criteria as the completion contract.
+4. If the guided lab also ships a supplemental validation pack, run it after the code lab work to confirm the review tables or workbook outputs.
 
 Guided labs such as [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) do not ship with `answer.sql` plus `validation.sql`.
+
+[Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) is the main exception: it is now a guided lab bundle for Phase 8, but it keeps `answer.sql` and `validation.sql` as a supplemental review pack after the code labs.
 
 ## Investigation Pack Workflow
 

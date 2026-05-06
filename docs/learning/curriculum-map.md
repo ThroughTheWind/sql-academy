@@ -46,7 +46,7 @@ Use this matrix when you want to know what to do after reading a lesson.
 | 5 | [Lesson 06: Indexing, Execution Plans, And Parameter Sensitivity](06-indexing-execution-plans-and-parameter-sensitivity.md) | [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) | validation pack | indexing, plan stability, and rollout safety |
 | 6 | [Lesson 07: SQL Server Internals](07-sql-server-internals.md) | [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) | guided lab | tagged workload, plan cache, storage pages, and wait signals |
 | 7 | [Lesson 08: Operational Engineering And Release Safety](08-operational-engineering-and-release-safety.md) | [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) | investigation pack | use logs, metrics, traces, and a written investigation rather than `answer.sql` |
-| 8 | [Lesson 09: EF Core, Dapper, And Query Shape](09-ef-core-dapper-and-query-shape.md) | [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | validation pack | structured review tables for N+1, rowversion, and staged ingestion |
+| 8 | [Lesson 09: EF Core, Dapper, And Query Shape](09-ef-core-dapper-and-query-shape.md) | [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab | runnable EF Core, Dapper, and rowversion labs followed by a supplemental ingestion review pack |
 | 8 | [Lesson 10: Observability, Testing, And Performance Engineering](10-observability-testing-and-performance-engineering.md) | [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) and [SqlAcademy.IntegrationTests](../../tests/SqlAcademy.IntegrationTests) | investigation and code review | combines observability with executable validation surfaces |
 | 9 | [Lesson 11: Capstones And Interview Readiness](11-capstones-and-interview-readiness.md) | [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) plus a capstone from [Phase 9](../phases/phase-9-capstone-projects.md) | validation pack and capstone | final synthesis |
 
@@ -72,4 +72,4 @@ Use these only if you already know your gap and you are willing to rejoin the ma
 
 - Lesson 01 now uses [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) as the dedicated fundamentals validation pack.
 - Lesson 07 now uses [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) as the concrete internals lab.
-- [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) is now a validation pack.
+- [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) is now a guided lab bundle with a supplemental validation pack.

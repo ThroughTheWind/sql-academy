@@ -54,7 +54,7 @@ Use this ladder if you want a clear progression from the README without browsing
 7. [Advanced 002: Staged Backfill And Contract Enforcement](src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
 8. [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
 9. [Senior 001: Concurrency, Blocking, And Deadlocks](src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
-10. [Senior 002: EF Core Concurrency And Bulk Ingestion](src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
+10. [Senior 002: EF Core, Dapper, Concurrency, And Bulk Ingestion Labs](src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 11. [Senior 003: Transactional Outbox And Delivery Consistency](src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 12. [Senior 004: Posts API Latency And Observability Triage](src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 
@@ -70,7 +70,7 @@ Use this ladder if you want a clear progression from the README without browsing
 
 Validation-ready packs include `answer.sql` and `validation.sql` so learners can self-check quickly.
 
-That workflow now covers Beginner 000-002, Intermediate 001-002, Advanced 001-002, and Senior 001-003.
+That workflow now covers Beginner 000-002, Intermediate 001-002, Advanced 001-002, Senior 001, Senior 003, and the supplemental review pack inside Senior 002.
 
 Run the harness with:
 

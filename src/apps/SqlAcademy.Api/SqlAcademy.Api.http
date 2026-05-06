@@ -10,6 +10,37 @@ Accept: application/json
 
 ###
 
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/trades?pageNumber=1&pageSize=5&sortBy=userName&sortDirection=Asc
+Accept: application/json
+
+###
+
+POST {{SqlAcademy.Api_HostAddress}}/api/v1/trades/import
+Content-Type: application/json
+
+{
+	"trades": [
+		{
+			"userName": "ada",
+			"instrumentSymbol": "MSFT",
+			"side": "Buy",
+			"quantity": 12.5,
+			"price": 430.1,
+			"tradedUtc": "2025-02-07T09:00:00Z"
+		},
+		{
+			"userName": "grace",
+			"instrumentSymbol": "AAPL",
+			"side": "Sell",
+			"quantity": 3.0,
+			"price": 191.3,
+			"tradedUtc": "2025-02-07T09:05:00Z"
+		}
+	]
+}
+
+###
+
 GET {{SqlAcademy.Api_HostAddress}}/health/ready
 Accept: application/json
 

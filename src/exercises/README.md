@@ -28,7 +28,7 @@ Exercises currently ship in three supported modes:
 | [Advanced 002](Advanced/002-staged-backfill-and-contract-enforcement/README.md) | validation pack |
 | [Advanced 003](Advanced/003-plan-cache-memory-grants-and-waits/README.md) | guided lab |
 | [Senior 001](Senior/001-concurrency-blocking-and-deadlocks/README.md) | validation pack |
-| [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | validation pack |
+| [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab |
 | [Senior 003](Senior/003-transactional-outbox-and-delivery-consistency/README.md) | validation pack |
 | [Senior 004](Senior/004-posts-api-latency-and-observability-triage/README.md) | investigation pack |
 
@@ -43,13 +43,14 @@ The following packs include `answer.sql` and `validation.sql`:
 - [Intermediate 001](Intermediate/001-window-functions-and-pagination/README.md)
 - [Advanced 002](Advanced/002-staged-backfill-and-contract-enforcement/README.md)
 - [Advanced 001](Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
-- [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
+- [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as a supplemental review pack inside the guided lab bundle
 - [Senior 003](Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - [Senior 001](Senior/001-concurrency-blocking-and-deadlocks/README.md)
 
 The current non-validation packs are:
 
 - [Advanced 003](Advanced/003-plan-cache-memory-grants-and-waits/README.md) as a guided lab
+- [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as a guided lab bundle with a supplemental review pack
 - [Senior 004](Senior/004-posts-api-latency-and-observability-triage/README.md) as an investigation pack
 
 Run the validation harness with:
