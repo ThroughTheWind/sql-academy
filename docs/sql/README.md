@@ -59,11 +59,56 @@ Coverage targets:
 ## Fast Jumps By Need
 
 - need the first hands-on SQL correctness pack: [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)
+- need schema design and rollout-safe change practice: [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md) and [db/migrations](../../db/migrations/README.md)
 - need API-facing SQL shape and stable paging: [Intermediate 001](../../src/exercises/Intermediate/001-window-functions-and-pagination/README.md) and [TradeReadService](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
+- need concurrency, blocking, or deadlock reasoning: [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) and [Operations Track](../operations/README.md)
 - need tuning and plan reasoning: [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) and [Performance Track](../performance/README.md)
 - need engine-behavior hypothesis work: [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
 - need persisted regression evidence and Query Store workflow: [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 - need production-style SQL triage: [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) and [Operations Track](../operations/README.md)
+
+## Executable Repo Anchors
+
+The SQL route is supported by concrete code and tests so the learner can validate a claim instead of stopping at theory.
+
+- [TradeReadService](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs) is the clearest explicit SQL and paging anchor in the application code
+- [TradeImportBatchReadService](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeImportBatchReadService.cs) shows queryable staged-ingestion review and batch-history access
+- [TradesEndpointTests](../../tests/SqlAcademy.IntegrationTests/Api/TradesEndpointTests.cs) validate the application-facing contract on a SQL-shaped read path
+- [QueryPerformanceComparisonTests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs) compare equivalent EF Core and Dapper work against the same underlying trade-page scenario
+- [QueryStoreLabSmokeTests](../../tests/SqlAcademy.PerformanceTests/QueryStoreLabSmokeTests.cs) verify the Query Store lab captures the tagged workload it is supposed to diagnose
+- [DeadlockReproductionTests](../../tests/SqlAcademy.PerformanceTests/DeadlockReproductionTests.cs) intentionally hands off concurrency reproduction to the guided lab rather than pretending a skipped test is sufficient
+- [db/performance](../../db/performance/README.md) is the scratch surface for ad hoc SQL Server performance scripts that support the formal packs
+
+## Working Sequence In This Repo
+
+Use this page with a SQL-first workflow:
+
+1. name the exact result contract or production symptom you are trying to explain
+2. locate the owning query, schema object, or exercise pack before changing anything
+3. validate the current shape against seed data, tests, or a focused lab surface
+4. collect the relevant evidence such as result shape, plan, Query Store history, or concurrency symptoms
+5. make one SQL or index change at a time
+6. rerun the same validation surface before moving into broader application or operational questions
+
+## Fast Validation Commands
+
+Use these when you want an executable anchor instead of a doc-only reminder:
+
+```bash
+powershell -ExecutionPolicy Bypass -File infra/scripts/run-exercise-validation.ps1 -Exercise src/exercises/Beginner/001-joins-and-aggregations
+powershell -ExecutionPolicy Bypass -File infra/scripts/run-exercise-validation.ps1 -Exercise src/exercises/Senior/001-concurrency-blocking-and-deadlocks
+dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~TradesEndpointTests"
+dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~QueryPerformanceComparisonTests"
+dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~QueryStoreLabSmokeTests"
+```
+
+## Bridge To Performance, Operations, And EF Core
+
+This page stays closest to raw SQL reasoning, but it is not isolated from the other tracks.
+
+- use [Performance Track](../performance/README.md) when the question becomes measurement discipline, Query Store, waits, benchmarks, or regression evidence
+- use [Operations Track](../operations/README.md) when the same SQL issue becomes a release, telemetry, or incident-response problem
+- use [EF Core Track](../efcore/README.md) when the underlying SQL behavior is now being expressed through LINQ, `AsNoTracking()`, `rowversion`, or hybrid EF-plus-Dapper code
 
 ## Linked Exercises
 

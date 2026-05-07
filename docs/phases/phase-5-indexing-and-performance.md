@@ -23,6 +23,11 @@
 - compare EF Core and Dapper on the same read path
 - work through [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) when the question is about persisted plan and runtime history rather than one cache snapshot
 
+## Reference Tracks
+
+- use [Performance Track](../performance/README.md) for Query Store workflow, performance tests, benchmarks, and tuning-oriented repo anchors
+- use [EF Core Track](../efcore/README.md) when the comparison shifts from SQL plans into tracking, projection, or generated-SQL behavior
+
 ## Expected Outcomes
 
 - the learner can explain why a plan changed, not just that it changed

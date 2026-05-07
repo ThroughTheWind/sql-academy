@@ -21,6 +21,11 @@
 - trace an API regression through logs and metrics
 - capture a release playbook for a schema change with backfill concerns
 
+## Reference Tracks
+
+- use [Operations Track](../operations/README.md) for release checklists, smoke surfaces, telemetry anchors, and CI guardrails
+- use [Performance Track](../performance/README.md) when the incident hypothesis becomes latency, Query Store evidence, or query-shape regression
+
 ## Expected Outcomes
 
 - the learner can describe what makes a migration safe in production

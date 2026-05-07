@@ -25,6 +25,12 @@
 - use [Lab 03](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/lab-03-rowversion-and-staged-ingestion.md) to reproduce optimistic concurrency, exercise a real staged trade-import path, and inspect persisted batch history after publish
 - use [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) as the focused generated-SQL and N+1 follow-up on the posts read path when you need stronger evidence than code inspection alone
 
+## Reference Tracks
+
+- use [EF Core Track](../efcore/README.md) for code and test anchors around projections, tracking, concurrency, migrations, and staged imports
+- use [Performance Track](../performance/README.md) when the concern becomes generated SQL, tracking cost, or a fair EF Core versus Dapper comparison
+- use [Operations Track](../operations/README.md) when the same application change needs rollout, telemetry, or incident-triage context
+
 ## Expected Outcomes
 
 - the learner can reason from LINQ and Dapper code to the SQL Server behavior underneath

@@ -21,6 +21,15 @@ These documents define the ordered curriculum path from local setup through caps
 - use the linked lesson docs in [Learning Docs](../learning/README.md) for subject-level teaching material
 - use the exercise packs in [Exercise System](../exercises/README.md) for hands-on practice
 
+## Reference Tracks
+
+The phase docs define order and exit criteria. Use the track pages when you already know the topic area and need faster repo anchors.
+
+- [SQL Track](../sql/README.md) is the fastest lookup surface for query design, schema, concurrency, and engine-behavior questions
+- [Performance Track](../performance/README.md) becomes the better surface once the question is about measurement, plans, Query Store, or benchmarks
+- [Operations Track](../operations/README.md) becomes the better surface once the question is about bootstrap, readiness, release safety, or incident response
+- [EF Core Track](../efcore/README.md) becomes the better surface once the question moves into application query paths, tracking, or hybrid data access
+
 ## Fast Jumps
 
 - SQL foundation: [Phase 1](phase-1-sql-fundamentals.md) and [Phase 2](phase-2-intermediate-querying.md)

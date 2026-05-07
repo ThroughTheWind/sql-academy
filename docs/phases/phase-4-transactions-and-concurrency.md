@@ -22,6 +22,11 @@
 - analyze and retry a deadlock scenario
 - trigger an optimistic concurrency conflict in EF Core and recover safely
 
+## Reference Tracks
+
+- use [Operations Track](../operations/README.md) when blocking or deadlock work needs telemetry, smoke-test, or incident-triage context
+- use [EF Core Track](../efcore/README.md) when the concurrency question is really about `rowversion`, conflict handling, or application write-path design
+
 ## Expected Outcomes
 
 - the learner can explain when a transaction boundary is too large or too small

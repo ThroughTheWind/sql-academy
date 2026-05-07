@@ -2,30 +2,90 @@
 
 This is the documentation landing page for SqlAcademy.
 
-If you are here to learn rather than inspect the repository structure, start with [Curriculum Map](learning/curriculum-map.md) and then use the topic sections below as secondary reference surfaces.
+If you are here to learn rather than inspect the repository structure, start with [Curriculum Map](learning/curriculum-map.md). Use this page when you need to choose the right documentation surface quickly instead of browsing the repo tree or guessing which README owns a topic.
+
+Do not treat this page as a second curriculum map. It is the routing layer for the docs set.
 
 ## Start Here
 
-1. [Curriculum Map](learning/curriculum-map.md)
-2. [How To Start](learning/how-to-start.md)
+1. [How To Start](learning/how-to-start.md)
+2. [Curriculum Map](learning/curriculum-map.md)
 3. [Learning Docs](learning/README.md)
 4. [Phase Guides](phases/README.md)
 5. [Exercise System](exercises/README.md)
 6. [Learning Glossary](learning/glossary.md)
 
+## What Each Surface Is For
+
+| Surface | Use It For | Best Entry Point | Do Not Use It For |
+| --- | --- | --- | --- |
+| learner path | ordered teaching route across lessons and phases | [Curriculum Map](learning/curriculum-map.md) | codebase architecture lookup |
+| lesson docs | subject-level teaching material and checkpoints | [Learning Docs](learning/README.md) | stage-level exit criteria only |
+| phase docs | milestones, outcomes, and validation expectations | [Phase Guides](phases/README.md) | detailed teaching on one SQL or EF Core topic |
+| exercise docs | hands-on packs, lab modes, and validation flow | [Exercise System](exercises/README.md) | replacing the lesson sequence |
+| SQL reference | SQL Server concept lookup and concrete SQL anchors | [SQL Track](sql/README.md) | LINQ or application-abstraction questions |
+| EF Core reference | application-side query shape, tracking, and hybrid data access | [EF Core Track](efcore/README.md) | first-time SQL learning |
+| performance reference | measurement, plans, Query Store, and regression evidence | [Performance Track](performance/README.md) | release sequencing and rollback posture |
+| operations reference | bootstrap, readiness, telemetry, release safety, and incidents | [Operations Track](operations/README.md) | plan analysis without runtime context |
+| architecture summary | solution layout, services, and platform boundaries | [Repository Architecture](../README.md#initial-architecture) | ordered teaching flow |
+
+## Recommended Routes
+
+Use one of these routes based on the question you are trying to answer.
+
+- default learning route: [How To Start](learning/how-to-start.md), [Curriculum Map](learning/curriculum-map.md), the current lesson in [Learning Docs](learning/README.md), then the matching pack in [Exercise System](exercises/README.md)
+- SQL-first route: [SQL Track](sql/README.md), then the linked lesson or exercise, then return to [Curriculum Map](learning/curriculum-map.md)
+- EF Core and application-data route: [From SQL To EF Core And Dapper](learning/from-sql-to-efcore-and-dapper.md), then [EF Core Track](efcore/README.md), then the linked labs or tests
+- tuning and regression route: [Performance Track](performance/README.md), then the linked performance tests, benchmarks, or advanced labs
+- release and incident route: [Operations Track](operations/README.md), then the relevant phase doc, smoke surface, or investigation pack
+
 ## Topic Navigation
 
-| Topic | Use It For | Best Entry Point |
-| --- | --- | --- |
-| SQL | query design, schema, concurrency, and internals | [SQL Track](sql/README.md) |
-| EF Core | DbContext, Dapper, tracking, and query-shape learning | [EF Core Track](efcore/README.md) |
-| Performance | execution plans, benchmark thinking, and tuning | [Performance Track](performance/README.md) |
-| Operations | migration safety, telemetry, and release discipline | [Operations Track](operations/README.md) |
-| Architecture | repository structure and runtime boundaries | [Repository Architecture](../README.md#initial-architecture) |
-| Exercises | hands-on packs and validation flow | [Exercise System](exercises/README.md) |
-| Phases | ordered curriculum progression | [Phase Guides](phases/README.md) |
+| Topic | Use It For | Best Entry Point | Companion Surface |
+| --- | --- | --- | --- |
+| SQL | query design, schema, concurrency, and internals | [SQL Track](sql/README.md) | [Phase Guides](phases/README.md) |
+| EF Core | DbContext, Dapper, tracking, and query-shape learning | [EF Core Track](efcore/README.md) | [From SQL To EF Core And Dapper](learning/from-sql-to-efcore-and-dapper.md) |
+| Performance | execution plans, benchmarks, and tuning evidence | [Performance Track](performance/README.md) | [Lesson 10](learning/10-observability-testing-and-performance-engineering.md) |
+| Operations | migration safety, telemetry, and release discipline | [Operations Track](operations/README.md) | [Phase 7](phases/phase-7-operational-engineering.md) |
+| Exercises | hands-on packs, labs, and validation modes | [Exercise System](exercises/README.md) | [Follow-Up Exercises By Level](learning/follow-up-exercises-by-level.md) |
+| Phases | ordered stage progression and exit criteria | [Phase Guides](phases/README.md) | [Curriculum Map](learning/curriculum-map.md) |
+| Architecture | repository structure and runtime boundaries | [Repository Architecture](../README.md#initial-architecture) | [README](../README.md) |
 
 The architecture summary currently lives in the root [README](../README.md#initial-architecture) instead of a separate docs page.
+
+## Fast Jumps By Job
+
+- need the authoritative lesson order: [Curriculum Map](learning/curriculum-map.md)
+- need first-run local setup: [How To Start](learning/how-to-start.md) and [Phase 0](phases/phase-0-local-setup.md)
+- need the stage objectives before you start working: [Phase Guides](phases/README.md)
+- need a hands-on pack right now: [Exercise System](exercises/README.md)
+- need a SQL-only reference path: [SQL Track](sql/README.md)
+- need EF Core, Dapper, or application-side query-shape guidance: [EF Core Track](efcore/README.md)
+- need tuning, Query Store, or comparative measurement: [Performance Track](performance/README.md)
+- need release safety, telemetry, or incident-style debugging: [Operations Track](operations/README.md)
+- need a term defined quickly: [Learning Glossary](learning/glossary.md)
+
+## Validation And Runtime Anchors
+
+This repository is meant to be exercised, not only read.
+
+- [docker-compose.yml](../docker-compose.yml) is the main local platform entry point
+- [run-exercise-validation.ps1](../infra/scripts/run-exercise-validation.ps1) is the repeatable validation harness for validation-ready packs
+- [SqlAcademy.UnitTests](../tests/SqlAcademy.UnitTests) provides narrow in-process contract checks
+- [SqlAcademy.IntegrationTests](../tests/SqlAcademy.IntegrationTests) provides API and persistence boundary checks
+- [SqlAcademy.PerformanceTests](../tests/SqlAcademy.PerformanceTests) provides comparative performance and lab-smoke validation
+- [SqlAcademy.Benchmarks](../tests/SqlAcademy.Benchmarks) provides focused benchmark surfaces
+- `/health/live`, `/health/ready`, and `/metrics` are the main runtime smoke surfaces exposed by the API
+
+## Documentation Boundaries
+
+Keep these boundaries in mind so you do not use the wrong surface for the wrong question.
+
+- [Learning Docs](learning/README.md) teach in order
+- track pages such as [SQL Track](sql/README.md), [EF Core Track](efcore/README.md), [Performance Track](performance/README.md), and [Operations Track](operations/README.md) are topic-reference surfaces
+- [Phase Guides](phases/README.md) define outcomes and exit criteria
+- [Exercise System](exercises/README.md) explains how the hands-on packs are organized and validated
+- the root [README](../README.md) owns architecture, platform, and repository-shape explanation
 
 ## Recommended Learner Flow
 
