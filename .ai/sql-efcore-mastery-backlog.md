@@ -21,7 +21,7 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 | --- | --- | --- | --- | --- | --- |
 | B001 | P0 | completed | scope and public promise | make the mastery target explicit and separate the core route from optional DBA specialization | implemented in `README.md`, `ACADEMY_ROADMAP.md`, `docs/sql/README.md`, and `docs/efcore/README.md` |
 | B002 | P1 | completed | advanced SQL curriculum | add a Query Store and regression-triage exercise with concrete scripts and validation criteria | guided lab scaffold added under `src/exercises/Advanced/004-query-store-and-regression-triage`, wired into Lesson 06 and Lesson 07, and backed by `QueryStoreLabSmokeTests.cs` |
-| B003 | P1 | in-progress | EF Core depth | add an EF Core N+1 and generated-SQL investigation lab | guided lab scaffold added under `src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation`; broader exercise wiring and any executable companion checks still pending |
+| B003 | P1 | completed | EF Core depth | add an EF Core N+1 and generated-SQL investigation lab | guided lab wired through Lesson 09, Phase 8, track and exercise indexes, and senior assessment routing; focused companion checks use `PostsEndpointTests` plus `TrackingBehaviorTests` |
 | B004 | P1 | not-started | data realism | add larger-cardinality seed or workload variants for tuning and plan-stability lessons | required for stronger statistics and regression work |
 | B005 | P1 | not-started | senior diagnostics | add a deadlock-graph interpretation lab with retry-policy reasoning | should extend the current concurrency pack instead of replacing it |
 | B006 | P2 | not-started | release engineering | add a release-readiness drill that combines migration safety, telemetry checks, and rollback gates | belongs near operational engineering |
@@ -34,16 +34,12 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 
 - B001: scope clarification and public promise cleanup
 - B002: Query Store guided lab wired into the lesson route and covered by a starter-script smoke test
-
-### In Progress
-
-- B003: EF Core N+1 and generated-SQL investigation scaffold added under `src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation`
+- B003: EF Core N+1 and generated-SQL investigation lab wired through the learner route, with focused companion checks using `PostsEndpointTests` and `TrackingBehaviorTests`
 
 ### Next Recommended Slice
 
-- wire B003 through the remaining EF Core learner surfaces as needed
-- decide whether B003 should gain a narrow executable companion check beyond the guided lab workflow
 - start B004 with a larger-cardinality seed or workload variant for tuning and plan-stability lessons
+- start B007 by extending reusable executable companions where more guided labs can reuse them cleanly
 
 ## Acceptance Checks
 

@@ -40,6 +40,7 @@ Design rules:
 | [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab | runnable EF Core, Dapper, and rowversion labs plus a supplemental ingestion review pack |
 | [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) | validation pack | transactional outbox and delivery consistency |
 | [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) | investigation pack | posts API latency and observability triage |
+| [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | guided lab | EF Core generated-SQL inspection and disposable N+1 regression investigation |
 
 ## Validation Workflow For Validation Packs
 
@@ -58,6 +59,8 @@ Design rules:
 Guided labs such as [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) do not ship with `answer.sql` plus `validation.sql`.
 
 [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) is the main exception: it is now a guided lab bundle for Phase 8, but it keeps `answer.sql` and `validation.sql` as a supplemental review pack after the code labs.
+
+[Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) is the focused guided-lab follow-up when you want explicit generated-SQL inspection and a disposable N+1 experiment around the posts read path.
 
 ## Investigation Pack Workflow
 

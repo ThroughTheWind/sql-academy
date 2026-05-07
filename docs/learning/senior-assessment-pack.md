@@ -11,6 +11,7 @@ Use this pack after Lessons 08 through 11. It checks whether you can connect rel
 - [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 - [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
+- [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md)
 
 ## How To Use This Pack
 
