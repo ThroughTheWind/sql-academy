@@ -62,6 +62,24 @@ public sealed class OperationsRunbookAssetTests
         Assert.True(outboxText.Contains("Senior 003", StringComparison.OrdinalIgnoreCase));
     }
 
+    [Fact]
+    public async Task Query_store_runbook_keeps_persisted_regression_checklist_aligned()
+    {
+        var runbookPath = ResolveRepositoryPath(
+            "docs",
+            "operations",
+            "query-store-regression-runbook.md");
+
+        var runbookText = await File.ReadAllTextAsync(runbookPath);
+
+        Assert.True(runbookText.Contains("Scope The Query Store Window", StringComparison.OrdinalIgnoreCase));
+        Assert.True(runbookText.Contains("Isolate The Query And Plan History", StringComparison.OrdinalIgnoreCase));
+        Assert.True(runbookText.Contains("plan forcing", StringComparison.OrdinalIgnoreCase));
+        Assert.True(runbookText.Contains("query_id", StringComparison.OrdinalIgnoreCase));
+        Assert.True(runbookText.Contains("QueryStoreLabSmokeTests", StringComparison.OrdinalIgnoreCase));
+        Assert.True(runbookText.Contains("Advanced 004", StringComparison.OrdinalIgnoreCase));
+    }
+
     private static string ResolveRepositoryPath(params string[] relativeSegments)
     {
         var currentDirectory = new DirectoryInfo(AppContext.BaseDirectory);

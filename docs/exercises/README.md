@@ -42,6 +42,7 @@ Design rules:
 | [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) | investigation pack | posts API latency and observability triage |
 | [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | guided lab | EF Core generated-SQL inspection and disposable N+1 regression investigation |
 | [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) | investigation pack | release readiness, migration safety, telemetry checks, and rollback gates |
+| [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md) | investigation pack | backup posture, restore verification, and recovery proof |
 
 ## Validation Workflow For Validation Packs
 
@@ -74,3 +75,5 @@ Guided labs such as [Advanced 003](../../src/exercises/Advanced/003-plan-cache-m
 Investigation packs such as [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) use Markdown evidence snapshots and narrative output instead of a single SQL answer file.
 
 [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) is the release-readiness investigation pack when you need a go or no-go decision, a first-five-minutes watch plan, and explicit rollback or roll-forward gates before deployment begins.
+
+[Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md) is the optional DBA or DBRE recovery-verification investigation pack when backup posture, restore drills, and post-restore proof need to be defended from evidence instead of assumptions.

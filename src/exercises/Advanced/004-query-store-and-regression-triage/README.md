@@ -39,4 +39,5 @@ The read path feels slower than it did earlier in the week. Plan cache only show
 ## Companion Material
 
 - [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](../003-plan-cache-memory-grants-and-waits/README.md)
+- [Query Store Regression Runbook](../../../../docs/operations/query-store-regression-runbook.md)
 - [Performance Track](../../../../docs/performance/README.md)

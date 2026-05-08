@@ -66,18 +66,21 @@ Coverage targets:
 - need a go or no-go release drill before a schema-affecting window opens: [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md), [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md), and [OpenTelemetry setup](../../src/libs/SqlAcademy.Observability/OpenTelemetryServiceCollectionExtensions.cs)
 - need a printable release checklist for a change window: [Release Runbook](release-runbook.md)
 - need a first-five-minutes watch plan for a release: [Lesson 08](../learning/08-operational-engineering-and-release-safety.md), [Prometheus config](../../infra/observability/prometheus.yml), and [OpenTelemetry setup](../../src/libs/SqlAcademy.Observability/OpenTelemetryServiceCollectionExtensions.cs)
+- need a printable Query Store regression checklist: [Query Store Regression Runbook](query-store-regression-runbook.md)
 - need to reproduce or reason about blocking and deadlocks: [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md), [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md), and [DeadlockReproductionTests](../../tests/SqlAcademy.PerformanceTests/DeadlockReproductionTests.cs)
 - need a printable deadlock-response checklist: [Deadlock Response Runbook](deadlock-response-runbook.md)
 - need an idempotent consistency check for a data-moving workflow: [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - need a printable outbox consistency checklist: [Outbox Delivery Consistency Runbook](outbox-delivery-runbook.md)
 - need to narrow a slow-but-healthy API incident: [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) and [PostsEndpointTests](../../tests/SqlAcademy.IntegrationTests/Api/PostsEndpointTests.cs)
 - need a printable incident narrowing checklist: [Incident Triage Runbook](incident-triage-runbook.md)
+- need backup and restore recovery verification after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md)
 - need optional DBA or DBRE specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md)
 - need a repeatable validation or CI baseline: [run-exercise-validation.ps1](../../infra/scripts/run-exercise-validation.ps1), [ci.yml](../../.github/workflows/ci.yml), and [docker-validation.yml](../../.github/workflows/docker-validation.yml)
 
 ## Printable Runbooks
 
 - [Release Runbook](release-runbook.md) compresses the Senior 006 release decision and first-five-minutes watch plan into a one-page change-window checklist.
+- [Query Store Regression Runbook](query-store-regression-runbook.md) compresses the Advanced 004 persisted-regression workflow into a one-page Query Store checklist.
 - [Deadlock Response Runbook](deadlock-response-runbook.md) compresses the Senior 001 blocking and deadlock response loop into a one-page concurrency checklist.
 - [Outbox Delivery Consistency Runbook](outbox-delivery-runbook.md) compresses the Senior 003 idempotent outbox and deterministic dispatch contract into a one-page delivery checklist.
 - [Incident Triage Runbook](incident-triage-runbook.md) compresses the Senior 004 boundary-narrowing flow into a one-page degraded-service checklist.
@@ -111,6 +114,7 @@ powershell -ExecutionPolicy Bypass -File infra/scripts/run-exercise-validation.p
 dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~PostsEndpointTests"
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~QueryStoreLabSmokeTests"
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~OperationsRunbookAssetTests"
+dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~BackupRestoreRecoveryDrillAssetTests"
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~ReleaseReadinessDrillAssetTests"
 ```
 
@@ -124,6 +128,7 @@ Use `docker compose config` when you want a quick structural check before starti
 - [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 - [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md)
+- [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md)
 
 ## Bridge To SQL, Performance, And EF Core
 
