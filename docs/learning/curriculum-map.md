@@ -10,6 +10,8 @@ It does not assume DBA experience, but it does assume comfort with code, source 
 
 If SQL syntax and local tooling are both new, slow the route down and stay in Lesson 01, the glossary, and Beginner 000 until the basics feel predictable.
 
+If you want a smaller day-one target before this full route, start with [SQL-First Day One](sql-first-day-one.md) and keep [Schema Quick Reference](schema-quick-reference.md) nearby.
+
 ## Default Guided Route
 
 1. [How To Start](how-to-start.md)

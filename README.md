@@ -30,10 +30,11 @@ If you want the default guided route through the repository, start here:
 
 If SQL is still brand new, move more slowly than the sample pacing and treat Lesson 01, the glossary, and Beginner 000 as the first checkpoint before you continue deeper into the route.
 
-1. Read the [How To Start guide](docs/learning/how-to-start.md).
-2. Complete [Phase 0: Local Setup](docs/phases/phase-0-local-setup.md).
-3. Use [Curriculum Map](docs/learning/curriculum-map.md) as the single source of truth for lesson order, companion practice, and validation mode.
-4. Use the [Exercise System](docs/exercises/README.md) only when you need the full exercise ladder or validation rules.
+1. If you want the lightest first session, start with [SQL-First Day One](docs/learning/sql-first-day-one.md).
+2. Read the [How To Start guide](docs/learning/how-to-start.md).
+3. Complete [Phase 0: Local Setup](docs/phases/phase-0-local-setup.md).
+4. Use [Curriculum Map](docs/learning/curriculum-map.md) as the single source of truth for lesson order, companion practice, and validation mode.
+5. Use the [Exercise System](docs/exercises/README.md) only when you need the full exercise ladder or validation rules.
 
 ## Alternate Entry Points
 
@@ -54,6 +55,8 @@ Use [Curriculum Map](docs/learning/curriculum-map.md) for the authoritative sequ
 
 Use the [Learning Glossary](docs/learning/glossary.md) when vocabulary slows you down, and use the checkpoint section at the end of each lesson before moving on.
 
+- [SQL-First Day One](docs/learning/sql-first-day-one.md) is the lowest-friction first-query guide.
+- [Schema Quick Reference](docs/learning/schema-quick-reference.md) is the compact first-lessons table and relationship map.
 - [Curriculum Map](docs/learning/curriculum-map.md) is the main learner progression map.
 - [Phase Guides](docs/phases/README.md) define the objectives and exit criteria for each stage.
 - [Exercise System](docs/exercises/README.md) explains the ladder, validation workflow, and exercise modes.

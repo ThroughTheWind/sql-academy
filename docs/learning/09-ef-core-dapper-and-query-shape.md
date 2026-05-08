@@ -21,6 +21,17 @@ If Phase 8 feels like a context shift, read [From SQL To EF Core And Dapper](fro
 
 That bridge maps the earlier SQL lessons to the application query paths in this repository so you can keep reasoning from query shape rather than from library preference.
 
+## Suggested Time Budget
+
+- 75 to 120 minutes to read the lesson, inspect one EF Core path and one Dapper path, and restate the SQL contract each one is trying to express
+- longer if generated SQL inspection and optimistic concurrency are newer than the earlier pure-SQL lessons
+
+## If You Get Stuck Early
+
+- translate the code back into base rowset, filters, sort order, pagination, and projection before you argue about libraries
+- inspect one concern at a time: read shape, tracking, paging, or concurrency, rather than all of them at once
+- return to [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md) and use [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) only after the query contract is already clear
+
 ## Repository Anchors
 
 - [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md)

@@ -4,6 +4,23 @@
 
 Learn how to validate behavior, compare implementations, and observe the running system instead of relying on intuition alone. This lesson turns “I think it works” into a disciplined feedback loop.
 
+## Before You Start
+
+- be comfortable with the earlier lessons on query shape, measurement, release observation, and application data-access tradeoffs
+- keep [Learning Glossary](glossary.md) open if terms such as trace, benchmark, integration test, or telemetry are still slow
+- expect to map each engineering claim to the narrowest proof surface instead of reaching for every testing layer at once
+
+## Suggested Time Budget
+
+- 75 to 120 minutes to read the lesson, inspect the existing tests and telemetry wiring, and map one claim to one validation surface
+- longer if observability and test taxonomy are newer than query-writing itself
+
+## If You Get Stuck Early
+
+- write down the claim first, then choose the narrowest surface that could prove or disprove it
+- do not compare performance until you are sure both paths do equivalent work
+- use the existing unit, integration, performance, and benchmark surfaces as examples before you invent a new validation layer
+
 ## Why This Lesson Matters
 
 Engineering maturity is not only about writing code or queries. It is also about proving claims such as:

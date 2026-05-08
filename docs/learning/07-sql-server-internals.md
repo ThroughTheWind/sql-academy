@@ -4,6 +4,23 @@
 
 Build the minimum internal model needed to debug non-obvious database behavior. The goal is not to become a storage-engine specialist. The goal is to stop treating the database as a black box when performance or concurrency symptoms appear.
 
+## Before You Start
+
+- finish [Lesson 06](06-indexing-execution-plans-and-parameter-sensitivity.md) so plans, reads, and parameter-sensitive behavior already feel concrete
+- keep [Learning Glossary](glossary.md) open if terms such as cardinality, memory grant, spill, or wait are still slow
+- expect hypothesis-driven debugging, not trivia collection
+
+## Suggested Time Budget
+
+- 75 to 120 minutes to read the lesson, inspect one realistic query path, and compare your prediction with the observed plan or waits
+- longer if internals is your first exposure to engine-level reasoning
+
+## If You Get Stuck Early
+
+- start with one symptom, one likely internal cause, and one check that could disprove it
+- do not try to memorize every DMV before you can explain what kind of evidence you actually need
+- use [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) only after plan reuse, row estimates, and waits already make sense at a high level
+
 ## Why This Lesson Matters
 
 Without internal intuition, performance debugging turns into guesswork. You see “slow query” and jump between random ideas:

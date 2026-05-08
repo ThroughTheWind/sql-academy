@@ -17,6 +17,36 @@ Build confidence with projection, filtering, deterministic ordering, and constra
 3. Solve one temp-table task at a time instead of trying to finish all three in one pass.
 4. Open `hints.md` only after you can explain what your current query is doing wrong.
 
+## Sample Sanity Checks
+
+Your answer should line up with these sample facts before you run the harness.
+
+`#lesson01_user_directory` should begin like this:
+
+| DisplayOrder | UserName | Email |
+| --- | --- | --- |
+| 1 | `ada` | `ada@sqlacademy.local` |
+| 2 | `grace` | `grace@sqlacademy.local` |
+| 3 | `linus` | `linus@sqlacademy.local` |
+| 4 | `margaret` | `margaret@sqlacademy.local` |
+
+`#lesson01_recent_actionable_orders` should contain only these two rows in this review order:
+
+| ReviewRank | OrderNumber | Status | TotalAmount |
+| --- | --- | --- | --- |
+| 1 | `ORD-2025-0003` | `Pending` | `143.00` |
+| 2 | `ORD-2025-0002` | `Submitted` | `980.10` |
+
+`#lesson01_candidate_user_decisions` should classify the staging rows like this:
+
+| CandidateRowId | DecisionCode |
+| --- | --- |
+| 1 | `ReadyToInsert` |
+| 2 | `DuplicateUserName` |
+| 3 | `DuplicateEmail` |
+| 4 | `MissingUserName` |
+| 5 | `MissingEmail` |
+
 ## If You Get Stuck
 
 - go back to the read-only inspection queries in [Lesson 01](../../../../docs/learning/01-sql-fundamentals.md) if table purpose or row ordering still feels unclear

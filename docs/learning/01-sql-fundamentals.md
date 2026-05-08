@@ -35,6 +35,7 @@ If you cannot predict what a basic `SELECT`, `INSERT`, `UPDATE`, or `DELETE` wil
 ## Repository Anchors
 
 - [Phase 1: SQL Fundamentals](../phases/phase-1-sql-fundamentals.md)
+- [Schema Quick Reference](schema-quick-reference.md)
 - [LearningDb schema bootstrap](../../db/schemas/001_create_learning_db.sql)
 - [Reference seed data](../../db/seed/001_seed_reference_data.sql)
 - [Social and order seed data](../../db/seed/002_seed_social_and_orders.sql)
@@ -147,6 +148,28 @@ SELECT Id, UserId, Title, CreatedUtc
 FROM academy.Posts
 ORDER BY CreatedUtc, Id;
 ```
+
+## Sample Output Shapes
+
+If the seed data loaded correctly, the first user query should return these rows in this order:
+
+| Id | UserName | Email | CreatedUtc |
+| --- | --- | --- | --- |
+| 1 | `ada` | `ada@sqlacademy.local` | `2025-01-15 08:30:00.000` |
+| 2 | `grace` | `grace@sqlacademy.local` | `2025-01-15 08:35:00.000` |
+| 3 | `linus` | `linus@sqlacademy.local` | `2025-01-15 08:40:00.000` |
+| 4 | `margaret` | `margaret@sqlacademy.local` | `2025-01-15 08:45:00.000` |
+
+If you inspect posts with a descending stable sort, the result should look like this:
+
+| Id | Title | CreatedUtc |
+| --- | --- | --- |
+| 4 | `Operational playbooks for SQL releases` | `2025-01-19 08:30:00.000` |
+| 3 | `Concurrency surprises in OLTP systems` | `2025-01-18 08:30:00.000` |
+| 2 | `When to prefer window functions` | `2025-01-17 08:30:00.000` |
+| 1 | `Understanding clustered indexes` | `2025-01-16 08:30:00.000` |
+
+These are not random facts to memorize. They are the concrete output shapes you should be able to predict before you start modifying data or solving Beginner 000.
 
 Then ask yourself:
 

@@ -32,6 +32,7 @@ Before you aggregate, inspect the joined rowset you are about to aggregate.
 ## Repository Anchors
 
 - [Phase 2: Intermediate Querying](../phases/phase-2-intermediate-querying.md)
+- [Schema Quick Reference](schema-quick-reference.md)
 - [Beginner 001: Joins And Aggregations](../../src/exercises/Beginner/001-joins-and-aggregations/README.md)
 - [Seed data for posts and comments](../../db/seed/002_seed_social_and_orders.sql)
 - [Post EF Core read path](../../src/libs/SqlAcademy.Persistence/Queries/Posts/PostReadService.cs)
@@ -119,6 +120,18 @@ Look for these facts:
 
 If you cannot explain that rowset, do not add `GROUP BY` yet.
 
+For the current seed data, the joined rowset should look like this:
+
+| PostId | Title | CommentId | CommentUserId |
+| --- | --- | --- | --- |
+| 1 | `Understanding clustered indexes` | 1 | 2 |
+| 1 | `Understanding clustered indexes` | 2 | 3 |
+| 2 | `When to prefer window functions` | 3 | 1 |
+| 3 | `Concurrency surprises in OLTP systems` | 4 | 4 |
+| 4 | `Operational playbooks for SQL releases` | `NULL` | `NULL` |
+
+That last row is the important `LEFT JOIN` proof. The post survives even though no comment row exists for it.
+
 ## Aggregations That Commonly Go Wrong
 
 ### `COUNT(*)`
@@ -152,6 +165,17 @@ LEFT JOIN academy.Comments AS c
 GROUP BY p.Id, p.Title
 ORDER BY p.Id;
 ```
+
+For the current seed data, the most important count comparison looks like this:
+
+| PostId | Title | `COUNT(*)` | `COUNT(c.Id)` |
+| --- | --- | --- | --- |
+| 1 | `Understanding clustered indexes` | 2 | 2 |
+| 2 | `When to prefer window functions` | 1 | 1 |
+| 3 | `Concurrency surprises in OLTP systems` | 1 | 1 |
+| 4 | `Operational playbooks for SQL releases` | 1 | 0 |
+
+That final row is why `COUNT(*)` is often wrong for left-joined child counts. It counts the preserved parent row even when there is no comment.
 
 This works because `COUNT(column)` ignores `NULL`, so posts with no comments count as zero instead of one.
 

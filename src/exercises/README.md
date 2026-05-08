@@ -15,6 +15,28 @@ Exercises currently ship in three supported modes:
 - `guided lab`: includes starter assets and explicit completion criteria, but manual validation
 - `investigation pack`: includes evidence files or workbooks and expects a written analysis
 
+## First-Time Learner Route
+
+If you are new to this repository, do not start by scanning the whole ladder.
+
+Use this order first:
+
+1. [SQL-First Day One](../../docs/learning/sql-first-day-one.md)
+2. [Lesson 01](../../docs/learning/01-sql-fundamentals.md)
+3. [Beginner 000](Beginner/000-sql-fundamentals-and-safe-changes/README.md)
+4. [Lesson 02](../../docs/learning/02-joins-and-aggregations.md)
+5. [Beginner 001](Beginner/001-joins-and-aggregations/README.md)
+6. [Beginner 002](Beginner/002-filtering-constraints-and-data-quality/README.md)
+
+Do not treat the rest of the ladder as required day-one reading.
+
+## If You Are Unsure Which Pack To Open
+
+- use [Beginner 000](Beginner/000-sql-fundamentals-and-safe-changes/README.md) when deterministic ordering, safe updates, and constraint reasoning are still the main gap
+- use [Beginner 001](Beginner/001-joins-and-aggregations/README.md) when left joins, row multiplication, or counting are still confusing
+- use [Beginner 002](Beginner/002-filtering-constraints-and-data-quality/README.md) when filtering, normalization, and missing-value triage still feel weak
+- use [Intermediate 001](Intermediate/001-window-functions-and-pagination/README.md) only after the beginner packs already feel predictable
+
 ## Current Ladder
 
 | Pack | Mode |

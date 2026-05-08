@@ -17,6 +17,31 @@ Practice safe filtering, basic data-quality triage, and constraint-aware reasoni
 3. Use small read-only checks to prove the filter or normalization logic before you create the temp table output.
 4. Open `hints.md` only after you can explain which rows are still being included or excluded incorrectly.
 
+## Sample Sanity Checks
+
+Your answer should line up with these sample facts before you run the harness.
+
+`#recent_high_value_orders` should contain only these rows:
+
+| OrderNumber | UserName | TotalAmount |
+| --- | --- | --- |
+| `ORD-2025-0001` | `ada` | `512.40` |
+| `ORD-2025-0002` | `grace` | `980.10` |
+
+`#duplicate_import_emails` should normalize and count duplicates like this:
+
+| NormalizedEmail | DuplicateCount |
+| --- | --- |
+| `ada@sqlacademy.local` | 2 |
+| `margaret@sqlacademy.local` | 2 |
+
+`#rejected_import_rows` should contain these rows:
+
+| RowId | ReasonCode |
+| --- | --- |
+| 3 | `MissingEmail` |
+| 4 | `MissingUserName` |
+
 ## If You Get Stuck
 
 - slow down and prove each filter with a read-only `SELECT` before you build the final temp table

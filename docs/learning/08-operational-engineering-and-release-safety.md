@@ -4,6 +4,23 @@
 
 Treat data-platform changes as operational events. Good engineering here is about deterministic environments, safe rollout, telemetry, and rollback discipline.
 
+## Before You Start
+
+- be comfortable with the change-safety mindset from [Lesson 04](04-schema-design-and-migration-safety.md) and the concurrency risk mindset from [Lesson 05](05-transactions-blocking-and-deadlocks.md)
+- keep [Learning Glossary](glossary.md) open if terms such as smoke test, roll-forward, or readiness are still slow
+- expect to reason about release sequence and observation, not just SQL syntax or code diff quality
+
+## Suggested Time Budget
+
+- 75 to 120 minutes to read the lesson, inspect the Compose topology, and write at least one watch plan and fallback posture
+- longer if release safety is newer than local development or query work
+
+## If You Get Stuck Early
+
+- reduce the problem to one proposed change, one smoke test, and one first-five-minutes watch plan
+- start with `/health/live`, `/health/ready`, and one small useful-work check before you open dashboards
+- use [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) only after you can explain what would block a deployment or force a rollback-versus-roll-forward decision
+
 ## Why This Lesson Matters
 
 The difference between a classroom migration and a production migration is not syntax. It is operational context:

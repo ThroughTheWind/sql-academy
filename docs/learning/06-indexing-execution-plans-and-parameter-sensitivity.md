@@ -4,6 +4,23 @@
 
 Tune with evidence. This lesson is about rejecting folklore and using workload shape, execution plans, logical reads, and parameter behavior to make decisions you can defend.
 
+## Before You Start
+
+- be comfortable with stable ordering, query shape, and the migration-safety mindset from the earlier lessons
+- keep [Learning Glossary](glossary.md) open if terms such as selectivity, covering index, logical reads, or parameter sensitivity are still slow
+- expect to explain the current query shape before you propose any index or hint
+
+## Suggested Time Budget
+
+- 75 to 120 minutes to read the lesson, inspect one real query path, and compare at least one before-and-after measurement
+- longer if execution plans and logical reads are newer than the SQL syntax itself
+
+## If You Get Stuck Early
+
+- restate the filter, join, sort, and projection shape in plain English before you read the plan
+- separate three questions: is the SQL shape weak, is the index support weak, or is the plan unstable for one parameter pattern
+- use [Advanced 001: Indexing, Parameter Sniffing, And Migration Safety](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) only after you can name the query shape and one metric you intend to compare
+
 ## Why This Lesson Matters
 
 Performance work goes wrong when people jump straight to solutions:

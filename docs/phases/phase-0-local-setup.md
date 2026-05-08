@@ -28,6 +28,8 @@
 ## If You Get Stuck
 
 - return to [How To Start](../learning/how-to-start.md) and make the first successful query your only goal for this phase
+- use [SQL-First Day One](../learning/sql-first-day-one.md) if you need a smaller success target than the full platform walkthrough
+- use [Schema Quick Reference](../learning/schema-quick-reference.md) if the seeded tables are still abstract
 - use [Learning Glossary](../learning/glossary.md) if terms such as readiness, migrations, or metrics are slowing you down
 - treat Prometheus, Grafana, `/metrics`, and `/openapi/v1.json` as optional until the database and API already feel predictable
 

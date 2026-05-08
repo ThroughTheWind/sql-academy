@@ -1,0 +1,88 @@
+# SQL-First Day One
+
+Use this guide when your first goal is a single successful query against `LearningDb`, not a full tour of the platform.
+
+This is the lightest day-one route currently supported by the repository.
+
+It still uses the same Docker-first environment as the main course, but it narrows your goal to one safe database connection, one seeded schema walkthrough, and a few read-only queries before you care about API endpoints, telemetry, or exercise validation.
+
+## Use This Guide When
+
+- you already know your way around a terminal and a SQL client
+- you want to prove the database workflow first before reading the full learner route
+- the main [How To Start](how-to-start.md) guide feels like too much context for your first hour
+
+## Default Local Connection
+
+If you keep the default `.env` values, use these connection details in your SQL client:
+
+| Setting | Default Value |
+| --- | --- |
+| Server | `localhost,14333` |
+| Database | `LearningDb` |
+| User | `sa` |
+| Password | `SqlAcademy_dev_2026!` |
+
+If you changed `.env`, use your local values instead.
+
+## First Goal
+
+Do not try to "learn the repo" on day one.
+
+The goal is only this:
+
+1. start the local stack successfully
+2. connect to SQL Server with your client
+3. run one query that returns seeded data
+4. inspect the six seeded tables without changing anything
+
+## Minimal Day-One Loop
+
+1. Review [../../.env.example](../../.env.example) so you know the default local ports and password.
+2. Start the stack with `docker compose up --build`.
+3. Wait for the API readiness check to succeed at `http://localhost:8080/health/ready`.
+4. Connect to `LearningDb` with the default local SQL Server connection.
+5. Run the three read-only queries below.
+6. Stop for the day if those queries make sense. Treat that as a successful first session.
+
+Do not open Grafana, Prometheus, EF Core code, or the performance labs until this database workflow already feels predictable.
+
+## First Read-Only Queries
+
+Use [Schema Quick Reference](schema-quick-reference.md) alongside these queries.
+
+```sql
+SELECT COUNT(*) AS UserCount
+FROM academy.Users;
+
+SELECT Id, UserName, Email, CreatedUtc
+FROM academy.Users
+ORDER BY Id;
+
+SELECT Id, Title, CreatedUtc
+FROM academy.Posts
+ORDER BY CreatedUtc DESC, Id DESC;
+```
+
+## What Success Looks Like
+
+- `UserCount` returns `4`
+- the user list returns `ada`, `grace`, `linus`, and `margaret`
+- the posts list returns four seeded posts, newest first
+- you can explain the difference between `academy.Users`, `academy.Posts`, and `academy.Comments` without guessing
+
+## If You Get Stuck
+
+- go back to [Phase 0: Local Setup](../phases/phase-0-local-setup.md) if the main problem is Docker, ports, or readiness
+- use [Schema Quick Reference](schema-quick-reference.md) if the table relationships are still fuzzy
+- use [Learning Glossary](glossary.md) if terms such as readiness, projection, predicate, or deterministic order are slowing you down
+- stop after the first successful `SELECT COUNT(*) FROM academy.Users` if everything else feels noisy; that still counts as progress
+
+## What To Read Next
+
+Once the first read-only session feels boring, continue in this order:
+
+1. [How To Start](how-to-start.md)
+2. [Phase 0: Local Setup](../phases/phase-0-local-setup.md)
+3. [Lesson 01: SQL Fundamentals](01-sql-fundamentals.md)
+4. [Beginner 000: SQL Fundamentals And Safe Changes](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)

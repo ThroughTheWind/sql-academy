@@ -6,11 +6,15 @@ This file is the learner-facing summary, not the execution tracker.
 
 Use [Curriculum Map](curriculum-map.md) for the default course route, use this file for the public summary of what should improve next, and use [../../.ai/sql-efcore-mastery-backlog.md](../../.ai/sql-efcore-mastery-backlog.md) for the tracked maintainer backlog.
 
+Recent learner-path updates already added a SQL-first day-one guide, a compact schema quick reference, sample result-shape sections in the first lessons, and clearer pacing or blocked-path guidance across the early and middle route.
+
 ## Near-Term Improvements
 
-- Add a lighter day-one setup path or a clearer SQL-first first-run workflow so learners can reach a first successful query before they need every platform surface.
-- Add sample outputs and annotated result-shape examples to Lessons 01 and 02 plus the beginner validation packs.
-- Add a compact schema visual or table-relationship quick reference for the first lessons.
+- Add copy-paste connection examples for Azure Data Studio, SSMS, and `sqlcmd` so the day-one docs cover the most common client workflows directly.
+- Add a dedicated troubleshooting guide for Docker startup, port conflicts, readiness failures, and SQL client login issues.
+- Add printable one-page lesson checklists for Lessons 01 through 03 plus the beginner packs.
+- Extend sample output sections into the intermediate validation packs so the support pattern stays consistent after the beginner route.
+- Add one page that summarizes estimated effort across all lessons and packs instead of only inside individual docs.
 - Add statistics-drift and skew-focused performance lessons that build on the existing Query Store and larger-cardinality workload route.
 - Add dashboard JSON exports so learners get immediate observability visuals after startup.
 - Add spaced-repetition drills built from the glossary and lesson checkpoints.

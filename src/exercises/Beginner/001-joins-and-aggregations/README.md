@@ -17,6 +17,28 @@ Use `academy.Users`, `academy.Posts`, and `academy.Comments` to produce correct 
 3. Solve one output at a time instead of rewriting every join and aggregate in one pass.
 4. Open `hints.md` only after you can explain why the current counts are wrong.
 
+## Sample Sanity Checks
+
+Your answer should line up with these sample facts before you run the harness.
+
+`#post_comment_summary` should contain these rows in this sort order:
+
+| SortRank | PostId | UserName | Title | CommentCount |
+| --- | --- | --- | --- | --- |
+| 1 | 4 | `margaret` | `Operational playbooks for SQL releases` | 0 |
+| 2 | 3 | `linus` | `Concurrency surprises in OLTP systems` | 1 |
+| 3 | 2 | `grace` | `When to prefer window functions` | 1 |
+| 4 | 1 | `ada` | `Understanding clustered indexes` | 2 |
+
+`#user_post_comment_totals` should contain these per-user totals:
+
+| UserName | PostCount | CommentCount |
+| --- | --- | --- |
+| `ada` | 1 | 2 |
+| `grace` | 1 | 1 |
+| `linus` | 1 | 1 |
+| `margaret` | 1 | 0 |
+
 ## If You Get Stuck
 
 - go back to the raw join examples in [Lesson 02](../../../../docs/learning/02-joins-and-aggregations.md) and count rows before you aggregate

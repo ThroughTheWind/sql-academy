@@ -12,6 +12,14 @@ It is not yet the right first stop if you are learning your first developer work
 - slow down in Lesson 01, the [Learning Glossary](glossary.md), and [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) if SQL syntax still feels unfamiliar
 - do not treat the sample week-one pace below as a deadline if the query basics are not yet predictable
 
+If you want a smaller first target before this full route, use [SQL-First Day One](sql-first-day-one.md).
+
+## Optional Step 0: Reach One Successful Query First
+
+Use [SQL-First Day One](sql-first-day-one.md) when you want a first read-only session before the full course walkthrough.
+
+Pair it with [Schema Quick Reference](schema-quick-reference.md) if the seeded tables and relationships are still fuzzy.
+
 ## Step 1: Get The Platform Running
 
 1. Review [../../.env](../../.env) before first startup. Keep the defaults unless a port or password conflicts with your machine, and use [../../.env.example](../../.env.example) as the reference for supported settings.
@@ -32,6 +40,7 @@ Read these before solving exercises:
 1. [Phase 0: Local Setup](../phases/phase-0-local-setup.md)
 2. [Phase 1: SQL Fundamentals](../phases/phase-1-sql-fundamentals.md)
 3. [Lesson 01: SQL Fundamentals](01-sql-fundamentals.md)
+4. [Schema Quick Reference](schema-quick-reference.md)
 
 Your first goal is to understand the six seeded tables and the relationships between them.
 

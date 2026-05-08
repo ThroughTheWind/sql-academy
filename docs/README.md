@@ -10,12 +10,13 @@ Do not treat this page as a second curriculum map. It is the routing layer for t
 
 ## Start Here
 
-1. [How To Start](learning/how-to-start.md)
-2. [Curriculum Map](learning/curriculum-map.md)
-3. [Learning Docs](learning/README.md)
-4. [Phase Guides](phases/README.md)
-5. [Exercise System](exercises/README.md)
-6. [Learning Glossary](learning/glossary.md)
+1. [SQL-First Day One](learning/sql-first-day-one.md)
+2. [How To Start](learning/how-to-start.md)
+3. [Curriculum Map](learning/curriculum-map.md)
+4. [Learning Docs](learning/README.md)
+5. [Phase Guides](phases/README.md)
+6. [Exercise System](exercises/README.md)
+7. [Learning Glossary](learning/glossary.md)
 
 ## What Each Surface Is For
 
@@ -36,6 +37,7 @@ Do not treat this page as a second curriculum map. It is the routing layer for t
 Use one of these routes based on the question you are trying to answer.
 
 - default learning route: [How To Start](learning/how-to-start.md), [Curriculum Map](learning/curriculum-map.md), the current lesson in [Learning Docs](learning/README.md), then the matching pack in [Exercise System](exercises/README.md)
+- lowest-friction first-query route: [SQL-First Day One](learning/sql-first-day-one.md), [Schema Quick Reference](learning/schema-quick-reference.md), then [How To Start](learning/how-to-start.md)
 - SQL-first route: [SQL Track](sql/README.md), then the linked lesson or exercise, then return to [Curriculum Map](learning/curriculum-map.md)
 - EF Core and application-data route: [From SQL To EF Core And Dapper](learning/from-sql-to-efcore-and-dapper.md), then [EF Core Track](efcore/README.md), then the linked labs or tests
 - tuning and regression route: [Performance Track](performance/README.md), then the linked performance tests, benchmarks, or advanced labs
@@ -61,6 +63,7 @@ The architecture summary currently lives in the root [README](../README.md#initi
 
 - need the authoritative lesson order: [Curriculum Map](learning/curriculum-map.md)
 - need first-run local setup: [How To Start](learning/how-to-start.md) and [Phase 0](phases/phase-0-local-setup.md)
+- need the smallest first-query target before the full route: [SQL-First Day One](learning/sql-first-day-one.md) and [Schema Quick Reference](learning/schema-quick-reference.md)
 - need the stage objectives before you start working: [Phase Guides](phases/README.md)
 - need a hands-on pack right now: [Exercise System](exercises/README.md)
 - need a SQL-only reference path: [SQL Track](sql/README.md)
