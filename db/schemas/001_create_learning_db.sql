@@ -15,6 +15,12 @@ BEGIN
 END
 GO
 
+IF SCHEMA_ID(N'security') IS NULL
+BEGIN
+    EXEC(N'CREATE SCHEMA security AUTHORIZATION dbo');
+END
+GO
+
 IF OBJECT_ID(N'academy.Users', N'U') IS NULL
 BEGIN
     CREATE TABLE academy.Users
@@ -119,5 +125,53 @@ BEGIN
 
     CREATE INDEX IX_Trades_UserId_TradedUtc ON academy.Trades (UserId, TradedUtc DESC);
     CREATE INDEX IX_Trades_InstrumentId_TradedUtc ON academy.Trades (InstrumentId, TradedUtc DESC);
+END
+GO
+
+IF OBJECT_ID(N'academy.TenantOrders', N'U') IS NULL
+BEGIN
+    CREATE TABLE academy.TenantOrders
+    (
+        Id INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_TenantOrders PRIMARY KEY,
+        TenantId INT NOT NULL,
+        OrderNumber NVARCHAR(32) NOT NULL,
+        Description NVARCHAR(256) NOT NULL,
+        TotalAmount DECIMAL(18,2) NOT NULL,
+        CreatedUtc DATETIME2(3) NOT NULL CONSTRAINT DF_TenantOrders_CreatedUtc DEFAULT SYSUTCDATETIME()
+    );
+
+    CREATE UNIQUE INDEX UX_TenantOrders_TenantId_OrderNumber ON academy.TenantOrders (TenantId, OrderNumber);
+    CREATE INDEX IX_TenantOrders_TenantId_CreatedUtc ON academy.TenantOrders (TenantId, CreatedUtc DESC);
+END
+GO
+
+IF DATABASE_PRINCIPAL_ID(N'rls_policy_admin') IS NULL
+BEGIN
+    CREATE ROLE [rls_policy_admin];
+END
+GO
+
+CREATE OR ALTER FUNCTION security.fn_tenant_order_access(@TenantId INT)
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+RETURN
+    SELECT 1 AS fn_tenant_order_access_result
+    WHERE TRY_CONVERT(BIT, SESSION_CONTEXT(N'RlsBypass')) = 1
+       OR IS_MEMBER(N'rls_policy_admin') = 1
+       OR @TenantId = TRY_CONVERT(INT, SESSION_CONTEXT(N'TenantId'));
+GO
+
+IF NOT EXISTS (
+    SELECT 1
+    FROM sys.security_policies
+    WHERE name = N'TenantOrderIsolationPolicy'
+      AND schema_id = SCHEMA_ID(N'security'))
+BEGIN
+    CREATE SECURITY POLICY security.TenantOrderIsolationPolicy
+    ADD FILTER PREDICATE security.fn_tenant_order_access(TenantId) ON academy.TenantOrders,
+    ADD BLOCK PREDICATE security.fn_tenant_order_access(TenantId) ON academy.TenantOrders AFTER INSERT,
+    ADD BLOCK PREDICATE security.fn_tenant_order_access(TenantId) ON academy.TenantOrders AFTER UPDATE
+    WITH (STATE = ON);
 END
 GO

@@ -47,6 +47,7 @@ Design rules:
 | [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md) | investigation pack | HA or DR posture, failover readiness, and recovery-target verification |
 | [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md) | investigation pack | change capture provenance, reconciliation, and replay-proof reasoning |
 | [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md) | investigation pack | least privilege, migration authority, and operational security boundaries |
+| [Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md) | guided lab | row-level security, tenant isolation, and session-scoped policy reasoning |
 
 ## Validation Workflow For Validation Packs
 
@@ -70,6 +71,8 @@ Guided labs such as [Advanced 003](../../src/exercises/Advanced/003-plan-cache-m
 
 [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) is the focused guided-lab follow-up when you want explicit generated-SQL inspection and a disposable N+1 experiment around the posts read path.
 
+[Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md) is the optional DBA or DBRE guided lab when you want a real tenant-scoped sample, request-to-session-context plumbing, and proof that SQL Server security policy filtering is actually happening.
+
 ## Investigation Pack Workflow
 
 1. Read the incident or scenario brief.
@@ -89,3 +92,5 @@ Investigation packs such as [Senior 004](../../src/exercises/Senior/004-posts-ap
 [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md) is the optional DBA or DBRE change-capture investigation pack when provenance metadata, replay boundaries, and reconciliation proof need to be defended from the existing import and outbox surfaces instead of generic CDC slogans.
 
 [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md) is the optional DBA or DBRE security investigation pack when `sa` convenience access, startup migration authority, and operator-admin boundaries need to be defended from the current runtime and deployment surfaces instead of generic least-privilege slogans.
+
+[Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md) is the optional DBA or DBRE row-level-security guided lab when shared-database tenant isolation, `SESSION_CONTEXT`, predicate functions, and explicit bypass paths need to be proved through a real sample instead of assumed from documentation alone.

@@ -30,6 +30,7 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 | B009 | P3 | completed | optional specialization follow-on | add a concrete HA or DR failover-posture pack with a narrow companion check | `src/exercises/Senior/009-ha-dr-failover-posture-and-verification` now provides the investigation pack, and `HaDrFailoverPostureDrillAssetTests` is the focused validation surface |
 | B010 | P3 | completed | optional specialization follow-on | add a concrete change-capture and reconciliation pack with a narrow companion check | `src/exercises/Senior/010-change-capture-provenance-and-reconciliation` now provides the investigation pack, and `ChangeCaptureReconciliationDrillAssetTests` is the focused validation surface |
 | B011 | P3 | completed | optional specialization follow-on | add a concrete security-boundaries pack with a narrow companion check | `src/exercises/Senior/011-least-privilege-and-operational-security-boundaries` now provides the investigation pack, and `LeastPrivilegeSecurityBoundaryDrillAssetTests` is the focused validation surface |
+| B012 | P3 | completed | optional specialization follow-on | add a row-level security and tenant-isolation lesson with a matching exercise pack | the extension-track lesson lives at `docs/learning/row-level-security-and-tenant-isolation.md`, Senior 012 is now a guided lab backed by a real `academy.TenantOrders` sample plus `TenantOrdersEndpointTests`, `RowLevelSecuritySampleTests`, and `RowLevelSecurityTenantIsolationDrillAssetTests`, and the printable runbook lives at `docs/operations/row-level-security-tenant-isolation-runbook.md` |
 
 ## Current Slice
 
@@ -46,6 +47,7 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 - B009: HA or DR failover posture now has a concrete investigation pack under `src/exercises/Senior/009-ha-dr-failover-posture-and-verification`, backed by `HaDrFailoverPostureDrillAssetTests`
 - B010: change capture and platform data movement now has a concrete investigation pack under `src/exercises/Senior/010-change-capture-provenance-and-reconciliation`, backed by `ChangeCaptureReconciliationDrillAssetTests`
 - B011: security and least-privilege boundaries now have a concrete investigation pack under `src/exercises/Senior/011-least-privilege-and-operational-security-boundaries`, backed by `LeastPrivilegeSecurityBoundaryDrillAssetTests`
+- B012: row-level security and tenant isolation now have a dedicated extension-track lesson under `docs/learning/row-level-security-and-tenant-isolation.md`, a real `academy.TenantOrders` sample with app-side session-context plumbing, a guided lab under `src/exercises/Senior/012-row-level-security-and-tenant-isolation`, a printable runbook under `docs/operations/row-level-security-tenant-isolation-runbook.md`, and focused checks under `TenantOrdersEndpointTests`, `RowLevelSecuritySampleTests`, and `RowLevelSecurityTenantIsolationDrillAssetTests`
 
 ### Next Recommended Slice
 

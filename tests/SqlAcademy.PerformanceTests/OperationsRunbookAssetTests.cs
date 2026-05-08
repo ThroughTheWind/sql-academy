@@ -80,6 +80,48 @@ public sealed class OperationsRunbookAssetTests
         Assert.True(runbookText.Contains("Advanced 004", StringComparison.OrdinalIgnoreCase));
     }
 
+    [Fact]
+    public async Task Change_capture_security_and_rls_runbooks_keep_new_specialization_checklists_aligned()
+    {
+        var changeCaptureRunbookPath = ResolveRepositoryPath(
+            "docs",
+            "operations",
+            "change-capture-reconciliation-runbook.md");
+
+        var leastPrivilegeRunbookPath = ResolveRepositoryPath(
+            "docs",
+            "operations",
+            "least-privilege-security-runbook.md");
+
+        var rowLevelSecurityRunbookPath = ResolveRepositoryPath(
+            "docs",
+            "operations",
+            "row-level-security-tenant-isolation-runbook.md");
+
+        var changeCaptureText = await File.ReadAllTextAsync(changeCaptureRunbookPath);
+        var leastPrivilegeText = await File.ReadAllTextAsync(leastPrivilegeRunbookPath);
+        var rowLevelSecurityText = await File.ReadAllTextAsync(rowLevelSecurityRunbookPath);
+
+        Assert.True(changeCaptureText.Contains("Provenance Boundary", StringComparison.OrdinalIgnoreCase));
+        Assert.True(changeCaptureText.Contains("Reconciliation Proof", StringComparison.OrdinalIgnoreCase));
+        Assert.True(changeCaptureText.Contains("Source", StringComparison.OrdinalIgnoreCase));
+        Assert.True(changeCaptureText.Contains("CorrelationId", StringComparison.OrdinalIgnoreCase));
+        Assert.True(changeCaptureText.Contains("Senior 010", StringComparison.OrdinalIgnoreCase));
+
+        Assert.True(leastPrivilegeText.Contains("Runtime Versus Migration Authority", StringComparison.OrdinalIgnoreCase));
+        Assert.True(leastPrivilegeText.Contains("Admin Surface Review", StringComparison.OrdinalIgnoreCase));
+        Assert.True(leastPrivilegeText.Contains("sa", StringComparison.OrdinalIgnoreCase));
+        Assert.True(leastPrivilegeText.Contains("InitializeLearningDatabaseAsync", StringComparison.OrdinalIgnoreCase));
+        Assert.True(leastPrivilegeText.Contains("Senior 011", StringComparison.OrdinalIgnoreCase));
+
+        Assert.True(rowLevelSecurityText.Contains("Tenant Context Gate", StringComparison.OrdinalIgnoreCase));
+        Assert.True(rowLevelSecurityText.Contains("Policy Proof", StringComparison.OrdinalIgnoreCase));
+        Assert.True(rowLevelSecurityText.Contains("Controlled Bypass Review", StringComparison.OrdinalIgnoreCase));
+        Assert.True(rowLevelSecurityText.Contains("Disable And Recovery", StringComparison.OrdinalIgnoreCase));
+        Assert.True(rowLevelSecurityText.Contains("TenantOrderIsolationPolicy", StringComparison.OrdinalIgnoreCase));
+        Assert.True(rowLevelSecurityText.Contains("Senior 012", StringComparison.OrdinalIgnoreCase));
+    }
+
     private static string ResolveRepositoryPath(params string[] relativeSegments)
     {
         var currentDirectory = new DirectoryInfo(AppContext.BaseDirectory);

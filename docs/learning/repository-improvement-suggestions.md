@@ -17,7 +17,7 @@ Use [Curriculum Map](curriculum-map.md) for the default course route, use this f
 - Expand the incident pack catalog with release, deadlock, ingestion, and outbox failures.
 - Add guided pull-request style review exercises for migrations, indexes, and schema changes.
 - Expand the printable release and incident runbooks with more scenario-specific variants.
-- Expand the DBA and DBRE extension track beyond the current initial specialization packs with deeper follow-on drills for replication, richer security policy, and advanced recovery or reconciliation cases.
+- Expand the DBA and DBRE extension track beyond the current initial specialization packs with deeper follow-on drills for replication, application-wired tenant security policy, and advanced recovery or reconciliation cases.
 
 ## Longer-Term Improvements
 

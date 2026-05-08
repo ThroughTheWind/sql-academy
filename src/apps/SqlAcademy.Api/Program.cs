@@ -33,6 +33,7 @@ await app.Services.InitializeLearningDatabaseAsync(app.Lifetime.ApplicationStopp
 app.UseSerilogRequestLogging();
 app.UseExceptionHandler();
 app.UseHttpMetrics();
+app.UseMiddleware<TenantSessionContextMiddleware>();
 
 app.MapOpenApi();
 app.MapControllers();

@@ -51,6 +51,8 @@ Use `investigation-template.md` as the main completion artifact.
 - the response ties the decision to `sa` convenience access, startup migration authority, and one operator-admin surface
 - the proposed plan distinguishes local-learning shortcuts from the minimum controls needed in a shared environment
 
+Use [Least Privilege And Security Boundary Runbook](../../../../docs/operations/least-privilege-security-runbook.md) when you want the same least-privilege and separation-of-duties review compressed into a printable operational checklist.
+
 ## Focused Companion Check
 
 When you want a narrow executable check for the pack contract itself, run:

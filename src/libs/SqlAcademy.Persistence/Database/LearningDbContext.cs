@@ -13,6 +13,8 @@ public sealed class LearningDbContext(DbContextOptions<LearningDbContext> option
 
     public DbSet<Order> Orders => Set<Order>();
 
+    public DbSet<TenantOrder> TenantOrders => Set<TenantOrder>();
+
     public DbSet<Trade> Trades => Set<Trade>();
 
     public DbSet<TradeImportBatch> TradeImportBatches => Set<TradeImportBatch>();

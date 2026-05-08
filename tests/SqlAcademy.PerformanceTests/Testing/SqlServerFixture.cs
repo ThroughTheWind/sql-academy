@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Respawn;
 using SqlAcademy.Persistence.Database;
 using SqlAcademy.Persistence.Initialization;
+using SqlAcademy.Persistence.MultiTenancy;
 using Testcontainers.MsSql;
 
 namespace SqlAcademy.PerformanceTests.Testing;
@@ -80,9 +81,26 @@ public sealed class SqlServerFixture : IAsyncLifetime
         return new LearningDbContext(options.Options);
     }
 
+    public async Task<LearningDbContext> CreateTenantScopedDbContextAsync(
+        int? tenantId,
+        bool trackingEnabled = true,
+        bool bypassRowLevelSecurity = false)
+    {
+        var dbContext = CreateDbContext(trackingEnabled);
+        await dbContext.Database.OpenConnectionAsync();
+        await ApplySessionContextAsync(
+            (SqlConnection)dbContext.Database.GetDbConnection(),
+            tenantId,
+            bypassRowLevelSecurity);
+
+        return dbContext;
+    }
+
     private async Task EnsureSchemaAndSeedAsync()
     {
         await using var dbContext = CreateDbContext();
+        await dbContext.Database.OpenConnectionAsync();
+        await ApplySessionContextAsync((SqlConnection)dbContext.Database.GetDbConnection(), null, bypassRowLevelSecurity: true);
         await dbContext.Database.MigrateAsync();
         await LearningDbSeed.SeedAsync(dbContext, NullLogger.Instance, CancellationToken.None);
     }
@@ -90,6 +108,20 @@ public sealed class SqlServerFixture : IAsyncLifetime
     private async Task EnsureSeedOnlyAsync()
     {
         await using var dbContext = CreateDbContext();
+        await dbContext.Database.OpenConnectionAsync();
+        await ApplySessionContextAsync((SqlConnection)dbContext.Database.GetDbConnection(), null, bypassRowLevelSecurity: true);
         await LearningDbSeed.SeedAsync(dbContext, NullLogger.Instance, CancellationToken.None);
+    }
+
+    private static async Task ApplySessionContextAsync(SqlConnection connection, int? tenantId, bool bypassRowLevelSecurity)
+    {
+        await using var command = connection.CreateCommand();
+        command.CommandText = $"""
+EXEC sys.sp_set_session_context @key = N'{SqlSessionContextKeys.TenantId}', @value = @tenantId;
+EXEC sys.sp_set_session_context @key = N'{SqlSessionContextKeys.RlsBypass}', @value = @rlsBypass;
+""";
+        command.Parameters.AddWithValue("@tenantId", tenantId.HasValue ? tenantId.Value : DBNull.Value);
+        command.Parameters.AddWithValue("@rlsBypass", bypassRowLevelSecurity ? 1 : 0);
+        await command.ExecuteNonQueryAsync();
     }
 }

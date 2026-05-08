@@ -72,7 +72,7 @@ Use these only if you already know your gap and you are willing to rejoin the ma
 
 These are not alternate starts. Use them only after the main route is already strong enough that deeper specialization will not hollow out the core path.
 
-- [DBA And DBRE Extension Track](dba-dbre-extension-track.md) for backup and restore, job safety, HA or DR, security, and change-capture specialization.
+- [DBA And DBRE Extension Track](dba-dbre-extension-track.md) for backup and restore, job safety, HA or DR, security policy, row-level security or tenant isolation, and change-capture specialization.
 
 ## Route Status
 

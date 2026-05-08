@@ -49,6 +49,8 @@ Use `investigation-template.md` as the main completion artifact.
 - the response ties the decision to import-batch provenance, deterministic movement boundaries, and at least one reconciliation proof
 - the proposed plan distinguishes traceability metadata from actual evidence that downstream work can be replayed or challenged safely
 
+Use [Change Capture And Reconciliation Runbook](../../../../docs/operations/change-capture-reconciliation-runbook.md) when you want the same provenance and replay decision compressed into a printable operational checklist.
+
 ## Focused Companion Check
 
 When you want a narrow executable check for the pack contract itself, run:

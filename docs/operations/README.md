@@ -71,6 +71,7 @@ Coverage targets:
 - need a printable deadlock-response checklist: [Deadlock Response Runbook](deadlock-response-runbook.md)
 - need an idempotent consistency check for a data-moving workflow: [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - need a printable outbox consistency checklist: [Outbox Delivery Consistency Runbook](outbox-delivery-runbook.md)
+- need a printable change-capture reconciliation checklist: [Change Capture And Reconciliation Runbook](change-capture-reconciliation-runbook.md)
 - need to narrow a slow-but-healthy API incident: [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) and [PostsEndpointTests](../../tests/SqlAcademy.IntegrationTests/Api/PostsEndpointTests.cs)
 - need a printable incident narrowing checklist: [Incident Triage Runbook](incident-triage-runbook.md)
 - need backup and restore recovery verification after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md)
@@ -78,6 +79,9 @@ Coverage targets:
 - need HA or DR failover-posture specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md)
 - need change-capture or replay-reconciliation specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md)
 - need least-privilege or operational security specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md)
+- need row-level-security or tenant-isolation verification after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md), [Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md), and [TenantOrdersEndpointTests](../../tests/SqlAcademy.IntegrationTests/Api/TenantOrdersEndpointTests.cs)
+- need a printable least-privilege review checklist: [Least Privilege And Security Boundary Runbook](least-privilege-security-runbook.md)
+- need a printable row-level-security checklist: [Row-Level Security And Tenant Isolation Runbook](row-level-security-tenant-isolation-runbook.md)
 - need optional DBA or DBRE specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md)
 - need a repeatable validation or CI baseline: [run-exercise-validation.ps1](../../infra/scripts/run-exercise-validation.ps1), [ci.yml](../../.github/workflows/ci.yml), and [docker-validation.yml](../../.github/workflows/docker-validation.yml)
 
@@ -87,7 +91,10 @@ Coverage targets:
 - [Query Store Regression Runbook](query-store-regression-runbook.md) compresses the Advanced 004 persisted-regression workflow into a one-page Query Store checklist.
 - [Deadlock Response Runbook](deadlock-response-runbook.md) compresses the Senior 001 blocking and deadlock response loop into a one-page concurrency checklist.
 - [Outbox Delivery Consistency Runbook](outbox-delivery-runbook.md) compresses the Senior 003 idempotent outbox and deterministic dispatch contract into a one-page delivery checklist.
+- [Change Capture And Reconciliation Runbook](change-capture-reconciliation-runbook.md) compresses the Senior 010 provenance and reconciliation decision into a one-page replay or audit checklist.
 - [Incident Triage Runbook](incident-triage-runbook.md) compresses the Senior 004 boundary-narrowing flow into a one-page degraded-service checklist.
+- [Least Privilege And Security Boundary Runbook](least-privilege-security-runbook.md) compresses the Senior 011 least-privilege and separation-of-duties review into a one-page promotion-gate checklist.
+- [Row-Level Security And Tenant Isolation Runbook](row-level-security-tenant-isolation-runbook.md) compresses the Senior 012 tenant-context, policy-proof, and bypass review into a one-page tenant-isolation checklist.
 
 ## Operational Loop In This Repo
 
@@ -124,6 +131,8 @@ dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~HaDrFailoverPostureDrillAssetTests"
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~ChangeCaptureReconciliationDrillAssetTests"
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~LeastPrivilegeSecurityBoundaryDrillAssetTests"
+dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~TenantOrdersEndpointTests"
+dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~RowLevelSecuritySampleTests"
 ```
 
 Use `docker compose config` when you want a quick structural check before starting the full stack or pushing a Compose change into CI.
@@ -141,6 +150,7 @@ Use `docker compose config` when you want a quick structural check before starti
 - [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md)
 - [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md)
 - [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md)
+- [Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md)
 
 ## Bridge To SQL, Performance, And EF Core
 

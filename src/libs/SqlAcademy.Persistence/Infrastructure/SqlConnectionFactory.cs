@@ -1,8 +1,9 @@
 using Microsoft.Data.SqlClient;
+using SqlAcademy.Persistence.MultiTenancy;
 
 namespace SqlAcademy.Persistence.Infrastructure;
 
-public sealed class SqlConnectionFactory(string connectionString) : ISqlConnectionFactory
+public sealed class SqlConnectionFactory(string connectionString, ISqlSessionContextApplier sessionContextApplier) : ISqlConnectionFactory
 {
     public async Task<SqlConnection> OpenConnectionAsync(CancellationToken cancellationToken)
     {
@@ -18,6 +19,7 @@ public sealed class SqlConnectionFactory(string connectionString) : ISqlConnecti
 
         var connection = new SqlConnection(builder.ConnectionString);
         await connection.OpenAsync(cancellationToken);
+        await sessionContextApplier.ApplyAsync(connection, cancellationToken);
         return connection;
     }
 }

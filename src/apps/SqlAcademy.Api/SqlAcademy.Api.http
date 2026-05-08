@@ -94,6 +94,23 @@ Accept: application/json
 
 ###
 
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/tenant-orders?pageNumber=1&pageSize=10&sortBy=createdUtc&sortDirection=Desc
+Accept: application/json
+X-Tenant-Id: 101
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/tenant-orders?pageNumber=1&pageSize=10&sortBy=createdUtc&sortDirection=Desc
+Accept: application/json
+X-Tenant-Id: 202
+
+###
+
+GET {{SqlAcademy.Api_HostAddress}}/api/v1/tenant-orders?pageNumber=1&pageSize=10
+Accept: application/json
+
+###
+
 GET {{SqlAcademy.Api_HostAddress}}/health/ready
 Accept: application/json
 

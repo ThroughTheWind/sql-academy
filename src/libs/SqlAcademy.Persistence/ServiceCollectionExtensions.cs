@@ -6,7 +6,9 @@ using SqlAcademy.Persistence.Commands.Trades;
 using SqlAcademy.Persistence.Database;
 using SqlAcademy.Persistence.Infrastructure;
 using SqlAcademy.Persistence.Initialization;
+using SqlAcademy.Persistence.MultiTenancy;
 using SqlAcademy.Persistence.Queries.Posts;
+using SqlAcademy.Persistence.Queries.TenantOrders;
 using SqlAcademy.Persistence.Queries.Trades;
 
 namespace SqlAcademy.Persistence;
@@ -22,7 +24,11 @@ public static class ServiceCollectionExtensions
             throw new InvalidOperationException("ConnectionStrings:LearningDb must be configured before the application starts.");
         }
 
-        services.AddDbContext<LearningDbContext>(options =>
+        services.AddScoped<ISqlSessionContextAccessor, SqlSessionContextAccessor>();
+        services.AddScoped<ISqlSessionContextApplier, SqlSessionContextApplier>();
+        services.AddScoped<SqlSessionContextConnectionInterceptor>();
+
+        services.AddDbContext<LearningDbContext>((serviceProvider, options) =>
         {
             options.UseSqlServer(connectionString, sqlServerOptions =>
             {
@@ -32,13 +38,18 @@ public static class ServiceCollectionExtensions
             });
 
             options.EnableDetailedErrors();
+            options.AddInterceptors(serviceProvider.GetRequiredService<SqlSessionContextConnectionInterceptor>());
         });
 
-        services.AddSingleton<ISqlConnectionFactory>(_ => new SqlConnectionFactory(connectionString));
+        services.AddScoped<ISqlConnectionFactory>(serviceProvider =>
+            new SqlConnectionFactory(
+                connectionString,
+                serviceProvider.GetRequiredService<ISqlSessionContextApplier>()));
         services.AddScoped<LearningDbInitializer>();
         services.AddScoped<OrderWriteService>();
         services.AddScoped<TradeImportService>();
         services.AddScoped<PostReadService>();
+        services.AddScoped<TenantOrderReadService>();
         services.AddScoped<TradeImportBatchReadService>();
         services.AddScoped<TradeReadService>();
         services.AddHealthChecks()
