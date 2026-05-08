@@ -22,6 +22,7 @@ Internal models let you form and test better hypotheses. You do not need perfect
 - [Larger-cardinality workload variant](../../db/performance/001_high_cardinality_workload_variant.sql)
 - [Trade Dapper read path](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
 - [Performance comparison tests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs)
+- [Plan cache lab smoke test](../../tests/SqlAcademy.PerformanceTests/PlanCacheLabSmokeTests.cs)
 - [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
 
 ## The Internal Model You Actually Need

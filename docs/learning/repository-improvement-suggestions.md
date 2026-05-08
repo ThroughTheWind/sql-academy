@@ -9,7 +9,6 @@ Use [Curriculum Map](curriculum-map.md) for the default course route, use this f
 ## Near-Term Improvements
 
 - Add statistics-drift and skew-focused performance lessons that build on the existing Query Store and larger-cardinality workload route.
-- Expand executable companion checks to more guided labs and investigation packs where a narrow validation surface is realistic.
 - Add dashboard JSON exports so learners get immediate observability visuals after startup.
 - Add spaced-repetition drills built from the glossary and lesson checkpoints.
 
@@ -18,7 +17,7 @@ Use [Curriculum Map](curriculum-map.md) for the default course route, use this f
 - Expand the incident pack catalog with release, deadlock, ingestion, and outbox failures.
 - Add guided pull-request style review exercises for migrations, indexes, and schema changes.
 - Add printable release and incident runbooks for learner drills.
-- Add an optional DBA and DBRE specialization track for backup and restore, Agent, HA/DR, change capture, and security only after the core route is stronger.
+- Expand the DBA and DBRE extension track with hands-on drills for backup and restore, Agent, HA or DR, change capture, and security.
 
 ## Longer-Term Improvements
 

@@ -68,6 +68,12 @@ Use these only if you already know your gap and you are willing to rejoin the ma
 | Performance and production focus | [Lesson 05: Transactions, Blocking, And Deadlocks](05-transactions-blocking-and-deadlocks.md) | [Lesson 08](08-operational-engineering-and-release-safety.md) |
 | EF Core and Dapper focus | [Lesson 09: EF Core, Dapper, And Query Shape](09-ef-core-dapper-and-query-shape.md) | [Lesson 10](10-observability-testing-and-performance-engineering.md) and [Lesson 11](11-capstones-and-interview-readiness.md) |
 
+## Optional Extension Tracks
+
+These are not alternate starts. Use them only after the main route is already strong enough that deeper specialization will not hollow out the core path.
+
+- [DBA And DBRE Extension Track](dba-dbre-extension-track.md) for backup and restore, job safety, HA or DR, security, and change-capture specialization.
+
 ## Route Status
 
 - Lesson 01 now uses [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) as the dedicated fundamentals validation pack.

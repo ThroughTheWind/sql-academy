@@ -25,8 +25,8 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 | B004 | P1 | completed | data realism | add larger-cardinality seed or workload variants for tuning and plan-stability lessons | optional workload variant added under `db/performance` and wired through Lesson 06, Lesson 07, Phase 5, and the performance track without changing the default baseline seed |
 | B005 | P1 | completed | senior diagnostics | add a deadlock-graph interpretation lab with retry-policy reasoning | Senior 001 now includes a supplemental deadlock graph walkthrough and sample graph, with a focused asset smoke test under `DeadlockGraphLabAssetTests` |
 | B006 | P2 | completed | release engineering | add a release-readiness drill that combines migration safety, telemetry checks, and rollback gates | Senior 006 now owns the Lesson 08 and Phase 7 release-readiness route, backed by `ReleaseReadinessDrillAssetTests` |
-| B007 | P2 | in-progress | validation | expand executable validation for guided labs where a narrow companion check is realistic | current companions now include Query Store, deadlock-graph, and release-readiness asset smoke tests; keep incident packs partly manual when realism matters |
-| B008 | P3 | not-started | optional specialization | add a DBA or DBRE extension track for backup and restore, Agent, HA/DR, security, and change capture | only after the core route and advanced application track stabilize |
+| B007 | P2 | completed | validation | expand executable validation for guided labs where a narrow companion check is realistic | current companions now cover plan-cache, Query Store, deadlock-graph, observability-pack, release-readiness, and the existing EF Core/query-shape validation surfaces, while keeping incident reasoning itself manual |
+| B008 | P3 | completed | optional specialization | add a DBA or DBRE extension track for backup and restore, Agent, HA/DR, security, and change capture | learner-facing extension track added at `docs/learning/dba-dbre-extension-track.md` and routed from the main SQL, operations, learning, and docs hub surfaces |
 
 ## Current Slice
 
@@ -38,15 +38,13 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 - B004: optional larger-cardinality workload variant added under `db/performance`, with lesson and track routing that keeps the default baseline seed unchanged
 - B005: Senior 001 extended with a deadlock-graph walkthrough, concrete victim analysis, and retry-policy reasoning backed by `DeadlockGraphLabAssetTests`
 - B006: Senior 006 added as the release-readiness investigation pack for migration gates, first-five-minutes watch plans, and rollback or roll-forward decisions
-
-### In Progress
-
-- B007: executable companion coverage now includes `QueryStoreLabSmokeTests`, `DeadlockGraphLabAssetTests`, and `ReleaseReadinessDrillAssetTests`; more guided labs can still gain narrow checks where realism allows
+- B007: executable companion coverage now includes `PlanCacheLabSmokeTests`, `QueryStoreLabSmokeTests`, `DeadlockGraphLabAssetTests`, `PostsApiObservabilityDrillAssetTests`, and `ReleaseReadinessDrillAssetTests`, alongside the existing focused EF Core and API tests used by Senior 002 and Senior 005
+- B008: learner-facing DBA and DBRE extension track added so optional platform-specialist depth is routed clearly without changing the default core route
 
 ### Next Recommended Slice
 
-- start B008 only after the core route and advanced application track feel stable enough for optional DBA or DBRE specialization work
-- continue B007 by adding narrow companion checks only where the lab contract is stable enough to validate without faking realism
+- no immediate backlog slice remains in this track; deepen the extension modules or add new labs only when one concrete owner surface and one narrow validation path are clear
+
 
 ## Acceptance Checks
 

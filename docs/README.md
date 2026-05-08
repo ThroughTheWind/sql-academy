@@ -38,6 +38,7 @@ Use one of these routes based on the question you are trying to answer.
 - EF Core and application-data route: [From SQL To EF Core And Dapper](learning/from-sql-to-efcore-and-dapper.md), then [EF Core Track](efcore/README.md), then the linked labs or tests
 - tuning and regression route: [Performance Track](performance/README.md), then the linked performance tests, benchmarks, or advanced labs
 - release and incident route: [Operations Track](operations/README.md), then the relevant phase doc, smoke surface, or investigation pack
+- optional DBA or DBRE specialization route: [DBA And DBRE Extension Track](learning/dba-dbre-extension-track.md), then the linked SQL, operations, and delivery anchors without changing the default learner route
 
 ## Topic Navigation
 
@@ -47,6 +48,7 @@ Use one of these routes based on the question you are trying to answer.
 | EF Core | DbContext, Dapper, tracking, and query-shape learning | [EF Core Track](efcore/README.md) | [From SQL To EF Core And Dapper](learning/from-sql-to-efcore-and-dapper.md) |
 | Performance | execution plans, benchmarks, and tuning evidence | [Performance Track](performance/README.md) | [Lesson 10](learning/10-observability-testing-and-performance-engineering.md) |
 | Operations | migration safety, telemetry, and release discipline | [Operations Track](operations/README.md) | [Phase 7](phases/phase-7-operational-engineering.md) |
+| DBA or DBRE specialization | backup or restore, job safety, HA or DR, security, and change capture after the core route | [DBA And DBRE Extension Track](learning/dba-dbre-extension-track.md) | [Operations Track](operations/README.md) |
 | Exercises | hands-on packs, labs, and validation modes | [Exercise System](exercises/README.md) | [Follow-Up Exercises By Level](learning/follow-up-exercises-by-level.md) |
 | Phases | ordered stage progression and exit criteria | [Phase Guides](phases/README.md) | [Curriculum Map](learning/curriculum-map.md) |
 | Architecture | repository structure and runtime boundaries | [Repository Architecture](../README.md#initial-architecture) | [README](../README.md) |
@@ -63,6 +65,7 @@ The architecture summary currently lives in the root [README](../README.md#initi
 - need EF Core, Dapper, or application-side query-shape guidance: [EF Core Track](efcore/README.md)
 - need tuning, Query Store, or comparative measurement: [Performance Track](performance/README.md)
 - need release safety, telemetry, or incident-style debugging: [Operations Track](operations/README.md)
+- need optional DBA or DBRE specialization after the core route: [DBA And DBRE Extension Track](learning/dba-dbre-extension-track.md)
 - need a term defined quickly: [Learning Glossary](learning/glossary.md)
 
 ## Validation And Runtime Anchors

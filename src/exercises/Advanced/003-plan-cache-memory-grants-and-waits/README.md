@@ -33,3 +33,11 @@ The trade read path feels inconsistent across runs. Before changing code or inde
 - the plan-cache review is filtered to the tagged lab query instead of a generic top-cost query
 - the storage snapshot uses row counts and used page counts to support an access-path explanation
 - the final hypothesis names one disconfirming check instead of treating waits or memory grants as automatic root cause proof
+
+## Focused Companion Check
+
+When you want a narrow executable companion for the starter workflow, run:
+
+`dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~PlanCacheLabSmokeTests"`
+
+That smoke test executes `starter.sql` and verifies that the tagged `internals_lab_trade_filter` query lands in plan cache while the storage snapshot still covers `academy.Posts`, `academy.Comments`, and `academy.Trades`.

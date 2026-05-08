@@ -8,6 +8,8 @@ The current core route targets senior backend and application engineers who need
 
 It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Server Agent, HA/DR, replication, security administration, and similar operational specialties remain optional extension-track work after the core route is stronger.
 
+Use [DBA And DBRE Extension Track](docs/learning/dba-dbre-extension-track.md) when you want that optional specialization without changing the default learning route.
+
 The maintainer execution backlog for closing those gaps lives in [.ai/sql-efcore-mastery-backlog.md](.ai/sql-efcore-mastery-backlog.md).
 
 ## Quick Start
@@ -36,6 +38,7 @@ Use these only if you already know your gap and you plan to rejoin the default r
 - [SQL Track](docs/sql/README.md) for a SQL-only refresher.
 - [Optional On-Ramps](docs/learning/curriculum-map.md#optional-on-ramps) for performance or EF Core focused starts.
 - [EF Core Track](docs/efcore/README.md) for application-integration reference material after the SQL foundations are already familiar.
+- [DBA And DBRE Extension Track](docs/learning/dba-dbre-extension-track.md) for optional platform-specialist depth after the core route is already complete.
 
 ## Learning Docs
 

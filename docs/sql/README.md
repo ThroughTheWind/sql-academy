@@ -14,7 +14,7 @@ The current SQL route targets backend and application engineers who need strong 
 
 It does not currently claim full DBA or DBRE coverage for backup and restore, SQL Server Agent, HA/DR, replication, or security administration.
 
-Those deeper administration topics belong in an optional extension track after the core route is stronger. The tracked implementation backlog lives in [../../.ai/sql-efcore-mastery-backlog.md](../../.ai/sql-efcore-mastery-backlog.md).
+Those deeper administration topics now route through [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) after the core route is stronger. The tracked implementation backlog lives in [../../.ai/sql-efcore-mastery-backlog.md](../../.ai/sql-efcore-mastery-backlog.md).
 
 Coverage targets:
 - filtering, projection, joins, grouping, and set-based thinking
@@ -34,6 +34,7 @@ Coverage targets:
 
 - when you are new to the repository and need the main order; use [Curriculum Map](../learning/curriculum-map.md)
 - when the main question is about LINQ, EF Core tracking, or EF-plus-Dapper boundaries; use [EF Core Track](../efcore/README.md) and [From SQL To EF Core And Dapper](../learning/from-sql-to-efcore-and-dapper.md)
+- when the main question is backup and restore, SQL Server Agent, HA or DR, or security specialization; use [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md)
 
 ## SQL Reference Matrix
 
@@ -66,6 +67,7 @@ Coverage targets:
 - need engine-behavior hypothesis work: [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
 - need persisted regression evidence and Query Store workflow: [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 - need production-style SQL triage: [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) and [Operations Track](../operations/README.md)
+- need DBA or DBRE specialization beyond the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md)
 
 ## Executable Repo Anchors
 

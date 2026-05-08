@@ -41,3 +41,11 @@ Use `investigation-template.md` as the main completion artifact.
 - the learner narrows the issue to the posts read path instead of blaming the whole platform
 - the learner connects `commentCount` sorting plus search to a heavier grouped and sorted SQL path
 - the response includes containment, durable remediation, and follow-up validation signals
+
+## Focused Companion Check
+
+When you want a narrow executable check for the pack contract itself, run:
+
+`dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~PostsApiObservabilityDrillAssetTests"`
+
+That asset smoke test verifies the incident pack keeps its logs, metrics, traces, workbook prompts, and expected-outcomes contract aligned without pretending to automate the actual investigation.

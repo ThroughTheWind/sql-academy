@@ -10,7 +10,7 @@ Do not use this page as the main curriculum index. It is a reference page for re
 
 The current operations route targets deterministic local bootstrap, startup sequencing, migration safety, health and telemetry review, incident triage, and rollback versus roll-forward discipline.
 
-It does not yet claim full DBA or DBRE mastery across backup and restore, SQL Server Agent, HA or DR, replication, or security administration. Those remain extension-track work after the core platform and release workflows are stronger.
+It does not yet claim full DBA or DBRE mastery across backup and restore, SQL Server Agent, HA or DR, replication, or security administration. Those now route through [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) after the core platform and release workflows are stronger.
 
 The tracked backlog for deeper future expansion lives in [../../.ai/sql-efcore-mastery-backlog.md](../../.ai/sql-efcore-mastery-backlog.md).
 
@@ -33,6 +33,7 @@ Coverage targets:
 ## When Not To Use This Page
 
 - when you still need the ordered learner path; use [Curriculum Map](../learning/curriculum-map.md)
+- when the main question is optional DBA or DBRE specialization rather than the core release or incident route; use [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md)
 - when the main question is SQL query design or execution-plan interpretation; use [SQL Track](../sql/README.md) and [Performance Track](../performance/README.md)
 - when the main question is application-side EF Core or Dapper boundaries; use [EF Core Track](../efcore/README.md)
 
@@ -67,6 +68,7 @@ Coverage targets:
 - need to reproduce or reason about blocking and deadlocks: [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md), [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md), and [DeadlockReproductionTests](../../tests/SqlAcademy.PerformanceTests/DeadlockReproductionTests.cs)
 - need an idempotent consistency check for a data-moving workflow: [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - need to narrow a slow-but-healthy API incident: [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) and [PostsEndpointTests](../../tests/SqlAcademy.IntegrationTests/Api/PostsEndpointTests.cs)
+- need optional DBA or DBRE specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md)
 - need a repeatable validation or CI baseline: [run-exercise-validation.ps1](../../infra/scripts/run-exercise-validation.ps1), [ci.yml](../../.github/workflows/ci.yml), and [docker-validation.yml](../../.github/workflows/docker-validation.yml)
 
 ## Operational Loop In This Repo

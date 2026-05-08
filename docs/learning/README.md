@@ -31,6 +31,7 @@ Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the 
 - [Cumulative Review](cumulative-review.md) is the mixed-topic checkpoint after several lessons.
 - the assessment packs split review by level so you can test one slice at a time: [Beginner](beginner-assessment-pack.md), [Intermediate](intermediate-assessment-pack.md), [Advanced](advanced-assessment-pack.md), and [Senior](senior-assessment-pack.md)
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md) is for extension ideas after the main route, not the main route itself.
+- [DBA And DBRE Extension Track](dba-dbre-extension-track.md) is the optional specialization route after the main academy path feels complete.
 - [Repository Improvement Suggestions](repository-improvement-suggestions.md) is a maintainer backlog, not a learner progression guide.
 
 ## Exercise Modes
@@ -51,6 +52,7 @@ Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the 
 - [Advanced Assessment Pack](advanced-assessment-pack.md)
 - [Senior Assessment Pack](senior-assessment-pack.md)
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md)
+- [DBA And DBRE Extension Track](dba-dbre-extension-track.md)
 - [Repository Improvement Suggestions](repository-improvement-suggestions.md)
 
 ## Validation Workflow
