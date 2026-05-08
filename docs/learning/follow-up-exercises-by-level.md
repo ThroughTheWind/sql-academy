@@ -39,5 +39,6 @@ Use [Curriculum Map](curriculum-map.md) for the main course sequence, and use th
 - Implemented supplemental deadlock-graph walkthrough: [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md)
 - Implemented release-readiness investigation pack: [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md)
 - Implemented optional DBA/DBRE investigation pack: [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md)
+- Implemented optional DBA/DBRE scheduling pack: [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md)
 - Add an inbox or deduplication exercise for consumer-side delivery guarantees.
 - Add a bulk-ingestion pipeline lab with staging tables, deduplication, and publish steps.

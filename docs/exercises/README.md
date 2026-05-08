@@ -43,6 +43,7 @@ Design rules:
 | [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | guided lab | EF Core generated-SQL inspection and disposable N+1 regression investigation |
 | [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) | investigation pack | release readiness, migration safety, telemetry checks, and rollback gates |
 | [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md) | investigation pack | backup posture, restore verification, and recovery proof |
+| [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) | investigation pack | SQL Server Agent placement, job safety, and scheduling boundaries |
 
 ## Validation Workflow For Validation Packs
 
@@ -77,3 +78,5 @@ Investigation packs such as [Senior 004](../../src/exercises/Senior/004-posts-ap
 [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) is the release-readiness investigation pack when you need a go or no-go decision, a first-five-minutes watch plan, and explicit rollback or roll-forward gates before deployment begins.
 
 [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md) is the optional DBA or DBRE recovery-verification investigation pack when backup posture, restore drills, and post-restore proof need to be defended from evidence instead of assumptions.
+
+[Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) is the optional DBA or DBRE scheduling investigation pack when SQL Server Agent placement, overlap control, and job-safety rules need to be defended from the current worker and release boundaries.

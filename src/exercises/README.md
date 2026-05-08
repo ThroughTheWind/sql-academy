@@ -35,6 +35,7 @@ Exercises currently ship in three supported modes:
 | [Senior 005](Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | guided lab |
 | [Senior 006](Senior/006-release-readiness-and-rollback-gates/README.md) | investigation pack |
 | [Senior 007](Senior/007-backup-restore-and-recovery-verification/README.md) | investigation pack |
+| [Senior 008](Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) | investigation pack |
 
 ## Validation-Ready Packs
 
@@ -61,6 +62,7 @@ The current non-validation packs are:
 - [Senior 005](Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) as a guided lab
 - [Senior 006](Senior/006-release-readiness-and-rollback-gates/README.md) as an investigation pack
 - [Senior 007](Senior/007-backup-restore-and-recovery-verification/README.md) as an investigation pack for optional DBA or DBRE recovery-verification work
+- [Senior 008](Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) as an investigation pack for optional DBA or DBRE scheduling and job-safety work
 
 Run the validation harness with:
 
