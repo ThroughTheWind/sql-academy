@@ -4,6 +4,23 @@
 
 Learn to reason about system behavior under contention. This is the point where SQL correctness alone stops being enough. A query can be logically correct and still cause stalls, timeouts, or deadlocks in production.
 
+## Before You Start
+
+- be comfortable with [Lesson 04](04-schema-design-and-migration-safety.md) and the idea that operationally safe behavior matters as much as logical correctness
+- keep [Learning Glossary](glossary.md) open if terms such as blocking, deadlock, isolation level, or optimistic concurrency are still slow
+- expect to reason about multiple sessions and transaction duration instead of only one query at a time
+
+## Suggested Time Budget
+
+- 75 to 120 minutes to read the lesson, follow the blocking examples, and restate the deadlock sequence in your own words
+- longer if concurrent session behavior is newer than single-session query work
+
+## If You Get Stuck Early
+
+- start by distinguishing plain blocking from a deadlock before you debug the example further
+- draw the sequence of locks and waits on paper before you reach for retry logic
+- use [Senior 001: Concurrency, Blocking, And Deadlocks](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) only after the basic wait-versus-cycle distinction already makes sense
+
 ## Why This Lesson Matters
 
 Production systems fail under load in ways that do not show up in single-session testing. The most common concurrency problems are:

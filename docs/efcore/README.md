@@ -10,7 +10,9 @@ Do not use this page as the main curriculum index. It is a reference page for EF
 
 ## Scope Boundary
 
-The current EF Core route targets production-oriented application data access: query shape, projection, tracking behavior, concurrency, migrations, hybrid EF-plus-Dapper boundaries, and validation through tests and telemetry.
+The current EF Core route targets production-oriented application data access for engineers who already have basic SQL and application-code familiarity: query shape, projection, tracking behavior, concurrency, migrations, hybrid EF-plus-Dapper boundaries, and validation through tests and telemetry.
+
+It is not the first stop for learners who still need SQL fundamentals or local tooling basics.
 
 It does not yet claim full EF Core mastery across every advanced mapping, interception, batching, or materialization feature.
 

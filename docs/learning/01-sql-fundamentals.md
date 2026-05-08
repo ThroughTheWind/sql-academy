@@ -4,6 +4,23 @@
 
 Build correctness before speed. This lesson gives you a working mental model of the `academy` schema, the seeded rows, and the core SQL operators that later lessons assume you already trust.
 
+## Before You Start
+
+- complete [Phase 0: Local Setup](../phases/phase-0-local-setup.md) so you can reach `LearningDb` reliably
+- keep [Learning Glossary](glossary.md) open if terms such as predicate, projection, or deterministic order are not yet automatic
+- plan to stay read-only until the result shape of a query feels predictable
+
+## Suggested Time Budget
+
+- 60 to 90 minutes to read the lesson and run the baseline inspection queries
+- extra time if SQL syntax itself is still unfamiliar or if you need to stop and inspect the seed data carefully
+
+## If You Get Stuck Early
+
+- stop at read-only `SELECT` queries and explain the expected result before you run anything else
+- compare your mental model against the seed files linked below instead of guessing
+- use [Beginner 000: SQL Fundamentals And Safe Changes](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) only after the table purposes and basic ordering rules already make sense
+
 ## Why This Lesson Matters
 
 Most later SQL mistakes are not advanced mistakes. They usually begin with one of these failures:

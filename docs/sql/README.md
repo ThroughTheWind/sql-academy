@@ -10,7 +10,9 @@ Do not use this page as the main curriculum index. It is a lookup surface, not t
 
 ## Scope Boundary
 
-The current SQL route targets backend and application engineers who need strong SQL Server fluency for schema design, query shape, performance, concurrency, and production troubleshooting.
+The current SQL route targets backend and application engineers with development experience who need stronger SQL Server fluency for schema design, query shape, performance, concurrency, and production troubleshooting.
+
+It starts at SQL fundamentals, but it is not intended as a first-ever SQL course.
 
 It does not currently claim full DBA or DBRE coverage for backup and restore, SQL Server Agent, HA/DR, replication, or security administration.
 

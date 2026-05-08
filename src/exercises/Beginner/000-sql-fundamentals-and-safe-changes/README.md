@@ -4,6 +4,25 @@
 
 Build confidence with projection, filtering, deterministic ordering, and constraint-aware reasoning before later lessons introduce joins, windows, or performance tuning.
 
+## Before You Start
+
+- complete [Phase 0: Local Setup](../../../../docs/phases/phase-0-local-setup.md)
+- read [Lesson 01: SQL Fundamentals](../../../../docs/learning/01-sql-fundamentals.md)
+- keep [Learning Glossary](../../../../docs/learning/glossary.md) nearby if terms such as projection, predicate, or deterministic order are still slow
+
+## Suggested Workflow
+
+1. Run `starter.sql` unchanged and inspect the staging rows before you edit `answer.sql`.
+2. Read `expected-outcomes.md` so you know what proof the validation script expects.
+3. Solve one temp-table task at a time instead of trying to finish all three in one pass.
+4. Open `hints.md` only after you can explain what your current query is doing wrong.
+
+## If You Get Stuck
+
+- go back to the read-only inspection queries in [Lesson 01](../../../../docs/learning/01-sql-fundamentals.md) if table purpose or row ordering still feels unclear
+- use `broken.sql` to name the failure before you try to repair it
+- do not open `optional-solution.sql` until you already have a concrete opinion about the fix
+
 ## Scenario
 
 You are reviewing the seeded academy data and a small candidate-user import before anything is allowed to touch production tables.

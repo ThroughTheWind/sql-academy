@@ -4,6 +4,12 @@ This is the authoritative guided route for the academy.
 
 If another index or summary table disagrees with this file, follow this file.
 
+The default route is designed for working backend and application engineers who want stronger SQL Server and data-access depth in a real repository.
+
+It does not assume DBA experience, but it does assume comfort with code, source control, and a local development stack.
+
+If SQL syntax and local tooling are both new, slow the route down and stay in Lesson 01, the glossary, and Beginner 000 until the basics feel predictable.
+
 ## Default Guided Route
 
 1. [How To Start](how-to-start.md)

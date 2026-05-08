@@ -24,6 +24,16 @@ Design rules:
 - learners should be able to verify results locally against `LearningDb`
 - hints should help without fully solving the exercise too early
 
+## Fast Path For Your First Validation Pack
+
+If you are working through the early route for the first time, use this loop for [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md), [Beginner 001](../../src/exercises/Beginner/001-joins-and-aggregations/README.md), and [Beginner 002](../../src/exercises/Beginner/002-filtering-constraints-and-data-quality/README.md):
+
+1. Read the matching lesson and the exercise README first.
+2. Run `starter.sql` unchanged before you edit `answer.sql`.
+3. Read `expected-outcomes.md` so you know what the harness is trying to prove.
+4. Solve one output table at a time instead of rewriting everything in one pass.
+5. Use `hints.md` only after you can explain what your current answer is doing wrong.
+
 ## Exercise Ladder
 
 | Pack | Mode | Primary Focus |

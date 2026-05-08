@@ -1,5 +1,10 @@
 # Phase 0: Local Setup
 
+## Suggested Time Budget
+
+- 30 to 60 minutes if Docker, your SQL client, and local ports already work on your machine
+- longer if Docker setup, port conflicts, or SQL client connection setup are still new
+
 ## Objectives
 
 - get the full Docker-first platform running locally
@@ -13,6 +18,18 @@
 - .NET 10 SDK
 - a SQL client such as Azure Data Studio or SSMS
 - the ability to use the ports configured in [../../.env](../../.env), or to adjust them before startup
+
+## First Success Markers
+
+- `docker compose config` succeeds before you start the full stack
+- `http://localhost:8080/health/ready` returns success after startup
+- `SELECT COUNT(*) FROM academy.Users` returns seeded data from `LearningDb`
+
+## If You Get Stuck
+
+- return to [How To Start](../learning/how-to-start.md) and make the first successful query your only goal for this phase
+- use [Learning Glossary](../learning/glossary.md) if terms such as readiness, migrations, or metrics are slowing you down
+- treat Prometheus, Grafana, `/metrics`, and `/openapi/v1.json` as optional until the database and API already feel predictable
 
 ## Concepts
 

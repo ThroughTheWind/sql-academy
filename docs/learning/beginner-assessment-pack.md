@@ -2,6 +2,17 @@
 
 Use this pack after Lessons 01 and 02 and their companion validation exercises. This pack checks whether you can still reason correctly when fundamentals, joins, and aggregation questions are mixed together.
 
+## Before You Start
+
+- complete [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) and [Beginner 001](../../src/exercises/Beginner/001-joins-and-aggregations/README.md)
+- use this pack as a checkpoint, not as your first exposure to deterministic ordering or join cardinality
+- keep [Learning Glossary](glossary.md) open if the core terms are still slow
+
+## Suggested Time Budget
+
+- 30 to 45 minutes for the short questions and scenario write-ups
+- longer if you still need to restate the answer in your own words after checking the key
+
 ## Covers
 
 - [Lesson 01: SQL Fundamentals](01-sql-fundamentals.md)
@@ -14,6 +25,12 @@ Use this pack after Lessons 01 and 02 and their companion validation exercises. 
 1. Answer the short questions without opening the lesson docs.
 2. For the scenarios, write the likely issue, the first query or check you would run, and the fix you would test.
 3. Use the answer key only after you have committed to your own explanation.
+
+## If You Get Stuck
+
+- return to [Lesson 01](01-sql-fundamentals.md) if the failure is about ordering, safe updates, or integrity rules
+- return to [Lesson 02](02-joins-and-aggregations.md) if the failure is about row multiplication, outer joins, or counting
+- rerun the matching beginner validation pack before you treat this review pack as complete
 
 ## Short Questions
 

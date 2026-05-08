@@ -2,6 +2,10 @@
 
 This folder is the learner-facing entry point for the academy.
 
+The ordered route here is built for working backend and application engineers who want stronger SQL Server and data-access depth in a real repository.
+
+If SQL syntax and local tooling are both new, expect to spend longer in Lesson 01, the glossary, and Beginner 000 before following the rest of the sequence.
+
 If you want one authoritative journey through the repository, start with [Curriculum Map](curriculum-map.md).
 
 If you are brand new to the repository, read [How To Start](how-to-start.md) first and then return to [Curriculum Map](curriculum-map.md).

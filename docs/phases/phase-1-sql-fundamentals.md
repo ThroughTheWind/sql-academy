@@ -1,5 +1,10 @@
 # Phase 1: SQL Fundamentals
 
+## Suggested Time Budget
+
+- 60 to 120 minutes if Phase 0 already feels predictable
+- longer if `SELECT`, `WHERE`, `ORDER BY`, and constraint errors are still unfamiliar
+
 ## Objectives
 
 - build confidence with projection, filtering, sorting, and inserts
@@ -9,6 +14,18 @@
 ## Prerequisites
 
 - Phase 0 complete
+
+## First Success Markers
+
+- you can connect to `LearningDb` without re-solving setup problems every few minutes
+- you can run a read-only query against `academy.Users`, `academy.Orders`, and `academy.Posts`
+- you can explain why a query needs explicit ordering before you start the exercise pack
+
+## If You Get Stuck
+
+- return to [How To Start](../learning/how-to-start.md) and [Lesson 01: SQL Fundamentals](../learning/01-sql-fundamentals.md) before widening scope
+- use [Learning Glossary](../learning/glossary.md) when terms such as predicate, projection, or deterministic order block progress
+- keep your work read-only until you can predict the result set before running the query
 
 ## Concepts
 

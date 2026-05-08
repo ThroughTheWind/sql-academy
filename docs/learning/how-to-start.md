@@ -2,6 +2,16 @@
 
 This guide is for a learner who wants a clear first path instead of browsing the repository tree.
 
+It is written for working backend and application engineers who can already navigate a local development environment and want a more structured SQL Server route through the repository.
+
+It is not yet the right first stop if you are learning your first developer workflow or your first SQL syntax at the same time.
+
+## Before You Commit To This Route
+
+- use this route when you are comfortable running Docker, opening a SQL client, and reading application code or test assets
+- slow down in Lesson 01, the [Learning Glossary](glossary.md), and [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) if SQL syntax still feels unfamiliar
+- do not treat the sample week-one pace below as a deadline if the query basics are not yet predictable
+
 ## Step 1: Get The Platform Running
 
 1. Review [../../.env](../../.env) before first startup. Keep the defaults unless a port or password conflicts with your machine, and use [../../.env.example](../../.env.example) as the reference for supported settings.
@@ -12,6 +22,8 @@ This guide is for a learner who wants a clear first path instead of browsing the
 6. Treat Prometheus and Grafana as optional on day one. Open them after the API and database already feel predictable.
 
 Do not start with EF Core code or performance tuning before the local stack feels predictable.
+
+If the setup itself is new territory, stop after the first successful `SELECT COUNT(*) FROM academy.Users` and make that workflow boring before you add more moving parts.
 
 ## Step 2: Learn The Data Model First
 
@@ -61,7 +73,9 @@ If you want narrower checkpoints, use the level-scoped packs after each stage:
 - [Advanced Assessment Pack](advanced-assessment-pack.md) after Lessons 05 through 07
 - [Senior Assessment Pack](senior-assessment-pack.md) after Lessons 08 through 11
 
-## First Week Plan
+## Sample First Week Plan
+
+This pacing is realistic for an experienced engineer ramping into the repository. It is not intended as a speed target for someone still learning the basics.
 
 1. Day 1: complete local setup and inspect seed data
 2. Day 2: finish Lesson 01 and [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)

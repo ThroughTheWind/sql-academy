@@ -4,6 +4,23 @@
 
 Learn how relationships change row counts, how grouped answers differ from detail answers, and why accidental duplication is one of the most common SQL mistakes in real systems.
 
+## Before You Start
+
+- be comfortable with single-table `SELECT`, `WHERE`, and `ORDER BY` queries from [Lesson 01](01-sql-fundamentals.md)
+- keep [Learning Glossary](glossary.md) open if terms such as cardinality, join multiplicity, or predicate are still slow
+- expect to inspect joined rowsets before you write the aggregate you think you want
+
+## Suggested Time Budget
+
+- 60 to 90 minutes to read the lesson, inspect the joined rowsets, and complete the first clean aggregate checks
+- extra time if join row multiplication still feels less predictable than single-table filtering
+
+## If You Get Stuck Early
+
+- stop and run the pre-aggregate join examples without `GROUP BY`
+- explain why a row multiplies before you try to fix the count
+- use [Beginner 001: Joins And Aggregations](../../src/exercises/Beginner/001-joins-and-aggregations/README.md) after the raw rowset shape already makes sense
+
 ## Why This Lesson Matters
 
 Most incorrect reporting queries are not syntactically broken. They run and return believable numbers, but the numbers are wrong because the author did not reason about join cardinality.

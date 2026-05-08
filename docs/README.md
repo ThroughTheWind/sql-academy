@@ -4,6 +4,8 @@ This is the documentation landing page for SqlAcademy.
 
 If you are here to learn rather than inspect the repository structure, start with [Curriculum Map](learning/curriculum-map.md). Use this page when you need to choose the right documentation surface quickly instead of browsing the repo tree or guessing which README owns a topic.
 
+The default learner route is built for working backend and application engineers. It is not currently a zero-assumption introduction to programming, Docker, or first-ever SQL syntax.
+
 Do not treat this page as a second curriculum map. It is the routing layer for the docs set.
 
 ## Start Here

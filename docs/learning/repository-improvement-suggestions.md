@@ -8,6 +8,9 @@ Use [Curriculum Map](curriculum-map.md) for the default course route, use this f
 
 ## Near-Term Improvements
 
+- Add a lighter day-one setup path or a clearer SQL-first first-run workflow so learners can reach a first successful query before they need every platform surface.
+- Add sample outputs and annotated result-shape examples to Lessons 01 and 02 plus the beginner validation packs.
+- Add a compact schema visual or table-relationship quick reference for the first lessons.
 - Add statistics-drift and skew-focused performance lessons that build on the existing Query Store and larger-cardinality workload route.
 - Add dashboard JSON exports so learners get immediate observability visuals after startup.
 - Add spaced-repetition drills built from the glossary and lesson checkpoints.

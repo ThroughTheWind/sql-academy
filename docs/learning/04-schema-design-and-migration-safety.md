@@ -4,6 +4,23 @@
 
 Schema design is not only about modeling entities correctly. It is also about introducing change safely in a live system. A schema change that is logically correct but operationally unsafe is still a bad change.
 
+## Before You Start
+
+- finish the earlier lessons first so query correctness, joins, and stable ordering already feel routine
+- keep [Learning Glossary](glossary.md) open if terms such as additive change, backfill, or contract enforcement are still slow
+- treat this lesson as the first clear shift from query-writing into system-change reasoning
+
+## Suggested Time Budget
+
+- 75 to 120 minutes to read the lesson carefully and compare the safe and unsafe migration shapes
+- longer if schema-change rollout thinking is newer than query-writing itself
+
+## If You Get Stuck Early
+
+- separate the logical schema question from the rollout-safety question and answer them one at a time
+- use the unsafe-versus-safer examples in this lesson before you invent a new migration plan from scratch
+- do not jump to implementation details until you can explain what existing rows and older application versions need during the compatibility window
+
 ## Why This Lesson Matters
 
 Many engineers can design tables that look reasonable on a whiteboard. Fewer can answer:

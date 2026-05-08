@@ -15,7 +15,9 @@
 
 ## Scope Target
 
-The current academy route targets senior backend and application engineers who use SQL Server together with EF Core and Dapper in real application and production work.
+The current academy route targets working backend and application engineers who use SQL Server together with EF Core and Dapper in real application and production work.
+
+It starts at SQL fundamentals, but it is not yet intended as a first-ever programming or database course.
 
 That means the core route is expected to cover query shape, schema design, concurrency, tuning, internals, observability, release safety, and application-data-access tradeoffs to a strong professional level.
 

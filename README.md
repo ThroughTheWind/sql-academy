@@ -1,10 +1,14 @@
 # SqlAcademy
 
-SqlAcademy is a long-lived engineering training platform for SQL Server, .NET 10, EF Core 10, Dapper, performance engineering, and production operations. It is designed to be Docker-first, exercise-driven, documentation-first, and structured for incremental learning from beginner through senior-level scenarios.
+SqlAcademy is a long-lived engineering training platform for SQL Server, .NET 10, EF Core 10, Dapper, performance engineering, and production operations. It is designed to be Docker-first, exercise-driven, and documentation-first, with a guided route that starts at SQL fundamentals and grows into senior-level scenarios for working backend and application engineers.
 
 ## Scope
 
-The current core route targets senior backend and application engineers who need strong SQL Server, EF Core, Dapper, performance, and production-operability fluency.
+The current core route targets working backend and application engineers who need stronger SQL Server, EF Core, Dapper, performance, and production-operability fluency.
+
+It is a good fit when you are already comfortable with a local development environment, source control, and application code, but you want a more deliberate SQL Server learning path.
+
+It is not yet a zero-assumption course for someone learning their first developer toolchain or first-ever SQL syntax at the same time.
 
 It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Server Agent, HA/DR, replication, security administration, and similar operational specialties remain optional extension-track work after the core route is stronger.
 
@@ -23,6 +27,8 @@ The maintainer execution backlog for closing those gaps lives in [.ai/sql-efcore
 ## Start Learning
 
 If you want the default guided route through the repository, start here:
+
+If SQL is still brand new, move more slowly than the sample pacing and treat Lesson 01, the glossary, and Beginner 000 as the first checkpoint before you continue deeper into the route.
 
 1. Read the [How To Start guide](docs/learning/how-to-start.md).
 2. Complete [Phase 0: Local Setup](docs/phases/phase-0-local-setup.md).

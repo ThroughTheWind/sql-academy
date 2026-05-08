@@ -8,7 +8,9 @@ Do not use this page as the main curriculum index. It is a reference page for re
 
 ## Scope Boundary
 
-The current operations route targets deterministic local bootstrap, startup sequencing, migration safety, health and telemetry review, incident triage, and rollback versus roll-forward discipline.
+The current operations route targets engineers who can already run the local stack and now need deterministic bootstrap, startup sequencing, migration safety, health and telemetry review, incident triage, and rollback versus roll-forward discipline.
+
+It is not a zero-assumption introduction to release engineering or local infrastructure workflow.
 
 It does not yet claim full DBA or DBRE mastery across backup and restore, SQL Server Agent, HA or DR, replication, or security administration. Those now route through [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) after the core platform and release workflows are stronger.
 

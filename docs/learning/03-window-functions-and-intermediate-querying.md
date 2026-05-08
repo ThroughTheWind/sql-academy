@@ -4,6 +4,23 @@
 
 Use analytical SQL to keep row-level detail while adding rankings, running totals, and stable pagination. This is the point where you stop choosing between “detail” and “summary” as if they were mutually exclusive.
 
+## Before You Start
+
+- be comfortable explaining join cardinality and grouped results from [Lesson 02](02-joins-and-aggregations.md)
+- keep [Learning Glossary](glossary.md) open if terms such as partition, rank, or deterministic order are still slow
+- expect to spend time proving row order and partition boundaries before you care about query elegance
+
+## Suggested Time Budget
+
+- 75 to 120 minutes to read the lesson, run the baseline examples, and complete the first stable ranking or pagination queries
+- longer if window functions are your first exposure to analytical SQL
+
+## If You Get Stuck Early
+
+- return to the non-window version of the question first and write the plain rowset you want
+- add one window expression at a time instead of combining ranking, partitioning, and pagination immediately
+- stop and verify the `ORDER BY` plus tiebreaker before you debug anything else
+
 ## Why This Lesson Matters
 
 Grouped aggregates are useful, but they discard row-level context. Real systems often need both:
