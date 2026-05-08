@@ -6,15 +6,16 @@ This file is the learner-facing summary, not the execution tracker.
 
 Use [Curriculum Map](curriculum-map.md) for the default course route, use this file for the public summary of what should improve next, and use [../../.ai/sql-efcore-mastery-backlog.md](../../.ai/sql-efcore-mastery-backlog.md) for the tracked maintainer backlog.
 
-Recent learner-path updates already added a SQL-first day-one guide, a compact schema quick reference, sample result-shape sections in the first lessons, and clearer pacing or blocked-path guidance across the early and middle route.
+Recent learner-path updates already added a SQL-first day-one guide, a reduced-startup database-first path, a compact schema quick reference, a SQL client connection guide, a local troubleshooting guide, an effort summary page, sample result-shape sections in the early lessons and intermediate validation packs, and clearer pacing or blocked-path guidance across the early and middle route.
 
 ## Near-Term Improvements
 
-- Add copy-paste connection examples for Azure Data Studio, SSMS, and `sqlcmd` so the day-one docs cover the most common client workflows directly.
-- Add a dedicated troubleshooting guide for Docker startup, port conflicts, readiness failures, and SQL client login issues.
-- Add printable one-page lesson checklists for Lessons 01 through 03 plus the beginner packs.
-- Extend sample output sections into the intermediate validation packs so the support pattern stays consistent after the beginner route.
-- Add one page that summarizes estimated effort across all lessons and packs instead of only inside individual docs.
+- Add a dedicated Compose profile or VS Code task for the reduced database-first startup path so learners do not need to remember service names manually.
+- Add screenshots or short terminal transcripts to the connection guide and troubleshooting guide so first-run recovery feels less text-heavy.
+- Add printable one-page lesson checklists for Lessons 01 through 03 plus the beginner and intermediate packs.
+- Extend sample output sections into the deterministic advanced validation packs so the support pattern stays consistent after the intermediate route.
+- Add a compact command cheat sheet for `docker compose`, `sqlcmd`, the validation harness, and the most useful focused test commands.
+- Add a local-environment reset FAQ that distinguishes safe retry steps from destructive reset steps.
 - Add statistics-drift and skew-focused performance lessons that build on the existing Query Store and larger-cardinality workload route.
 - Add dashboard JSON exports so learners get immediate observability visuals after startup.
 - Add spaced-repetition drills built from the glossary and lesson checkpoints.

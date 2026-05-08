@@ -4,6 +4,8 @@ This folder is the learner-facing entry point for the academy.
 
 The ordered route here is built for working backend and application engineers who want stronger SQL Server and data-access depth in a real repository.
 
+Here, `beginner` means beginner to SQL in a professional codebase, not beginner to software development or local tooling in general.
+
 If SQL syntax and local tooling are both new, expect to spend longer in Lesson 01, the glossary, and Beginner 000 before following the rest of the sequence.
 
 If you want one authoritative journey through the repository, start with [Curriculum Map](curriculum-map.md).
@@ -34,8 +36,11 @@ Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the 
 
 - [Curriculum Map](curriculum-map.md) is the source of truth for sequence, companion practice, and validation mode.
 - [SQL-First Day One](sql-first-day-one.md) is the lightest first-query path when you want a smaller day-one goal.
+- [SQL Client Connection Guide](sql-client-connection-guide.md) is the practical connection reference for Azure Data Studio, SSMS, and `sqlcmd`.
+- [Local Setup Troubleshooting](local-setup-troubleshooting.md) is the recovery path when the local stack or login flow goes sideways.
 - [How To Start](how-to-start.md) is the first-week walkthrough for a clean clone.
 - [Schema Quick Reference](schema-quick-reference.md) is the compact table and relationship reference for the first lessons.
+- [Effort And Pacing Guide](effort-and-pacing-guide.md) gives one planning view for lessons, packs, and reviews.
 - [Cumulative Review](cumulative-review.md) is the mixed-topic checkpoint after several lessons.
 - the assessment packs split review by level so you can test one slice at a time: [Beginner](beginner-assessment-pack.md), [Intermediate](intermediate-assessment-pack.md), [Advanced](advanced-assessment-pack.md), and [Senior](senior-assessment-pack.md)
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md) is for extension ideas after the main route, not the main route itself.
@@ -53,8 +58,11 @@ Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the 
 
 - [Curriculum Map](curriculum-map.md)
 - [SQL-First Day One](sql-first-day-one.md)
+- [SQL Client Connection Guide](sql-client-connection-guide.md)
+- [Local Setup Troubleshooting](local-setup-troubleshooting.md)
 - [How To Start](how-to-start.md)
 - [Schema Quick Reference](schema-quick-reference.md)
+- [Effort And Pacing Guide](effort-and-pacing-guide.md)
 - [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md)
 - [Learning Glossary](glossary.md)
 - [Cumulative Review](cumulative-review.md)

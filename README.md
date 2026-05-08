@@ -8,6 +8,8 @@ The current core route targets working backend and application engineers who nee
 
 It is a good fit when you are already comfortable with a local development environment, source control, and application code, but you want a more deliberate SQL Server learning path.
 
+In this repository, `beginner` means beginner to SQL Server and relational reasoning inside an existing engineering workflow, not beginner to software development itself.
+
 It is not yet a zero-assumption course for someone learning their first developer toolchain or first-ever SQL syntax at the same time.
 
 It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Server Agent, HA/DR, replication, security administration, and similar operational specialties remain optional extension-track work after the core route is stronger.
@@ -56,7 +58,10 @@ Use [Curriculum Map](docs/learning/curriculum-map.md) for the authoritative sequ
 Use the [Learning Glossary](docs/learning/glossary.md) when vocabulary slows you down, and use the checkpoint section at the end of each lesson before moving on.
 
 - [SQL-First Day One](docs/learning/sql-first-day-one.md) is the lowest-friction first-query guide.
+- [SQL Client Connection Guide](docs/learning/sql-client-connection-guide.md) covers Azure Data Studio, SSMS, and `sqlcmd` connection examples.
+- [Local Setup Troubleshooting](docs/learning/local-setup-troubleshooting.md) narrows Docker, port, readiness, and login failures.
 - [Schema Quick Reference](docs/learning/schema-quick-reference.md) is the compact first-lessons table and relationship map.
+- [Effort And Pacing Guide](docs/learning/effort-and-pacing-guide.md) summarizes the expected time budget for the current route.
 - [Curriculum Map](docs/learning/curriculum-map.md) is the main learner progression map.
 - [Phase Guides](docs/phases/README.md) define the objectives and exit criteria for each stage.
 - [Exercise System](docs/exercises/README.md) explains the ladder, validation workflow, and exercise modes.

@@ -14,11 +14,15 @@ It is not yet the right first stop if you are learning your first developer work
 
 If you want a smaller first target before this full route, use [SQL-First Day One](sql-first-day-one.md).
 
+If the likely friction is the client connection itself, use [SQL Client Connection Guide](sql-client-connection-guide.md) and [Local Setup Troubleshooting](local-setup-troubleshooting.md) before you widen scope.
+
 ## Optional Step 0: Reach One Successful Query First
 
 Use [SQL-First Day One](sql-first-day-one.md) when you want a first read-only session before the full course walkthrough.
 
 Pair it with [Schema Quick Reference](schema-quick-reference.md) if the seeded tables and relationships are still fuzzy.
+
+Use [Effort And Pacing Guide](effort-and-pacing-guide.md) if you want one planning view for the route before you commit time.
 
 ## Step 1: Get The Platform Running
 
@@ -28,6 +32,8 @@ Pair it with [Schema Quick Reference](schema-quick-reference.md) if the seeded t
 4. Wait for the API to report ready at `http://localhost:8080/health/ready`.
 5. Connect to `LearningDb` with a SQL client, inspect the `academy` schema, and run `SELECT COUNT(*) FROM academy.Users`.
 6. Treat Prometheus and Grafana as optional on day one. Open them after the API and database already feel predictable.
+
+If you only need a database-first session, [SQL-First Day One](sql-first-day-one.md) now gives a reduced-startup path that skips the full API stack.
 
 Do not start with EF Core code or performance tuning before the local stack feels predictable.
 
