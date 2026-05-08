@@ -76,6 +76,8 @@ Coverage targets:
 - need backup and restore recovery verification after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md)
 - need SQL Server Agent or job-safety specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md)
 - need HA or DR failover-posture specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md)
+- need change-capture or replay-reconciliation specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md)
+- need least-privilege or operational security specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md) and [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md)
 - need optional DBA or DBRE specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md)
 - need a repeatable validation or CI baseline: [run-exercise-validation.ps1](../../infra/scripts/run-exercise-validation.ps1), [ci.yml](../../.github/workflows/ci.yml), and [docker-validation.yml](../../.github/workflows/docker-validation.yml)
 
@@ -120,6 +122,8 @@ dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~ReleaseReadinessDrillAssetTests"
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~SqlServerAgentSchedulingDrillAssetTests"
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~HaDrFailoverPostureDrillAssetTests"
+dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~ChangeCaptureReconciliationDrillAssetTests"
+dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~LeastPrivilegeSecurityBoundaryDrillAssetTests"
 ```
 
 Use `docker compose config` when you want a quick structural check before starting the full stack or pushing a Compose change into CI.
@@ -135,6 +139,8 @@ Use `docker compose config` when you want a quick structural check before starti
 - [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md)
 - [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md)
 - [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md)
+- [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md)
+- [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md)
 
 ## Bridge To SQL, Performance, And EF Core
 

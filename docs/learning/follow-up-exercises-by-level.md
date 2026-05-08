@@ -41,5 +41,7 @@ Use [Curriculum Map](curriculum-map.md) for the main course sequence, and use th
 - Implemented optional DBA/DBRE investigation pack: [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md)
 - Implemented optional DBA/DBRE scheduling pack: [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md)
 - Implemented optional DBA/DBRE failover pack: [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md)
+- Implemented optional DBA/DBRE change-capture pack: [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md)
+- Implemented optional DBA/DBRE security pack: [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md)
 - Add an inbox or deduplication exercise for consumer-side delivery guarantees.
 - Add a bulk-ingestion pipeline lab with staging tables, deduplication, and publish steps.

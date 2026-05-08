@@ -37,6 +37,8 @@ Exercises currently ship in three supported modes:
 | [Senior 007](Senior/007-backup-restore-and-recovery-verification/README.md) | investigation pack |
 | [Senior 008](Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) | investigation pack |
 | [Senior 009](Senior/009-ha-dr-failover-posture-and-verification/README.md) | investigation pack |
+| [Senior 010](Senior/010-change-capture-provenance-and-reconciliation/README.md) | investigation pack |
+| [Senior 011](Senior/011-least-privilege-and-operational-security-boundaries/README.md) | investigation pack |
 
 ## Validation-Ready Packs
 
@@ -65,6 +67,8 @@ The current non-validation packs are:
 - [Senior 007](Senior/007-backup-restore-and-recovery-verification/README.md) as an investigation pack for optional DBA or DBRE recovery-verification work
 - [Senior 008](Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) as an investigation pack for optional DBA or DBRE scheduling and job-safety work
 - [Senior 009](Senior/009-ha-dr-failover-posture-and-verification/README.md) as an investigation pack for optional DBA or DBRE HA or DR failover-posture work
+- [Senior 010](Senior/010-change-capture-provenance-and-reconciliation/README.md) as an investigation pack for optional DBA or DBRE change-capture and reconciliation work
+- [Senior 011](Senior/011-least-privilege-and-operational-security-boundaries/README.md) as an investigation pack for optional DBA or DBRE security and least-privilege work
 
 Run the validation harness with:
 

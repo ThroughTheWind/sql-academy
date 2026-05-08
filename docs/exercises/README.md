@@ -45,6 +45,8 @@ Design rules:
 | [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md) | investigation pack | backup posture, restore verification, and recovery proof |
 | [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) | investigation pack | SQL Server Agent placement, job safety, and scheduling boundaries |
 | [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md) | investigation pack | HA or DR posture, failover readiness, and recovery-target verification |
+| [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md) | investigation pack | change capture provenance, reconciliation, and replay-proof reasoning |
+| [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md) | investigation pack | least privilege, migration authority, and operational security boundaries |
 
 ## Validation Workflow For Validation Packs
 
@@ -83,3 +85,7 @@ Investigation packs such as [Senior 004](../../src/exercises/Senior/004-posts-ap
 [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) is the optional DBA or DBRE scheduling investigation pack when SQL Server Agent placement, overlap control, and job-safety rules need to be defended from the current worker and release boundaries.
 
 [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md) is the optional DBA or DBRE HA or DR investigation pack when failover posture, replica lag, and post-failover useful-work checks need to be defended from recovery targets instead of assumptions.
+
+[Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md) is the optional DBA or DBRE change-capture investigation pack when provenance metadata, replay boundaries, and reconciliation proof need to be defended from the existing import and outbox surfaces instead of generic CDC slogans.
+
+[Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md) is the optional DBA or DBRE security investigation pack when `sa` convenience access, startup migration authority, and operator-admin boundaries need to be defended from the current runtime and deployment surfaces instead of generic least-privilege slogans.
