@@ -33,3 +33,5 @@ Two sessions update related rows in different orders while a long-running transa
 - the learner can explain the deadlock victim choice
 - the learner can map the graph owner and waiter edges back to the inconsistent access order in the scenario
 - the learner can describe what belongs in retry logic versus what belongs in transaction redesign
+
+Use [Deadlock Response Runbook](../../../../docs/operations/deadlock-response-runbook.md) when you want the same deadlock-response loop compressed into a printable incident checklist.

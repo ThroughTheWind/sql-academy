@@ -63,6 +63,8 @@ If the change cannot be rolled back cleanly, the roll-forward plan must be espec
 
 Use [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) when you want one concrete operational drill that forces a go or no-go call before the window opens.
 
+Use [Release Runbook](../operations/release-runbook.md) when you want the same release posture compressed into a printable change-window checklist.
+
 It ties together:
 
 - migration safety gates from the staged backfill route

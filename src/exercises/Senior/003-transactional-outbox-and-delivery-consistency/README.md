@@ -29,3 +29,5 @@ Orders are ready to ship, but downstream delivery depends on outbox messages bei
 - idempotent outbox inserts avoid duplicates
 - dispatch order is deterministic
 - the consistency check proves the outbox matches the ready-to-ship order set
+
+Use [Outbox Delivery Consistency Runbook](../../../../docs/operations/outbox-delivery-runbook.md) when you want the same delivery-consistency contract compressed into a printable operational checklist.

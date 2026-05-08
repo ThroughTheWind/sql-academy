@@ -17,10 +17,7 @@ Observability and testing are how you defend those claims with evidence.
 
 ## Repository Anchors
 
-- [Observability setup](../../src/libs/SqlAcademy.Observability/OpenTelemetryServiceCollectionExtensions.cs)
-- [API startup and metrics endpoints](../../src/apps/SqlAcademy.Api/Program.cs)
-- [Prometheus config](../../infra/observability/prometheus.yml)
-- [Senior 004: Posts API Latency And Observability Triage](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
+- [Incident Triage Runbook](../operations/incident-triage-runbook.md)
 - [Unit tests](../../tests/SqlAcademy.UnitTests/Paging/PagedRequestTests.cs)
 - [Integration tests](../../tests/SqlAcademy.IntegrationTests/Api/PostsEndpointTests.cs)
 - [Performance tests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs)

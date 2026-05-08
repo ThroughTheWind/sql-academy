@@ -8,6 +8,12 @@ Match the first check to the claim you are making. Run the narrowest executable 
 - First check: `powershell -ExecutionPolicy Bypass -File infra/scripts/check-markdown-links.ps1`
 - Escalate when needed: if the change also affects generated commands or code snippets, run the nearest code or script validation as well.
 
+## Printable Runbooks And Operational Checklists
+
+- Use when: you changed printable runbooks, release checklists, or incident-response cheat sheets under `docs/operations`.
+- First check: `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~OperationsRunbookAssetTests"`
+- Escalate when needed: `powershell -ExecutionPolicy Bypass -File infra/scripts/check-markdown-links.ps1`
+
 ## Validation Packs
 
 - Use when: you changed a pack that ships `starter.sql`, `answer.sql`, and `validation.sql`.

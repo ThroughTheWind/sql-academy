@@ -64,12 +64,23 @@ Coverage targets:
 - stack starts but readiness still feels unclear: [docker-compose.yml](../../docker-compose.yml), [init-database.sh](../../infra/scripts/init-database.sh), and [SqlAcademy.Api Program](../../src/apps/SqlAcademy.Api/Program.cs)
 - planning a schema change, backfill, or compatibility window: [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md) and [SqlAcademy.Migrations](../../src/libs/SqlAcademy.Migrations/SqlAcademy.Migrations.csproj)
 - need a go or no-go release drill before a schema-affecting window opens: [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md), [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md), and [OpenTelemetry setup](../../src/libs/SqlAcademy.Observability/OpenTelemetryServiceCollectionExtensions.cs)
+- need a printable release checklist for a change window: [Release Runbook](release-runbook.md)
 - need a first-five-minutes watch plan for a release: [Lesson 08](../learning/08-operational-engineering-and-release-safety.md), [Prometheus config](../../infra/observability/prometheus.yml), and [OpenTelemetry setup](../../src/libs/SqlAcademy.Observability/OpenTelemetryServiceCollectionExtensions.cs)
 - need to reproduce or reason about blocking and deadlocks: [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md), [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md), and [DeadlockReproductionTests](../../tests/SqlAcademy.PerformanceTests/DeadlockReproductionTests.cs)
+- need a printable deadlock-response checklist: [Deadlock Response Runbook](deadlock-response-runbook.md)
 - need an idempotent consistency check for a data-moving workflow: [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
+- need a printable outbox consistency checklist: [Outbox Delivery Consistency Runbook](outbox-delivery-runbook.md)
 - need to narrow a slow-but-healthy API incident: [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) and [PostsEndpointTests](../../tests/SqlAcademy.IntegrationTests/Api/PostsEndpointTests.cs)
+- need a printable incident narrowing checklist: [Incident Triage Runbook](incident-triage-runbook.md)
 - need optional DBA or DBRE specialization after the core route: [DBA And DBRE Extension Track](../learning/dba-dbre-extension-track.md)
 - need a repeatable validation or CI baseline: [run-exercise-validation.ps1](../../infra/scripts/run-exercise-validation.ps1), [ci.yml](../../.github/workflows/ci.yml), and [docker-validation.yml](../../.github/workflows/docker-validation.yml)
+
+## Printable Runbooks
+
+- [Release Runbook](release-runbook.md) compresses the Senior 006 release decision and first-five-minutes watch plan into a one-page change-window checklist.
+- [Deadlock Response Runbook](deadlock-response-runbook.md) compresses the Senior 001 blocking and deadlock response loop into a one-page concurrency checklist.
+- [Outbox Delivery Consistency Runbook](outbox-delivery-runbook.md) compresses the Senior 003 idempotent outbox and deterministic dispatch contract into a one-page delivery checklist.
+- [Incident Triage Runbook](incident-triage-runbook.md) compresses the Senior 004 boundary-narrowing flow into a one-page degraded-service checklist.
 
 ## Operational Loop In This Repo
 
@@ -99,6 +110,7 @@ docker compose up --build
 powershell -ExecutionPolicy Bypass -File infra/scripts/run-exercise-validation.ps1 -Exercise src/exercises/Senior/003-transactional-outbox-and-delivery-consistency
 dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~PostsEndpointTests"
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~QueryStoreLabSmokeTests"
+dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~OperationsRunbookAssetTests"
 dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~ReleaseReadinessDrillAssetTests"
 ```
 
