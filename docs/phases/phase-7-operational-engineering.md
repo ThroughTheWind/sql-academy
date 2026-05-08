@@ -18,6 +18,7 @@
 ## Exercises
 
 - review a migration for operational risk
+- work through [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) to make a go or no-go call before a schema-affecting release window begins
 - trace an API regression through logs and metrics
 - capture a release playbook for a schema change with backfill concerns
 
@@ -35,4 +36,5 @@
 
 - rollout and rollback steps are written down
 - key runtime signals are identified before release
+- learners can explain which gate would block the release before deployment begins
 - learners can explain what would stop a deployment

@@ -36,7 +36,7 @@ Use [Curriculum Map](curriculum-map.md) for the main course sequence, and use th
 - Implemented next pack: [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - Implemented incident pack: [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 - Implemented guided lab: [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md)
-- Add a full deadlock-graph interpretation lab with retry policy design.
+- Implemented supplemental deadlock-graph walkthrough: [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md)
+- Implemented release-readiness investigation pack: [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md)
 - Add an inbox or deduplication exercise for consumer-side delivery guarantees.
 - Add a bulk-ingestion pipeline lab with staging tables, deduplication, and publish steps.
-- Add a release-readiness exercise that combines migration safety, telemetry checks, and rollback strategy.

@@ -23,6 +23,7 @@ This lesson teaches you to separate three different concepts clearly:
 
 - [Phase 4: Transactions And Concurrency](../phases/phase-4-transactions-and-concurrency.md)
 - [Senior 001: Concurrency, Blocking, And Deadlocks](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
+- [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md)
 - [Senior 002: EF Core N+1, Optimistic Concurrency, And Bulk Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 - [Order mapping with rowversion](../../src/libs/SqlAcademy.Persistence/Database/Configurations/OrderConfiguration.cs)
 - [Schema definition for `academy.Orders`](../../db/schemas/001_create_learning_db.sql)
@@ -160,6 +161,17 @@ The right order is usually:
 1. redesign the transaction if the pattern is structurally bad
 2. keep retry for the remaining truly transient cases
 
+## Deadlock Graphs Make The Cycle Concrete
+
+If the wait cycle is still too abstract, use [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md) with its sample graph.
+
+That walkthrough forces you to name:
+
+- the victim process
+- the owner and waiter edge on each locked resource
+- the exact point where Session A and Session B reversed access order
+- the difference between a retry rule and the transaction redesign that should remove the recurring risk
+
 ## Optimistic Concurrency With `rowversion`
 
 The repository models `academy.Orders.RowVersion`, and [Order mapping with rowversion](../../src/libs/SqlAcademy.Persistence/Database/Configurations/OrderConfiguration.cs) marks it as a row version in EF Core.
@@ -222,9 +234,10 @@ Many deadlocks exist because two paths touch the same resources in different seq
 1. Reproduce a simple blocking case with two sessions.
 2. Identify the blocker and the blocked session.
 3. Reproduce a two-row deadlock by changing update order between sessions.
-4. Propose a consistent lock-order redesign.
-5. Explain where retry belongs and where it does not.
-6. Inspect the order rowversion mapping and explain what correctness problem it solves.
+4. Read one concrete deadlock graph and map its process and resource nodes back to the two sessions.
+5. Propose a consistent lock-order redesign.
+6. Explain where retry belongs and where it does not.
+7. Inspect the order rowversion mapping and explain what correctness problem it solves.
 
 ## Exit Criteria
 

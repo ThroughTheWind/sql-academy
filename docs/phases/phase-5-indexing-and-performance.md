@@ -22,6 +22,7 @@
 - inspect a parameter sniffing scenario and test mitigations
 - compare EF Core and Dapper on the same read path
 - work through [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) when the question is about persisted plan and runtime history rather than one cache snapshot
+- expand the local workload with [db/performance/001_high_cardinality_workload_variant.sql](../../db/performance/001_high_cardinality_workload_variant.sql) when the baseline row counts are too small for meaningful statistics, memory-grant, or regression evidence
 
 ## Reference Tracks
 

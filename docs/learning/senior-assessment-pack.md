@@ -12,6 +12,7 @@ Use this pack after Lessons 08 through 11. It checks whether you can connect rel
 - [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 - [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md)
+- [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md)
 
 ## How To Use This Pack
 

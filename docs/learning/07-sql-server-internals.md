@@ -19,10 +19,10 @@ Internal models let you form and test better hypotheses. You do not need perfect
 
 - [Phase 6: SQL Server Internals](../phases/phase-6-sql-server-internals.md)
 - [Performance lab notes](../../db/performance/README.md)
+- [Larger-cardinality workload variant](../../db/performance/001_high_cardinality_workload_variant.sql)
 - [Trade Dapper read path](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
 - [Performance comparison tests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs)
 - [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
-- [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 
 ## The Internal Model You Actually Need
 
@@ -76,20 +76,6 @@ Useful questions:
 - is the current plan reused or recompiled often?
 - was the plan compiled under unusual parameter values?
 - does the estimated row count reflect reality?
-
-## Query Store Complements Plan Cache
-
-Plan cache helps you inspect the current in-memory reuse story.
-
-Query Store helps when the question spans more than one moment:
-
-- which plans did this query use over time?
-- did the runtime profile change after a deploy or workload shift?
-- is the currently cached plan representative or just the latest thing in memory?
-
-That distinction matters. If you confuse plan cache with persisted query history, you can easily build a neat explanation for the wrong time window.
-
-Use [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) when the debugging question is explicitly about regression history rather than only current cache state.
 
 ## Cardinality Estimates Matter
 
@@ -157,7 +143,6 @@ Common practical tools include:
 - `SET STATISTICS IO, TIME ON`
 - DMVs such as `sys.dm_exec_query_stats`
 - DMVs such as `sys.dm_exec_cached_plans`
-- Query Store surfaces such as `sys.query_store_query`, `sys.query_store_plan`, and `sys.query_store_runtime_stats`
 - waits via `sys.dm_os_wait_stats` or live session views
 
 You do not need to memorize every DMV column. What matters is understanding what kind of evidence each surface provides.
@@ -174,6 +159,12 @@ Use the trade query or post query and ask:
 - where could row estimation be difficult?
 
 Then use the performance tests as a controlled environment for comparing behavior instead of inventing a synthetic story detached from the codebase.
+
+## Optional Workload Growth
+
+If the baseline seed is too small to make row-estimation, memory-grant, or plan-cache behavior obvious, apply [Larger-cardinality workload variant](../../db/performance/001_high_cardinality_workload_variant.sql) and rerun the same plan, DMV, benchmark, or guided-lab workflow.
+
+The goal is not random volume. The goal is to keep query shape fixed while giving the optimizer and memory-heavy operators a more realistic rowset to reason about.
 
 ## Common Failure Modes
 
@@ -210,7 +201,6 @@ You are ready for Lesson 08 when you can do all of the following:
 - explain what a memory grant is and why spills happen
 - use waits as a debugging clue instead of a standalone explanation
 - form a falsifiable performance hypothesis before changing code or indexes
-- choose between plan cache and Query Store based on whether the question is about current state or persisted regression history
 
 ## Review Questions
 
@@ -262,7 +252,6 @@ A strong spoken answer should include:
 - explain why stale statistics or bad cardinality estimates can distort an otherwise reasonable query
 - distinguish waits, logical reads, and tempdb spills at a high level
 - name one internal signal you would inspect before guessing at a fix
-- explain why plan cache and Query Store answer different debugging questions
 
 ## Next Lesson
 

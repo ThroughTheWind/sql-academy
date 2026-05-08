@@ -36,11 +36,12 @@ Design rules:
 | [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) | validation pack | indexing, parameter sensitivity, and rollout safety |
 | [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md) | validation pack | staged backfill and contract enforcement |
 | [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) | guided lab | plan cache, memory grants, and wait signals |
-| [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) | validation pack | concurrency, blocking, and deadlocks |
+| [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) | validation pack | concurrency, blocking, deadlocks, and deadlock-graph interpretation |
 | [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab | runnable EF Core, Dapper, and rowversion labs plus a supplemental ingestion review pack |
 | [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) | validation pack | transactional outbox and delivery consistency |
 | [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) | investigation pack | posts API latency and observability triage |
 | [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | guided lab | EF Core generated-SQL inspection and disposable N+1 regression investigation |
+| [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) | investigation pack | release readiness, migration safety, telemetry checks, and rollback gates |
 
 ## Validation Workflow For Validation Packs
 
@@ -60,6 +61,8 @@ Guided labs such as [Advanced 003](../../src/exercises/Advanced/003-plan-cache-m
 
 [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) is the main exception: it is now a guided lab bundle for Phase 8, but it keeps `answer.sql` and `validation.sql` as a supplemental review pack after the code labs.
 
+[Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) remains a validation pack, but it now also includes a supplemental deadlock-graph walkthrough so the learner can connect the validated wait cycle to a concrete victim and retry-policy discussion.
+
 [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) is the focused guided-lab follow-up when you want explicit generated-SQL inspection and a disposable N+1 experiment around the posts read path.
 
 ## Investigation Pack Workflow
@@ -69,3 +72,5 @@ Guided labs such as [Advanced 003](../../src/exercises/Advanced/003-plan-cache-m
 3. Compare the write-up with `expected-outcomes.md` and the optional solution.
 
 Investigation packs such as [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) use Markdown evidence snapshots and narrative output instead of a single SQL answer file.
+
+[Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) is the release-readiness investigation pack when you need a go or no-go decision, a first-five-minutes watch plan, and explicit rollback or roll-forward gates before deployment begins.

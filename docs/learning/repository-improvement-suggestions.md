@@ -8,10 +8,8 @@ Use [Curriculum Map](curriculum-map.md) for the default course route, use this f
 
 ## Near-Term Improvements
 
-- Add Query Store, statistics-drift, and larger-cardinality performance lessons that keep the SQL route application-focused while raising the ceiling.
-- Add EF Core generated-SQL, N+1, and query-shape investigation labs anchored in the existing posts and trades code paths.
-- Expand the validation harness to more of the existing exercise packs.
-- Add seed-data variants with larger cardinalities for performance and plan-stability lessons.
+- Add statistics-drift and skew-focused performance lessons that build on the existing Query Store and larger-cardinality workload route.
+- Expand executable companion checks to more guided labs and investigation packs where a narrow validation surface is realistic.
 - Add dashboard JSON exports so learners get immediate observability visuals after startup.
 - Add spaced-repetition drills built from the glossary and lesson checkpoints.
 

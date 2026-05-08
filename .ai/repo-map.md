@@ -40,8 +40,8 @@ Use this map to choose the owning surface before editing. When in doubt, start w
 ## Operations, Observability, And Incident Drills
 
 - Start with [../docs/operations/README.md](../docs/operations/README.md), [../infra/observability](../infra/observability), and the incident or release exercise that motivated the change.
-- Main owner surfaces: [../infra/observability/otel-collector.yml](../infra/observability/otel-collector.yml), [../infra/observability/prometheus.yml](../infra/observability/prometheus.yml), and [../src/exercises/Senior/004-posts-api-latency-and-observability-triage](../src/exercises/Senior/004-posts-api-latency-and-observability-triage).
-- Supporting anchors: [../docs/performance/README.md](../docs/performance/README.md) and the API runtime files.
+- Main owner surfaces: [../infra/observability/otel-collector.yml](../infra/observability/otel-collector.yml), [../infra/observability/prometheus.yml](../infra/observability/prometheus.yml), [../src/exercises/Senior/004-posts-api-latency-and-observability-triage](../src/exercises/Senior/004-posts-api-latency-and-observability-triage), and [../src/exercises/Senior/006-release-readiness-and-rollback-gates](../src/exercises/Senior/006-release-readiness-and-rollback-gates).
+- Supporting anchors: [../docs/performance/README.md](../docs/performance/README.md), [../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement](../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement), and the API runtime files.
 - Do not treat the whole platform as suspect when one endpoint, metric, or telemetry path is the real owner.
 
 ## Performance And Regression Labs

@@ -22,6 +22,7 @@ This lesson teaches you to think like the person who would have to own the relea
 - [API startup and health/metrics endpoints](../../src/apps/SqlAcademy.Api/Program.cs)
 - [OpenTelemetry service registration](../../src/libs/SqlAcademy.Observability/OpenTelemetryServiceCollectionExtensions.cs)
 - [Prometheus configuration](../../infra/observability/prometheus.yml)
+- [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md)
 - [Senior 004: Posts API Latency And Observability Triage](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 - [How To Start](how-to-start.md)
 
@@ -57,6 +58,16 @@ Every schema change should be reviewed with these questions:
 5. What is the rollback or roll-forward plan?
 
 If the change cannot be rolled back cleanly, the roll-forward plan must be especially clear and tested.
+
+## Release-Readiness Drill
+
+Use [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) when you want one concrete operational drill that forces a go or no-go call before the window opens.
+
+It ties together:
+
+- migration safety gates from the staged backfill route
+- first-five-minutes health, metric, log, and trace checks
+- rollback versus roll-forward triggers that must be explicit before deployment begins
 
 ## Rollout Is A Sequence, Not A Button Press
 
@@ -188,7 +199,7 @@ Safe migrations often need a period where both old and new paths coexist.
 ## A Good Practice Sequence
 
 1. Read the Compose stack from top to bottom.
-2. Write a short release checklist for a schema or API change.
+2. Work through [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) for one schema-affecting change.
 3. Identify which health, metric, and log signals would confirm success.
 4. Write one rollback or roll-forward note for a migration scenario.
 5. Explain what would stop you from deploying today.

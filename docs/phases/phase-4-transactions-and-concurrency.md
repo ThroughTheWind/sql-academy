@@ -20,6 +20,7 @@
 
 - reproduce a blocking scenario with two sessions
 - analyze and retry a deadlock scenario
+- use [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md) to map victim, owner, and waiter edges back to the session order before you settle on retry policy
 - trigger an optimistic concurrency conflict in EF Core and recover safely
 
 ## Reference Tracks
@@ -36,4 +37,5 @@
 
 - a learner can capture the blocked session and the blocker
 - a learner can explain the deadlock victim and the retry strategy
+- a learner can interpret one deadlock graph without confusing a cycle with a simple queue
 - EF Core concurrency conflicts are handled without hidden retries

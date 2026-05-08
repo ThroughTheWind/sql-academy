@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deadlock>
+  <victim-list>
+    <victimProcess id="process58c8" />
+  </victim-list>
+  <process-list>
+    <process
+      id="process57a0"
+      taskpriority="0"
+      logused="512"
+      waitresource="KEY: 5:72057594045100032 (ce7f1f223fd3)"
+      waittime="1456"
+      ownerId="123456"
+      transactionname="user_transaction"
+      lasttranstarted="2025-01-20T10:00:00.100"
+      lockMode="U"
+      schedulerid="4"
+      status="suspended"
+      spid="57"
+      trancount="1"
+      isolationlevel="read committed (2)"
+      currentdbname="LearningDb">
+      <executionStack>
+        <frame procname="adhoc" line="7">UPDATE academy.Trades SET Price = Price + 0.0100 WHERE Id = 1;</frame>
+      </executionStack>
+      <inputbuf>-- Session A second statement
+UPDATE academy.Trades
+SET Price = Price + 0.0100
+WHERE Id = 1;</inputbuf>
+    </process>
+    <process
+      id="process58c8"
+      taskpriority="0"
+      logused="96"
+      waitresource="KEY: 5:72057594045034496 (7ce219e0b0bc)"
+      waittime="1448"
+      ownerId="123457"
+      transactionname="user_transaction"
+      lasttranstarted="2025-01-20T10:00:00.140"
+      lockMode="U"
+      schedulerid="5"
+      status="suspended"
+      spid="58"
+      trancount="1"
+      isolationlevel="read committed (2)"
+      currentdbname="LearningDb">
+      <executionStack>
+        <frame procname="adhoc" line="7">UPDATE academy.Orders SET UpdatedUtc = SYSUTCDATETIME() WHERE Id = 1;</frame>
+      </executionStack>
+      <inputbuf>-- Session B second statement
+UPDATE academy.Orders
+SET UpdatedUtc = SYSUTCDATETIME()
+WHERE Id = 1;</inputbuf>
+    </process>
+  </process-list>
+  <resource-list>
+    <keylock
+      hobtid="72057594045034496"
+      dbid="5"
+      objectname="LearningDb.academy.Orders"
+      indexname="PK_Orders"
+      id="lockOrders"
+      mode="X">
+      <owner-list>
+        <owner id="process57a0" mode="X" />
+      </owner-list>
+      <waiter-list>
+        <waiter id="process58c8" mode="U" requestType="wait" />
+      </waiter-list>
+    </keylock>
+    <keylock
+      hobtid="72057594045100032"
+      dbid="5"
+      objectname="LearningDb.academy.Trades"
+      indexname="PK_Trades"
+      id="lockTrades"
+      mode="X">
+      <owner-list>
+        <owner id="process58c8" mode="X" />
+      </owner-list>
+      <waiter-list>
+        <waiter id="process57a0" mode="U" requestType="wait" />
+      </waiter-list>
+    </keylock>
+  </resource-list>
+</deadlock>

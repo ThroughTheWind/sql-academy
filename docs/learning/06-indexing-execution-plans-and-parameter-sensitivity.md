@@ -31,6 +31,7 @@ Those statements may be directionally true sometimes, but they are not analysis.
 - [Query performance comparison tests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs)
 - [Query Store smoke test](../../tests/SqlAcademy.PerformanceTests/QueryStoreLabSmokeTests.cs)
 - [Tracking benchmarks](../../tests/SqlAcademy.Benchmarks/TrackingModeBenchmarks.cs)
+- [Larger-cardinality workload variant](../../db/performance/001_high_cardinality_workload_variant.sql)
 
 ## Mental Models To Keep
 
@@ -191,6 +192,14 @@ But some performance questions are temporal rather than momentary:
 That is where Query Store becomes useful. It complements plan reading and parameter-sensitivity reasoning by preserving query and plan history long enough to compare regressions instead of guessing at them.
 
 Use [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) after the main indexing pack when you want persisted evidence for one tagged query rather than only the current in-memory story.
+
+## Optional Larger-Cardinality Workload
+
+The baseline seed keeps setup fast, but some statistics, parameter-sensitivity, and regression questions become clearer when the posts and trades tables are materially larger.
+
+Use [Larger-cardinality workload variant](../../db/performance/001_high_cardinality_workload_variant.sql) after the main pack when you want more realistic row counts without changing the default seed used by tests and validation packs.
+
+Then rerun the same surface you were already using, such as [Advanced 001: Indexing, Parameter Sniffing, And Migration Safety](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md), [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md), [Query performance comparison tests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs), or [Tracking benchmarks](../../tests/SqlAcademy.Benchmarks/TrackingModeBenchmarks.cs), so the main variable that changed is data shape.
 
 ## How The Repository Encourages This Topic
 

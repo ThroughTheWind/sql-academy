@@ -12,13 +12,14 @@ Match the first check to the claim you are making. Run the narrowest executable 
 
 - Use when: you changed a pack that ships `starter.sql`, `answer.sql`, and `validation.sql`.
 - First check: `powershell -ExecutionPolicy Bypass -File infra/scripts/run-exercise-validation.ps1 -Exercise <relative-exercise-path>`
-- Escalate when needed: if the pack also changed application code or migrations, add the nearest focused test or build after the harness passes.
+- Escalate when needed: if the pack also changed application code, supplemental lab assets, or migrations, add the nearest focused test or build after the harness passes.
+- Current concrete companion example: `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~DeadlockGraphLabAssetTests"`
 
 ## Guided Labs And Investigation Packs
 
 - Use when: you changed a guided lab, manual investigation pack, or expected-outcomes contract.
 - First check: run the nearest focused executable companion if one exists; otherwise use the README completion criteria plus `expected-outcomes.md` as the explicit manual contract.
-- Current reusable companions: `dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~PostsEndpointTests"`, `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~TrackingBehaviorTests"`, and `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~QueryStoreLabSmokeTests"`
+- Current reusable companions: `dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~PostsEndpointTests"`, `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~TrackingBehaviorTests"`, `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~QueryStoreLabSmokeTests"`, and `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~ReleaseReadinessDrillAssetTests"`
 
 ## EF Core Read Paths And Query Shape
 
@@ -31,6 +32,13 @@ Match the first check to the claim you are making. Run the narrowest executable 
 - Use when: you changed a Query Store lab, performance comparison, or regression-triage companion surface.
 - First check: `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~QueryStoreLabSmokeTests"`
 - Escalate when needed: run the nearest additional performance or integration test that exercises the same query path.
+
+## Performance Workload Scripts
+
+- Use when: you changed `db/performance` workload scripts or docs that rely on a specific synthetic-volume setup.
+- First check: initialize the baseline database, then execute the workload script with a small parameter set.
+- Current concrete example: `docker compose run --rm sqlserver-init /bin/bash /workspace/infra/scripts/init-database.sh` followed by `docker compose run --rm --no-deps sqlserver-init /bin/bash -lc '/opt/mssql-tools18/bin/sqlcmd -S sqlserver,1433 -U sa -P "$MSSQL_SA_PASSWORD" -d LearningDb -C -v SyntheticUserCount=4 PostsPerUser=5 MaxCommentsPerPost=3 TradeDays=3 TradesPerUserPerDay=4 -i /workspace/db/performance/001_high_cardinality_workload_variant.sql'`
+- Escalate when needed: rerun the nearest guided lab, performance test, or benchmark against the expanded workload.
 
 ## Unit-Level .NET Changes
 

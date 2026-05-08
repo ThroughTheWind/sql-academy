@@ -22,10 +22,10 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 | B001 | P0 | completed | scope and public promise | make the mastery target explicit and separate the core route from optional DBA specialization | implemented in `README.md`, `ACADEMY_ROADMAP.md`, `docs/sql/README.md`, and `docs/efcore/README.md` |
 | B002 | P1 | completed | advanced SQL curriculum | add a Query Store and regression-triage exercise with concrete scripts and validation criteria | guided lab scaffold added under `src/exercises/Advanced/004-query-store-and-regression-triage`, wired into Lesson 06 and Lesson 07, and backed by `QueryStoreLabSmokeTests.cs` |
 | B003 | P1 | completed | EF Core depth | add an EF Core N+1 and generated-SQL investigation lab | guided lab wired through Lesson 09, Phase 8, track and exercise indexes, and senior assessment routing; focused companion checks use `PostsEndpointTests` plus `TrackingBehaviorTests` |
-| B004 | P1 | not-started | data realism | add larger-cardinality seed or workload variants for tuning and plan-stability lessons | required for stronger statistics and regression work |
-| B005 | P1 | not-started | senior diagnostics | add a deadlock-graph interpretation lab with retry-policy reasoning | should extend the current concurrency pack instead of replacing it |
-| B006 | P2 | not-started | release engineering | add a release-readiness drill that combines migration safety, telemetry checks, and rollback gates | belongs near operational engineering |
-| B007 | P2 | not-started | validation | expand executable validation for guided labs where a narrow companion check is realistic | keep incident packs partly manual when realism matters |
+| B004 | P1 | completed | data realism | add larger-cardinality seed or workload variants for tuning and plan-stability lessons | optional workload variant added under `db/performance` and wired through Lesson 06, Lesson 07, Phase 5, and the performance track without changing the default baseline seed |
+| B005 | P1 | completed | senior diagnostics | add a deadlock-graph interpretation lab with retry-policy reasoning | Senior 001 now includes a supplemental deadlock graph walkthrough and sample graph, with a focused asset smoke test under `DeadlockGraphLabAssetTests` |
+| B006 | P2 | completed | release engineering | add a release-readiness drill that combines migration safety, telemetry checks, and rollback gates | Senior 006 now owns the Lesson 08 and Phase 7 release-readiness route, backed by `ReleaseReadinessDrillAssetTests` |
+| B007 | P2 | in-progress | validation | expand executable validation for guided labs where a narrow companion check is realistic | current companions now include Query Store, deadlock-graph, and release-readiness asset smoke tests; keep incident packs partly manual when realism matters |
 | B008 | P3 | not-started | optional specialization | add a DBA or DBRE extension track for backup and restore, Agent, HA/DR, security, and change capture | only after the core route and advanced application track stabilize |
 
 ## Current Slice
@@ -35,11 +35,18 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 - B001: scope clarification and public promise cleanup
 - B002: Query Store guided lab wired into the lesson route and covered by a starter-script smoke test
 - B003: EF Core N+1 and generated-SQL investigation lab wired through the learner route, with focused companion checks using `PostsEndpointTests` and `TrackingBehaviorTests`
+- B004: optional larger-cardinality workload variant added under `db/performance`, with lesson and track routing that keeps the default baseline seed unchanged
+- B005: Senior 001 extended with a deadlock-graph walkthrough, concrete victim analysis, and retry-policy reasoning backed by `DeadlockGraphLabAssetTests`
+- B006: Senior 006 added as the release-readiness investigation pack for migration gates, first-five-minutes watch plans, and rollback or roll-forward decisions
+
+### In Progress
+
+- B007: executable companion coverage now includes `QueryStoreLabSmokeTests`, `DeadlockGraphLabAssetTests`, and `ReleaseReadinessDrillAssetTests`; more guided labs can still gain narrow checks where realism allows
 
 ### Next Recommended Slice
 
-- start B004 with a larger-cardinality seed or workload variant for tuning and plan-stability lessons
-- start B007 by extending reusable executable companions where more guided labs can reuse them cleanly
+- start B008 only after the core route and advanced application track feel stable enough for optional DBA or DBRE specialization work
+- continue B007 by adding narrow companion checks only where the lab contract is stable enough to validate without faking realism
 
 ## Acceptance Checks
 
