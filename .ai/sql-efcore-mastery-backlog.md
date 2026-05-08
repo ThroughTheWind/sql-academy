@@ -27,6 +27,7 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 | B006 | P2 | completed | release engineering | add a release-readiness drill that combines migration safety, telemetry checks, and rollback gates | Senior 006 now owns the Lesson 08 and Phase 7 release-readiness route, backed by `ReleaseReadinessDrillAssetTests` |
 | B007 | P2 | completed | validation | expand executable validation for guided labs where a narrow companion check is realistic | current companions now cover plan-cache, Query Store, deadlock-graph, observability-pack, release-readiness, and the existing EF Core/query-shape validation surfaces, while keeping incident reasoning itself manual |
 | B008 | P3 | completed | optional specialization | add a DBA or DBRE extension track for backup and restore, Agent, HA/DR, security, and change capture | learner-facing extension track added at `docs/learning/dba-dbre-extension-track.md` and routed from the main SQL, operations, learning, and docs hub surfaces |
+| B009 | P3 | completed | optional specialization follow-on | add a concrete HA or DR failover-posture pack with a narrow companion check | `src/exercises/Senior/009-ha-dr-failover-posture-and-verification` now provides the investigation pack, and `HaDrFailoverPostureDrillAssetTests` is the focused validation surface |
 
 ## Current Slice
 
@@ -40,10 +41,11 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 - B006: Senior 006 added as the release-readiness investigation pack for migration gates, first-five-minutes watch plans, and rollback or roll-forward decisions
 - B007: executable companion coverage now includes `PlanCacheLabSmokeTests`, `QueryStoreLabSmokeTests`, `DeadlockGraphLabAssetTests`, `PostsApiObservabilityDrillAssetTests`, and `ReleaseReadinessDrillAssetTests`, alongside the existing focused EF Core and API tests used by Senior 002 and Senior 005
 - B008: learner-facing DBA and DBRE extension track added so optional platform-specialist depth is routed clearly without changing the default core route
+- B009: HA or DR failover posture now has a concrete investigation pack under `src/exercises/Senior/009-ha-dr-failover-posture-and-verification`, backed by `HaDrFailoverPostureDrillAssetTests`
 
 ### Next Recommended Slice
 
-- no immediate backlog slice remains in this track; deepen the extension modules or add new labs only when one concrete owner surface and one narrow validation path are clear
+- no immediate backlog slice remains in this track; the next clean extension candidates are security administration or change-capture work once one concrete owner surface and one narrow validation path are clear
 
 
 ## Acceptance Checks

@@ -204,7 +204,7 @@ See `ACADEMY_ROADMAP.md` and `docs/phases` for the detailed phase plans.
 
 ## Future Extension Ideas
 
-- Expand the new SQL Server Agent and backup/restore specialization packs, and add HA or DR drills.
+- Expand the new SQL Server Agent, backup/restore, and HA or DR specialization packs, and add security or change-capture drills.
 - Add a dedicated migrations review pipeline with generated SQL artifacts.
 - Add dashboards and alerts for blocking chains, p95 latency, and retry storms.
 - Add a second API focused on ingestion and bulk-write patterns.

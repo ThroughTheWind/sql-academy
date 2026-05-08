@@ -36,6 +36,7 @@ Exercises currently ship in three supported modes:
 | [Senior 006](Senior/006-release-readiness-and-rollback-gates/README.md) | investigation pack |
 | [Senior 007](Senior/007-backup-restore-and-recovery-verification/README.md) | investigation pack |
 | [Senior 008](Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) | investigation pack |
+| [Senior 009](Senior/009-ha-dr-failover-posture-and-verification/README.md) | investigation pack |
 
 ## Validation-Ready Packs
 
@@ -63,6 +64,7 @@ The current non-validation packs are:
 - [Senior 006](Senior/006-release-readiness-and-rollback-gates/README.md) as an investigation pack
 - [Senior 007](Senior/007-backup-restore-and-recovery-verification/README.md) as an investigation pack for optional DBA or DBRE recovery-verification work
 - [Senior 008](Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) as an investigation pack for optional DBA or DBRE scheduling and job-safety work
+- [Senior 009](Senior/009-ha-dr-failover-posture-and-verification/README.md) as an investigation pack for optional DBA or DBRE HA or DR failover-posture work
 
 Run the validation harness with:
 
