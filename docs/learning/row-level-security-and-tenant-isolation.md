@@ -27,6 +27,7 @@ If you cannot answer those questions, turning on row-level security is usually t
 - [Senior 012: Row-Level Security And Tenant Isolation](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md)
 - [TenantSessionContextMiddleware](../../src/apps/SqlAcademy.Api/Infrastructure/TenantSessionContextMiddleware.cs)
 - [TenantOrdersController](../../src/apps/SqlAcademy.Api/Controllers/V1/TenantOrdersController.cs)
+- [TenantOrderWriteService](../../src/libs/SqlAcademy.Persistence/Commands/TenantOrders/TenantOrderWriteService.cs)
 - [SqlSessionContextApplier](../../src/libs/SqlAcademy.Persistence/MultiTenancy/SqlSessionContextApplier.cs)
 - [Schema bootstrap SQL](../../db/schemas/001_create_learning_db.sql)
 - [TenantOrder EF mapping](../../src/libs/SqlAcademy.Persistence/Database/Configurations/TenantOrderConfiguration.cs)
@@ -88,7 +89,7 @@ ADD BLOCK PREDICATE security.fn_tenant_order_access(TenantId) ON academy.TenantO
 WITH (STATE = ON);
 ```
 
-The point of that example is now visible in the repo: `academy.TenantOrders`, the tenant header middleware, and the focused RLS tests show the contract working on one dedicated sample surface.
+The point of that example is now visible in the repo: `academy.TenantOrders`, the tenant header middleware, the EF write service, and the focused RLS tests show the contract working on one dedicated sample surface for both reads and writes.
 
 ## Filter Predicates Versus Block Predicates
 
@@ -111,7 +112,7 @@ The current sample surfaces are concrete:
 
 - `academy.TenantOrders` carries a durable `TenantId` and composite uniqueness contract
 - the API now stamps `SESSION_CONTEXT` through [TenantSessionContextMiddleware](../../src/apps/SqlAcademy.Api/Infrastructure/TenantSessionContextMiddleware.cs) and [SqlSessionContextApplier](../../src/libs/SqlAcademy.Persistence/MultiTenancy/SqlSessionContextApplier.cs)
-- the repo now has focused proof harnesses under [TenantOrdersEndpointTests](../../tests/SqlAcademy.IntegrationTests/Api/TenantOrdersEndpointTests.cs) and [RowLevelSecuritySampleTests](../../tests/SqlAcademy.PerformanceTests/RowLevelSecuritySampleTests.cs)
+- the repo now has focused proof harnesses under [TenantOrdersEndpointTests](../../tests/SqlAcademy.IntegrationTests/Api/TenantOrdersEndpointTests.cs) and [RowLevelSecuritySampleTests](../../tests/SqlAcademy.PerformanceTests/RowLevelSecuritySampleTests.cs), including a blocked cross-tenant EF write path
 
 The remaining gaps are also concrete:
 

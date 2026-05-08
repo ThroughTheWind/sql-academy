@@ -2,7 +2,7 @@
 
 ## Objective
 
-Use a real shared-database sample to trace how an incoming tenant header becomes SQL Server session context, prove that row-level security filters rows for both EF Core and Dapper paths, and identify which parts of the repo are still sample-only rather than globally multitenant.
+Use a real shared-database sample to trace how an incoming tenant header becomes SQL Server session context, prove that row-level security filters reads and blocks cross-tenant writes through application code, and identify which parts of the repo are still sample-only rather than globally multitenant.
 
 ## Exercise Type
 
@@ -23,6 +23,7 @@ The repo now includes a dedicated `academy.TenantOrders` sample protected by a S
 - [Schema bootstrap SQL](../../../../db/schemas/001_create_learning_db.sql)
 - [TenantSessionContextMiddleware](../../../apps/SqlAcademy.Api/Infrastructure/TenantSessionContextMiddleware.cs)
 - [TenantOrdersController](../../../apps/SqlAcademy.Api/Controllers/V1/TenantOrdersController.cs)
+- [TenantOrderWriteService](../../../libs/SqlAcademy.Persistence/Commands/TenantOrders/TenantOrderWriteService.cs)
 - [TenantOrderReadService](../../../libs/SqlAcademy.Persistence/Queries/TenantOrders/TenantOrderReadService.cs)
 - [SqlSessionContextApplier](../../../libs/SqlAcademy.Persistence/MultiTenancy/SqlSessionContextApplier.cs)
 - [SqlAcademy.Api.http](../../../apps/SqlAcademy.Api/SqlAcademy.Api.http)
@@ -46,20 +47,21 @@ The repo now includes a dedicated `academy.TenantOrders` sample protected by a S
 1. Run `dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~TenantOrdersEndpointTests"`.
 2. Run `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~RowLevelSecuritySampleTests"`.
 3. Read [TenantSessionContextMiddleware](../../../apps/SqlAcademy.Api/Infrastructure/TenantSessionContextMiddleware.cs), [SqlSessionContextApplier](../../../libs/SqlAcademy.Persistence/MultiTenancy/SqlSessionContextApplier.cs), and [starter-policy.sql](starter-policy.sql) before changing anything.
-4. Optionally call the sample requests in [SqlAcademy.Api.http](../../../apps/SqlAcademy.Api/SqlAcademy.Api.http) with and without `X-Tenant-Id` while the API is running locally.
+4. Optionally call the sample requests in [SqlAcademy.Api.http](../../../apps/SqlAcademy.Api/SqlAcademy.Api.http) with and without `X-Tenant-Id`, then try the matching and mismatched `POST /api/v1/tenant-orders` examples while the API is running locally.
 
 ## Tasks
 
 1. Trace the tenant identity path from `X-Tenant-Id` through `TenantSessionContextMiddleware`, `SqlSessionContextApplier`, and `sys.sp_set_session_context`.
 2. Explain why `academy.TenantOrders` is a credible sample table for RLS while the rest of the academy schema still is not a shared-tenant model by default.
-3. Use the focused tests or HTTP requests to prove three cases: tenant `101` sees only its rows, tenant `202` sees only its rows, and no tenant header sees none.
-4. Read `starter-policy.sql` and explain what the filter predicate, block predicates, and explicit bypass key are protecting against.
-5. Finish `investigation-template.md` with one concrete proof of isolation and one condition that would make you postpone applying the same pattern to a non-sample table.
+3. Use the focused tests or HTTP requests to prove three read cases: tenant `101` sees only its rows, tenant `202` sees only its rows, and no tenant header sees none.
+4. Use the new EF write path to prove two write cases: a matching tenant header can create a row, and a mismatched tenant header plus body is rejected by the SQL Server block predicate.
+5. Read `starter-policy.sql` and explain what the filter predicate, block predicates, and explicit bypass key are protecting against.
+6. Finish `investigation-template.md` with one concrete proof of isolation and one condition that would make you postpone applying the same pattern to a non-sample table.
 
 ## Validation
 
 - the learner can point to the exact middleware, connection, and policy surfaces that make the sample work
-- the focused endpoint and performance tests both pass while proving tenant-allowed and tenant-denied behavior
+- the focused endpoint and performance tests both pass while proving tenant-allowed reads, tenant-denied reads, successful same-tenant writes, and blocked cross-tenant writes
 - the final write-up distinguishes the dedicated sample from a blanket claim that the whole application is already multitenant
 
 ## Focused Companion Check

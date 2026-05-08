@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SqlAcademy.Persistence.Commands.Orders;
+using SqlAcademy.Persistence.Commands.TenantOrders;
 using SqlAcademy.Persistence.Commands.Trades;
 using SqlAcademy.Persistence.Database;
 using SqlAcademy.Persistence.Infrastructure;
@@ -47,6 +48,7 @@ public static class ServiceCollectionExtensions
                 serviceProvider.GetRequiredService<ISqlSessionContextApplier>()));
         services.AddScoped<LearningDbInitializer>();
         services.AddScoped<OrderWriteService>();
+        services.AddScoped<TenantOrderWriteService>();
         services.AddScoped<TradeImportService>();
         services.AddScoped<PostReadService>();
         services.AddScoped<TenantOrderReadService>();

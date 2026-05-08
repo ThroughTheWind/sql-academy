@@ -69,6 +69,7 @@ public sealed class RowLevelSecurityTenantIsolationDrillAssetTests
         Assert.True(readmeText.Contains("guided lab", StringComparison.OrdinalIgnoreCase));
         Assert.True(readmeText.Contains("TenantOrdersEndpointTests", StringComparison.OrdinalIgnoreCase));
         Assert.True(readmeText.Contains("RowLevelSecuritySampleTests", StringComparison.OrdinalIgnoreCase));
+        Assert.True(readmeText.Contains("cross-tenant writes", StringComparison.OrdinalIgnoreCase));
         Assert.True(readmeText.Contains("starter-policy.sql", StringComparison.OrdinalIgnoreCase));
         Assert.True(readmeText.Contains("row-level security", StringComparison.OrdinalIgnoreCase));
         Assert.True(readmeText.Contains("tenant isolation", StringComparison.OrdinalIgnoreCase));

@@ -17,6 +17,7 @@ It is not a replacement for the guided lab. It is the compressed checklist for v
 - check that `security.TenantOrderIsolationPolicy` is attached to `academy.TenantOrders`
 - prove tenant `101` and tenant `202` see different rowsets through the same read surface
 - verify that a request without tenant context returns no rows instead of silently falling back to broad access
+- prove that a matching tenant can create a row while a mismatched tenant write is rejected by the block predicate
 - keep [TenantOrdersEndpointTests](../../tests/SqlAcademy.IntegrationTests/Api/TenantOrdersEndpointTests.cs) and [RowLevelSecuritySampleTests](../../tests/SqlAcademy.PerformanceTests/RowLevelSecuritySampleTests.cs) as the first executable proof before trusting screenshots or ad hoc query output
 
 ## Controlled Bypass Review

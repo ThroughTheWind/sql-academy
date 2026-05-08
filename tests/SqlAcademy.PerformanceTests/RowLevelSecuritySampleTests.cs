@@ -54,4 +54,46 @@ public sealed class RowLevelSecuritySampleTests(SqlServerFixture databaseFixture
         Assert.Equal(["TEN-101-0001", "TEN-101-0002"], tenantOrderNumbers);
         Assert.Equal(0, anonymousCount);
     }
+
+    [Fact]
+    public async Task Ef_core_write_path_persists_row_when_tenant_context_matches_inserted_tenant()
+    {
+        await using var tenantContext = await databaseFixture.CreateTenantScopedDbContextAsync(101);
+        tenantContext.TenantOrders.Add(new()
+        {
+            TenantId = 101,
+            OrderNumber = "TEN-101-0100",
+            Description = "Northwind EF write sample",
+            TotalAmount = 640.00m,
+            CreatedUtc = DateTime.UtcNow,
+        });
+
+        await tenantContext.SaveChangesAsync();
+
+        await using var verificationContext = await databaseFixture.CreateTenantScopedDbContextAsync(101, trackingEnabled: false);
+        var orderNumbers = await verificationContext.TenantOrders
+            .OrderBy(order => order.OrderNumber)
+            .Select(order => order.OrderNumber)
+            .ToListAsync();
+
+        Assert.Contains("TEN-101-0100", orderNumbers);
+    }
+
+    [Fact]
+    public async Task Ef_core_write_path_throws_when_tenant_context_does_not_match_inserted_tenant()
+    {
+        await using var tenantContext = await databaseFixture.CreateTenantScopedDbContextAsync(101);
+        tenantContext.TenantOrders.Add(new()
+        {
+            TenantId = 202,
+            OrderNumber = "TEN-202-0100",
+            Description = "Cross-tenant EF write sample",
+            TotalAmount = 910.00m,
+            CreatedUtc = DateTime.UtcNow,
+        });
+
+        var exception = await Assert.ThrowsAsync<DbUpdateException>(() => tenantContext.SaveChangesAsync());
+
+        Assert.Contains("block predicate", exception.ToString(), StringComparison.OrdinalIgnoreCase);
+    }
 }

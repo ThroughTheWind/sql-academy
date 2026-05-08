@@ -111,6 +111,34 @@ Accept: application/json
 
 ###
 
+POST {{SqlAcademy.Api_HostAddress}}/api/v1/tenant-orders
+Accept: application/json
+Content-Type: application/json
+X-Tenant-Id: 101
+
+{
+	"tenantId": 101,
+	"orderNumber": "TEN-101-0099",
+	"description": "Northwind expansion order",
+	"totalAmount": 777.45
+}
+
+###
+
+POST {{SqlAcademy.Api_HostAddress}}/api/v1/tenant-orders
+Accept: application/json
+Content-Type: application/json
+X-Tenant-Id: 101
+
+{
+	"tenantId": 202,
+	"orderNumber": "TEN-202-0099",
+	"description": "Cross-tenant write attempt",
+	"totalAmount": 888.10
+}
+
+###
+
 GET {{SqlAcademy.Api_HostAddress}}/health/ready
 Accept: application/json
 
