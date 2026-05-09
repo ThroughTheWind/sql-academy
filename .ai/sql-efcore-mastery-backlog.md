@@ -2,6 +2,8 @@
 
 This is the maintainer execution backlog for closing the gap between the current academy route and a stronger SQL Server plus EF Core mastery target.
 
+This track is functionally complete for the current target. Use [Academy Enhancements Backlog](academy-enhancements-backlog.md) for follow-on learner-path simplification, onboarding, validation-support, and capstone-quality work.
+
 ## Target
 
 The core route targets senior backend and application engineers who need strong SQL Server, EF Core, Dapper, performance, and production-operability fluency.
@@ -51,7 +53,7 @@ It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Se
 
 ### Next Recommended Slice
 
-- no immediate backlog slice remains in this track; deepen existing extension modules or add new optional specialization only when one concrete owner surface and one narrow validation path are clear
+- no immediate backlog slice remains in this track; use [Academy Enhancements Backlog](academy-enhancements-backlog.md) for current route and quality follow-on work, and deepen this track only when a new mastery-scope extension has one concrete owner surface and one narrow validation path
 
 
 ## Acceptance Checks

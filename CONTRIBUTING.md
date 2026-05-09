@@ -10,7 +10,7 @@ If you are changing the repository rather than studying it:
 2. Use [.ai/repo-map.md](.ai/repo-map.md) to find the owning surface before editing.
 3. Use [.ai/validation-matrix.md](.ai/validation-matrix.md) to pick the smallest validation command that can falsify the change.
 4. Use [.ai/templates/change-brief.md](.ai/templates/change-brief.md) when the slice touches more than one surface or needs a handoff.
-5. Update [.ai/sql-efcore-mastery-backlog.md](.ai/sql-efcore-mastery-backlog.md) for maintainer execution state, and update [docs/learning/repository-improvement-suggestions.md](docs/learning/repository-improvement-suggestions.md) only when a learner-facing public summary should change.
+5. Update [.ai/academy-enhancements-backlog.md](.ai/academy-enhancements-backlog.md) for current route, onboarding, validation, or capstone-quality execution state, update [.ai/sql-efcore-mastery-backlog.md](.ai/sql-efcore-mastery-backlog.md) only for the older mastery-scope track, and update [docs/learning/repository-improvement-suggestions.md](docs/learning/repository-improvement-suggestions.md) only when a learner-facing public summary should change.
 
 ## Working Rules
 

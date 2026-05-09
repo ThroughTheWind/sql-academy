@@ -4,7 +4,7 @@ These are the most useful next improvements after the current learner-path updat
 
 This file is the learner-facing summary, not the execution tracker.
 
-Use [Curriculum Map](curriculum-map.md) for the default course route, use this file for the public summary of what should improve next, and use [../../.ai/sql-efcore-mastery-backlog.md](../../.ai/sql-efcore-mastery-backlog.md) for the tracked maintainer backlog.
+Use [Curriculum Map](curriculum-map.md) for the default course route, use this file for the public summary of what should improve next, use [../../.ai/academy-enhancements-backlog.md](../../.ai/academy-enhancements-backlog.md) for the active maintainer execution tracker, and use [../../.ai/sql-efcore-mastery-backlog.md](../../.ai/sql-efcore-mastery-backlog.md) for the earlier mastery-scope history.
 
 Recent learner-path updates already added a SQL-first day-one guide, a reduced-startup database-first path, a compact schema quick reference, a SQL client connection guide, a local troubleshooting guide, an effort summary page, sample result-shape sections in the early lessons and intermediate validation packs, and clearer pacing or blocked-path guidance across the early and middle route.
 

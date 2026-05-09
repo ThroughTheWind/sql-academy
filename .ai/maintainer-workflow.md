@@ -21,7 +21,8 @@ Use this workflow when changing docs, exercises, code, infrastructure, or planni
 
 ## Update Rules
 
-- Update [sql-efcore-mastery-backlog.md](sql-efcore-mastery-backlog.md) when a maintainer slice changes status, acceptance checks, or next recommended work.
+- Update [academy-enhancements-backlog.md](academy-enhancements-backlog.md) when a maintainer slice changes learner-path simplification, onboarding, validation-support, or capstone-quality follow-on work.
+- Update [sql-efcore-mastery-backlog.md](sql-efcore-mastery-backlog.md) when a maintainer slice changes mastery-scope depth, optional-specialization coverage, historical completion state, or the old track's acceptance checks.
 - Update [../docs/learning/repository-improvement-suggestions.md](../docs/learning/repository-improvement-suggestions.md) only when the learner-facing public summary changes.
 - Update [repo-map.md](repo-map.md) when a new owner surface becomes important enough that future maintainers or agents should route there first.
 - Update [validation-matrix.md](validation-matrix.md) when you add a reusable narrow check such as a focused test, script, or smoke command.

@@ -109,7 +109,7 @@ Run the harness with:
 
 The learner-facing summary remains in [Repository Improvement Suggestions](docs/learning/repository-improvement-suggestions.md).
 
-The execution-tracked maintainer backlog lives in [.ai/sql-efcore-mastery-backlog.md](.ai/sql-efcore-mastery-backlog.md).
+The active execution-tracked maintainer backlog for route and quality follow-on work lives in [.ai/academy-enhancements-backlog.md](.ai/academy-enhancements-backlog.md), while the earlier mastery-scope history remains in [.ai/sql-efcore-mastery-backlog.md](.ai/sql-efcore-mastery-backlog.md).
 
 ## Repository Bootstrap Plan
 

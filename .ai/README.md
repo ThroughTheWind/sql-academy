@@ -9,6 +9,7 @@ This folder holds maintainer-facing workflow guidance and execution tracking. It
 - [Validation Matrix](validation-matrix.md)
 - [Change Brief Template](templates/change-brief.md)
 - [SQL Server And EF Core Mastery Backlog](sql-efcore-mastery-backlog.md)
+- [Academy Enhancements Backlog](academy-enhancements-backlog.md)
 
 ## What Belongs Here
 
@@ -24,6 +25,10 @@ This folder holds maintainer-facing workflow guidance and execution tracking. It
 - duplicate curriculum maps or track indexes
 
 Use [../docs/learning/repository-improvement-suggestions.md](../docs/learning/repository-improvement-suggestions.md) when the change belongs in the public learner-facing improvement summary.
+
+Use [academy-enhancements-backlog.md](academy-enhancements-backlog.md) when the change is about learner-path simplification, onboarding ergonomics, validation support, or capstone-quality follow-on work.
+
+Use [sql-efcore-mastery-backlog.md](sql-efcore-mastery-backlog.md) when the change belongs to the earlier mastery-scope or optional-specialization execution history.
 
 Use [../docs/README.md](../docs/README.md) when you are changing documentation routing.
 
