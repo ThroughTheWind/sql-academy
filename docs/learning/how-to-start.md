@@ -14,6 +14,8 @@ It is not yet the right first stop if you are learning your first developer work
 
 If you want a smaller first target before this full route, use [SQL-First Day One](sql-first-day-one.md).
 
+If SQL fundamentals already feel predictable and the main goal is EF Core or Dapper integration into .NET, use [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md).
+
 If the likely friction is the client connection itself, use [SQL Client Connection Guide](sql-client-connection-guide.md) and [Local Setup Troubleshooting](local-setup-troubleshooting.md) before you widen scope.
 
 ## Optional Step 0: Reach One Successful Query First
@@ -69,6 +71,8 @@ Use [Curriculum Map](curriculum-map.md) as the main sequence.
 Only skip ahead if you already know your gap and you plan to rejoin the main route later.
 
 If you do need a targeted start, use the [Optional On-Ramps](curriculum-map.md#optional-on-ramps) instead of inventing a new order from the repo tree.
+
+Use [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) when your main goal is the application-data route and the earlier SQL fundamentals already feel stable.
 
 ## Step 5: Use Explicit Exit Criteria
 

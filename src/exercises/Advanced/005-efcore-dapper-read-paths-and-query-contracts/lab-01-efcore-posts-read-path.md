@@ -31,7 +31,3 @@ Trace the EF Core posts query from controller to SQL-facing intent, then make on
 - deterministic ordering is preserved with an explicit tie-breaker
 - the focused posts test and tracking test both pass after the change
 - you can explain what SQL shape EF Core should generate before you inspect it
-
-## Exit Criteria
-
-You are done when you can point to the exact code that controls the rowset, the exact test that proves the contract, and the exact line where read-only query behavior stays explicit.

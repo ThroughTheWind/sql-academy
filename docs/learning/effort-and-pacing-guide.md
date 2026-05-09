@@ -28,6 +28,7 @@ It does not mean beginner to software development, terminals, version control, o
 | --- | --- | --- |
 | [SQL-First Day One](sql-first-day-one.md) | 20 to 45 minutes | smallest supported first-query session |
 | [How To Start](how-to-start.md) | 20 to 30 minutes | route selection and study-loop setup |
+| [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) | 20 to 40 minutes | targeted route selection when SQL fundamentals already feel predictable |
 | [Phase 0: Local Setup](../phases/phase-0-local-setup.md) | 30 to 60 minutes | longer when Docker or SQL client setup is new |
 | [Lesson 01](01-sql-fundamentals.md) | 60 to 90 minutes | read plus baseline inspection queries |
 | [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) | 45 to 75 minutes | first validation pack |
@@ -69,8 +70,9 @@ It does not mean beginner to software development, terminals, version control, o
 | [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md) | 75 to 120 minutes | validation pack |
 | [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) | 90 to 150 minutes | guided lab |
 | [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) | 90 to 150 minutes | guided lab |
+| [Advanced 005](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) | 120 to 180 minutes | guided lab bundle |
 | [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) | 90 to 150 minutes | validation pack plus deadlock graph work |
-| [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | 120 to 180 minutes | guided lab bundle |
+| [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | 90 to 150 minutes | guided lab plus supplemental review pack |
 | [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) | 75 to 120 minutes | validation pack |
 | [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) | 90 to 150 minutes | investigation pack |
 | [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | 90 to 150 minutes | guided lab |
@@ -90,4 +92,5 @@ It does not mean beginner to software development, terminals, version control, o
 1. [Curriculum Map](curriculum-map.md)
 2. [How To Start](how-to-start.md)
 3. [SQL-First Day One](sql-first-day-one.md)
-4. [Repository Improvement Suggestions](repository-improvement-suggestions.md)
+4. [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md)
+5. [Repository Improvement Suggestions](repository-improvement-suggestions.md)

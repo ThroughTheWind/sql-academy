@@ -20,7 +20,7 @@ That is what this final lesson is training.
 
 - [Phase 9: Capstone Projects](../phases/phase-9-capstone-projects.md)
 - [Senior 001: Concurrency, Blocking, And Deadlocks](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
-- [Senior 002: EF Core N+1, Optimistic Concurrency, And Bulk Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
+- [Senior 002: Optimistic Concurrency And Staged Trade Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 - [Senior 004: Posts API Latency And Observability Triage](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 - [Repository improvement suggestions](repository-improvement-suggestions.md)
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md)

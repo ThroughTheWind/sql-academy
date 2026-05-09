@@ -4,6 +4,8 @@
 
 Use real HTTP write paths to reproduce optimistic concurrency and run a staged trade-ingestion flow with explicit validation, deduplication, dry-run preview, and publish boundaries.
 
+Use this after [Advanced 005: EF Core, Dapper, And Query-Contract Read Paths](../../Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) and [Senior 005: EF Core N+1 And Generated SQL Investigation](../005-efcore-n-plus-one-and-generated-sql-investigation/README.md) when the read-path material already feels predictable.
+
 ## Start Here
 
 - [OrdersController](../../../apps/SqlAcademy.Api/Controllers/V1/OrdersController.cs)

@@ -39,7 +39,8 @@ Use one of these routes based on the question you are trying to answer.
 - default learning route: [How To Start](learning/how-to-start.md), [Curriculum Map](learning/curriculum-map.md), the current lesson in [Learning Docs](learning/README.md), then the matching pack in [Exercise System](exercises/README.md)
 - lowest-friction first-query route: [SQL-First Day One](learning/sql-first-day-one.md), [Schema Quick Reference](learning/schema-quick-reference.md), then [How To Start](learning/how-to-start.md)
 - SQL-first route: [SQL Track](sql/README.md) or [SQL Syntax And Query Patterns](sql/sql-syntax-and-query-patterns.md), then the linked lesson or exercise, then return to [Curriculum Map](learning/curriculum-map.md)
-- EF Core and application-data route: [From SQL To EF Core And Dapper](learning/from-sql-to-efcore-and-dapper.md), then [EF Core Track](efcore/README.md), then the linked labs or tests
+- SQL to .NET data-access route: [SQL To .NET Data Access Path](learning/sql-to-dotnet-data-access-path.md), then the linked bridge, lesson, labs, and return point into the main route
+- EF Core and application-data reference route: [EF Core Track](efcore/README.md), then the linked lesson, labs, tests, or performance surfaces
 - tuning and regression route: [Performance Track](performance/README.md), then the linked performance tests, benchmarks, or advanced labs
 - release and incident route: [Operations Track](operations/README.md), then the relevant phase doc, smoke surface, or investigation pack
 - optional DBA or DBRE specialization route: [DBA And DBRE Extension Track](learning/dba-dbre-extension-track.md), then the linked SQL, operations, and delivery anchors without changing the default learner route
@@ -64,6 +65,7 @@ The architecture summary currently lives in the root [README](../README.md#initi
 - need the authoritative lesson order: [Curriculum Map](learning/curriculum-map.md)
 - need first-run local setup: [How To Start](learning/how-to-start.md) and [Phase 0](phases/phase-0-local-setup.md)
 - need the smallest first-query target before the full route: [SQL-First Day One](learning/sql-first-day-one.md) and [Schema Quick Reference](learning/schema-quick-reference.md)
+- need the shorter learner route from SQL into EF Core and Dapper: [SQL To .NET Data Access Path](learning/sql-to-dotnet-data-access-path.md)
 - need SQL client-specific connection help: [SQL Client Connection Guide](learning/sql-client-connection-guide.md)
 - need first-run recovery steps for Docker, ports, or login failures: [Local Setup Troubleshooting](learning/local-setup-troubleshooting.md)
 - need one planning view for course effort: [Effort And Pacing Guide](learning/effort-and-pacing-guide.md)

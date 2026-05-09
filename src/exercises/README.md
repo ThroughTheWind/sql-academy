@@ -50,6 +50,7 @@ Do not treat the rest of the ladder as required day-one reading.
 | [Advanced 002](Advanced/002-staged-backfill-and-contract-enforcement/README.md) | validation pack |
 | [Advanced 003](Advanced/003-plan-cache-memory-grants-and-waits/README.md) | guided lab |
 | [Advanced 004](Advanced/004-query-store-and-regression-triage/README.md) | guided lab |
+| [Advanced 005](Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) | guided lab |
 | [Senior 001](Senior/001-concurrency-blocking-and-deadlocks/README.md) | validation pack |
 | [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab |
 | [Senior 003](Senior/003-transactional-outbox-and-delivery-consistency/README.md) | validation pack |
@@ -74,7 +75,7 @@ The following packs include `answer.sql` and `validation.sql`:
 - [Intermediate 001](Intermediate/001-window-functions-and-pagination/README.md)
 - [Advanced 002](Advanced/002-staged-backfill-and-contract-enforcement/README.md)
 - [Advanced 001](Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
-- [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as a supplemental review pack inside the guided lab bundle
+- [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as a supplemental review pack inside the later concurrency and ingestion follow-up
 - [Senior 003](Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - [Senior 001](Senior/001-concurrency-blocking-and-deadlocks/README.md)
 
@@ -82,8 +83,9 @@ The current non-validation packs are:
 
 - [Advanced 003](Advanced/003-plan-cache-memory-grants-and-waits/README.md) as a guided lab
 - [Advanced 004](Advanced/004-query-store-and-regression-triage/README.md) as a guided lab
+- [Advanced 005](Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) as a guided lab bundle for EF Core and Dapper read-path contracts
 - [Senior 001](Senior/001-concurrency-blocking-and-deadlocks/README.md) as a validation pack with a supplemental deadlock-graph walkthrough
-- [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as a guided lab bundle with a supplemental review pack
+- [Senior 002](Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as a guided lab for optimistic concurrency and staged trade ingestion with a supplemental review pack
 - [Senior 004](Senior/004-posts-api-latency-and-observability-triage/README.md) as an investigation pack
 - [Senior 005](Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) as a guided lab
 - [Senior 006](Senior/006-release-readiness-and-rollback-gates/README.md) as an investigation pack

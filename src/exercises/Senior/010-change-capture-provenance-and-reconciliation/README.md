@@ -17,7 +17,7 @@ An upstream trade feed is now imported through the API, and the downstream repor
 ## Repository Anchors
 
 - [DBA And DBRE Extension Track](../../../../docs/learning/dba-dbre-extension-track.md)
-- [Senior 002: EF Core, Dapper, Concurrency, And Bulk Ingestion Labs](../002-efcore-concurrency-and-bulk-ingestion/README.md)
+- [Senior 002: Optimistic Concurrency And Staged Trade Ingestion](../002-efcore-concurrency-and-bulk-ingestion/README.md)
 - [Senior 003: Transactional Outbox And Delivery Consistency](../003-transactional-outbox-and-delivery-consistency/README.md)
 - [Outbox Delivery Consistency Runbook](../../../../docs/operations/outbox-delivery-runbook.md)
 - [TradesController import and batch endpoints](../../../apps/SqlAcademy.Api/Controllers/V1/TradesController.cs)

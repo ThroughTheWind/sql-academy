@@ -43,7 +43,7 @@ Keep asking:
 2. Read this bridge and restate one EF Core read path and one Dapper read path in SQL terms.
 3. Read [Phase 8: .NET And EF Core Integration](../phases/phase-8-dotnet-and-efcore-integration.md).
 4. Continue to [Lesson 09: EF Core, Dapper, And Query Shape](09-ef-core-dapper-and-query-shape.md).
-5. Use [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as the first applied lab bundle, starting with [Lab 01](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/lab-01-efcore-posts-read-path.md).
+5. Use [Advanced 005: EF Core, Dapper, And Query-Contract Read Paths](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) as the first applied lab bundle, starting with [Lab 01](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/lab-01-efcore-posts-read-path.md).
 
 ## What To Watch For
 

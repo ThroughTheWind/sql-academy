@@ -14,6 +14,8 @@ If you are brand new to the repository, read [How To Start](how-to-start.md) fir
 
 If you want the lowest-friction first session, start with [SQL-First Day One](sql-first-day-one.md) before you read the full route.
 
+If you already know SQL and mainly want the shorter application-data route, use [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md).
+
 Use [Learning Glossary](glossary.md) when a term blocks progress. Use [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) when the blocker is choosing or reading a core SQL operation. Clear the checkpoint section at the end of each lesson before moving on.
 
 ## Ordered Lessons
@@ -36,6 +38,7 @@ Use [Learning Glossary](glossary.md) when a term blocks progress. Use [SQL Synta
 
 - [Curriculum Map](curriculum-map.md) is the source of truth for sequence, companion practice, and validation mode.
 - [SQL-First Day One](sql-first-day-one.md) is the lightest first-query path when you want a smaller day-one goal.
+- [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) is the shorter learner route when the main gap is EF Core or Dapper integration rather than SQL syntax.
 - [SQL Client Connection Guide](sql-client-connection-guide.md) is the practical connection reference for Azure Data Studio, SSMS, and `sqlcmd`.
 - [Local Setup Troubleshooting](local-setup-troubleshooting.md) is the recovery path when the local stack or login flow goes sideways.
 - [How To Start](how-to-start.md) is the first-week walkthrough for a clean clone.
@@ -59,6 +62,7 @@ Use [Learning Glossary](glossary.md) when a term blocks progress. Use [SQL Synta
 
 - [Curriculum Map](curriculum-map.md)
 - [SQL-First Day One](sql-first-day-one.md)
+- [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md)
 - [SQL Client Connection Guide](sql-client-connection-guide.md)
 - [Local Setup Troubleshooting](local-setup-troubleshooting.md)
 - [How To Start](how-to-start.md)

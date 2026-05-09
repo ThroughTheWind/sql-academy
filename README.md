@@ -46,6 +46,7 @@ Use these only if you already know your gap and you plan to rejoin the default r
 
 - [SQL Track](docs/sql/README.md) for a SQL-only refresher.
 - [SQL Syntax And Query Patterns](docs/sql/sql-syntax-and-query-patterns.md) for a one-page refresher on the core SQL operators, examples, and common mistakes used throughout the course.
+- [SQL To .NET Data Access Path](docs/learning/sql-to-dotnet-data-access-path.md) for the shorter EF Core and Dapper on-ramp when SQL fundamentals already feel predictable.
 - [Optional On-Ramps](docs/learning/curriculum-map.md#optional-on-ramps) for performance or EF Core focused starts.
 - [EF Core Track](docs/efcore/README.md) for application-integration reference material after the SQL foundations are already familiar.
 - [DBA And DBRE Extension Track](docs/learning/dba-dbre-extension-track.md) for optional platform-specialist depth after the core route is already complete.
@@ -59,6 +60,7 @@ Use [Curriculum Map](docs/learning/curriculum-map.md) for the authoritative sequ
 Use the [Learning Glossary](docs/learning/glossary.md) when vocabulary slows you down. Use [SQL Syntax And Query Patterns](docs/sql/sql-syntax-and-query-patterns.md) when the main question is how to write or choose a core SQL operation. Use the checkpoint section at the end of each lesson before moving on.
 
 - [SQL-First Day One](docs/learning/sql-first-day-one.md) is the lowest-friction first-query guide.
+- [SQL To .NET Data Access Path](docs/learning/sql-to-dotnet-data-access-path.md) is the shorter learner route for SQL-fluent .NET engineers who want EF Core and Dapper integration before the full ladder.
 - [SQL Client Connection Guide](docs/learning/sql-client-connection-guide.md) covers Azure Data Studio, SSMS, and `sqlcmd` connection examples.
 - [Local Setup Troubleshooting](docs/learning/local-setup-troubleshooting.md) narrows Docker, port, readiness, and login failures.
 - [Schema Quick Reference](docs/learning/schema-quick-reference.md) is the compact first-lessons table and relationship map.

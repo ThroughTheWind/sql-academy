@@ -41,7 +41,7 @@ This lesson teaches you to separate three different concepts clearly:
 - [Phase 4: Transactions And Concurrency](../phases/phase-4-transactions-and-concurrency.md)
 - [Senior 001: Concurrency, Blocking, And Deadlocks](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
 - [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md)
-- [Senior 002: EF Core N+1, Optimistic Concurrency, And Bulk Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
+- [Senior 002: Optimistic Concurrency And Staged Trade Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 - [Order mapping with rowversion](../../src/libs/SqlAcademy.Persistence/Database/Configurations/OrderConfiguration.cs)
 - [Schema definition for `academy.Orders`](../../db/schemas/001_create_learning_db.sql)
 

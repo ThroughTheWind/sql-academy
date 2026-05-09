@@ -1,36 +1,33 @@
-# Senior 002: EF Core, Dapper, Concurrency, And Bulk Ingestion Labs
+# Senior 002: Optimistic Concurrency And Staged Trade Ingestion
 
 ## Objective
 
-Connect SQL Server behavior directly to application code with runnable labs for EF Core read paths, Dapper read paths, optimistic concurrency, and staged trade ingestion, then optionally use a short SQL review pack to rehearse the same boundaries from the database side.
+Connect SQL Server write-side behavior directly to application code with a runnable lab for optimistic concurrency and staged trade ingestion, then optionally use a short SQL review pack to rehearse the same boundaries from the database side.
 
 ## Exercise Type
 
-This pack is a guided lab bundle with a supplemental validation pack.
+This pack is a guided lab with a supplemental validation pack.
 
-Use the three lab guides below as the primary Phase 8 route. After you finish them, you can optionally use `answer.sql` and `validation.sql` as a short review pack for the ingestion design and concurrency summary.
+Use the lab guide below as the later Phase 8 follow-up after the read-path bundle and generated-SQL investigation. After you finish it, you can optionally use `answer.sql` and `validation.sql` as a short review pack for the ingestion design and concurrency summary.
 
 ## Scenario
 
-The application is about to ingest a larger trade feed while also serving read traffic. Phase 8 is where you stop talking about EF Core and Dapper in the abstract and start using the repository's API, tests, and persistence code directly.
+The read paths already feel predictable. Now the application is about to ingest a larger trade feed while also serving write traffic, and you need to move from query-shape discussion into stale-write handling and staged publish flow.
 
 ## Lab Sequence
 
-1. [Lab 01: EF Core Posts Read Path](lab-01-efcore-posts-read-path.md)
-2. [Lab 02: Dapper Trades Read Path](lab-02-dapper-trades-read-path.md)
-3. [Lab 03: Rowversion And Staged Ingestion](lab-03-rowversion-and-staged-ingestion.md)
+1. [Lab 03: Rowversion And Staged Ingestion](lab-03-rowversion-and-staged-ingestion.md)
 
 ## Repository Anchors
 
-- [PostReadService](../../../libs/SqlAcademy.Persistence/Queries/Posts/PostReadService.cs)
-- [TradeReadService](../../../libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
 - [TradeImportService](../../../libs/SqlAcademy.Persistence/Commands/Trades/TradeImportService.cs)
 - [OrdersController](../../../apps/SqlAcademy.Api/Controllers/V1/OrdersController.cs)
 - [OrderWriteService](../../../libs/SqlAcademy.Persistence/Commands/Orders/OrderWriteService.cs)
 - [TradesController](../../../apps/SqlAcademy.Api/Controllers/V1/TradesController.cs)
-- [PostsEndpointTests](../../../../tests/SqlAcademy.IntegrationTests/Api/PostsEndpointTests.cs)
+- [TradeImportBatchReadService](../../../libs/SqlAcademy.Persistence/Queries/Trades/TradeImportBatchReadService.cs)
 - [TradesEndpointTests](../../../../tests/SqlAcademy.IntegrationTests/Api/TradesEndpointTests.cs)
 - [OrdersEndpointTests](../../../../tests/SqlAcademy.IntegrationTests/Api/OrdersEndpointTests.cs)
+- [SqlAcademy.Api.http](../../../apps/SqlAcademy.Api/SqlAcademy.Api.http)
 
 ## Supplemental Review Pack
 
@@ -50,6 +47,5 @@ Run the review pack with:
 
 ## Validation
 
-- Lab 01 leaves the posts read path projection-first, deterministic, and verified by focused tests.
-- Lab 02 leaves the trades read path explicit, deterministic, and verified by focused tests or API requests.
 - Lab 03 proves a `rowversion` conflict through the HTTP surface and exercises a real trade-import path with explicit dry-run preview and publish boundaries.
+- the optional SQL review pack stays available after the code lab as reinforcement rather than the main exercise contract.

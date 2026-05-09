@@ -12,6 +12,8 @@ If SQL syntax and local tooling are both new, slow the route down and stay in Le
 
 If you want a smaller day-one target before this full route, start with [SQL-First Day One](sql-first-day-one.md) and keep [Schema Quick Reference](schema-quick-reference.md) nearby.
 
+If you already know SQL and mainly want the application-data route into EF Core and Dapper, use [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) as the optional on-ramp owner surface.
+
 ## Default Guided Route
 
 1. [How To Start](how-to-start.md)
@@ -54,7 +56,8 @@ Use this matrix when you want to know what to do after reading a lesson.
 | 5 | [Lesson 06: Indexing, Execution Plans, And Parameter Sensitivity](06-indexing-execution-plans-and-parameter-sensitivity.md) | [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) | validation pack | indexing, plan stability, and rollout safety |
 | 6 | [Lesson 07: SQL Server Internals](07-sql-server-internals.md) | [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) | guided lab | tagged workload, plan cache, storage pages, and wait signals |
 | 7 | [Lesson 08: Operational Engineering And Release Safety](08-operational-engineering-and-release-safety.md) | [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) | investigation pack | combines migration safety, telemetry watch points, and rollback or roll-forward gates before the release window starts |
-| 8 | [Lesson 09: EF Core, Dapper, And Query Shape](09-ef-core-dapper-and-query-shape.md) | [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) and [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | guided lab bundle and guided lab | Senior 002 covers the main EF Core, Dapper, rowversion, and staged-ingestion route; Senior 005 is the focused N+1 and generated-SQL follow-up |
+| 8 | [Lesson 09: EF Core, Dapper, And Query Shape](09-ef-core-dapper-and-query-shape.md) | [Advanced 005](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) and [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | guided lab bundle and guided lab | Advanced 005 covers the main EF Core and Dapper read-path route; Senior 005 is the focused N+1 and generated-SQL follow-up |
+| 8 | [Lesson 09 follow-up](09-ef-core-dapper-and-query-shape.md) | [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab and supplemental review pack | optimistic concurrency and staged trade ingestion after the read-path bundle |
 | 8 | [Lesson 10: Observability, Testing, And Performance Engineering](10-observability-testing-and-performance-engineering.md) | [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) and [SqlAcademy.IntegrationTests](../../tests/SqlAcademy.IntegrationTests) | investigation and code review | combines observability with executable validation surfaces |
 | 9 | [Lesson 11: Capstones And Interview Readiness](11-capstones-and-interview-readiness.md) | [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) plus a capstone from [Phase 9](../phases/phase-9-capstone-projects.md) | validation pack and capstone | final synthesis |
 
@@ -74,7 +77,7 @@ Use these only if you already know your gap and you are willing to rejoin the ma
 | --- | --- | --- |
 | SQL refresher | [Lesson 02: Joins And Aggregations](02-joins-and-aggregations.md) | [Lesson 03](03-window-functions-and-intermediate-querying.md) |
 | Performance and production focus | [Lesson 05: Transactions, Blocking, And Deadlocks](05-transactions-blocking-and-deadlocks.md) | [Lesson 08](08-operational-engineering-and-release-safety.md) |
-| EF Core and Dapper focus | [Lesson 09: EF Core, Dapper, And Query Shape](09-ef-core-dapper-and-query-shape.md) | [Lesson 10](10-observability-testing-and-performance-engineering.md) and [Lesson 11](11-capstones-and-interview-readiness.md) |
+| SQL to .NET data-access focus | [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) | [Lesson 10](10-observability-testing-and-performance-engineering.md) and [Lesson 11](11-capstones-and-interview-readiness.md) |
 
 ## Optional Extension Tracks
 
@@ -87,4 +90,4 @@ These are not alternate starts. Use them only after the main route is already st
 - Lesson 01 now uses [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) as the dedicated fundamentals validation pack.
 - Lesson 07 now uses [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) as the concrete internals lab.
 - Lesson 08 now uses [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) as the release-readiness investigation pack.
-- Lesson 09 now uses [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as the main guided lab bundle and [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) as the focused N+1 and generated-SQL follow-up lab.
+- Lesson 09 now uses [Advanced 005](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) as the main read-path lab bundle, [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) as the focused N+1 and generated-SQL follow-up lab, and [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) as the later rowversion and staged-ingestion follow-up.

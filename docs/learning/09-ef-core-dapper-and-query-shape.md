@@ -30,7 +30,7 @@ That bridge maps the earlier SQL lessons to the application query paths in this 
 
 - translate the code back into base rowset, filters, sort order, pagination, and projection before you argue about libraries
 - inspect one concern at a time: read shape, tracking, paging, or concurrency, rather than all of them at once
-- return to [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md) and use [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) only after the query contract is already clear
+- return to [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md), use [Advanced 005: EF Core, Dapper, And Query-Contract Read Paths](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) as the first applied lab bundle, and use [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) only after the query contract is already clear
 
 ## Repository Anchors
 
@@ -40,8 +40,9 @@ That bridge maps the earlier SQL lessons to the application query paths in this 
 - [EF Core post queries](../../src/libs/SqlAcademy.Persistence/Queries/Posts/PostReadService.cs)
 - [Dapper trade queries](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)
 - [Order mapping with rowversion](../../src/libs/SqlAcademy.Persistence/Database/Configurations/OrderConfiguration.cs)
-- [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
+- [Advanced 005: EF Core, Dapper, And Query-Contract Read Paths](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md)
 - [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md)
+- [Senior 002: Optimistic Concurrency And Staged Trade Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 
 ## The Right Mental Model
 
@@ -182,9 +183,13 @@ Do not assume LINQ that looks elegant produces SQL that is appropriate for the w
 
 For Dapper, inspection is simpler because the SQL is already explicit. The discipline then becomes reviewing the text with the same rigor you would apply to hand-written SQL.
 
-## Guided Follow-Up Lab
+## Guided Follow-Up Labs
+
+Use [Advanced 005: EF Core, Dapper, And Query-Contract Read Paths](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) as the first applied bundle when you want to extend the current EF Core and Dapper read contracts with focused tests.
 
 Use [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) when you want to prove the current posts read path stays one-query, inspect the generated SQL directly, and build a disposable N+1 regression experiment with focused test coverage already in the repository.
+
+Use [Senior 002: Optimistic Concurrency And Staged Trade Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) after that when you want the write-side follow-up for `rowversion` conflicts and staged trade ingestion.
 
 ## Concurrency Still Belongs In The Application Conversation
 

@@ -21,7 +21,7 @@ Use the explicit Dapper trade query as a contract-first read path: prove the cur
 
 1. Explain why `ORDER BY {sortColumn} {sortDirection}, t.Id DESC` is the line that protects deterministic paging.
 2. Make one deliberate extension to the contract without losing explicit SQL control.
-3. If you want a concrete default task, add a `sortBy=userName` option and keep the `t.Id DESC` tie-breaker.
+3. If you want a concrete default task, add a `sortBy=side` option and keep the `t.Id DESC` tie-breaker.
 4. Extend [TradesEndpointTests](../../../../tests/SqlAcademy.IntegrationTests/Api/TradesEndpointTests.cs) with one focused assertion for the new or refined behavior.
 5. Rerun the focused trade tests until they pass.
 
@@ -31,7 +31,3 @@ Use the explicit Dapper trade query as a contract-first read path: prove the cur
 - the added filter or sort keeps deterministic paging intact
 - the focused trade tests pass after the change
 - you can explain why this path is a better Dapper candidate than a tracked EF Core write model
-
-## Exit Criteria
-
-You are done when you can defend the query shape, the paging contract, and the exact test that proves your change.

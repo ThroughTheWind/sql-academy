@@ -46,8 +46,9 @@ If you are working through the early route for the first time, use this loop for
 | [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) | validation pack | indexing, parameter sensitivity, and rollout safety |
 | [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md) | validation pack | staged backfill and contract enforcement |
 | [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) | guided lab | plan cache, memory grants, and wait signals |
+| [Advanced 005](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) | guided lab | EF Core and Dapper read-path contracts with focused test updates |
 | [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) | validation pack | concurrency, blocking, deadlocks, and deadlock-graph interpretation |
-| [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab | runnable EF Core, Dapper, and rowversion labs plus a supplemental ingestion review pack |
+| [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) | guided lab | optimistic concurrency and staged trade-ingestion follow-up plus a supplemental review pack |
 | [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) | validation pack | transactional outbox and delivery consistency |
 | [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) | investigation pack | posts API latency and observability triage |
 | [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md) | guided lab | EF Core generated-SQL inspection and disposable N+1 regression investigation |
@@ -75,7 +76,9 @@ If you are working through the early route for the first time, use this loop for
 
 Guided labs such as [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) do not ship with `answer.sql` plus `validation.sql`.
 
-[Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) is the main exception: it is now a guided lab bundle for Phase 8, but it keeps `answer.sql` and `validation.sql` as a supplemental review pack after the code labs.
+[Advanced 005](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) is now the main guided lab bundle for the Phase 8 read-path route before you move into generated SQL or write-side concurrency.
+
+[Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) is now the later optimistic-concurrency and staged-ingestion follow-up, and it keeps `answer.sql` and `validation.sql` as a supplemental review pack after the code lab.
 
 [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md) remains a validation pack, but it now also includes a supplemental deadlock-graph walkthrough so the learner can connect the validated wait cycle to a concrete victim and retry-policy discussion.
 
