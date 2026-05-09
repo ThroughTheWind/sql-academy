@@ -79,6 +79,12 @@ Use these only if you already know your gap and you are willing to rejoin the ma
 | Performance and production focus | [Lesson 05: Transactions, Blocking, And Deadlocks](05-transactions-blocking-and-deadlocks.md) | [Lesson 08](08-operational-engineering-and-release-safety.md) |
 | SQL to .NET data-access focus | [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) | [Lesson 10](10-observability-testing-and-performance-engineering.md) and [Lesson 11](11-capstones-and-interview-readiness.md) |
 
+## Optional Deepening Labs
+
+These do not replace the default route. Use them when you want more repetitions in one topic after the main sequence is already clear.
+
+- [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) is the optional performance deepening lab for persisted regression evidence after [Lesson 06](06-indexing-execution-plans-and-parameter-sensitivity.md) or [Lesson 10](10-observability-testing-and-performance-engineering.md).
+
 ## Optional Extension Tracks
 
 These are not alternate starts. Use them only after the main route is already strong enough that deeper specialization will not hollow out the core path.

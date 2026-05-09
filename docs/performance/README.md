@@ -6,6 +6,8 @@ If you want the ordered learner route first, start in [Curriculum Map](../learni
 
 Do not use this page as the main curriculum index. It is a reference page for measurement, tuning, and regression work after the basic learning route is already clear.
 
+[Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) is the main optional performance deepening lab for persisted regression evidence after the default route is already clear. It is intentionally routed through this page instead of the default curriculum sequence.
+
 ## Scope Boundary
 
 The current performance route targets evidence-backed tuning across SQL Server and .NET query paths. The emphasis is on defining a workload, measuring it consistently, reasoning about plans and waits, and validating that a change preserved correctness instead of just moving numbers around.

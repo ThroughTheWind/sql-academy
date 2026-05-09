@@ -10,13 +10,14 @@ Do not treat this page as a second curriculum map. It is the routing layer for t
 
 ## Start Here
 
-1. [SQL-First Day One](learning/sql-first-day-one.md)
-2. [How To Start](learning/how-to-start.md)
-3. [Curriculum Map](learning/curriculum-map.md)
-4. [Learning Docs](learning/README.md)
-5. [Phase Guides](phases/README.md)
-6. [Exercise System](exercises/README.md)
-7. [Learning Glossary](learning/glossary.md)
+Use the table below when you are choosing a route, then use the rest of this page only as a docs router.
+
+| If You Want | Start Here | Then Use |
+| --- | --- | --- |
+| the smallest first success | [SQL-First Day One](learning/sql-first-day-one.md) | [How To Start](learning/how-to-start.md), [Phase 0](phases/phase-0-local-setup.md), then [Curriculum Map](learning/curriculum-map.md) |
+| the default guided route | [How To Start](learning/how-to-start.md) | [Curriculum Map](learning/curriculum-map.md), [Learning Docs](learning/README.md), then [Exercise System](exercises/README.md) |
+| the shorter SQL-to-.NET route | [SQL To .NET Data Access Path](learning/sql-to-dotnet-data-access-path.md) | rejoin the main route at [Lesson 10](learning/10-observability-testing-and-performance-engineering.md) and [Lesson 11](learning/11-capstones-and-interview-readiness.md) |
+| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](learning/dba-dbre-extension-track.md) | keep [Curriculum Map](learning/curriculum-map.md) as the completed baseline before specializing |
 
 ## What Each Surface Is For
 

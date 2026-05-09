@@ -25,7 +25,7 @@ Use [Curriculum Map](curriculum-map.md) for the main course sequence, and use th
 ## Advanced Follow-Up Exercises
 
 - Implemented next pack: [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
-- Implemented guided lab: [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
+- Implemented optional performance deepening lab: [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 - Implemented guided lab bundle: [Advanced 005](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md)
 - Add an index-consolidation exercise where several overlapping indexes must be simplified.
 - Add a parameter-sniffing lab with skewed data distribution and plan comparison.

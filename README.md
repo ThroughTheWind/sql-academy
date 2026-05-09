@@ -28,28 +28,29 @@ The maintainer execution backlog for closing those gaps lives in [.ai/sql-efcore
 
 ## Start Learning
 
-If you want the default guided route through the repository, start here:
+Use [Curriculum Map](docs/learning/curriculum-map.md) as the authoritative lesson order, practice mapping, and default route contract. Use the quick split below only to choose the right starting surface.
 
 If SQL is still brand new, move more slowly than the sample pacing and treat Lesson 01, the glossary, and Beginner 000 as the first checkpoint before you continue deeper into the route.
 
-1. If you want the lightest first session, start with [SQL-First Day One](docs/learning/sql-first-day-one.md).
-2. Read the [How To Start guide](docs/learning/how-to-start.md).
-3. Complete [Phase 0: Local Setup](docs/phases/phase-0-local-setup.md).
-4. Use [Curriculum Map](docs/learning/curriculum-map.md) as the single source of truth for lesson order, companion practice, and validation mode.
-5. Use the [Exercise System](docs/exercises/README.md) only when you need the full exercise ladder or validation rules.
+## Choose Your Starting Route
 
-## Alternate Entry Points
+| If You Want | Start Here | Then Use |
+| --- | --- | --- |
+| the smallest first success | [SQL-First Day One](docs/learning/sql-first-day-one.md) | [How To Start](docs/learning/how-to-start.md), [Phase 0: Local Setup](docs/phases/phase-0-local-setup.md), then [Curriculum Map](docs/learning/curriculum-map.md) |
+| the default guided route | [How To Start](docs/learning/how-to-start.md) | [Phase 0: Local Setup](docs/phases/phase-0-local-setup.md), [Curriculum Map](docs/learning/curriculum-map.md), the current lesson, then the matching practice surface |
+| the shorter SQL-to-.NET route | [SQL To .NET Data Access Path](docs/learning/sql-to-dotnet-data-access-path.md) | rejoin the main route at [Lesson 10](docs/learning/10-observability-testing-and-performance-engineering.md) and [Lesson 11](docs/learning/11-capstones-and-interview-readiness.md) |
+| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](docs/learning/dba-dbre-extension-track.md) | keep the core route as the baseline before specializing |
 
-The guided route above is the main course.
+## Topic-Specific Reference Routes
 
-Use these only if you already know your gap and you plan to rejoin the default route later:
+Use these when you already know the topic area and you do not need another learner-order summary:
 
-- [SQL Track](docs/sql/README.md) for a SQL-only refresher.
+- [SQL Track](docs/sql/README.md) for a SQL-only refresher or concept lookup.
 - [SQL Syntax And Query Patterns](docs/sql/sql-syntax-and-query-patterns.md) for a one-page refresher on the core SQL operators, examples, and common mistakes used throughout the course.
-- [SQL To .NET Data Access Path](docs/learning/sql-to-dotnet-data-access-path.md) for the shorter EF Core and Dapper on-ramp when SQL fundamentals already feel predictable.
-- [Optional On-Ramps](docs/learning/curriculum-map.md#optional-on-ramps) for performance or EF Core focused starts.
 - [EF Core Track](docs/efcore/README.md) for application-integration reference material after the SQL foundations are already familiar.
-- [DBA And DBRE Extension Track](docs/learning/dba-dbre-extension-track.md) for optional platform-specialist depth after the core route is already complete.
+- [Performance Track](docs/performance/README.md) for measurement, Query Store, and regression-evidence deepening.
+- [Operations Track](docs/operations/README.md) for readiness, release, and incident-oriented reference work.
+- [Optional On-Ramps](docs/learning/curriculum-map.md#optional-on-ramps) for targeted starts that still rejoin the main route later.
 
 ## Learning Docs
 
@@ -70,30 +71,22 @@ Use the [Learning Glossary](docs/learning/glossary.md) when vocabulary slows you
 - [Phase Guides](docs/phases/README.md) define the objectives and exit criteria for each stage.
 - [Exercise System](docs/exercises/README.md) explains the ladder, validation workflow, and exercise modes.
 
-## Exercise Ladder
+## Core Route Practice Snapshot
 
-Use this ladder if you want a clear progression from the README without browsing the repo tree.
+Use this snapshot when you want the default-route practice sequence from the root README. It is not the full exercise inventory.
 
-1. [Beginner 000: SQL Fundamentals And Safe Changes](src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)
-2. [Beginner 001: Joins And Aggregations](src/exercises/Beginner/001-joins-and-aggregations/README.md)
-3. [Beginner 002: Filtering, Constraints, And Data Quality](src/exercises/Beginner/002-filtering-constraints-and-data-quality/README.md)
-4. [Intermediate 001: Window Functions And Pagination](src/exercises/Intermediate/001-window-functions-and-pagination/README.md)
-5. [Intermediate 002: Cohort Analysis And Pagination Drift](src/exercises/Intermediate/002-cohort-analysis-and-pagination-drift/README.md)
-6. [Advanced 001: Indexing, Parameter Sniffing, And Migration Safety](src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
-7. [Advanced 002: Staged Backfill And Contract Enforcement](src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
-8. [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
-9. [Senior 001: Concurrency, Blocking, And Deadlocks](src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
-10. [Senior 002: EF Core, Dapper, Concurrency, And Bulk Ingestion Labs](src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
-11. [Senior 003: Transactional Outbox And Delivery Consistency](src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
-12. [Senior 004: Posts API Latency And Observability Triage](src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
+For the full ladder, optional deepening labs, and all validation modes, use the [Exercise System](docs/exercises/README.md).
 
-## What To Do After Each Level
+1. Lesson 01: [Beginner 000: SQL Fundamentals And Safe Changes](src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)
+2. Lessons 02 and 03: [Beginner 001](src/exercises/Beginner/001-joins-and-aggregations/README.md), [Intermediate 001](src/exercises/Intermediate/001-window-functions-and-pagination/README.md), and [Intermediate 002](src/exercises/Intermediate/002-cohort-analysis-and-pagination-drift/README.md)
+3. Lesson 04: [Advanced 002](src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
+4. Lessons 05 through 07: [Senior 001](src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md), [Advanced 001](src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md), and [Advanced 003](src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
+5. Lesson 08: [Senior 006](src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md)
+6. Lesson 09: [Advanced 005](src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md), [Senior 005](src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md), and [Senior 002](src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
+7. Lesson 10: [Senior 004](src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) plus the focused integration and performance validation surfaces linked from the lesson and track docs
+8. Lesson 11: [Senior 003](src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) plus a capstone from [Phase 9: Capstone Projects](docs/phases/phase-9-capstone-projects.md)
 
-- Beginner route: [Beginner 000](src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md), [Beginner 001](src/exercises/Beginner/001-joins-and-aggregations/README.md), [Beginner 002](src/exercises/Beginner/002-filtering-constraints-and-data-quality/README.md)
-- Intermediate route: [Intermediate 001](src/exercises/Intermediate/001-window-functions-and-pagination/README.md), [Intermediate 002](src/exercises/Intermediate/002-cohort-analysis-and-pagination-drift/README.md)
-- Advanced route: [Advanced 001](src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md), [Advanced 002](src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md), [Advanced 003](src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
-- Senior route: [Senior 001](src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md), [Senior 002](src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md), [Senior 003](src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md), [Senior 004](src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
-- More ideas by level live in [Follow-Up Exercises By Level](docs/learning/follow-up-exercises-by-level.md).
+Optional performance deepening after [Lesson 06](docs/learning/06-indexing-execution-plans-and-parameter-sensitivity.md) or [Lesson 10](docs/learning/10-observability-testing-and-performance-engineering.md): [Advanced 004: Query Store And Regression Triage](src/exercises/Advanced/004-query-store-and-regression-triage/README.md).
 
 ## Exercise Validation
 

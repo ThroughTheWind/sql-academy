@@ -18,6 +18,17 @@ If you already know SQL and mainly want the shorter application-data route, use 
 
 Use [Learning Glossary](glossary.md) when a term blocks progress. Use [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) when the blocker is choosing or reading a core SQL operation. Clear the checkpoint section at the end of each lesson before moving on.
 
+## Choose Your Starting Route
+
+Use [Curriculum Map](curriculum-map.md) as the authoritative sequence once you pick a start.
+
+| If You Want | Start Here | Then Use |
+| --- | --- | --- |
+| the smallest first success | [SQL-First Day One](sql-first-day-one.md) | [How To Start](how-to-start.md), [Phase 0](../phases/phase-0-local-setup.md), then [Curriculum Map](curriculum-map.md) |
+| the default guided route | [How To Start](how-to-start.md) | [Curriculum Map](curriculum-map.md), the current lesson, then the matching practice surface |
+| the shorter SQL-to-.NET route | [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) | rejoin the main route at [Lesson 10](10-observability-testing-and-performance-engineering.md) and [Lesson 11](11-capstones-and-interview-readiness.md) |
+| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](dba-dbre-extension-track.md) | treat the core route as the baseline before specializing |
+
 ## Ordered Lessons
 
 1. [How To Start](how-to-start.md)
@@ -50,7 +61,7 @@ Use [Learning Glossary](glossary.md) when a term blocks progress. Use [SQL Synta
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md) is for extension ideas after the main route, not the main route itself.
 - [DBA And DBRE Extension Track](dba-dbre-extension-track.md) is the optional specialization route after the main academy path feels complete.
 - [Row-Level Security And Tenant Isolation](row-level-security-and-tenant-isolation.md) is an optional DBA or DBRE security follow-on after Lesson 04 and Senior 011.
-- [Repository Improvement Suggestions](repository-improvement-suggestions.md) is a maintainer backlog, not a learner progression guide.
+- [Repository Improvement Suggestions](repository-improvement-suggestions.md) is a public improvement summary, not a learner progression guide.
 
 ## Exercise Modes
 

@@ -4,6 +4,8 @@ Exercises are organized by difficulty under `src/exercises`.
 
 If you are following the curriculum in order, start with [Learning Docs](../learning/README.md) and return here when you need the exercise map or validation workflow.
 
+The root [README](../../README.md) shows only a core-route practice snapshot. Use this page for the full exercise inventory, optional deepening labs such as [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md), and the full validation workflow.
+
 Every exercise folder includes:
 - a narrative README
 - starter material

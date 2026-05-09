@@ -22,8 +22,8 @@ Keep the academy focused on working backend and application engineers, but make 
 
 | ID | Priority | Status | Area | Outcome | Notes |
 | --- | --- | --- | --- | --- | --- |
-| E001 | P0 | not-started | learner routing | align learner entry surfaces around one route-selection block and one authoritative progression map | normalize `README.md`, `docs/README.md`, `docs/learning/README.md`, and `docs/learning/how-to-start.md` around `docs/learning/curriculum-map.md` |
-| E002 | P0 | not-started | route inventory | decide whether the root README markets the core route or the full exercise inventory, and resolve `Advanced 004` placement consistently | update `README.md`, `docs/learning/curriculum-map.md`, `docs/performance/README.md`, `docs/exercises/README.md`, and `docs/learning/follow-up-exercises-by-level.md` together |
+| E001 | P0 | completed | learner routing | align learner entry surfaces around one route-selection block and one authoritative progression map | implemented a shared route-selection pattern in `README.md`, `docs/README.md`, `docs/learning/README.md`, and `docs/learning/how-to-start.md`, while keeping `docs/learning/curriculum-map.md` as the deciding surface |
+| E002 | P0 | completed | route inventory | decide whether the root README markets the core route or the full exercise inventory, and resolve `Advanced 004` placement consistently | root `README.md` now shows a core-route practice snapshot, `docs/exercises/README.md` owns the full inventory, and `Advanced 004` is explicitly marked as optional performance deepening in the curriculum, follow-up, and performance surfaces |
 | E003 | P1 | not-started | startup ergonomics | add a dedicated Compose profile, script, or VS Code task for the reduced database-first startup path | owner surface starts at `docs/learning/sql-first-day-one.md`; validate both reduced-startup and full-stack first-run paths |
 | E004 | P1 | not-started | onboarding support | add a compact command cheat sheet, a local reset FAQ, and screenshot or transcript support for early setup recovery | owner surfaces start at `docs/learning/sql-client-connection-guide.md` and `docs/learning/local-setup-troubleshooting.md` |
 | E005 | P1 | not-started | early-route reinforcement | add printable one-page checklists for Phase 0, Lessons 01 through 03, and the beginner and intermediate packs | keep these as learner aids rather than a competing curriculum map |
@@ -37,11 +37,16 @@ Keep the academy focused on working backend and application engineers, but make 
 
 ## Current Slice
 
+### Completed
+
+- E001: aligned the entry surfaces around one route-selection pattern and one authoritative curriculum contract
+- E002: clarified that the root README shows the core-route practice snapshot, while `Advanced 004` remains optional performance deepening instead of a default-route step
+
 ### Next Recommended Slice
 
-- E001: simplify the first learner decision and remove competing maps or route summaries
-- E002: resolve root README inventory strategy and `Advanced 004` status before more route changes accumulate
 - E003: ship a database-first startup task or profile immediately after the route wording is stable
+- E004: add the command cheat sheet and recovery-support surfaces once the startup-task shape is chosen
+- E005: add printable early-route checklists after the route wording and first-run workflow stop moving
 
 ## Acceptance Checks
 

@@ -8,13 +8,18 @@ It is not yet the right first stop if you are learning your first developer work
 
 ## Before You Commit To This Route
 
+If you are still choosing a route, use this split first:
+
+| If You Want | Start Here | Then Use |
+| --- | --- | --- |
+| the smallest first success | [SQL-First Day One](sql-first-day-one.md) | return here after the first query, then continue to [Phase 0](../phases/phase-0-local-setup.md) and [Curriculum Map](curriculum-map.md) |
+| the default guided route | this guide | continue to [Phase 0](../phases/phase-0-local-setup.md) and [Curriculum Map](curriculum-map.md) |
+| the shorter SQL-to-.NET route | [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) | rejoin the main route at [Lesson 10](10-observability-testing-and-performance-engineering.md) and [Lesson 11](11-capstones-and-interview-readiness.md) |
+| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](dba-dbre-extension-track.md) | use it only after the core route already feels stable |
+
 - use this route when you are comfortable running Docker, opening a SQL client, and reading application code or test assets
 - slow down in Lesson 01, the [Learning Glossary](glossary.md), and [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) if SQL syntax still feels unfamiliar
 - do not treat the sample week-one pace below as a deadline if the query basics are not yet predictable
-
-If you want a smaller first target before this full route, use [SQL-First Day One](sql-first-day-one.md).
-
-If SQL fundamentals already feel predictable and the main goal is EF Core or Dapper integration into .NET, use [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md).
 
 If the likely friction is the client connection itself, use [SQL Client Connection Guide](sql-client-connection-guide.md) and [Local Setup Troubleshooting](local-setup-troubleshooting.md) before you widen scope.
 
