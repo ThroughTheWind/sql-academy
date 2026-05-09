@@ -26,6 +26,7 @@ Use [Curriculum Map](curriculum-map.md) for the main course sequence, and use th
 
 - Implemented next pack: [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
 - Implemented guided lab: [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
+- Implemented guided lab bundle: [Advanced 005](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md)
 - Add an index-consolidation exercise where several overlapping indexes must be simplified.
 - Add a parameter-sniffing lab with skewed data distribution and plan comparison.
 - Add a statistics-staleness exercise that shows why a once-good plan degrades.
@@ -45,4 +46,4 @@ Use [Curriculum Map](curriculum-map.md) for the main course sequence, and use th
 - Implemented optional DBA/DBRE security pack: [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md)
 - Implemented optional DBA/DBRE row-level-security pack: [Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md)
 - Add an inbox or deduplication exercise for consumer-side delivery guarantees.
-- Add a bulk-ingestion pipeline lab with staging tables, deduplication, and publish steps.
+- Add a bulk-ingestion replay or rollback-verification lab that builds on the staged import and provenance flow from [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md).
