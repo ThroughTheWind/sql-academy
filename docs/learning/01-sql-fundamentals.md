@@ -8,6 +8,7 @@ Build correctness before speed. This lesson gives you a working mental model of 
 
 - complete [Phase 0: Local Setup](../phases/phase-0-local-setup.md) so you can reach `LearningDb` reliably
 - keep [Learning Glossary](glossary.md) open if terms such as predicate, projection, or deterministic order are not yet automatic
+- keep [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) nearby if you want a shorter reference for `SELECT`, `WHERE`, `ORDER BY`, `TOP`, and safe change patterns while you read this lesson
 - plan to stay read-only until the result shape of a query feels predictable
 
 ## Suggested Time Budget
@@ -19,6 +20,7 @@ Build correctness before speed. This lesson gives you a working mental model of 
 
 - stop at read-only `SELECT` queries and explain the expected result before you run anything else
 - compare your mental model against the seed files linked below instead of guessing
+- use [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) if you need a one-page refresher on the core operators before you return to the slower lesson walkthrough
 - use [Beginner 000: SQL Fundamentals And Safe Changes](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) only after the table purposes and basic ordering rules already make sense
 
 ## Why This Lesson Matters

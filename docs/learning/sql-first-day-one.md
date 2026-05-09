@@ -75,6 +75,8 @@ Do not open Grafana, Prometheus, EF Core code, or the performance labs until thi
 
 Use [Schema Quick Reference](schema-quick-reference.md) alongside these queries.
 
+Use [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) if `SELECT`, `ORDER BY`, or the purpose of these operators is still fuzzier than the table layout itself.
+
 ```sql
 SELECT COUNT(*) AS UserCount
 FROM academy.Users;
@@ -101,6 +103,7 @@ ORDER BY CreatedUtc DESC, Id DESC;
 - use [SQL Client Connection Guide](sql-client-connection-guide.md) if your SQL client connection details are the only missing step
 - use [Local Setup Troubleshooting](local-setup-troubleshooting.md) for Docker, port, readiness, and login failures
 - use [Schema Quick Reference](schema-quick-reference.md) if the table relationships are still fuzzy
+- use [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) if the query operators themselves are the part that still feels unfamiliar
 - use [Learning Glossary](glossary.md) if terms such as readiness, projection, predicate, or deterministic order are slowing you down
 - stop after the first successful `SELECT COUNT(*) FROM academy.Users` if everything else feels noisy; that still counts as progress
 

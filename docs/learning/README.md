@@ -14,7 +14,7 @@ If you are brand new to the repository, read [How To Start](how-to-start.md) fir
 
 If you want the lowest-friction first session, start with [SQL-First Day One](sql-first-day-one.md) before you read the full route.
 
-Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the checkpoint section at the end of each lesson before moving on.
+Use [Learning Glossary](glossary.md) when a term blocks progress. Use [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) when the blocker is choosing or reading a core SQL operation. Clear the checkpoint section at the end of each lesson before moving on.
 
 ## Ordered Lessons
 
@@ -40,6 +40,7 @@ Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the 
 - [Local Setup Troubleshooting](local-setup-troubleshooting.md) is the recovery path when the local stack or login flow goes sideways.
 - [How To Start](how-to-start.md) is the first-week walkthrough for a clean clone.
 - [Schema Quick Reference](schema-quick-reference.md) is the compact table and relationship reference for the first lessons.
+- [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) is the single-page syntax and query-pattern handbook for the core SQL route.
 - [Effort And Pacing Guide](effort-and-pacing-guide.md) gives one planning view for lessons, packs, and reviews.
 - [Cumulative Review](cumulative-review.md) is the mixed-topic checkpoint after several lessons.
 - the assessment packs split review by level so you can test one slice at a time: [Beginner](beginner-assessment-pack.md), [Intermediate](intermediate-assessment-pack.md), [Advanced](advanced-assessment-pack.md), and [Senior](senior-assessment-pack.md)
@@ -62,6 +63,7 @@ Use [Learning Glossary](glossary.md) when a term blocks progress, and clear the 
 - [Local Setup Troubleshooting](local-setup-troubleshooting.md)
 - [How To Start](how-to-start.md)
 - [Schema Quick Reference](schema-quick-reference.md)
+- [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md)
 - [Effort And Pacing Guide](effort-and-pacing-guide.md)
 - [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md)
 - [Learning Glossary](glossary.md)

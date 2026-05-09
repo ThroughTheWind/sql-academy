@@ -26,7 +26,7 @@ Do not treat this page as a second curriculum map. It is the routing layer for t
 | lesson docs | subject-level teaching material and checkpoints | [Learning Docs](learning/README.md) | stage-level exit criteria only |
 | phase docs | milestones, outcomes, and validation expectations | [Phase Guides](phases/README.md) | detailed teaching on one SQL or EF Core topic |
 | exercise docs | hands-on packs, lab modes, and validation flow | [Exercise System](exercises/README.md) | replacing the lesson sequence |
-| SQL reference | SQL Server concept lookup and concrete SQL anchors | [SQL Track](sql/README.md) | LINQ or application-abstraction questions |
+| SQL reference | SQL Server concept lookup, syntax handbook, and concrete SQL anchors | [SQL Track](sql/README.md) | LINQ or application-abstraction questions |
 | EF Core reference | application-side query shape, tracking, and hybrid data access | [EF Core Track](efcore/README.md) | first-time SQL learning |
 | performance reference | measurement, plans, Query Store, and regression evidence | [Performance Track](performance/README.md) | release sequencing and rollback posture |
 | operations reference | bootstrap, readiness, telemetry, release safety, and incidents | [Operations Track](operations/README.md) | plan analysis without runtime context |
@@ -38,7 +38,7 @@ Use one of these routes based on the question you are trying to answer.
 
 - default learning route: [How To Start](learning/how-to-start.md), [Curriculum Map](learning/curriculum-map.md), the current lesson in [Learning Docs](learning/README.md), then the matching pack in [Exercise System](exercises/README.md)
 - lowest-friction first-query route: [SQL-First Day One](learning/sql-first-day-one.md), [Schema Quick Reference](learning/schema-quick-reference.md), then [How To Start](learning/how-to-start.md)
-- SQL-first route: [SQL Track](sql/README.md), then the linked lesson or exercise, then return to [Curriculum Map](learning/curriculum-map.md)
+- SQL-first route: [SQL Track](sql/README.md) or [SQL Syntax And Query Patterns](sql/sql-syntax-and-query-patterns.md), then the linked lesson or exercise, then return to [Curriculum Map](learning/curriculum-map.md)
 - EF Core and application-data route: [From SQL To EF Core And Dapper](learning/from-sql-to-efcore-and-dapper.md), then [EF Core Track](efcore/README.md), then the linked labs or tests
 - tuning and regression route: [Performance Track](performance/README.md), then the linked performance tests, benchmarks, or advanced labs
 - release and incident route: [Operations Track](operations/README.md), then the relevant phase doc, smoke surface, or investigation pack
@@ -70,6 +70,7 @@ The architecture summary currently lives in the root [README](../README.md#initi
 - need the stage objectives before you start working: [Phase Guides](phases/README.md)
 - need a hands-on pack right now: [Exercise System](exercises/README.md)
 - need a SQL-only reference path: [SQL Track](sql/README.md)
+- need one-page SQL syntax examples and when-to-use guidance: [SQL Syntax And Query Patterns](sql/sql-syntax-and-query-patterns.md)
 - need EF Core, Dapper, or application-side query-shape guidance: [EF Core Track](efcore/README.md)
 - need tuning, Query Store, or comparative measurement: [Performance Track](performance/README.md)
 - need release safety, telemetry, or incident-style debugging: [Operations Track](operations/README.md)

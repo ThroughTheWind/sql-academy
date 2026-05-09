@@ -8,6 +8,8 @@ Use this page when you already know the SQL concern you want to review and need 
 
 Do not use this page as the main curriculum index. It is a lookup surface, not the default course sequence.
 
+Use [SQL Syntax And Query Patterns](sql-syntax-and-query-patterns.md) when you need one consolidated handbook for the core SQL operations, sample queries, and common failure modes taught by the academy.
+
 ## Scope Boundary
 
 The current SQL route targets backend and application engineers with development experience who need stronger SQL Server fluency for schema design, query shape, performance, concurrency, and production troubleshooting.
@@ -53,6 +55,7 @@ Coverage targets:
 
 ## Best Entry Points
 
+- [SQL Syntax And Query Patterns](sql-syntax-and-query-patterns.md)
 - [Lesson 01: SQL Fundamentals](../learning/01-sql-fundamentals.md)
 - [Lesson 03: Window Functions And Intermediate Querying](../learning/03-window-functions-and-intermediate-querying.md)
 - [Lesson 05: Transactions, Blocking, And Deadlocks](../learning/05-transactions-blocking-and-deadlocks.md)
@@ -61,6 +64,7 @@ Coverage targets:
 
 ## Fast Jumps By Need
 
+- need the consolidated SQL syntax handbook with academy examples: [SQL Syntax And Query Patterns](sql-syntax-and-query-patterns.md)
 - need the first hands-on SQL correctness pack: [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)
 - need schema design and rollout-safe change practice: [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md) and [db/migrations](../../db/migrations/README.md)
 - need API-facing SQL shape and stable paging: [Intermediate 001](../../src/exercises/Intermediate/001-window-functions-and-pagination/README.md) and [TradeReadService](../../src/libs/SqlAcademy.Persistence/Queries/Trades/TradeReadService.cs)

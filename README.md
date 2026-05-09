@@ -45,6 +45,7 @@ The guided route above is the main course.
 Use these only if you already know your gap and you plan to rejoin the default route later:
 
 - [SQL Track](docs/sql/README.md) for a SQL-only refresher.
+- [SQL Syntax And Query Patterns](docs/sql/sql-syntax-and-query-patterns.md) for a one-page refresher on the core SQL operators, examples, and common mistakes used throughout the course.
 - [Optional On-Ramps](docs/learning/curriculum-map.md#optional-on-ramps) for performance or EF Core focused starts.
 - [EF Core Track](docs/efcore/README.md) for application-integration reference material after the SQL foundations are already familiar.
 - [DBA And DBRE Extension Track](docs/learning/dba-dbre-extension-track.md) for optional platform-specialist depth after the core route is already complete.
@@ -55,12 +56,13 @@ The learner-oriented lesson set lives in [docs/learning](docs/learning/README.md
 
 Use [Curriculum Map](docs/learning/curriculum-map.md) for the authoritative sequence and lesson-to-practice mapping.
 
-Use the [Learning Glossary](docs/learning/glossary.md) when vocabulary slows you down, and use the checkpoint section at the end of each lesson before moving on.
+Use the [Learning Glossary](docs/learning/glossary.md) when vocabulary slows you down. Use [SQL Syntax And Query Patterns](docs/sql/sql-syntax-and-query-patterns.md) when the main question is how to write or choose a core SQL operation. Use the checkpoint section at the end of each lesson before moving on.
 
 - [SQL-First Day One](docs/learning/sql-first-day-one.md) is the lowest-friction first-query guide.
 - [SQL Client Connection Guide](docs/learning/sql-client-connection-guide.md) covers Azure Data Studio, SSMS, and `sqlcmd` connection examples.
 - [Local Setup Troubleshooting](docs/learning/local-setup-troubleshooting.md) narrows Docker, port, readiness, and login failures.
 - [Schema Quick Reference](docs/learning/schema-quick-reference.md) is the compact first-lessons table and relationship map.
+- [SQL Syntax And Query Patterns](docs/sql/sql-syntax-and-query-patterns.md) is the one-page handbook for the core SQL operators and query patterns the academy expects you to recognize.
 - [Effort And Pacing Guide](docs/learning/effort-and-pacing-guide.md) summarizes the expected time budget for the current route.
 - [Curriculum Map](docs/learning/curriculum-map.md) is the main learner progression map.
 - [Phase Guides](docs/phases/README.md) define the objectives and exit criteria for each stage.
