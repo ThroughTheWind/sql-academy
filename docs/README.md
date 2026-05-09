@@ -17,7 +17,7 @@ Use the table below when you are choosing a route, then use the rest of this pag
 | the smallest first success | [SQL-First Day One](learning/sql-first-day-one.md) | [How To Start](learning/how-to-start.md), [Phase 0](phases/phase-0-local-setup.md), then [Curriculum Map](learning/curriculum-map.md) |
 | the default guided route | [How To Start](learning/how-to-start.md) | [Curriculum Map](learning/curriculum-map.md), [Learning Docs](learning/README.md), then [Exercise System](exercises/README.md) |
 | the shorter SQL-to-.NET route | [SQL To .NET Data Access Path](learning/sql-to-dotnet-data-access-path.md) | rejoin the main route at [Lesson 10](learning/10-observability-testing-and-performance-engineering.md) and [Lesson 11](learning/11-capstones-and-interview-readiness.md) |
-| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](learning/dba-dbre-extension-track.md) | keep [Curriculum Map](learning/curriculum-map.md) as the completed baseline before specializing |
+| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](learning/dba-dbre-extension-track.md) | keep [Curriculum Map](learning/curriculum-map.md) as the completed baseline, then use the extension track entry bar and specialization menu |
 
 ## What Each Surface Is For
 
@@ -68,6 +68,8 @@ The architecture summary currently lives in the root [README](../README.md#initi
 - need the smallest first-query target before the full route: [SQL-First Day One](learning/sql-first-day-one.md) and [Schema Quick Reference](learning/schema-quick-reference.md)
 - need the shorter learner route from SQL into EF Core and Dapper: [SQL To .NET Data Access Path](learning/sql-to-dotnet-data-access-path.md)
 - need SQL client-specific connection help: [SQL Client Connection Guide](learning/sql-client-connection-guide.md)
+- need the shortest startup, `sqlcmd`, validation, or focused-test command lookup: [Command Cheat Sheet](learning/command-cheat-sheet.md)
+- need printable early-route completion sheets: [Early-Route Printable Checklists](learning/early-route-printable-checklists.md)
 - need first-run recovery steps for Docker, ports, or login failures: [Local Setup Troubleshooting](learning/local-setup-troubleshooting.md)
 - need one planning view for course effort: [Effort And Pacing Guide](learning/effort-and-pacing-guide.md)
 - need the stage objectives before you start working: [Phase Guides](phases/README.md)

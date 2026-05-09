@@ -413,6 +413,8 @@ A strong answer should include:
 
 ## Lesson Checkpoint
 
+Use [Lesson 01 printable checklist](early-route-printable-checklists.md#lesson-01-sql-fundamentals-checklist) when you want a one-page completion sheet before you continue.
+
 - explain why deterministic ordering needs a tiebreaker before you trust a result
 - point to one uniqueness rule and one foreign-key rule in the seeded model and describe how each would fail
 - write a preview `SELECT` for any row set you would change with `UPDATE` or `DELETE`

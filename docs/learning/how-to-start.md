@@ -15,7 +15,7 @@ If you are still choosing a route, use this split first:
 | the smallest first success | [SQL-First Day One](sql-first-day-one.md) | return here after the first query, then continue to [Phase 0](../phases/phase-0-local-setup.md) and [Curriculum Map](curriculum-map.md) |
 | the default guided route | this guide | continue to [Phase 0](../phases/phase-0-local-setup.md) and [Curriculum Map](curriculum-map.md) |
 | the shorter SQL-to-.NET route | [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) | rejoin the main route at [Lesson 10](10-observability-testing-and-performance-engineering.md) and [Lesson 11](11-capstones-and-interview-readiness.md) |
-| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](dba-dbre-extension-track.md) | use it only after the core route already feels stable |
+| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](dba-dbre-extension-track.md) | use it only after the core route already feels stable enough for the entry bar and specialization menu to make sense |
 
 - use this route when you are comfortable running Docker, opening a SQL client, and reading application code or test assets
 - slow down in Lesson 01, the [Learning Glossary](glossary.md), and [Beginner 000](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md) if SQL syntax still feels unfamiliar
@@ -40,7 +40,7 @@ Use [Effort And Pacing Guide](effort-and-pacing-guide.md) if you want one planni
 5. Connect to `LearningDb` with a SQL client, inspect the `academy` schema, and run `SELECT COUNT(*) FROM academy.Users`.
 6. Treat Prometheus and Grafana as optional on day one. Open them after the API and database already feel predictable.
 
-If you only need a database-first session, [SQL-First Day One](sql-first-day-one.md) now gives a reduced-startup path that skips the full API stack.
+If you only need a database-first session, [SQL-First Day One](sql-first-day-one.md) now gives a reduced-startup path and dedicated startup task that skip the full API stack.
 
 Do not start with EF Core code or performance tuning before the local stack feels predictable.
 

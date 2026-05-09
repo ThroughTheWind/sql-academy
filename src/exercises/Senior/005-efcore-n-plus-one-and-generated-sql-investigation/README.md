@@ -53,3 +53,19 @@ The posts endpoint still returns the right shape after a refactor, but a reviewe
 ## Exit Criteria
 
 You are done when you can show the current safe shape, explain the disposable unsafe shape, and defend one concrete way to catch that regression before users do.
+
+## Completion Checklist
+
+- [ ] you captured or described the generated SQL for the current safe posts read path instead of inferring it only from LINQ
+- [ ] you demonstrated one disposable N+1 experiment and removed the risky shape from the mainline path afterward
+- [ ] `investigation-template.md` records the current safe shape, the unsafe experiment, and one concrete regression guard
+- [ ] you can explain why the current projection-first path is not the classic N+1 pattern
+
+## Focused Companion Checks
+
+Use these when you want the narrowest executable evidence around the posts read path while you work:
+
+- `dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~PostsEndpointTests"`
+- `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~TrackingBehaviorTests"`
+
+These checks do not automate the investigation itself, but they keep the current posts contract and tracking behavior anchored while you inspect generated SQL and build the disposable N+1 experiment.

@@ -36,8 +36,23 @@ The read path feels slower than it did earlier in the week. Plan cache only show
 - the learner can explain when Query Store is a better regression surface than plan cache
 - the final decision names one disconfirming check before forcing or rejecting a plan
 
+## Completion Checklist
+
+- [ ] you isolated `query_store_lab_trade_lookup` by tagged query text and recorded its `query_id`, plan count, execution count, average duration, and average logical reads
+- [ ] you compared that trade query with `query_store_lab_post_search` instead of treating Query Store as one undifferentiated database-wide report
+- [ ] you wrote one reversible rule for when plan forcing would be reasonable and when you would back it out
+- [ ] you can explain why Query Store answers a different question than a one-moment plan-cache snapshot
+
 ## Companion Material
 
 - [Advanced 003: Plan Cache, Memory Grants, And Wait Signals](../003-plan-cache-memory-grants-and-waits/README.md)
 - [Query Store Regression Runbook](../../../../docs/operations/query-store-regression-runbook.md)
 - [Performance Track](../../../../docs/performance/README.md)
+
+## Focused Companion Check
+
+When you want a narrow executable companion for the tagged Query Store workflow, run:
+
+`dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~QueryStoreLabSmokeTests"`
+
+That smoke test verifies the starter workflow still captures the tagged lab queries and keeps the persisted-review surface aligned with the pack contract.

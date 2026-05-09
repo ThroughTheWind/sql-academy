@@ -34,6 +34,13 @@ The trade read path feels inconsistent across runs. Before changing code or inde
 - the storage snapshot uses row counts and used page counts to support an access-path explanation
 - the final hypothesis names one disconfirming check instead of treating waits or memory grants as automatic root cause proof
 
+## Completion Checklist
+
+- [ ] you recorded the tagged `internals_lab_trade_filter` query instead of a generic cache entry
+- [ ] you captured a storage snapshot for `academy.Posts`, `academy.Comments`, and `academy.Trades`
+- [ ] you wrote one falsifiable next-step hypothesis that names a disconfirming check
+- [ ] you can explain why plan cache, storage pages, and wait or memory signals answer different questions
+
 ## Focused Companion Check
 
 When you want a narrow executable companion for the starter workflow, run:

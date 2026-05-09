@@ -24,14 +24,14 @@ Keep the academy focused on working backend and application engineers, but make 
 | --- | --- | --- | --- | --- | --- |
 | E001 | P0 | completed | learner routing | align learner entry surfaces around one route-selection block and one authoritative progression map | implemented a shared route-selection pattern in `README.md`, `docs/README.md`, `docs/learning/README.md`, and `docs/learning/how-to-start.md`, while keeping `docs/learning/curriculum-map.md` as the deciding surface |
 | E002 | P0 | completed | route inventory | decide whether the root README markets the core route or the full exercise inventory, and resolve `Advanced 004` placement consistently | root `README.md` now shows a core-route practice snapshot, `docs/exercises/README.md` owns the full inventory, and `Advanced 004` is explicitly marked as optional performance deepening in the curriculum, follow-up, and performance surfaces |
-| E003 | P1 | not-started | startup ergonomics | add a dedicated Compose profile, script, or VS Code task for the reduced database-first startup path | owner surface starts at `docs/learning/sql-first-day-one.md`; validate both reduced-startup and full-stack first-run paths |
-| E004 | P1 | not-started | onboarding support | add a compact command cheat sheet, a local reset FAQ, and screenshot or transcript support for early setup recovery | owner surfaces start at `docs/learning/sql-client-connection-guide.md` and `docs/learning/local-setup-troubleshooting.md` |
-| E005 | P1 | not-started | early-route reinforcement | add printable one-page checklists for Phase 0, Lessons 01 through 03, and the beginner and intermediate packs | keep these as learner aids rather than a competing curriculum map |
-| E006 | P1 | not-started | completion clarity | extend sample outputs into deterministic advanced packs and add structured completion checklists or rubrics to guided labs and investigation packs | start with the advanced and senior packs that currently require the most cross-referencing to know what done means |
-| E007 | P2 | not-started | validation ergonomics | add or surface narrow smoke or asset-contract validation anchors for remaining manual-heavy packs where realistic | route those checks directly from learner docs instead of leaving them discoverable only from tests or track pages |
-| E008 | P2 | not-started | final assessment quality | expand Lesson 11 and the senior assessment pack with richer capstone scoring rubrics and clearer design-defense templates | keep the focus on defendable engineering judgment rather than solution-key prose |
-| E009 | P2 | not-started | review-style practice | add pull-request-style review exercises for migration safety, indexing tradeoffs, and release readiness | prefer existing repo anchors and narrow validation paths over synthetic review artifacts |
-| E010 | P3 | not-started | specialization packaging | repackage the DBA and DBRE modules as a clearer post-core specialization menu with visible entry bar, effort estimate, and prerequisite evidence | preserve the current boundary that specialization stays optional after the core route |
+| E003 | P1 | completed | startup ergonomics | add a dedicated Compose profile, script, or VS Code task for the reduced database-first startup path | implemented `infra/scripts/start-database-first.ps1`, added the `sqlacademy: start database-first path` task in `.vscode/tasks.json`, and routed the first-query docs through that entry point |
+| E004 | P1 | completed | onboarding support | add a compact command cheat sheet, a local reset FAQ, and screenshot or transcript support for early setup recovery | implemented `docs/learning/command-cheat-sheet.md`, added transcript snippets to the connection and troubleshooting guides, and added a reset FAQ to `docs/learning/local-setup-troubleshooting.md` |
+| E005 | P1 | completed | early-route reinforcement | add printable one-page checklists for Phase 0, Lessons 01 through 03, and the beginner and intermediate packs | implemented `docs/learning/early-route-printable-checklists.md` and linked the relevant phase, lesson, and checkpoint pack surfaces back to it without changing the curriculum order |
+| E006 | P1 | completed | completion clarity | extend sample outputs into deterministic advanced packs and add structured completion checklists or rubrics to guided labs and investigation packs | added sample-output cues to `Advanced 001` and `Advanced 002`, plus completion checklists across the core-route guided labs and investigation packs that previously required more cross-referencing |
+| E007 | P2 | completed | validation ergonomics | add or surface narrow smoke or asset-contract validation anchors for remaining manual-heavy packs where realistic | surfaced focused companion checks directly in the remaining core manual-heavy pack READMEs and reinforced that routing in `docs/exercises/README.md` |
+| E008 | P2 | completed | final assessment quality | expand Lesson 11 and the senior assessment pack with richer capstone scoring rubrics and clearer design-defense templates | added reusable scoring grids, a design-defense template, and a final-defense checklist without turning the lesson into a solution-key dump |
+| E009 | P2 | completed | review-style practice | add pull-request-style review exercises for migration safety, indexing tradeoffs, and release readiness | implemented `docs/learning/review-style-practice.md` using the existing pack surfaces and narrow validation anchors instead of synthetic review artifacts |
+| E010 | P3 | completed | specialization packaging | repackage the DBA and DBRE modules as a clearer post-core specialization menu with visible entry bar, effort estimate, and prerequisite evidence | refreshed the extension-track doc into a specialization menu and routed the main docs tables to that entry bar instead of treating it like a vague side path |
 | E011 | P3 | not-started | performance follow-on depth | add statistics-drift and skew-focused performance scenarios after route and validation improvements land | reuse the existing workload variant, Query Store, and performance-track anchors instead of widening the default seed path |
 | E012 | P3 | not-started | scenario expansion | add deeper incident or release follow-ons and multi-domain capstone expansion only after earlier ergonomics work stabilize | avoid adding more breadth before the route is easier to use end to end |
 
@@ -41,12 +41,19 @@ Keep the academy focused on working backend and application engineers, but make 
 
 - E001: aligned the entry surfaces around one route-selection pattern and one authoritative curriculum contract
 - E002: clarified that the root README shows the core-route practice snapshot, while `Advanced 004` remains optional performance deepening instead of a default-route step
+- E003: added a dedicated database-first startup script and VS Code task so learners no longer need to remember the minimal service names by hand
+- E004: added a compact command cheat sheet, a reset FAQ, and short transcript-style examples for first-run connection and recovery flows
+- E005: added printable early-route completion checklists for Phase 0, Lessons 01 through 03, and the first checkpoint packs without creating another route map
+- E006: added sample-output cues to the deterministic advanced validation packs and completion checklists to the core manual-heavy guided labs and investigation packs
+- E007: surfaced explicit focused companion checks directly in the remaining core manual-heavy pack READMEs and the exercise-system guidance
+- E008: added richer capstone scoring rubrics and reusable design-defense templates to the final lesson and senior assessment surfaces
+- E009: added learner-facing review-style drills that reuse the existing migration, indexing, and release anchors plus their narrow validation checks
+- E010: repackaged the DBA and DBRE extension into a clearer menu with entry-bar evidence, branch choices, and effort guidance
 
 ### Next Recommended Slice
 
-- E003: ship a database-first startup task or profile immediately after the route wording is stable
-- E004: add the command cheat sheet and recovery-support surfaces once the startup-task shape is chosen
-- E005: add printable early-route checklists after the route wording and first-run workflow stop moving
+- E011: add statistics-drift and skew-focused performance follow-ons after the learner route and review surfaces stabilize
+- E012: add deeper incident or release follow-ons only after the route and specialization packaging stay stable in practice
 
 ## Acceptance Checks
 

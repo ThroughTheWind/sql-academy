@@ -57,6 +57,8 @@
 
 ## Validation Checklist
 
+Use [Phase 0 printable checklist](../learning/early-route-printable-checklists.md#phase-0-local-setup-checklist) when you want a compact completion sheet before you move on.
+
 - `docker compose config` succeeds
 - `SELECT COUNT(*) FROM academy.Users` returns data
 - `GET /health/ready` returns success

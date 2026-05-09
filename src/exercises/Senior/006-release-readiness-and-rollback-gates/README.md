@@ -48,3 +48,19 @@ Use `investigation-template.md` as the main completion artifact.
 - the response includes at least one migration safety gate, one telemetry gate, and one rollback or roll-forward trigger
 - the watch plan names concrete repo signals rather than generic monitoring slogans
 - the post-release validation step proves both application usefulness and schema compatibility
+
+## Completion Checklist
+
+- [ ] `investigation-template.md` makes an explicit go or no-go decision instead of only listing concerns
+- [ ] the preflight section names at least one migration gate, one telemetry gate, and one stop-the-release condition
+- [ ] the first-five-minutes watch plan names concrete health, metric, log, or trace signals from this repository
+- [ ] the answer includes one rollback gate and one roll-forward gate with a reason each is safer than vague observation
+- [ ] the post-release validation step proves both application usefulness and schema compatibility
+
+## Focused Companion Check
+
+When you want a narrow executable check for the pack contract itself, run:
+
+`dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~ReleaseReadinessDrillAssetTests"`
+
+That asset test verifies the release brief, migration review, telemetry snapshot, workbook prompts, and expected-outcomes contract stay aligned without pretending to automate the release decision itself.

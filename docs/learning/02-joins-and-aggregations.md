@@ -350,6 +350,8 @@ A strong spoken answer should include:
 
 ## Lesson Checkpoint
 
+Use [Lesson 02 printable checklist](early-route-printable-checklists.md#lesson-02-joins-and-aggregations-checklist) when you want a one-page completion sheet before you continue.
+
 - choose the correct join type for one report and explain what row shape it guarantees
 - show one aggregate that stays correct when comments are joined to posts
 - translate the posts read path into the SQL row shape it promises to callers

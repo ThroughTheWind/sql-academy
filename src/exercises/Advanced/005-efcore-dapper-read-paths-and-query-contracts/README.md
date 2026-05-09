@@ -47,3 +47,21 @@ Phase 8 starts with read traffic, not write-side conflict handling. You need to 
 - Lab 01 leaves the posts read path projection-first, deterministic, and verified by focused tests.
 - Lab 02 leaves the trades read path explicit, deterministic, and verified by focused tests or API requests.
 - you can restate both read paths in SQL terms before you argue about library preference.
+
+## Completion Checklist
+
+- [ ] you finished both [Lab 01](lab-01-efcore-posts-read-path.md) and [Lab 02](lab-02-dapper-trades-read-path.md)
+- [ ] the posts read path still keeps `AsNoTracking()`, direct projection, and deterministic ordering after your contract change
+- [ ] the trades read path still keeps explicit SQL control and deterministic paging after your contract change
+- [ ] the focused posts and trades checks pass for the changed contracts
+- [ ] you can explain, in SQL terms, why the posts path is a strong EF Core candidate and the trades path is a strong Dapper candidate
+
+## Focused Companion Checks
+
+Use the narrowest executable anchor that matches the lab you just changed:
+
+- `dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~PostsEndpointTests"`
+- `dotnet test tests/SqlAcademy.PerformanceTests/SqlAcademy.PerformanceTests.csproj -v minimal --filter "FullyQualifiedName~TrackingBehaviorTests"`
+- `dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~TradesEndpointTests"`
+
+Use the posts endpoint and tracking checks for Lab 01, and the trades endpoint check for Lab 02.

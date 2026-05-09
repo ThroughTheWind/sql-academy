@@ -27,7 +27,7 @@ Use [Curriculum Map](curriculum-map.md) as the authoritative sequence once you p
 | the smallest first success | [SQL-First Day One](sql-first-day-one.md) | [How To Start](how-to-start.md), [Phase 0](../phases/phase-0-local-setup.md), then [Curriculum Map](curriculum-map.md) |
 | the default guided route | [How To Start](how-to-start.md) | [Curriculum Map](curriculum-map.md), the current lesson, then the matching practice surface |
 | the shorter SQL-to-.NET route | [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) | rejoin the main route at [Lesson 10](10-observability-testing-and-performance-engineering.md) and [Lesson 11](11-capstones-and-interview-readiness.md) |
-| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](dba-dbre-extension-track.md) | treat the core route as the baseline before specializing |
+| optional DBA or DBRE specialization after the core route | [DBA And DBRE Extension Track](dba-dbre-extension-track.md) | treat the core route as the baseline, then use the entry bar and specialization menu |
 
 ## Ordered Lessons
 
@@ -51,6 +51,8 @@ Use [Curriculum Map](curriculum-map.md) as the authoritative sequence once you p
 - [SQL-First Day One](sql-first-day-one.md) is the lightest first-query path when you want a smaller day-one goal.
 - [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) is the shorter learner route when the main gap is EF Core or Dapper integration rather than SQL syntax.
 - [SQL Client Connection Guide](sql-client-connection-guide.md) is the practical connection reference for Azure Data Studio, SSMS, and `sqlcmd`.
+- [Command Cheat Sheet](command-cheat-sheet.md) is the compact startup, connection, validation, and focused-test command lookup.
+- [Early-Route Printable Checklists](early-route-printable-checklists.md) is the compact completion-sheet companion for Phase 0, Lessons 01 through 03, and the first checkpoint packs.
 - [Local Setup Troubleshooting](local-setup-troubleshooting.md) is the recovery path when the local stack or login flow goes sideways.
 - [How To Start](how-to-start.md) is the first-week walkthrough for a clean clone.
 - [Schema Quick Reference](schema-quick-reference.md) is the compact table and relationship reference for the first lessons.
@@ -75,6 +77,8 @@ Use [Curriculum Map](curriculum-map.md) as the authoritative sequence once you p
 - [SQL-First Day One](sql-first-day-one.md)
 - [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md)
 - [SQL Client Connection Guide](sql-client-connection-guide.md)
+- [Command Cheat Sheet](command-cheat-sheet.md)
+- [Early-Route Printable Checklists](early-route-printable-checklists.md)
 - [Local Setup Troubleshooting](local-setup-troubleshooting.md)
 - [How To Start](how-to-start.md)
 - [Schema Quick Reference](schema-quick-reference.md)

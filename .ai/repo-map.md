@@ -6,7 +6,7 @@ Use this map to choose the owning surface before editing. When in doubt, start w
 
 - Start with [../docs/README.md](../docs/README.md) for routing questions and [../docs/learning/curriculum-map.md](../docs/learning/curriculum-map.md) for the ordered learner path.
 - Main owner surfaces: [../docs/learning](../docs/learning/README.md) and [../docs/phases](../docs/phases/README.md).
-- Supporting anchors: [../README.md](../README.md) for repository shape and [../docs/exercises/README.md](../docs/exercises/README.md) for practice-mode rules.
+- Supporting anchors: [../README.md](../README.md) for repository shape, [../docs/exercises/README.md](../docs/exercises/README.md) for practice-mode rules, [../docs/learning/command-cheat-sheet.md](../docs/learning/command-cheat-sheet.md) for compact startup or validation command routing, and [../docs/learning/early-route-printable-checklists.md](../docs/learning/early-route-printable-checklists.md) for compact early-route completion checks.
 - Do not lead with the root README when the real change belongs in a lesson, phase, or routing page.
 
 ## Exercises And Validation Packs
@@ -22,6 +22,13 @@ Use this map to choose the owning surface before editing. When in doubt, start w
 - Main owner surfaces: [../db/schemas/001_create_learning_db.sql](../db/schemas/001_create_learning_db.sql), the relevant seed script, and [../src/libs/SqlAcademy.Migrations](../src/libs/SqlAcademy.Migrations).
 - Supporting anchors: [../docs/learning/04-schema-design-and-migration-safety.md](../docs/learning/04-schema-design-and-migration-safety.md) and [../docs/sql/README.md](../docs/sql/README.md).
 - Do not start in EF Core or operations summary pages when the change is really schema or seed behavior.
+
+## Local Startup Tasks And First-Query Flow
+
+- Start with [../docs/learning/sql-first-day-one.md](../docs/learning/sql-first-day-one.md), [../infra/scripts/start-database-first.ps1](../infra/scripts/start-database-first.ps1), and [../.vscode/tasks.json](../.vscode/tasks.json) when the change is about the reduced database-first path or first-run startup ergonomics.
+- Main owner surfaces: [../infra/scripts/start-database-first.ps1](../infra/scripts/start-database-first.ps1), [../.vscode/tasks.json](../.vscode/tasks.json), and [../docs/learning/local-setup-troubleshooting.md](../docs/learning/local-setup-troubleshooting.md).
+- Supporting anchors: [../docker-compose.yml](../docker-compose.yml), [../docs/learning/how-to-start.md](../docs/learning/how-to-start.md), and [../docs/phases/phase-0-local-setup.md](../docs/phases/phase-0-local-setup.md).
+- Do not change the full Compose topology when the real work is only the first-query entry point or the learner-facing startup command.
 
 ## EF Core And Dapper Query Paths
 

@@ -42,6 +42,14 @@ Use `investigation-template.md` as the main completion artifact.
 - the learner connects `commentCount` sorting plus search to a heavier grouped and sorted SQL path
 - the response includes containment, durable remediation, and follow-up validation signals
 
+## Completion Checklist
+
+- [ ] `investigation-template.md` names the first signal, the narrowed boundary, the likely SQL shape, the immediate containment step, and the follow-up validation or telemetry gaps
+- [ ] the investigation points to the posts endpoint and posts read path instead of a vague full-platform slowdown
+- [ ] the write-up explains why search plus `commentCount` sorting changes the SQL work shape
+- [ ] the response includes one incident-window containment move and one durable follow-up change
+- [ ] you can point to the focused companion check when you want to confirm the pack assets still line up
+
 ## Focused Companion Check
 
 When you want a narrow executable check for the pack contract itself, run:

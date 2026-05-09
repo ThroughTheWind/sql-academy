@@ -23,6 +23,28 @@ For the full Lesson 09 practice ladder, use [Advanced 005](../../src/exercises/A
 2. For scenarios, describe what you would measure, not only what you would build.
 3. Use this pack as written practice for interview-style explanations or release reviews.
 
+## Scoring Guide
+
+Use this guide when you want to score a written answer or spoken defense more consistently.
+
+| Dimension | Needs Work | Solid | Strong |
+| --- | --- | --- | --- |
+| clarification | jumps into tools or fixes immediately | names the main requirement and a few important constraints | exposes workload, consistency, rollout, and observability constraints before proposing a design |
+| proposal quality | gives a vague or tool-first answer | proposes a coherent design or debugging plan | proposes a design that stays tied to SQL shape, application behavior, and release reality |
+| tradeoff defense | argues from slogans or defaults | names at least one real tradeoff | compares alternatives and defends why the chosen downside is acceptable |
+| evidence plan | says “test it” or “monitor it” vaguely | names at least one relevant test or telemetry surface | chooses the right correctness, performance, and observability evidence for the exact claim |
+| risk and release posture | ignores failure modes or rollout order | names a plausible risk and a basic rollout plan | names concrete stop conditions, failure signals, and rollback or roll-forward gates |
+
+## Senior Design-Defense Template
+
+Use this when answering the scenario prompts or rehearsing a spoken capstone defense.
+
+1. Clarify: what workload, correctness, latency, and rollout constraints matter most?
+2. Propose: what schema, query, API, or operational shape best fits those constraints?
+3. Defend: what alternative did you reject, and why is your chosen downside acceptable?
+4. Validate: what test, benchmark, trace, metric, or smoke check would prove the claim?
+5. Risk Review: what fails first, how would you detect it, and what would you do next?
+
 ## Short Questions
 
 1. Why is deployment safety part of engineering design rather than a separate operations detail?
@@ -62,3 +84,11 @@ For the full Lesson 09 practice ladder, use [Advanced 005](../../src/exercises/A
 - you can defend a design choice and still name its serious tradeoffs
 - you can choose the right validation surface for a claim before making the claim loudly
 - you can describe both how a change is built and how it is safely released and observed
+
+## Final Defense Checklist
+
+- [ ] the answer starts with clarification instead of a tool choice
+- [ ] the design is defended with tradeoffs rather than slogans
+- [ ] the evidence plan includes at least one correctness check and one runtime or release check
+- [ ] the response names one credible failure mode and one early signal that would expose it
+- [ ] the rollout story is concrete enough that another engineer could challenge it usefully

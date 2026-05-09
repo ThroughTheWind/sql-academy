@@ -4,17 +4,31 @@ This is the optional specialization route for learners who already finished the 
 
 It is not part of the default route in [Curriculum Map](curriculum-map.md).
 
-## When To Start
+## Entry Bar
 
-Use this track only after the core route feels stable for you.
+Use this track only after the core route feels stable enough that specialization will not hide a core weakness in schema safety, observability, or release reasoning.
 
-A practical entry bar is:
+You are ready when the following evidence feels routine rather than aspirational:
 
 - [Lesson 04: Schema Design And Migration Safety](04-schema-design-and-migration-safety.md)
 - [Lesson 08: Operational Engineering And Release Safety](08-operational-engineering-and-release-safety.md)
 - [Lesson 10: Observability, Testing, And Performance Engineering](10-observability-testing-and-performance-engineering.md)
 - [Senior 003: Transactional Outbox And Delivery Consistency](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md)
 - [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md)
+
+You should also be able to do all of the following without leaning on generic slogans:
+
+- explain one migration gate, one telemetry gate, and one rollback or roll-forward trigger
+- choose a narrow validation surface before making an operational claim loudly
+- explain why useful-work checks matter beyond container or process health
+
+## Time Planning
+
+- one selected specialization pack: 60 to 120 minutes
+- one two-pack branch such as recovery plus failover or security plus row-level security: 3 to 5 hours
+- a broad pass across the current specialization menu: 8 to 14 hours
+
+Treat this as a menu, not a second mandatory curriculum. Pick the gap that matches your real work.
 
 ## Why This Track Is Separate
 
@@ -24,20 +38,26 @@ DBA and DBRE work extends beyond that into recovery objectives, scheduled operat
 
 Those topics deserve their own route so the main learner path does not get diluted or front-loaded with infrastructure specialization too early.
 
-## Module Map
+## Specialization Menu
 
-| Module | What To Learn | Current Repo Anchors | Current Practice Surface |
+| If Your Gap Is | Start Here | Proof You Are Ready | Typical Focused Time | Current Practice Surface |
 | --- | --- | --- | --- |
-| backup, restore, and recovery verification | recovery objectives, backup validation, restore drills, and what makes rollback or restore realistic | [Lesson 08](08-operational-engineering-and-release-safety.md), [Operations Track](../operations/README.md), [SQL Server infra notes](../../infra/sqlserver/README.md) | [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md) backed by [BackupRestoreRecoveryDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/BackupRestoreRecoveryDrillTests.cs) |
-| scheduling, jobs, and operational automation | what belongs in scheduled SQL work, how to reason about job safety, and how background processing changes operational risk | [Repository Architecture](../../README.md#initial-architecture), [Operations Track](../operations/README.md), [SqlAcademy.Worker](../../src/apps/SqlAcademy.Worker) | [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) backed by [SqlServerAgentSchedulingDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/SqlServerAgentSchedulingDrillTests.cs) |
-| HA, DR, and failover posture | RPO or RTO thinking, failover decision frames, and why recovery plans must be tested rather than assumed | [Lesson 08](08-operational-engineering-and-release-safety.md), [Operations Track](../operations/README.md), [Repository Improvement Suggestions](repository-improvement-suggestions.md) | [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md) backed by [HaDrFailoverPostureDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/HaDrFailoverPostureDrillTests.cs) |
-| security policy, row-level security, and access boundaries | least privilege, operational separation of duties, and when SQL Server security policies and tenant-scoped predicates help or hurt | [Lesson 04](04-schema-design-and-migration-safety.md), [Row-Level Security And Tenant Isolation](row-level-security-and-tenant-isolation.md), [SQL Track](../sql/README.md), [Operations Track](../operations/README.md) | [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md) backed by [LeastPrivilegeSecurityBoundaryDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/LeastPrivilegeSecurityBoundaryDrillTests.cs), and [Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md) backed by [RowLevelSecurityTenantIsolationDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/RowLevelSecurityTenantIsolationDrillTests.cs) |
-| change capture and platform data movement | CDC-style thinking, operational data movement, reconciliation, and downstream delivery safety | [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md), [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md), [Operations Track](../operations/README.md) | [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md) backed by [ChangeCaptureReconciliationDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/ChangeCaptureReconciliationDrillTests.cs) |
+| backup, restore, and recovery verification | recovery objectives, restore drills, and post-restore useful-work proof | you can already explain release gates and post-release validation from [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) | 60 to 120 minutes | [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md) backed by [BackupRestoreRecoveryDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/BackupRestoreRecoveryDrillTests.cs) |
+| scheduling, jobs, and operational automation | what belongs in SQL Server Agent versus worker or operator-controlled flows | you can already defend idempotency and useful-work validation from [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) | 60 to 120 minutes | [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md) backed by [SqlServerAgentSchedulingDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/SqlServerAgentSchedulingDrillTests.cs) |
+| HA, DR, and failover posture | RPO or RTO reasoning, failover credibility, and post-failover verification | you can already explain rollback versus roll-forward gates and watch plans from [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) | 60 to 120 minutes | [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md) backed by [HaDrFailoverPostureDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/HaDrFailoverPostureDrillTests.cs) |
+| security boundaries and tenant isolation | least privilege, separation of duties, policy filters, and explicit bypass boundaries | you can already defend schema contracts and request-to-data boundaries from [Lesson 04](04-schema-design-and-migration-safety.md) and [Lesson 09](09-ef-core-dapper-and-query-shape.md) | 2 to 4 hours | [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md) backed by [LeastPrivilegeSecurityBoundaryDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/LeastPrivilegeSecurityBoundaryDrillTests.cs), then [Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md) backed by [RowLevelSecurityTenantIsolationDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/RowLevelSecurityTenantIsolationDrillTests.cs) |
+| change capture and platform data movement | provenance, replay boundaries, reconciliation, and downstream trust | you can already explain idempotent delivery and staged data movement from [Senior 002](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md) and [Senior 003](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md) | 60 to 120 minutes | [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md) backed by [ChangeCaptureReconciliationDrillAssetTests](../../tests/SqlAcademy.PerformanceTests/ChangeCaptureReconciliationDrillTests.cs) |
+
+## Suggested Branches
+
+- recovery and resilience branch: [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md), then [Senior 009](../../src/exercises/Senior/009-ha-dr-failover-posture-and-verification/README.md)
+- operations automation branch: [Senior 008](../../src/exercises/Senior/008-sql-server-agent-job-safety-and-operational-scheduling/README.md), then [Senior 010](../../src/exercises/Senior/010-change-capture-provenance-and-reconciliation/README.md)
+- security and isolation branch: [Senior 011](../../src/exercises/Senior/011-least-privilege-and-operational-security-boundaries/README.md), then [Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md)
 
 ## How To Use This Track
 
 1. Keep the core learner route as the baseline.
-2. Pick one specialization module based on your actual gap.
+2. Pick one branch or one module based on your actual gap, not on fear of missing out.
 3. Use the listed repo anchors to build vocabulary, operational checklists, and decision frames.
 4. Return to the core route if the extension topic starts exposing a weakness in schema safety, observability, or concurrency reasoning.
 

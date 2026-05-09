@@ -29,3 +29,27 @@ An API endpoint is slow under some parameter values, and the proposed fix includ
 - index changes are justified with read/write tradeoffs
 - parameter sensitivity is demonstrated, not assumed
 - the migration no longer requires a dangerous all-at-once table rewrite
+
+## Sample Output Cues
+
+You do not need byte-for-byte formatting, but your answer should leave the validation surfaces showing these shapes:
+
+### `#parameter_sensitivity_summary`
+
+```text
+ParameterPattern             RiskSummary                  MitigationCode
+---------------------------  ---------------------------  ------------------------
+DifferentUserIdSelectivity  OneCachedPlanCanMisfitAnother ReviewRepresentativePlans
+```
+
+### `#safe_post_summary_rollout`
+
+```text
+StepNumber  StepCode             StepCategory
+----------  -------------------  -----------
+1           AddSummaryNullable   Additive
+2           BackfillExistingRows Backfill
+3           EnforceNotNull       Enforcement
+```
+
+Your created index should also validate as a narrow workload-shaped index on `academy.Trades` keyed by `UserId` then `TradedUtc DESC` with only the expected covering columns.

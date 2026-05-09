@@ -4,6 +4,8 @@ Use this guide when the missing step is not SQL itself but the practical act of 
 
 This page assumes the default local `.env` values unless stated otherwise.
 
+Use [Command Cheat Sheet](command-cheat-sheet.md) when you want the startup, `sqlcmd`, validation, or focused test commands in one place instead of reading client-specific sections.
+
 ## Default Local Connection
 
 If you have not changed `.env`, use these values:
@@ -70,6 +72,16 @@ sqlcmd -S localhost,14333 -U sa -P "SqlAcademy_dev_2026!" -C -d LearningDb -Q "S
 ```
 
 If you changed `.env`, substitute your local port, password, or database name.
+
+Sample success transcript:
+
+```text
+UserCount
+---------
+4
+
+(1 rows affected)
+```
 
 ## What A Good First Connection Proves
 

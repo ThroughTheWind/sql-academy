@@ -308,6 +308,8 @@ A strong spoken answer should include:
 
 ## Lesson Checkpoint
 
+Use [Lesson 03 printable checklist](early-route-printable-checklists.md#lesson-03-window-functions-and-intermediate-querying-checklist) when you want a one-page completion sheet before you continue.
+
 - choose between `ROW_NUMBER()`, `RANK()`, and `DENSE_RANK()` for one concrete output and defend it
 - explain why running totals need both a partition and a deterministic order
 - defend one pagination `ORDER BY` that will stay stable across repeated calls

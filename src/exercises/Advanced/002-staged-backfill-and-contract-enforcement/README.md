@@ -29,3 +29,36 @@ An order table needs a new external reference contract. Existing rows are incons
 - only missing contract values are backfilled
 - batching is deterministic and limited to rows that needed backfill
 - the final check proves there are no null or duplicate external references
+
+## Sample Output Cues
+
+You do not need byte-for-byte formatting, but your answer should leave the validation surfaces showing these shapes:
+
+### Backfilled Order Target
+
+```text
+Id  ExternalReference
+--  ---------------------
+1   LEGACY-ORD-2025-0001
+2   EXT-2025-0002
+3   LEGACY-ORD-2025-0003
+4   LEGACY-ORD-2025-0004
+```
+
+### `#backfill_batches`
+
+```text
+BatchNumber  OrderId  ExternalReference
+-----------  -------  ---------------------
+1            1        LEGACY-ORD-2025-0001
+1            3        LEGACY-ORD-2025-0003
+2            4        LEGACY-ORD-2025-0004
+```
+
+### `#contract_enforcement_check`
+
+```text
+NullExternalReferenceCount  DuplicateExternalReferenceCount  CanEnforceNotNull
+--------------------------  -------------------------------  -----------------
+0                           0                                1
+```

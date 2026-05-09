@@ -9,6 +9,8 @@ Work from the smallest failing surface outward:
 3. did `sqlserver-init` create and seed `LearningDb`?
 4. only after that, does the full API stack become relevant?
 
+Use [Command Cheat Sheet](command-cheat-sheet.md) when you want the exact startup, `sqlcmd`, log, validation, or reset commands without scanning the whole guide.
+
 ## Fast Structural Check
 
 Run this first when the Compose file itself may be wrong:
@@ -23,11 +25,15 @@ If this fails, fix the configuration issue before debugging containers.
 
 If you only need the database for the first session, start the minimal services instead of the whole platform:
 
-```bash
-docker compose up -d sqlserver sqlserver-init
+In VS Code, run the task `sqlacademy: start database-first path`.
+
+If you prefer the terminal directly, use:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File infra/scripts/start-database-first.ps1
 ```
 
-That starts SQL Server and the database bootstrap step without the API, worker, Prometheus, Grafana, or OpenTelemetry collector.
+That task or script starts SQL Server and the database bootstrap step without the API, worker, Prometheus, Grafana, or OpenTelemetry collector.
 
 ## Check Container State
 
@@ -48,6 +54,14 @@ For the full platform, also inspect:
 - `worker`
 - `prometheus`
 - `grafana`
+
+Sample healthy database-first state:
+
+```text
+NAME                        SERVICE          STATUS
+sqlacademy-sqlserver        sqlserver        running (healthy)
+sqlacademy-sqlserver-init   sqlserver-init   exited (0)
+```
 
 ## SQL Server Is Not Starting
 
@@ -94,6 +108,15 @@ SELECT COUNT(*) AS UserCount
 FROM academy.Users;
 ```
 
+Sample successful `sqlserver-init` transcript:
+
+```text
+Creating schema for LearningDb.
+Seeding reference data.
+Seeding relational sample data.
+LearningDb initialization completed successfully.
+```
+
 ## SQL Client Login Fails
 
 Start with the defaults from [SQL Client Connection Guide](sql-client-connection-guide.md):
@@ -136,10 +159,35 @@ Warning: this deletes the local SQL Server volume and reseeds the environment fr
 
 ```bash
 docker compose down -v
-docker compose up -d sqlserver sqlserver-init
+powershell -ExecutionPolicy Bypass -File infra/scripts/start-database-first.ps1
 ```
 
 Use this only after simpler checks fail.
+
+## Reset FAQ
+
+### What Should I Try Before A Destructive Reset?
+
+Try these first:
+
+1. `docker compose config`
+2. the task `sqlacademy: start database-first path` or `powershell -ExecutionPolicy Bypass -File infra/scripts/start-database-first.ps1`
+3. `docker compose ps`
+4. `docker compose logs sqlserver`
+5. `docker compose logs sqlserver-init`
+6. `docker compose up sqlserver-init`
+
+### When Is `docker compose down -v` Reasonable?
+
+Use it only when the local SQL Server volume is clearly stale, half-initialized, or no longer matches the current bootstrap expectation.
+
+### What Does The Reset Delete?
+
+It deletes the local SQL Server volume and forces the repository bootstrap scripts to recreate and reseed the local database.
+
+### What Should I Do Immediately After Resetting?
+
+Start with the reduced database-first path again, reconnect to `LearningDb`, and rerun `SELECT COUNT(*) FROM academy.Users;` before you widen scope to the API or observability stack.
 
 ## Best Companions
 

@@ -79,6 +79,12 @@ It does not mean beginner to software development, terminals, version control, o
 | [Senior 006](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md) | 90 to 150 minutes | investigation pack |
 | [Senior 007](../../src/exercises/Senior/007-backup-restore-and-recovery-verification/README.md) through [Senior 012](../../src/exercises/Senior/012-row-level-security-and-tenant-isolation/README.md) | 60 to 120 minutes each | optional specialization packs |
 
+## Optional Specialization Planning
+
+| Surface | Typical Focused Time | Notes |
+| --- | --- | --- |
+| [DBA And DBRE Extension Track](dba-dbre-extension-track.md) | 2 to 6 hours for one selected branch, 8 to 14 hours for a broad sweep | treat it as a post-core menu, not a second mandatory curriculum |
+
 ## Planning Advice By Pace
 
 | Pace | What It Usually Looks Like |

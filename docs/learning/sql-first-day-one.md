@@ -46,11 +46,15 @@ Use the smallest option that still proves the point you care about.
 
 Use this when the only goal is a successful query against `LearningDb`.
 
-```bash
-docker compose up -d sqlserver sqlserver-init
+In VS Code, run the task `sqlacademy: start database-first path`.
+
+If you prefer the terminal directly, use:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File infra/scripts/start-database-first.ps1
 ```
 
-This starts only SQL Server and the database bootstrap step.
+This task or script starts only SQL Server and the database bootstrap step.
 
 ### Option B: Full Learning Stack
 
@@ -63,7 +67,7 @@ docker compose up --build
 ## Minimal Day-One Loop
 
 1. Review [../../.env.example](../../.env.example) so you know the default local ports and password.
-2. Start the reduced database-first path with `docker compose up -d sqlserver sqlserver-init`.
+2. Start the reduced database-first path with the task `sqlacademy: start database-first path` or `powershell -ExecutionPolicy Bypass -File infra/scripts/start-database-first.ps1`.
 3. Connect to `LearningDb` with the default local SQL Server connection.
 4. Run the three read-only queries below.
 5. Stop for the day if those queries make sense. Treat that as a successful first session.

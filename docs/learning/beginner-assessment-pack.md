@@ -65,6 +65,8 @@ Use this pack after Lessons 01 and 02 and their companion validation exercises. 
 
 ## Ready To Advance When
 
+Use [Beginner checkpoint checklist](early-route-printable-checklists.md#beginner-checkpoint-checklist) when you want a compact completion sheet before you move deeper into the route.
+
 - you can explain why deterministic ordering needs a stable tiebreaker
 - you can predict how a join will change row counts before adding `GROUP BY`
 - you can distinguish safe counting patterns on left joins without guessing

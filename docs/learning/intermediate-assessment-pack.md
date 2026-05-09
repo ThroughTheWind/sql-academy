@@ -49,6 +49,8 @@ Use this pack after Lessons 03 and 04. It checks whether you can move between an
 
 ## Ready To Advance When
 
+Use [Intermediate checkpoint checklist](early-route-printable-checklists.md#intermediate-checkpoint-checklist) when you want a compact completion sheet before you move deeper into the route.
+
 - you can explain when a window function is the right shape instead of a grouped aggregate
 - you can defend a pagination order as deterministic instead of merely convenient
 - you can review a migration as a release sequence rather than as only a DDL statement

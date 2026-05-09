@@ -22,6 +22,7 @@ That is what this final lesson is training.
 - [Senior 001: Concurrency, Blocking, And Deadlocks](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
 - [Senior 002: Optimistic Concurrency And Staged Trade Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 - [Senior 004: Posts API Latency And Observability Triage](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
+- [Review-Style Practice](review-style-practice.md)
 - [Repository improvement suggestions](repository-improvement-suggestions.md)
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md)
 
@@ -198,6 +199,59 @@ Before you call a capstone complete, review it against these questions:
 
 If several answers are no, the solution is probably still too shallow.
 
+## Capstone Scoring Rubric
+
+Use this grid when you want a faster and more standardized review than a freeform “this feels senior enough” judgment.
+
+| Dimension | Weak | Acceptable | Strong |
+| --- | --- | --- | --- |
+| problem framing | jumps to implementation without clarifying workload, constraints, or assumptions | names the main requirements and a few key constraints | frames the problem precisely, exposes hidden constraints, and makes assumptions explicit |
+| schema and query design | proposes tables, indexes, or SQL shape without a clear reason | makes defensible schema and query choices tied to the main requirement | ties schema, query shape, pagination, and indexing decisions directly to workload and correctness |
+| application and data-access fit | picks EF Core, Dapper, or endpoints mostly by preference | chooses a reasonable application boundary and data-access style | explains why the selected abstraction keeps SQL behavior understandable and maintainable |
+| validation and evidence | says the solution would be tested but does not define evidence | names at least one correctness and one runtime validation surface | defines correctness, performance, and observability evidence with the right test or telemetry surface for each claim |
+| release and operability | treats deployment as a later concern | names a basic rollout and watch plan | defines compatibility posture, smoke checks, telemetry gates, and rollback or roll-forward triggers clearly |
+| tradeoffs and failure modes | describes one best practice as if context does not matter | names at least one downside or likely failure mode | compares alternatives honestly, names credible failure modes, and explains why the chosen downside is acceptable |
+
+If several dimensions stay in the weak column, the capstone is not ready for final defense yet.
+
+## Design-Defense Template
+
+Use this outline when you want a reusable answer shape for capstones, interview prompts, or senior review sessions.
+
+### 1. Clarify
+
+- problem statement:
+- workload and latency expectations:
+- consistency or correctness constraints:
+- rollout or uptime constraints:
+- assumptions still needing confirmation:
+
+### 2. Propose
+
+- schema or contract shape:
+- query or indexing strategy:
+- application boundary and data-access approach:
+- why this is the simplest viable design:
+
+### 3. Defend
+
+- main tradeoff accepted:
+- strongest rejected alternative:
+- why the chosen downside is acceptable here:
+
+### 4. Validate
+
+- correctness checks:
+- performance evidence:
+- telemetry or observability plan:
+- post-release useful-work smoke test:
+
+### 5. Risk Review
+
+- most likely failure mode:
+- earliest signal that would expose it:
+- containment move if it happens during release:
+
 ## Common Failure Modes
 
 ### Presenting Implementation Without Decision Logic
@@ -287,4 +341,4 @@ A strong spoken answer should include:
 
 ## Next Step
 
-Use [Cumulative Review](cumulative-review.md), [Follow-Up Exercises By Level](follow-up-exercises-by-level.md), and [Repository improvement suggestions](repository-improvement-suggestions.md) to extend the path after the scaffolded lesson sequence.
+Use [Review-Style Practice](review-style-practice.md), [Cumulative Review](cumulative-review.md), [Follow-Up Exercises By Level](follow-up-exercises-by-level.md), and [Repository improvement suggestions](repository-improvement-suggestions.md) to extend the path after the scaffolded lesson sequence.

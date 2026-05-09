@@ -76,6 +76,10 @@ If you are working through the early route for the first time, use this loop for
 3. Use `expected-outcomes.md` and the README validation criteria as the completion contract.
 4. If the guided lab also ships a supplemental validation pack, run it after the code lab work to confirm the review tables or workbook outputs.
 
+Core-route guided labs now also include a short `Completion Checklist` section in the pack README so the learner can confirm the artifact, the focused validation surface, and the final explanation without hopping between every file first.
+
+When a narrow executable anchor exists, the pack README now also names it explicitly under `Focused Companion Check` or `Focused Companion Checks` instead of forcing the learner to discover it through track docs or test-file names.
+
 Guided labs such as [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) do not ship with `answer.sql` plus `validation.sql`.
 
 [Advanced 005](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md) is now the main guided lab bundle for the Phase 8 read-path route before you move into generated SQL or write-side concurrency.
@@ -93,6 +97,10 @@ Guided labs such as [Advanced 003](../../src/exercises/Advanced/003-plan-cache-m
 1. Read the incident or scenario brief.
 2. Fill in the workbook or written response template.
 3. Compare the write-up with `expected-outcomes.md` and the optional solution.
+
+Core-route investigation packs now also include a short `Completion Checklist` section in the pack README so the learner can confirm the workbook contents and the final decision contract in one place.
+
+When a file-contract or asset smoke test exists for the pack, the README now names it directly under `Focused Companion Check` so the learner can validate the pack surface without browsing the performance or operations track first.
 
 Investigation packs such as [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md) use Markdown evidence snapshots and narrative output instead of a single SQL answer file.
 
