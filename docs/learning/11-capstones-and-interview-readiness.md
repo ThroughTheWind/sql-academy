@@ -22,6 +22,9 @@ That is what this final lesson is training.
 - [Senior 001: Concurrency, Blocking, And Deadlocks](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
 - [Senior 002: Optimistic Concurrency And Staged Trade Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md)
 - [Senior 004: Posts API Latency And Observability Triage](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
+- [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md)
+- [Incident Triage Runbook](../operations/incident-triage-runbook.md)
+- [Release Runbook](../operations/release-runbook.md)
 - [Review-Style Practice](review-style-practice.md)
 - [Repository improvement suggestions](repository-improvement-suggestions.md)
 - [Follow-Up Exercises By Level](follow-up-exercises-by-level.md)
@@ -130,6 +133,40 @@ What it tests:
 - performance hypothesis formation
 - telemetry usage
 - prioritization under pressure
+
+## Multi-Domain Capstone Expansions
+
+When the three core capstone themes already feel understandable, push one level deeper by combining more than one discipline in the same answer.
+
+### Release Plus Consistency Capstone
+
+Combine [Advanced 002: Staged Backfill And Contract Enforcement](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md), [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md), and [Senior 003: Transactional Outbox And Delivery Consistency](../../src/exercises/Senior/003-transactional-outbox-and-delivery-consistency/README.md).
+
+What it adds:
+
+- migration safety is no longer enough on its own
+- downstream consistency and useful-work proof now matter during the release decision
+- rollback or roll-forward posture must account for delivery and compatibility boundaries together
+
+### Incident Plus Concurrency Capstone
+
+Combine [Senior 004: Posts API Latency And Observability Triage](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md), [Senior 001 deadlock graph lab](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/deadlock-graph-lab.md), and [Incident Triage Runbook](../operations/incident-triage-runbook.md).
+
+What it adds:
+
+- the learner must separate slow SQL shape from wait or lock amplification
+- containment must stay safe even when the first signal is ambiguous
+- the durable fix needs both query reasoning and concurrency reasoning instead of only one of them
+
+### Integration Plus Release Capstone
+
+Combine [Senior 002: Optimistic Concurrency And Staged Trade Ingestion](../../src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion/README.md), [Senior 006: Release Readiness And Rollback Gates](../../src/exercises/Senior/006-release-readiness-and-rollback-gates/README.md), and [Release Runbook](../operations/release-runbook.md).
+
+What it adds:
+
+- the learner has to defend write-side correctness under deployment pressure
+- post-release proof must show both compatibility and useful work
+- the answer must explain when stopping the window is safer than pushing the integration harder
 
 ## How To Structure Interview Answers
 

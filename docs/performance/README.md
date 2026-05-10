@@ -8,6 +8,8 @@ Do not use this page as the main curriculum index. It is a reference page for me
 
 [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) is the main optional performance deepening lab for persisted regression evidence after the default route is already clear. It is intentionally routed through this page instead of the default curriculum sequence.
 
+When you want optional follow-on practice around skew-sensitive parameters or statistics drift after the main tuning route is already stable, use [Statistics Drift And Skew Follow-Ons](statistics-drift-and-skew-follow-ons.md).
+
 ## Scope Boundary
 
 The current performance route targets evidence-backed tuning across SQL Server and .NET query paths. The emphasis is on defining a workload, measuring it consistently, reasoning about plans and waits, and validating that a change preserved correctness instead of just moving numbers around.
@@ -64,6 +66,7 @@ Coverage targets:
 
 - need a fair, repeatable comparison surface first: [QueryPerformanceComparisonTests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs) and [Lesson 10](../learning/10-observability-testing-and-performance-engineering.md)
 - need indexing and parameter-sensitivity practice against a real workload shape: [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
+- need a routed follow-on for skew-driven parameter sensitivity or statistics drift after the main labs: [Statistics Drift And Skew Follow-Ons](statistics-drift-and-skew-follow-ons.md)
 - need more local volume before estimates, memory grants, or Query Store comparisons become interesting: [workload variant](../../db/performance/001_high_cardinality_workload_variant.sql) and [Performance Labs](../../db/performance/README.md)
 - need engine-behavior diagnosis rather than just plan screenshots: [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md) and [PlanCacheLabSmokeTests](../../tests/SqlAcademy.PerformanceTests/PlanCacheLabSmokeTests.cs)
 - need persisted query history instead of plan-cache luck: [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md) and [QueryStoreLabSmokeTests](../../tests/SqlAcademy.PerformanceTests/QueryStoreLabSmokeTests.cs)
@@ -120,6 +123,7 @@ The benchmark project uses `SQLACADEMY_BENCHMARK_CONNECTIONSTRING` when you want
 - [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
 - [Advanced 003](../../src/exercises/Advanced/003-plan-cache-memory-grants-and-waits/README.md)
 - [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
+- [Statistics Drift And Skew Follow-Ons](statistics-drift-and-skew-follow-ons.md)
 - [Senior 001](../../src/exercises/Senior/001-concurrency-blocking-and-deadlocks/README.md)
 - [Senior 004](../../src/exercises/Senior/004-posts-api-latency-and-observability-triage/README.md)
 - [Senior 005](../../src/exercises/Senior/005-efcore-n-plus-one-and-generated-sql-investigation/README.md)

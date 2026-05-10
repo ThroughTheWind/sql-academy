@@ -32,8 +32,8 @@ Keep the academy focused on working backend and application engineers, but make 
 | E008 | P2 | completed | final assessment quality | expand Lesson 11 and the senior assessment pack with richer capstone scoring rubrics and clearer design-defense templates | added reusable scoring grids, a design-defense template, and a final-defense checklist without turning the lesson into a solution-key dump |
 | E009 | P2 | completed | review-style practice | add pull-request-style review exercises for migration safety, indexing tradeoffs, and release readiness | implemented `docs/learning/review-style-practice.md` using the existing pack surfaces and narrow validation anchors instead of synthetic review artifacts |
 | E010 | P3 | completed | specialization packaging | repackage the DBA and DBRE modules as a clearer post-core specialization menu with visible entry bar, effort estimate, and prerequisite evidence | refreshed the extension-track doc into a specialization menu and routed the main docs tables to that entry bar instead of treating it like a vague side path |
-| E011 | P3 | not-started | performance follow-on depth | add statistics-drift and skew-focused performance scenarios after route and validation improvements land | reuse the existing workload variant, Query Store, and performance-track anchors instead of widening the default seed path |
-| E012 | P3 | not-started | scenario expansion | add deeper incident or release follow-ons and multi-domain capstone expansion only after earlier ergonomics work stabilize | avoid adding more breadth before the route is easier to use end to end |
+| E011 | P3 | completed | performance follow-on depth | add statistics-drift and skew-focused performance scenarios after route and validation improvements land | implemented `docs/performance/statistics-drift-and-skew-follow-ons.md` and routed the performance and lesson surfaces to it instead of widening the default seed path |
+| E012 | P3 | completed | scenario expansion | add deeper incident or release follow-ons and multi-domain capstone expansion only after earlier ergonomics work stabilize | expanded Phase 9, Lesson 11, and the senior assessment surfaces with deeper incident, release, and multi-domain capstone scenarios without opening another route map |
 
 ## Current Slice
 
@@ -49,11 +49,12 @@ Keep the academy focused on working backend and application engineers, but make 
 - E008: added richer capstone scoring rubrics and reusable design-defense templates to the final lesson and senior assessment surfaces
 - E009: added learner-facing review-style drills that reuse the existing migration, indexing, and release anchors plus their narrow validation checks
 - E010: repackaged the DBA and DBRE extension into a clearer menu with entry-bar evidence, branch choices, and effort guidance
+- E011: added an optional performance follow-on guide for statistics drift and skew using the existing workload variant, Query Store, and performance anchors
+- E012: expanded Phase 9 and the final assessment surfaces with deeper incident, release, and multi-domain capstone follow-ons
 
 ### Next Recommended Slice
 
-- E011: add statistics-drift and skew-focused performance follow-ons after the learner route and review surfaces stabilize
-- E012: add deeper incident or release follow-ons only after the route and specialization packaging stay stable in practice
+- no further recommended slice remains in this backlog; start a new backlog only when a new concrete owner surface and narrow validation path are clear
 
 ## Acceptance Checks
 

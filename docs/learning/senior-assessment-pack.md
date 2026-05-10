@@ -63,6 +63,13 @@ Use this when answering the scenario prompts or rehearsing a spoken capstone def
 3. A benchmark shows one implementation is faster, but production traces still show poor request latency. What mistake might the team be making in its reasoning?
 4. You are asked to defend a capstone design under scrutiny. What structure would you use to keep the answer senior-level instead of improvised?
 
+## Deeper Follow-On Scenarios
+
+Use these after the base scenarios if you want a second round that mixes more than one discipline.
+
+5. A release keeps `/health/ready` green, but outbox backlog and downstream delivery lag begin growing after the enforcing migration step. What boundary do you inspect first, and what concrete gate would make you stop the window?
+6. A post-deploy incident shows one endpoint with higher latency and rising lock waits. How would you separate query-shape regression from concurrency amplification before choosing containment?
+
 ## Answer Key
 
 1. Rollout, compatibility, monitoring, and rollback constraints influence what is actually safe to build and ship.
@@ -77,6 +84,8 @@ Use this when answering the scenario prompts or rehearsing a spoken capstone def
 10. Ask what SQL shape, access pattern, or plan behavior is slow now before changing libraries.
 11. They may be treating an isolated benchmark result as a substitute for end-to-end evidence from the real running system.
 12. Use a structure such as clarify, propose, defend, validate, and risk review.
+13. Check whether useful work is still completing, inspect the outbox or delivery boundary directly, and stop the window when the release is green only at the container level but no longer safe at the business-work level.
+14. Keep one healthy control path nearby, inspect lock or wait evidence together with the slow query boundary, and choose the smallest safe containment that narrows the problem before schema or library changes.
 
 ## Ready To Finish The Core Path When
 

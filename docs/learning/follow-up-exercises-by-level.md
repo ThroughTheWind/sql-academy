@@ -27,9 +27,8 @@ Use [Curriculum Map](curriculum-map.md) for the main course sequence, and use th
 - Implemented next pack: [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
 - Implemented optional performance deepening lab: [Advanced 004](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md)
 - Implemented guided lab bundle: [Advanced 005](../../src/exercises/Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md)
+- Implemented optional performance follow-on guide: [Statistics Drift And Skew Follow-Ons](../performance/statistics-drift-and-skew-follow-ons.md)
 - Add an index-consolidation exercise where several overlapping indexes must be simplified.
-- Add a parameter-sniffing lab with skewed data distribution and plan comparison.
-- Add a statistics-staleness exercise that shows why a once-good plan degrades.
 - Add a zero-downtime column rename exercise with compatibility windows and smoke-test gates.
 
 ## Senior Follow-Up Exercises

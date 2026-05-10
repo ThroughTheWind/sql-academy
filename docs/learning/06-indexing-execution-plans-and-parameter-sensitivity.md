@@ -218,6 +218,8 @@ Use [Larger-cardinality workload variant](../../db/performance/001_high_cardinal
 
 Then rerun the same surface you were already using, such as [Advanced 001: Indexing, Parameter Sniffing, And Migration Safety](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md), [Advanced 004: Query Store And Regression Triage](../../src/exercises/Advanced/004-query-store-and-regression-triage/README.md), [Query performance comparison tests](../../tests/SqlAcademy.PerformanceTests/QueryPerformanceComparisonTests.cs), or [Tracking benchmarks](../../tests/SqlAcademy.Benchmarks/TrackingModeBenchmarks.cs), so the main variable that changed is data shape.
 
+If you specifically want a routed follow-on for skew-driven parameter sensitivity or statistics drift after the main indexing pack, use [Statistics Drift And Skew Follow-Ons](../performance/statistics-drift-and-skew-follow-ons.md).
+
 ## How The Repository Encourages This Topic
 
 The trade query accepts optional filters and multiple sort modes. That is realistic and useful for learning because different parameter shapes can naturally lead to different optimal strategies.

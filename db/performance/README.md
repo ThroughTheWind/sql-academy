@@ -14,6 +14,10 @@ Use this folder for optional SQL Server workload and diagnostics scripts that su
 
 The workload variant is additive and idempotent for a given parameter set. Running it again with the same counts does not duplicate rows, and running it later with larger counts only adds the missing synthetic rows.
 
+## Related Follow-On Guide
+
+Use [Statistics Drift And Skew Follow-Ons](../../docs/performance/statistics-drift-and-skew-follow-ons.md) when you want a learner-facing route for skew-sensitive parameter work or statistics-drift comparisons that reuses this workload variant plus the existing Query Store and performance-lab anchors.
+
 ## Suggested Next Additions
 
 - plan cache inspection scripts
