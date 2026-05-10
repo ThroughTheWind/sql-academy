@@ -6,7 +6,11 @@ It is a compact first-lessons reference, not a substitute for [Lesson 01: SQL Fu
 
 Keep [Field Type Selection Guide](field-type-selection-guide.md) nearby when the table purpose is clear but the column type choice is not.
 
-## The Six Seeded Tables
+This quick reference focuses on the six core route tables used by the first lessons.
+
+If you later start the full API stack, you may also see the optional `academy.TenantOrders` sample used by the row-level-security extension work. Leave that sample for the later extension lesson and use this page for the early-route tables only.
+
+## The Six Core Route Tables
 
 | Table | Purpose | Most Important Columns |
 | --- | --- | --- |

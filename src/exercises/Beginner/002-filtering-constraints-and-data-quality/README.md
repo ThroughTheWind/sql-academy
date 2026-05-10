@@ -6,6 +6,8 @@ Practice safe filtering, basic data-quality triage, and constraint-aware reasoni
 
 ## Before You Start
 
+- read [Lesson 01: SQL Fundamentals](../../../../docs/learning/01-sql-fundamentals.md) if filtering, required-value reasoning, or safe result inspection still feels shaky
+- review [Lesson 02: Joins And Aggregations](../../../../docs/learning/02-joins-and-aggregations.md) if attaching user names to orders still feels less predictable than the filtering itself
 - complete [Beginner 000](../000-sql-fundamentals-and-safe-changes/README.md)
 - be comfortable filtering ordered result sets and explaining basic uniqueness or required-value failures
 - keep [Learning Glossary](../../../../docs/learning/glossary.md) nearby if terms such as predicate, selectivity, or constraint enforcement are still slow

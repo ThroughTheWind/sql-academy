@@ -10,6 +10,8 @@ It is a good fit when you are already comfortable with a local development envir
 
 In this repository, `beginner` means beginner to SQL Server and relational reasoning inside an existing engineering workflow, not beginner to software development itself.
 
+If you are still deciding whether relational databases are the right fit for your work or whether this academy matches your background, start with [Relational Databases And Course Fit](docs/learning/relational-databases-and-course-fit.md) before you commit to a route.
+
 It is not yet a zero-assumption course for someone learning their first developer toolchain or first-ever SQL syntax at the same time.
 
 It does not currently claim full DBA or DBRE mastery. Backup and restore, SQL Server Agent, HA/DR, replication, security administration, and similar operational specialties remain optional extension-track work after the core route is stronger.
@@ -29,6 +31,8 @@ The maintainer execution backlog for closing those gaps lives in [.ai/sql-efcore
 ## Start Learning
 
 Use [Curriculum Map](docs/learning/curriculum-map.md) as the authoritative lesson order, practice mapping, and default route contract. Use the quick split below only to choose the right starting surface.
+
+If you want the conceptual overview first, use [Relational Databases And Course Fit](docs/learning/relational-databases-and-course-fit.md) before you choose a start.
 
 If SQL is still brand new, move more slowly than the sample pacing and treat Lesson 01, the glossary, and Beginner 000 as the first checkpoint before you continue deeper into the route.
 
@@ -60,6 +64,7 @@ Use [Curriculum Map](docs/learning/curriculum-map.md) for the authoritative sequ
 
 Use the [Learning Glossary](docs/learning/glossary.md) when vocabulary slows you down. Use [SQL Syntax And Query Patterns](docs/sql/sql-syntax-and-query-patterns.md) when the main question is how to write or choose a core SQL operation. Use the checkpoint section at the end of each lesson before moving on.
 
+- [Relational Databases And Course Fit](docs/learning/relational-databases-and-course-fit.md) is the orientation page for what relational databases solve, when to use them, how SQL Server compares with PostgreSQL or MySQL, and whether the academy matches your background.
 - [SQL-First Day One](docs/learning/sql-first-day-one.md) is the lowest-friction first-query guide.
 - [SQL To .NET Data Access Path](docs/learning/sql-to-dotnet-data-access-path.md) is the shorter learner route for SQL-fluent .NET engineers who want EF Core and Dapper integration before the full ladder.
 - [SQL Client Connection Guide](docs/learning/sql-client-connection-guide.md) covers Azure Data Studio, SSMS, and `sqlcmd` connection examples.

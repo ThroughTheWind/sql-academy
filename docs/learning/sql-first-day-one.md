@@ -6,6 +6,8 @@ This is the lightest day-one route currently supported by the repository.
 
 It still uses the same Docker-first environment as the main course, but it now supports a reduced-startup database-first path so you do not need the full API and observability stack before your first successful query.
 
+If you want the conceptual framing for what relational databases solve, when to use them, or whether this academy matches your background, read [Relational Databases And Course Fit](relational-databases-and-course-fit.md) alongside this guide.
+
 ## Use This Guide When
 
 - you already know your way around a terminal and a SQL client
@@ -36,7 +38,7 @@ The goal is only this:
 1. start the local stack successfully
 2. connect to SQL Server with your client
 3. run one query that returns seeded data
-4. inspect the six seeded tables without changing anything
+4. inspect the six core route tables without changing anything
 
 ## Startup Options
 
@@ -63,6 +65,8 @@ Use this when you also want API readiness, telemetry, and the rest of the local 
 ```bash
 docker compose up --build
 ```
+
+The reduced database-first path is intentionally centered on the six core route tables. If you later start the full API stack, the application also seeds the optional `academy.TenantOrders` sample used by the row-level-security extension work, but that table is not part of the day-one target.
 
 ## Minimal Day-One Loop
 

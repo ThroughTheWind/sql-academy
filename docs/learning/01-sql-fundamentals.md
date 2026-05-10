@@ -48,7 +48,9 @@ If you cannot predict what a basic `SELECT`, `INSERT`, `UPDATE`, or `DELETE` wil
 
 ## The Domain You Are Querying
 
-The seeded database is intentionally small enough to reason about by hand. You should know the purpose of each table before you write joins.
+The seeded database is intentionally small enough to reason about by hand. Start with the six core route tables below and know the purpose of each one before you write joins.
+
+If you later run the full API stack, you may also notice the optional `academy.TenantOrders` sample used by the row-level-security extension work. That sample belongs to a later specialization slice, not to the Lesson 01 mental model.
 
 | Table | Purpose | Important Columns |
 | --- | --- | --- |

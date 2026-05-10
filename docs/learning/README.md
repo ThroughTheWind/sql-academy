@@ -8,6 +8,8 @@ Here, `beginner` means beginner to SQL in a professional codebase, not beginner 
 
 If SQL syntax and local tooling are both new, expect to spend longer in Lesson 01, the glossary, and Beginner 000 before following the rest of the sequence.
 
+If you are still deciding whether relational databases are the right fit for your work or whether this academy matches your background, start with [Relational Databases And Course Fit](relational-databases-and-course-fit.md).
+
 If you want one authoritative journey through the repository, start with [Curriculum Map](curriculum-map.md).
 
 If you are brand new to the repository, read [How To Start](how-to-start.md) first and then return to [Curriculum Map](curriculum-map.md).
@@ -74,6 +76,7 @@ Use [Curriculum Map](curriculum-map.md) as the authoritative sequence once you p
 
 ## Supporting Guides
 
+- [Relational Databases And Course Fit](relational-databases-and-course-fit.md)
 - [Curriculum Map](curriculum-map.md)
 - [SQL-First Day One](sql-first-day-one.md)
 - [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md)

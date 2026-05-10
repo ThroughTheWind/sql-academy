@@ -6,6 +6,8 @@ It is written for working backend and application engineers who can already navi
 
 It is not yet the right first stop if you are learning your first developer workflow or your first SQL syntax at the same time.
 
+If you are still deciding whether relational databases are the right fit for your work or whether this academy matches your background, read [Relational Databases And Course Fit](relational-databases-and-course-fit.md) before you commit to this route.
+
 ## Before You Commit To This Route
 
 If you are still choosing a route, use this split first:
@@ -55,7 +57,9 @@ Read these before solving exercises:
 3. [Lesson 01: SQL Fundamentals](01-sql-fundamentals.md)
 4. [Schema Quick Reference](schema-quick-reference.md)
 
-Your first goal is to understand the six seeded tables and the relationships between them.
+Your first goal is to understand the six core route tables and the relationships between them.
+
+If you later start the full API stack, you may also see the optional `academy.TenantOrders` sample used by the row-level-security extension work. Ignore that sample for now and stay focused on the six core tables below.
 
 ## Step 3: Use The Study Loop
 

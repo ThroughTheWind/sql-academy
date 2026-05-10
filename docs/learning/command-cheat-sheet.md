@@ -13,7 +13,7 @@ In VS Code, run the task `sqlacademy: start database-first path`.
 If you prefer the terminal directly, use:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File ../../infra/scripts/start-database-first.ps1
+powershell -ExecutionPolicy Bypass -File infra/scripts/start-database-first.ps1
 ```
 
 ### Full Learning Stack
@@ -77,7 +77,7 @@ UserCount
 ### Run A Validation Pack
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File ../../infra/scripts/run-exercise-validation.ps1 -Exercise src/exercises/Beginner/000-sql-fundamentals-and-safe-changes
+powershell -ExecutionPolicy Bypass -File infra/scripts/run-exercise-validation.ps1 -Exercise src/exercises/Beginner/000-sql-fundamentals-and-safe-changes
 ```
 
 ### Replace The Exercise Path
@@ -122,7 +122,7 @@ Warning: this deletes the local SQL Server volume and reseeds the environment fr
 
 ```bash
 docker compose down -v
-powershell -ExecutionPolicy Bypass -File ../../infra/scripts/start-database-first.ps1
+powershell -ExecutionPolicy Bypass -File infra/scripts/start-database-first.ps1
 ```
 
 ## Best Companions

@@ -20,6 +20,8 @@ The read paths already feel predictable. Now the application is about to ingest 
 
 ## Repository Anchors
 
+- [Lesson 09: EF Core, Dapper, And Query Shape](../../../../docs/learning/09-ef-core-dapper-and-query-shape.md)
+- [Advanced 005: EF Core, Dapper, And Query-Contract Read Paths](../../Advanced/005-efcore-dapper-read-paths-and-query-contracts/README.md)
 - [TradeImportService](../../../libs/SqlAcademy.Persistence/Commands/Trades/TradeImportService.cs)
 - [OrdersController](../../../apps/SqlAcademy.Api/Controllers/V1/OrdersController.cs)
 - [OrderWriteService](../../../libs/SqlAcademy.Persistence/Commands/Orders/OrderWriteService.cs)
@@ -49,3 +51,21 @@ Run the review pack with:
 
 - Lab 03 proves a `rowversion` conflict through the HTTP surface and exercises a real trade-import path with explicit dry-run preview and publish boundaries.
 - the optional SQL review pack stays available after the code lab as reinforcement rather than the main exercise contract.
+
+## Completion Checklist
+
+- [ ] you finished [Lab 03](lab-03-rowversion-and-staged-ingestion.md) and can explain the stale-write conflict through the orders HTTP surface
+- [ ] you exercised the trade-import flow with explicit dry-run preview and publish boundaries instead of treating ingestion as one opaque step
+- [ ] you can point to the application boundary that detects the `rowversion` mismatch and the boundary that stages trade import work
+- [ ] if you used the optional SQL review pack, the validation command passes and your summary still matches the application behavior
+- [ ] you can explain why optimistic concurrency and staged ingestion solve different write-side risks even though they appear in the same pack
+
+## Focused Companion Checks
+
+Use the narrowest executable anchor that matches the slice you are working on:
+
+- `dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~OrdersEndpointTests"`
+- `dotnet test tests/SqlAcademy.IntegrationTests/SqlAcademy.IntegrationTests.csproj -v minimal --filter "FullyQualifiedName~TradesEndpointTests"`
+- `powershell -ExecutionPolicy Bypass -File infra/scripts/run-exercise-validation.ps1 -Exercise src/exercises/Senior/002-efcore-concurrency-and-bulk-ingestion`
+
+Use the orders endpoint tests when you are checking the `rowversion` conflict path, the trades endpoint tests when you are checking staged import behavior, and the optional SQL validation only after the code lab when you want the database-side recap.

@@ -37,7 +37,7 @@ This lesson treats data modeling and migration safety as the same discipline.
 - [Field Type Selection Guide](field-type-selection-guide.md)
 - [Schema bootstrap SQL](../../db/schemas/001_create_learning_db.sql)
 - [Migration strategy notes](../../db/migrations/README.md)
-- [Advanced 001: Indexing, Parameter Sniffing, And Migration Safety](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
+- [Advanced 002: Staged Backfill And Contract Enforcement](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md)
 - [Order EF mapping](../../src/libs/SqlAcademy.Persistence/Database/Configurations/OrderConfiguration.cs)
 
 ## The Design Questions Every Table Should Answer
@@ -246,7 +246,7 @@ A one-step destructive change may feel simpler, but a staged rollout is often th
 2. Identify where uniqueness, foreign keys, and defaults are enforced.
 3. Pick one existing table and explain its likely read patterns.
 4. Design one new column addition and write both the unsafe and the safer rollout versions.
-5. Review [Advanced 001](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md) with a production mindset, not only a correctness mindset.
+5. Review [Advanced 002](../../src/exercises/Advanced/002-staged-backfill-and-contract-enforcement/README.md) with a production mindset, not only a correctness mindset.
 
 ## Exit Criteria
 

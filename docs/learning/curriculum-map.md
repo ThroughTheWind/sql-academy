@@ -10,6 +10,8 @@ It does not assume DBA experience, but it does assume comfort with code, source 
 
 If SQL syntax and local tooling are both new, slow the route down and stay in Lesson 01, the glossary, and Beginner 000 until the basics feel predictable.
 
+If you are still deciding whether relational databases are the right fit for your work or whether this academy matches your background, read [Relational Databases And Course Fit](relational-databases-and-course-fit.md) before you treat this map as a commitment.
+
 If you want a smaller day-one target before this full route, start with [SQL-First Day One](sql-first-day-one.md) and keep [Schema Quick Reference](schema-quick-reference.md) nearby.
 
 If you already know SQL and mainly want the application-data route into EF Core and Dapper, use [SQL To .NET Data Access Path](sql-to-dotnet-data-access-path.md) as the optional on-ramp owner surface.

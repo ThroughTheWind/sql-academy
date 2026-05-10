@@ -6,6 +6,8 @@ If you are here to learn rather than inspect the repository structure, start wit
 
 The default learner route is built for working backend and application engineers. It is not currently a zero-assumption introduction to programming, Docker, or first-ever SQL syntax.
 
+If you are still deciding whether relational databases are the right fit for your work or whether this academy matches your background, start with [Relational Databases And Course Fit](learning/relational-databases-and-course-fit.md).
+
 Do not treat this page as a second curriculum map. It is the routing layer for the docs set.
 
 ## Start Here
@@ -37,6 +39,7 @@ Use the table below when you are choosing a route, then use the rest of this pag
 
 Use one of these routes based on the question you are trying to answer.
 
+- course-fit orientation: [Relational Databases And Course Fit](learning/relational-databases-and-course-fit.md), then choose [SQL-First Day One](learning/sql-first-day-one.md), [How To Start](learning/how-to-start.md), or [SQL To .NET Data Access Path](learning/sql-to-dotnet-data-access-path.md)
 - default learning route: [How To Start](learning/how-to-start.md), [Curriculum Map](learning/curriculum-map.md), the current lesson in [Learning Docs](learning/README.md), then the matching pack in [Exercise System](exercises/README.md)
 - lowest-friction first-query route: [SQL-First Day One](learning/sql-first-day-one.md), [Schema Quick Reference](learning/schema-quick-reference.md), then [How To Start](learning/how-to-start.md)
 - SQL-first route: [SQL Track](sql/README.md) or [SQL Syntax And Query Patterns](sql/sql-syntax-and-query-patterns.md), then the linked lesson or exercise, then return to [Curriculum Map](learning/curriculum-map.md)
