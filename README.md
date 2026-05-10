@@ -65,6 +65,7 @@ Use the [Learning Glossary](docs/learning/glossary.md) when vocabulary slows you
 - [SQL Client Connection Guide](docs/learning/sql-client-connection-guide.md) covers Azure Data Studio, SSMS, and `sqlcmd` connection examples.
 - [Local Setup Troubleshooting](docs/learning/local-setup-troubleshooting.md) narrows Docker, port, readiness, and login failures.
 - [Schema Quick Reference](docs/learning/schema-quick-reference.md) is the compact first-lessons table and relationship map.
+- [Field Type Selection Guide](docs/learning/field-type-selection-guide.md) is the practical SQL Server column-type reference for the repo defaults plus broader type-selection cases the core schema does not currently use.
 - [SQL Syntax And Query Patterns](docs/sql/sql-syntax-and-query-patterns.md) is the one-page handbook for the core SQL operators and query patterns the academy expects you to recognize.
 - [Effort And Pacing Guide](docs/learning/effort-and-pacing-guide.md) summarizes the expected time budget for the current route.
 - [Curriculum Map](docs/learning/curriculum-map.md) is the main learner progression map.

@@ -68,7 +68,7 @@ Use this map to choose the owning surface before editing. When in doubt, start w
 ## AI Workflow And Maintainer Planning
 
 - Start with [README.md](README.md) and [maintainer-workflow.md](maintainer-workflow.md).
-- Main owner surfaces: [validation-matrix.md](validation-matrix.md), [templates/change-brief.md](templates/change-brief.md), [academy-enhancements-backlog.md](academy-enhancements-backlog.md), and [sql-efcore-mastery-backlog.md](sql-efcore-mastery-backlog.md).
+- Main owner surfaces: [validation-matrix.md](validation-matrix.md), [templates/change-brief.md](templates/change-brief.md), [lesson-exercise-quality-backlog.md](lesson-exercise-quality-backlog.md), [academy-enhancements-backlog.md](academy-enhancements-backlog.md), and [sql-efcore-mastery-backlog.md](sql-efcore-mastery-backlog.md).
 - Supporting anchors: [../CONTRIBUTING.md](../CONTRIBUTING.md) and [../docs/learning/repository-improvement-suggestions.md](../docs/learning/repository-improvement-suggestions.md).
 - Do not store maintainer execution state in learner docs just because the work eventually affects the public route.
 

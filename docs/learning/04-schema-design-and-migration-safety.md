@@ -34,6 +34,7 @@ This lesson treats data modeling and migration safety as the same discipline.
 ## Repository Anchors
 
 - [Phase 3: Schema Design](../phases/phase-3-schema-design.md)
+- [Field Type Selection Guide](field-type-selection-guide.md)
 - [Schema bootstrap SQL](../../db/schemas/001_create_learning_db.sql)
 - [Migration strategy notes](../../db/migrations/README.md)
 - [Advanced 001: Indexing, Parameter Sniffing, And Migration Safety](../../src/exercises/Advanced/001-indexing-parameter-sniffing-and-migration-safety/README.md)
@@ -52,6 +53,18 @@ Before you create or change a table, answer these questions explicitly:
 7. Which operational risks does this change introduce?
 
 If you cannot answer those questions, the schema is not ready.
+
+## Field Types Are Design Decisions Too
+
+Column types are not just implementation detail. They express domain intent.
+
+Before finalizing a column, be able to explain:
+
+- why the value is stored as text, exact numeric data, time, or a concurrency token
+- why the chosen length, precision, or scale matches the business fact
+- why a simpler but less accurate type would be unsafe
+
+Use [Field Type Selection Guide](field-type-selection-guide.md) when the schema question is really about choosing between `INT`, `BIGINT`, `NVARCHAR`, `DECIMAL`, `DATETIME2`, `DATETIMEOFFSET`, `BIT`, `VARBINARY`, or `ROWVERSION`.
 
 ## Study The Existing Schema As Design Examples
 

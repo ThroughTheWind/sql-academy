@@ -2,7 +2,7 @@
 
 This page is the consolidated SQL syntax and query-pattern handbook for the core academy route.
 
-Start with [Curriculum Map](../learning/curriculum-map.md) if you want the ordered lesson sequence. Use [Learning Glossary](../learning/glossary.md) when the blocker is vocabulary rather than syntax. Keep [Schema Quick Reference](../learning/schema-quick-reference.md) nearby when the seeded tables and relationships are still fuzzy.
+Start with [Curriculum Map](../learning/curriculum-map.md) if you want the ordered lesson sequence. Use [Learning Glossary](../learning/glossary.md) when the blocker is vocabulary rather than syntax. Keep [Schema Quick Reference](../learning/schema-quick-reference.md) nearby when the seeded tables and relationships are still fuzzy. Use [Field Type Selection Guide](../learning/field-type-selection-guide.md) when the blocker is choosing the right SQL Server column type rather than choosing a query pattern.
 
 Use this page when you need one place to answer five questions quickly:
 

@@ -56,6 +56,7 @@ Use [Curriculum Map](curriculum-map.md) as the authoritative sequence once you p
 - [Local Setup Troubleshooting](local-setup-troubleshooting.md) is the recovery path when the local stack or login flow goes sideways.
 - [How To Start](how-to-start.md) is the first-week walkthrough for a clean clone.
 - [Schema Quick Reference](schema-quick-reference.md) is the compact table and relationship reference for the first lessons.
+- [Field Type Selection Guide](field-type-selection-guide.md) is the practical SQL Server column-type reference for the repo defaults plus broader type-selection cases the core schema does not currently use.
 - [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) is the single-page syntax and query-pattern handbook for the core SQL route.
 - [Effort And Pacing Guide](effort-and-pacing-guide.md) gives one planning view for lessons, packs, and reviews.
 - [Cumulative Review](cumulative-review.md) is the mixed-topic checkpoint after several lessons.
@@ -82,6 +83,7 @@ Use [Curriculum Map](curriculum-map.md) as the authoritative sequence once you p
 - [Local Setup Troubleshooting](local-setup-troubleshooting.md)
 - [How To Start](how-to-start.md)
 - [Schema Quick Reference](schema-quick-reference.md)
+- [Field Type Selection Guide](field-type-selection-guide.md)
 - [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md)
 - [Effort And Pacing Guide](effort-and-pacing-guide.md)
 - [From SQL To EF Core And Dapper](from-sql-to-efcore-and-dapper.md)

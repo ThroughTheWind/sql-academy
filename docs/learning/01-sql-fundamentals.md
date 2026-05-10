@@ -9,6 +9,7 @@ Build correctness before speed. This lesson gives you a working mental model of 
 - complete [Phase 0: Local Setup](../phases/phase-0-local-setup.md) so you can reach `LearningDb` reliably
 - keep [Learning Glossary](glossary.md) open if terms such as predicate, projection, or deterministic order are not yet automatic
 - keep [SQL Syntax And Query Patterns](../sql/sql-syntax-and-query-patterns.md) nearby if you want a shorter reference for `SELECT`, `WHERE`, `ORDER BY`, `TOP`, and safe change patterns while you read this lesson
+- keep [Field Type Selection Guide](field-type-selection-guide.md) nearby if the main question is why a column should be `INT`, `BIGINT`, `NVARCHAR`, `DECIMAL`, `DATETIME2`, `DATETIMEOFFSET`, `VARBINARY`, or `ROWVERSION`
 - plan to stay read-only until the result shape of a query feels predictable
 
 ## Suggested Time Budget
@@ -38,6 +39,7 @@ If you cannot predict what a basic `SELECT`, `INSERT`, `UPDATE`, or `DELETE` wil
 
 - [Phase 1: SQL Fundamentals](../phases/phase-1-sql-fundamentals.md)
 - [Schema Quick Reference](schema-quick-reference.md)
+- [Field Type Selection Guide](field-type-selection-guide.md)
 - [LearningDb schema bootstrap](../../db/schemas/001_create_learning_db.sql)
 - [Reference seed data](../../db/seed/001_seed_reference_data.sql)
 - [Social and order seed data](../../db/seed/002_seed_social_and_orders.sql)
@@ -78,6 +80,8 @@ Rows are not guaranteed to come back in insertion order, primary-key order, or a
 ### Constraints Are Part Of The Data Model
 
 Primary keys, foreign keys, unique indexes, defaults, and data types are not optional metadata. They are active rules that protect correctness.
+
+If the type choice itself is fuzzy, use [Field Type Selection Guide](field-type-selection-guide.md) instead of guessing from one table definition at a time.
 
 ### Prediction Comes Before Execution
 

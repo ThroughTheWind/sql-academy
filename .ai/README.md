@@ -8,6 +8,7 @@ This folder holds maintainer-facing workflow guidance and execution tracking. It
 - [Repo Map](repo-map.md)
 - [Validation Matrix](validation-matrix.md)
 - [Change Brief Template](templates/change-brief.md)
+- [Lesson And Exercise Quality Backlog](lesson-exercise-quality-backlog.md)
 - [SQL Server And EF Core Mastery Backlog](sql-efcore-mastery-backlog.md)
 - [Academy Enhancements Backlog](academy-enhancements-backlog.md)
 
@@ -25,6 +26,8 @@ This folder holds maintainer-facing workflow guidance and execution tracking. It
 - duplicate curriculum maps or track indexes
 
 Use [../docs/learning/repository-improvement-suggestions.md](../docs/learning/repository-improvement-suggestions.md) when the change belongs in the public learner-facing improvement summary.
+
+Use [lesson-exercise-quality-backlog.md](lesson-exercise-quality-backlog.md) when the work is a per-surface audit of learner lessons, support guides, or exercise packs and the goal is to record findings against individual teaching or practice surfaces.
 
 Use [academy-enhancements-backlog.md](academy-enhancements-backlog.md) when the change is about learner-path simplification, onboarding ergonomics, validation support, or capstone-quality follow-on work.
 

@@ -4,6 +4,8 @@ Use this page when you need the seeded table layout quickly without rereading th
 
 It is a compact first-lessons reference, not a substitute for [Lesson 01: SQL Fundamentals](01-sql-fundamentals.md).
 
+Keep [Field Type Selection Guide](field-type-selection-guide.md) nearby when the table purpose is clear but the column type choice is not.
+
 ## The Six Seeded Tables
 
 | Table | Purpose | Most Important Columns |
@@ -68,5 +70,6 @@ ORDER BY p.Id, c.Id;
 
 1. [SQL-First Day One](sql-first-day-one.md)
 2. [Lesson 01: SQL Fundamentals](01-sql-fundamentals.md)
-3. [Lesson 02: Joins And Aggregations](02-joins-and-aggregations.md)
-4. [Beginner 000: SQL Fundamentals And Safe Changes](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)
+3. [Field Type Selection Guide](field-type-selection-guide.md)
+4. [Lesson 02: Joins And Aggregations](02-joins-and-aggregations.md)
+5. [Beginner 000: SQL Fundamentals And Safe Changes](../../src/exercises/Beginner/000-sql-fundamentals-and-safe-changes/README.md)

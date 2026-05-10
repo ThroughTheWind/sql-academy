@@ -71,6 +71,7 @@ The architecture summary currently lives in the root [README](../README.md#initi
 - need the shortest startup, `sqlcmd`, validation, or focused-test command lookup: [Command Cheat Sheet](learning/command-cheat-sheet.md)
 - need printable early-route completion sheets: [Early-Route Printable Checklists](learning/early-route-printable-checklists.md)
 - need first-run recovery steps for Docker, ports, or login failures: [Local Setup Troubleshooting](learning/local-setup-troubleshooting.md)
+- need practical SQL Server column-type guidance with repo defaults plus wider type families: [Field Type Selection Guide](learning/field-type-selection-guide.md)
 - need one planning view for course effort: [Effort And Pacing Guide](learning/effort-and-pacing-guide.md)
 - need the stage objectives before you start working: [Phase Guides](phases/README.md)
 - need a hands-on pack right now: [Exercise System](exercises/README.md)
